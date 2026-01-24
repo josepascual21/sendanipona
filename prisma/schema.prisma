@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// --- USUARIOS ---
+model User {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  password    String
+  username    String?   // Equivalente a 'name'
+  isSuperuser Boolean   @default(false)
+  isActive    Boolean   @default(true)
+  lastLogin   DateTime?
+  
+  orders      Order[]
+  ratings     ProductRating[]
+  comments    Comment[]
+  
+  createdAt   DateTime  @default(now())
+}
+
+// --- MAESTROS ---
+model ProductType {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
+}
+
+model ProductMaterial {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
+}
+
+model ProductColor {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  hexCode  String?
+  products Product[]
+}
+
+// --- BLOG/NOTICIAS ---
+model ArticleTopic {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  articles Article[]
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  name      String   // Título display
+  info      String?  // Breve descripción
+  htmlRoute String   // Ruta relativa al archivo HTML estático
+  
+  topicId   Int
+  topic     ArticleTopic @relation(fields: [topicId], references: [id])
+  
+  comments  Comment[]
+  
+  createdAt DateTime @default(now())
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  textComment String
+  
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  
+  articleId   String
+  article     Article  @relation(fields: [articleId], references: [id])
+  
+  createdAt   DateTime @default(now())
+}
