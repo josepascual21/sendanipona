@@ -1,0 +1,198 @@
+/* Directivas base de Tailwind CSS para estilos globales */
+@tailwind base;
+/* Capa de componentes para clases reutilizables */
+@tailwind components;
+/* Capa de utilidades para clases de propósito único */
+@tailwind utilities;
+
+
+/* Configuración de variables CSS personalizadas para el tema */
+:root {
+    /* Paleta de colores inspirada en la cultura japonesa */
+    --color-primary: #e63946;
+    /* Rojo coral vibrante */
+    --color-secondary: #f4a261;
+    /* Naranja melocotón suave */
+    --color-accent: #2a9d8f;
+    /* Turquesa calmante */
+    --color-background: #0f172a;
+    /* Fondo oscuro profundo */
+    --color-surface: #1e293b;
+    /* Superficie intermedia */
+    --color-text-primary: #f8fafc;
+    /* Texto principal blanco */
+    --color-text-secondary: #94a3b8;
+    /* Texto secundario gris */
+
+    /* Tipografía con fuentes japonesas */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Espaciado y dimensiones */
+    --spacing-unit: 0.5rem;
+    --border-radius: 0.75rem;
+
+    /* Sombras para profundidad */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Estilos para el tema oscuro */
+[data-theme="dark"] {
+    --color-background: #0f172a;
+    --color-surface: #1e293b;
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #94a3b8;
+}
+
+/* Estilos para el tema claro */
+[data-theme="light"] {
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+}
+
+/* Estilos globales para el cuerpo de la página */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Estilos para títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+/* Estilos para enlaces */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* Clases de utilidad personalizadas */
+.text-gradient {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.border-gradient {
+    border: 1px solid transparent;
+    background-image: linear-gradient(var(--color-background), var(--color-background)),
+        linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* Animaciones personalizadas */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px var(--color-primary);
+    }
+
+    50% {
+        box-shadow: 0 0 25px var(--color-secondary);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Estilos para scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-surface);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* Media queries para responsive design */
+@media (max-width: 768px) {
+    :root {
+        --spacing-unit: 0.25rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Estilos para modo de alto contraste */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #ff4d4f;
+        --color-secondary: #fa8c16;
+        --color-accent: #1890ff;
+        --color-background: #000000;
+        --color-surface: #1a1a1a;
+        --color-text-primary: #ffffff;
+        --color-text-secondary: #cccccc;
+    }
+}
+
+/* Estilos para modo de lectura */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
