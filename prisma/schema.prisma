@@ -77,3 +77,75 @@ model Comment {
   
   createdAt   DateTime @default(now())
 }
+
+// --- PRODUCTOS ---
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Decimal
+  stock       Int
+  
+  typeId      Int
+  type        ProductType     @relation(fields: [typeId], references: [id])
+  
+  materialId  Int
+  material    ProductMaterial @relation(fields: [materialId], references: [id])
+  
+  colorId     Int
+  color       ProductColor    @relation(fields: [colorId], references: [id])
+  
+  images      ProductImage[]
+  orderLines  OrderLine[]
+  ratings     ProductRating[]
+  
+  createdAt   DateTime @default(now())
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  url       String
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model ProductRating {
+  id        String   @id @default(cuid())
+  mark      Int      // 0-5
+  comment   String?
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  
+  createdAt DateTime @default(now())
+}
+
+// --- PEDIDOS ---
+model Order {
+  id        String      @id @default(cuid())
+  
+  userId    String?     
+  user      User?       @relation(fields: [userId], references: [id])
+  
+  total     Decimal
+  status    String      @default("PENDING") 
+  lines     OrderLine[]
+  
+  createdAt DateTime    @default(now())
+}
+
+model OrderLine {
+  id        String  @id @default(cuid())
+  
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id])
+  
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  
+  quantity  Int
+  price     Decimal 
+}
