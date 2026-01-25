@@ -8,7 +8,7 @@ export class Article {
     readonly id: string;
 
     /**
-     * Slug único para URLs (ej: "pasado", "presente", "futuro")
+     * Slug único para URLs
      */
     readonly slug: string;
 
@@ -24,7 +24,6 @@ export class Article {
 
     /**
      * Ruta relativa al archivo HTML estático
-     * Ejemplo: "/articles/pasado/pass.html"
      */
     readonly htmlRoute: string;
 
@@ -49,19 +48,19 @@ export class Article {
     }) {
         // Validaciones básicas
         if (!props.id || props.id.trim() === '') {
-            throw new Error('Article ID cannot be empty');
+            throw new Error('El ID del articulo no puede estar vacio');
         }
         if (!props.slug || props.slug.trim() === '') {
-            throw new Error('Article slug cannot be empty');
+            throw new Error('El slug del articulo no puede estar vacio');
         }
         if (!props.name || props.name.trim() === '') {
-            throw new Error('Article name cannot be empty');
+            throw new Error('El nombre del articulo no puede estar vacio');
         }
         if (!props.htmlRoute || props.htmlRoute.trim() === '') {
-            throw new Error('Article htmlRoute cannot be empty');
+            throw new Error('La ruta del articulo no puede estar vacia');
         }
         if (props.topicId <= 0) {
-            throw new Error('Article topicId must be positive');
+            throw new Error('El ID del topic debe ser positivo');
         }
 
         this.id = props.id;
