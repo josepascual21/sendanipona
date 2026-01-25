@@ -41,6 +41,3 @@ next-env.d.ts
 *.sqlite
 *.sqlite3
 *-journal
-
-# env
-.env
