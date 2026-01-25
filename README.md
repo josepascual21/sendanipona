@@ -15,7 +15,7 @@ cp .env.example .env
 
 # Crear y poblar la base de datos
 npx prisma migrate dev
-npx prisma db seed
+npx prisma db seed / npx tsx prisma/seed.ts
 
 # Ejecutar aplicación en desarrollo
 npm run dev
