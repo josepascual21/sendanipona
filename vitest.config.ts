@@ -28,6 +28,8 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            '@core': path.resolve(__dirname, './src/core'),
+            '@infra': path.resolve(__dirname, './src/infrastructure'),
         },
     },
 });
