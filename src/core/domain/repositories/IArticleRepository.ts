@@ -37,7 +37,7 @@ export interface IArticleRepository {
 
     /**
      * Busca un artículo por su ID único
-     * 
+     *
      * @param id - Identificador único del artículo (CUID)
      * @returns Promise con la entidad Article o null si no existe
      * @example
@@ -46,4 +46,17 @@ export interface IArticleRepository {
      * ```
      */
     findById(id: string): Promise<Article | null>;
+
+    /**
+     * Obtiene todos los artículos de un topic específico
+     *
+     * @param topicId - ID del topic
+     * @returns Promise con array de entidades Article del topic
+     * @example
+     * ```ts
+     * const articles = await repository.findByTopicId(1);
+     * console.log(articles.length); // 3
+     * ```
+     */
+    findByTopicId(topicId: number): Promise<Article[]>;
 }
