@@ -196,3 +196,50 @@ a:hover {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ========================================
+   ESTILOS PERSONALIZADOS SENDA NIPONA
+   ======================================== */
+
+/* Fuente personalizada Ai Love (placeholder - agregar el archivo de fuente) */
+@font-face {
+    font-family: 'Ai Love';
+    src: url('/fonts/AiLove.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.font-ai-love {
+    font-family: 'Ai Love', 'Playfair Display', serif;
+}
+
+.display-3 {
+    font-size: calc(1.525rem + 3.3vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+@media (min-width: 1200px) {
+    .display-3 {
+        font-size: 4rem;
+    }
+}
+
+/* Navbar personalizada con glassmorphism */
+.navbar-custom {
+    background-color: rgba(103, 232, 249, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* Botón de navegación con efectos hover */
+.nav-button {
+    box-shadow: 0 2px 8px rgba(255, 124, 64, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    box-shadow: 0 4px 12px rgba(180, 45, 0, 0.5);
+    transform: translateY(-2px);
+}
