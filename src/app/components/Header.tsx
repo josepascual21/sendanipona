@@ -14,7 +14,7 @@ export default function Header() {
         <>
             {/* Título principal */}
             <section>
-                <h1 className="display-3 m-0 pt-3 text-center fw-bold text-uppercase font-ai-love bg-gradient-to-r from-cyan-400 to-emerald-300">
+                <h1 className="display-3 m-0 pt-8 text-center font-bold uppercase font-ai-love text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-300">
                     Senda Nipona
                 </h1>
             </section>
