@@ -201,17 +201,9 @@ a:hover {
    ESTILOS PERSONALIZADOS SENDA NIPONA
    ======================================== */
 
-/* Fuente personalizada Ai Love (placeholder - agregar el archivo de fuente) */
-@font-face {
-    font-family: 'Ai Love';
-    src: url('/fonts/AiLove.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
+/* La fuente Ai Love se carga ahora con next/font/local en layout.tsx */
 .font-ai-love {
-    font-family: 'Ai Love', 'Playfair Display', serif;
+    font-family: var(--font-ai-love), 'Playfair Display', Georgia, serif;
 }
 
 .display-3 {
