@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 /**
@@ -40,9 +41,12 @@ export default function Footer() {
                     {/* Logo y copyright */}
                     <div className="p-4">
                         <Link href="/">
-                            <div className="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-2xl mb-3">
-                                SN
-                            </div>
+                            <Image
+                                src="/images/senda_nipona_logo.png"
+                                alt="Senda Nipona Logo"
+                                width={71}
+                                height={79}
+                            />
                         </Link>
                         <p className="text-sm">Todos los derechos reservados</p>
                     </div>

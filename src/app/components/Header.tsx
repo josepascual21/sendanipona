@@ -26,9 +26,12 @@ export default function Header() {
                         <div className="flex items-center justify-between">
                             {/* Logo */}
                             <Link href="/" className="flex-shrink-0">
-                                <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                                    SN
-                                </div>
+                                <Image
+                                    src="/images/senda_nipona_logo.png"
+                                    alt="Senda Nipona Logo"
+                                    width={71}
+                                    height={79}
+                                />
                             </Link>
 
                             {/* Navegación desktop */}
