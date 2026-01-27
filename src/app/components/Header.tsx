@@ -13,15 +13,15 @@ export default function Header() {
     return (
         <>
             {/* Título principal */}
-            <section>
-                <h1 className="display-3 m-0 pt-8 text-center font-bold uppercase font-ai-love text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-300">
+            <section className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-emerald-300 pb-4">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl pt-8 text-center font-bold uppercase font-ai-love text-white drop-shadow-lg">
                     Senda Nipona
                 </h1>
             </section>
 
             {/* Navegación sticky */}
             <header className="sticky top-0 z-50">
-                <nav className="navbar-custom backdrop-blur-sm bg-cyan-300/50">
+                <nav className="backdrop-blur-sm bg-cyan-300/50">
                     <div className="container mx-auto px-8 py-3">
                         <div className="flex items-center justify-between">
                             {/* Logo */}
@@ -38,7 +38,7 @@ export default function Header() {
                             <div className="hidden md:flex items-center space-x-6">
                                 {/* Dropdown Apartado Informativo */}
                                 <div className="relative group">
-                                    <button className="nav-button px-6 py-2 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-700 hover:text-white transition-all duration-300">
+                                    <button className="px-6 py-2 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-700 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
                                         Apartado informativo
                                         <svg
                                             className="inline-block ml-2 w-4 h-4"
