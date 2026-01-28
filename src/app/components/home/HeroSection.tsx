@@ -15,7 +15,7 @@ export default function HeroSection() {
 
             {/* Content */}
             <div className="relative z-20 container mx-auto px-4 text-center">
-                <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-cyan-400 opacity-90 tracking-tight">
+                <h1 className="font-ai-love text-5xl md:text-7xl lg:text-9xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-cyan-400 opacity-90 tracking-tight">
                     Senda Nipona
                 </h1>
                 <p className="text-xl md:text-2xl text-zinc-400 font-light tracking-widest uppercase">

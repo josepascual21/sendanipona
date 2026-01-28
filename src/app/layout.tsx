@@ -1,9 +1,16 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Outfit } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { APP_METADATA } from "@/core/constants/app-constants";
+
+const outfit = Outfit({
+    subsets: ["latin"],
+    variable: "--font-outfit",
+    display: "swap",
+});
 
 const aiLove = localFont({
     src: "./fonts/a-ai-love-font/AiLove-x391O.ttf",
@@ -24,7 +31,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="es">
-            <body className={`flex flex-col min-h-screen bg-gradient-to-br from-cyan-50 to-emerald-50 ${aiLove.variable}`}>
+            <body className={`flex flex-col min-h-screen bg-gradient-to-br from-cyan-50 to-emerald-50 ${aiLove.variable} ${outfit.variable} font-sans`}>
                 <Header />
                 <main className="flex-grow flex flex-col min-h-screen bg-zinc-950 text-white">
                     {children}
