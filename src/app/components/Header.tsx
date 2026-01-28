@@ -51,25 +51,24 @@ export default function Header() {
 
     return (
         <>
-            {/* Título principal */}
-            <section className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-emerald-300 pb-4">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl pt-8 text-center font-bold uppercase font-ai-love text-white drop-shadow-lg">
-                    {APP_METADATA.title}
-                </h1>
-            </section>
+
 
             {/* Navegación sticky */}
             <header className="sticky top-0 z-50">
                 <nav className="backdrop-blur-sm bg-cyan-300/50">
                     <div className="container mx-auto px-8 py-3">
                         <div className="flex items-center justify-between">
-                            <Link href="/" className="flex-shrink-0">
+                            <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
                                 <Image
                                     src={UI_CONSTANTS.logo.src}
                                     alt={UI_CONSTANTS.logo.alt}
                                     width={UI_CONSTANTS.logo.width}
                                     height={UI_CONSTANTS.logo.height}
+                                    className="transition-transform group-hover:scale-105"
                                 />
+                                <span className="font-ai-love text-2xl font-bold text-zinc-900 group-hover:text-orange-700 transition-colors uppercase pt-1">
+                                    {APP_METADATA.title}
+                                </span>
                             </Link>
 
                             {/* Navegación desktop */}
