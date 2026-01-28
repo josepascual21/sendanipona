@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { APP_METADATA, FOOTER_SECTIONS, UI_CONSTANTS } from '@/core/constants/app-constants';
 import {
     UserIcon,
     EnvelopeIcon,
@@ -127,6 +128,24 @@ export default function Footer() {
         localStorage.setItem('ultimaVisita', now);
     }, []);
 
+    const iconMap: Record<string, React.ReactNode> = {
+        contact: <UserIcon />,
+        twitter: <XIcon />,
+        instagram: <PhotoIcon />,
+        facebook: <FacebookIcon />,
+        tiktok: <TikTokIcon />,
+        spotify: <SpotifyIcon />,
+        youtube: <YouTubeIcon />,
+        twitch: <TwitchIcon />,
+        discord: <DiscordIcon />,
+        reddit: <RedditIcon />,
+        telegram: <TelegramIcon />,
+        mastodon: <MastodonIcon />,
+        pinterest: <PinterestIcon />,
+        paypal: <PayPalIcon />,
+        opencollective: <OpenCollectiveIcon />,
+    };
+
     return (
         <footer className="bg-gray-700 text-white">
             <div className="container mx-auto p-4">
@@ -136,57 +155,31 @@ export default function Footer() {
                     <div className="p-4">
                         <Link href="/">
                             <Image
-                                src="/images/senda_nipona_logo.png"
-                                alt="Senda Nipona Logo"
-                                width={71}
-                                height={79}
+                                src={UI_CONSTANTS.logo.src}
+                                alt={UI_CONSTANTS.logo.alt}
+                                width={UI_CONSTANTS.logo.width}
+                                height={UI_CONSTANTS.logo.height}
                             />
                         </Link>
-                        <p className="text-sm">Todos los derechos reservados</p>
+                        <p className="text-sm">{APP_METADATA.copyright}</p>
                     </div>
 
-                    {/* Contáctanos */}
-                    <div>
-                        <h4 className="font-bold mb-4 text-lg">Contáctanos</h4>
-                        <ul className="space-y-2">
-                            <SocialLink href="/contacto" icon={<UserIcon />} text="Contacto" />
-                            <SocialLink href="#" icon={<XIcon />} text="Twitter" />
-                            <SocialLink href="#" icon={<PhotoIcon />} text="Instagram" />
-                            <SocialLink href="#" icon={<FacebookIcon />} text="Facebook" />
-                            <SocialLink href="#" icon={<TikTokIcon />} text="TikTok" />
-                        </ul>
-                    </div>
-
-                    {/* Contenido de calidad */}
-                    <div>
-                        <h4 className="font-bold mb-4 text-lg">Contenido de calidad</h4>
-                        <ul className="space-y-2">
-                            <SocialLink href="#" icon={<SpotifyIcon />} text="Spotify" />
-                            <SocialLink href="#" icon={<YouTubeIcon />} text="YouTube" />
-                            <SocialLink href="#" icon={<TwitchIcon />} text="Twitch" />
-                        </ul>
-                    </div>
-
-                    {/* Comunidad */}
-                    <div>
-                        <h4 className="font-bold mb-4 text-lg">Comunidad</h4>
-                        <ul className="space-y-2">
-                            <SocialLink href="#" icon={<DiscordIcon />} text="Discord" />
-                            <SocialLink href="#" icon={<RedditIcon />} text="Reddit" />
-                            <SocialLink href="#" icon={<TelegramIcon />} text="Telegram" />
-                            <SocialLink href="#" icon={<MastodonIcon />} text="Mastodon" />
-                            <SocialLink href="#" icon={<PinterestIcon />} text="Pinterest" />
-                        </ul>
-                    </div>
-
-                    {/* Donaciones */}
-                    <div>
-                        <h4 className="font-bold mb-4 text-lg">Donaciones</h4>
-                        <ul className="space-y-2">
-                            <SocialLink href="#" icon={<PayPalIcon />} text="PayPal" />
-                            <SocialLink href="#" icon={<OpenCollectiveIcon />} text="Open Collective" />
-                        </ul>
-                    </div>
+                    {/* Generar secciones dinámicamente */}
+                    {Object.values(FOOTER_SECTIONS).map((section) => (
+                        <div key={section.title}>
+                            <h4 className="font-bold mb-4 text-lg">{section.title}</h4>
+                            <ul className="space-y-2">
+                                {section.links.map((link) => (
+                                    <SocialLink
+                                        key={link.id}
+                                        href={link.href}
+                                        icon={iconMap[link.id]}
+                                        text={link.label}
+                                    />
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
 
                 {/* Separador */}
@@ -194,8 +187,8 @@ export default function Footer() {
 
                 {/* Información final */}
                 <div className="flex flex-wrap justify-around items-center gap-4 text-sm">
-                    <span className="px-3">&copy; José Pascual Vázquez</span>
-                    <span className="px-3">sendanipona@gmail.com</span>
+                    <span className="px-3">&copy; {APP_METADATA.author}</span>
+                    <span className="px-3">{APP_METADATA.contactEmail}</span>
                     <span className="px-3">{lastVisit}</span>
                 </div>
             </div>

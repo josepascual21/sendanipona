@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { APP_METADATA } from "@/core/constants/app-constants";
 
 const aiLove = localFont({
     src: "./fonts/a-ai-love-font/AiLove-x391O.ttf",
@@ -12,8 +13,8 @@ const aiLove = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Senda Nipona",
-    description: "Cultura Japonesa: Pasado, Presente y Futuro",
+    title: APP_METADATA.title,
+    description: APP_METADATA.description,
 };
 
 export default function RootLayout({

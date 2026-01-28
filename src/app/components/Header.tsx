@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { APP_METADATA, UI_CONSTANTS } from '@/core/constants/app-constants';
 
 // Constantes de navegación
 const ARTICLE_LINKS = [
@@ -17,6 +18,7 @@ const AUTH_LINKS = [
 ] as const;
 
 const LOGO_DIMENSIONS = { width: 71, height: 79 } as const;
+
 
 // Estilos reutilizables
 const BUTTON_PRIMARY = "px-6 py-2 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-700 hover:text-white transition-all duration-300";
@@ -52,7 +54,7 @@ export default function Header() {
             {/* Título principal */}
             <section className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-emerald-300 pb-4">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl pt-8 text-center font-bold uppercase font-ai-love text-white drop-shadow-lg">
-                    Senda Nipona
+                    {APP_METADATA.title}
                 </h1>
             </section>
 
@@ -63,10 +65,10 @@ export default function Header() {
                         <div className="flex items-center justify-between">
                             <Link href="/" className="flex-shrink-0">
                                 <Image
-                                    src="/images/senda_nipona_logo.png"
-                                    alt="Senda Nipona Logo"
-                                    width={LOGO_DIMENSIONS.width}
-                                    height={LOGO_DIMENSIONS.height}
+                                    src={UI_CONSTANTS.logo.src}
+                                    alt={UI_CONSTANTS.logo.alt}
+                                    width={UI_CONSTANTS.logo.width}
+                                    height={UI_CONSTANTS.logo.height}
                                 />
                             </Link>
 
