@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Constantes de navegación
 const ARTICLE_LINKS = [
@@ -34,6 +34,19 @@ const MOBILE_LINK = "block px-3 py-2 rounded hover:bg-orange-700 hover:text-whit
  */
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Cerrar menú móvil al redimensionar a desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768 && isMobileMenuOpen) {
+                setIsMobileMenuOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isMobileMenuOpen]);
+
     return (
         <>
             {/* Título principal */}
@@ -121,7 +134,7 @@ export default function Header() {
 
                         {/* Menú móvil desplegable */}
                         {isMobileMenuOpen && (
-                            <div className="md:hidden mt-4 space-y-2 animate-in slide-in-from-top duration-300">
+                            <div className="md:hidden mt-4 space-y-2 transition-all duration-300 ease-in-out">
                                 <div className="bg-orange-500 rounded-lg p-3">
                                     <p className="font-semibold mb-2">Apartado informativo</p>
                                     {ARTICLE_LINKS.map(link => (
@@ -139,7 +152,7 @@ export default function Header() {
                                     <Link
                                         key={link.href}
                                         href={link.href}
-                                        className="block px-6 py-2 rounded-lg bg-orange-500 text-center hover:bg-orange-700 hover:text-white"
+                                        className="block px-6 py-2 rounded-lg bg-orange-500 text-center hover:bg-orange-700 hover:text-white transition-colors"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         {link.label}
@@ -153,3 +166,4 @@ export default function Header() {
         </>
     );
 }
+
