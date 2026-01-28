@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 
 /**
  * Header Component - Navegación principal del sitio
@@ -8,8 +11,10 @@ import Image from 'next/image';
  * - Logo con link a home
  * - Dropdown de "Apartado Informativo" con artículos por topic
  * - Placeholders para Login/Registro
+ * - Menú móvil funcional con estado
  */
 export default function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     return (
         <>
             {/* Título principal */}
@@ -91,34 +96,66 @@ export default function Header() {
                             </div>
 
                             {/* Menú móvil - Toggle button */}
-                            <button className="md:hidden p-2 rounded-lg bg-orange-500 text-black hover:bg-orange-700 hover:text-white transition-colors">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
+                            <button
+                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                                className="md:hidden p-2 rounded-lg bg-orange-500 text-black hover:bg-orange-700 hover:text-white transition-colors"
+                                aria-label="Toggle mobile menu"
+                            >
+                                {isMobileMenuOpen ? (
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                ) : (
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                )}
                             </button>
                         </div>
 
-                        {/* Menú móvil desplegable (se puede implementar estado con Client Component más adelante) */}
-                        <div className="md:hidden mt-4 space-y-2 hidden">
-                            <div className="bg-orange-500 rounded-lg p-3">
-                                <p className="font-semibold mb-2">Apartado informativo</p>
-                                <Link href="/articulos/pasado" className="block px-3 py-2 rounded hover:bg-orange-700 hover:text-white">
-                                    Estudia su Pasado
+                        {/* Menú móvil desplegable */}
+                        {isMobileMenuOpen && (
+                            <div className="md:hidden mt-4 space-y-2 animate-in slide-in-from-top duration-300">
+                                <div className="bg-orange-500 rounded-lg p-3">
+                                    <p className="font-semibold mb-2">Apartado informativo</p>
+                                    <Link
+                                        href="/articulos/pasado"
+                                        className="block px-3 py-2 rounded hover:bg-orange-700 hover:text-white"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        Estudia su Pasado
+                                    </Link>
+                                    <Link
+                                        href="/articulos/presente"
+                                        className="block px-3 py-2 rounded hover:bg-orange-700 hover:text-white"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        Comprende su Presente
+                                    </Link>
+                                    <Link
+                                        href="/articulos/futuro"
+                                        className="block px-3 py-2 rounded hover:bg-orange-700 hover:text-white"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        Deduce su Futuro
+                                    </Link>
+                                </div>
+                                <Link
+                                    href="/login"
+                                    className="block px-6 py-2 rounded-lg bg-orange-500 text-center hover:bg-orange-700 hover:text-white"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Entrar
                                 </Link>
-                                <Link href="/articulos/presente" className="block px-3 py-2 rounded hover:bg-orange-700 hover:text-white">
-                                    Comprende su Presente
-                                </Link>
-                                <Link href="/articulos/futuro" className="block px-3 py-2 rounded hover:bg-orange-700 hover:text-white">
-                                    Deduce su Futuro
+                                <Link
+                                    href="/registro"
+                                    className="block px-6 py-2 rounded-lg bg-orange-500 text-center hover:bg-orange-700 hover:text-white"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Registrarse
                                 </Link>
                             </div>
-                            <Link href="/login" className="block px-6 py-2 rounded-lg bg-orange-500 text-center hover:bg-orange-700 hover:text-white">
-                                Entrar
-                            </Link>
-                            <Link href="/registro" className="block px-6 py-2 rounded-lg bg-orange-500 text-center hover:bg-orange-700 hover:text-white">
-                                Registrarse
-                            </Link>
-                        </div>
+                        )}
                     </div>
                 </nav>
             </header>
