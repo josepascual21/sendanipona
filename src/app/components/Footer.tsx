@@ -24,7 +24,7 @@ import {
     PinterestIcon,
     PayPalIcon,
     OpenCollectiveIcon,
-} from './Icons';
+} from './icons/Icons';
 
 
 
