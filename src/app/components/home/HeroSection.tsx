@@ -4,14 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const HERO_IMAGES = [
-    '/images/carousel/paisaje_japon_1.jpg',
-    '/images/carousel/paisaje_japon_2.jpg',
-    '/images/carousel/paisaje_japon_3.jpg',
-    '/images/carousel/paisaje_japon_4.jpg',
-    '/images/carousel/paisaje_japon_5.jpg',
-    '/images/carousel/paisaje_japon_6.jpg',
-    '/images/carousel/paisaje_japon_7.jpg',
-    '/images/carousel/paisaje_japon_8.jpg',
+    '/images/index/carousel/paisaje_japon_1.jpg',
+    '/images/index/carousel/paisaje_japon_2.jpg',
+    '/images/index/carousel/paisaje_japon_3.jpg',
+    '/images/index/carousel/paisaje_japon_4.jpg',
+    '/images/index/carousel/paisaje_japon_5.jpg',
+    '/images/index/carousel/paisaje_japon_6.jpg',
+    '/images/index/carousel/paisaje_japon_7.jpg',
+    '/images/index/carousel/paisaje_japon_8.jpg',
 ];
 
 export default function HeroSection() {
