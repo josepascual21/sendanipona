@@ -55,7 +55,6 @@ model Article {
   id        String   @id @default(cuid())
   name      String   // Título display
   info      String?  // Breve descripción
-  htmlRoute String   // Ruta relativa al archivo HTML estático
   slug      String   @unique  // Identificador único para URLs (ej: "pasado", "presente")
   
   topicId   Int

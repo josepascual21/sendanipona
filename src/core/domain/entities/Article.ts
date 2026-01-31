@@ -22,10 +22,7 @@ export class Article {
      */
     readonly info: string | null;
 
-    /**
-     * Ruta relativa al archivo HTML estático
-     */
-    readonly htmlRoute: string;
+
 
     /**
      * ID del topic asociado (Historia, Cultura, etc.)
@@ -42,7 +39,6 @@ export class Article {
         slug: string;
         name: string;
         info: string | null;
-        htmlRoute: string;
         topicId: number;
         createdAt: Date;
     }) {
@@ -56,9 +52,6 @@ export class Article {
         if (!props.name || props.name.trim() === '') {
             throw new Error('El nombre del articulo no puede estar vacio');
         }
-        if (!props.htmlRoute || props.htmlRoute.trim() === '') {
-            throw new Error('La ruta del articulo no puede estar vacia');
-        }
         if (props.topicId <= 0) {
             throw new Error('El ID del topic debe ser positivo');
         }
@@ -67,7 +60,6 @@ export class Article {
         this.slug = props.slug;
         this.name = props.name;
         this.info = props.info;
-        this.htmlRoute = props.htmlRoute;
         this.topicId = props.topicId;
         this.createdAt = props.createdAt;
     }

@@ -31,7 +31,6 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
         slug: string;
         name: string;
         info: string | null;
-        htmlRoute: string;
         topicId: number;
         createdAt: Date;
     }): Article {
@@ -40,7 +39,6 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
             slug: prismaArticle.slug,
             name: prismaArticle.name,
             info: prismaArticle.info,
-            htmlRoute: prismaArticle.htmlRoute,
             topicId: prismaArticle.topicId,
             createdAt: prismaArticle.createdAt,
         });
@@ -78,7 +76,7 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
         const topicsWithArticles = await prisma.articleTopic.findMany({
             include: {
                 articles: {
-                    orderBy: { createdAt: 'desc' },
+                    orderBy: { id: 'asc' },
                 },
             },
             orderBy: { id: 'asc' },

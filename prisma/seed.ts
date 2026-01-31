@@ -134,9 +134,9 @@ async function main() {
 
     // --- 4. Artículos ---
     const historyArticles = [
-        { name: 'Pasado', info: 'Historia antigua', htmlRoute: 'pasado.html', slug: 'pasado' },
-        { name: 'Presente', info: 'Actualidad', htmlRoute: 'presente.html', slug: 'presente' },
-        { name: 'Futuro', info: 'Proyecciones', htmlRoute: 'futuro.html', slug: 'futuro' },
+        { name: 'Pasado', info: 'Historia antigua', slug: 'pasado' },
+        { name: 'Presente', info: 'Actualidad', slug: 'presente' },
+        { name: 'Futuro', info: 'Proyecciones', slug: 'futuro' },
     ]
 
     for (const art of historyArticles) {
@@ -144,7 +144,6 @@ async function main() {
             data: {
                 name: art.name,
                 info: art.info,
-                htmlRoute: art.htmlRoute,
                 slug: art.slug,
                 topicId: historyTopic.id
             }
