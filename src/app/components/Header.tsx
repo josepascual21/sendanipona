@@ -6,11 +6,7 @@ import { useState, useEffect } from 'react';
 import { APP_METADATA, UI_CONSTANTS } from '@/core/constants/app-constants';
 
 // Constantes de navegación
-const ARTICLE_LINKS = [
-    { href: '/articulos/pasado', label: 'Estudia su Pasado' },
-    { href: '/articulos/presente', label: 'Comprende su Presente' },
-    { href: '/articulos/futuro', label: 'Deduce su Futuro' },
-] as const;
+
 
 const AUTH_LINKS = [
     { href: '/login', label: 'Entrar' },
@@ -34,7 +30,7 @@ const MOBILE_LINK = "block px-3 py-2 rounded hover:bg-orange-700 hover:text-whit
  * - Placeholders para Login/Registro
  * - Menú móvil funcional con estado
  */
-export default function Header() {
+export default function Header({ topics = [] }: { topics?: any[] }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Cerrar menú móvil al redimensionar a desktop
@@ -51,8 +47,6 @@ export default function Header() {
 
     return (
         <>
-
-
             {/* Navegación sticky */}
             <header className="sticky top-0 z-50">
                 <nav className="backdrop-blur-sm bg-cyan-300/50">
@@ -73,35 +67,42 @@ export default function Header() {
 
                             {/* Navegación desktop */}
                             <div className="hidden md:flex items-center space-x-6">
-                                {/* Dropdown Apartado Informativo */}
-                                <div className="relative group">
-                                    <button className={BUTTON_PRIMARY + " shadow-md hover:shadow-lg hover:-translate-y-0.5"}>
-                                        Apartado informativo
-                                        <svg
-                                            className="inline-block ml-2 w-4 h-4"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </button>
+                                {/* Topics dinámicos */}
+                                {topics.map((topic) => (
+                                    <div key={topic.id} className="relative group">
+                                        <button className={BUTTON_PRIMARY + " shadow-md hover:shadow-lg hover:-translate-y-0.5"}>
+                                            {topic.name}
+                                            <svg
+                                                className="inline-block ml-2 w-4 h-4"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
 
-                                    {/* Dropdown menu */}
-                                    <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                        <div className="bg-orange-500 rounded-lg shadow-lg overflow-hidden">
-                                            {ARTICLE_LINKS.map(link => (
-                                                <Link
-                                                    key={link.href}
-                                                    href={link.href}
-                                                    className={DROPDOWN_LINK}
-                                                >
-                                                    {link.label}
-                                                </Link>
-                                            ))}
+                                        {/* Dropdown menu */}
+                                        <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                            <div className="bg-orange-500 rounded-lg shadow-lg overflow-hidden">
+                                                {topic.articles.map((article: any) => (
+                                                    <Link
+                                                        key={article.id}
+                                                        href={`/articulos/${article.slug}`}
+                                                        className={DROPDOWN_LINK}
+                                                    >
+                                                        {article.name}
+                                                    </Link>
+                                                ))}
+                                                {topic.articles.length === 0 && (
+                                                    <span className="block px-4 py-3 text-black/50 italic">
+                                                        Sin artículos
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                ))}
 
                                 {/* Login/Registro */}
                                 {AUTH_LINKS.map(link => (
@@ -136,19 +137,26 @@ export default function Header() {
                         {/* Menú móvil desplegable */}
                         {isMobileMenuOpen && (
                             <div className="md:hidden mt-4 space-y-2 transition-all duration-300 ease-in-out">
-                                <div className="bg-orange-500 rounded-lg p-3">
-                                    <p className="font-semibold mb-2">Apartado informativo</p>
-                                    {ARTICLE_LINKS.map(link => (
-                                        <Link
-                                            key={link.href}
-                                            href={link.href}
-                                            className={MOBILE_LINK}
-                                            onClick={() => setIsMobileMenuOpen(false)}
-                                        >
-                                            {link.label}
-                                        </Link>
-                                    ))}
-                                </div>
+                                {topics.map((topic) => (
+                                    <div key={topic.id} className="bg-orange-500 rounded-lg p-3 mb-2">
+                                        <p className="font-semibold mb-2">{topic.name}</p>
+                                        {topic.articles.map((article: any) => (
+                                            <Link
+                                                key={article.id}
+                                                href={`/articulos/${article.slug}`}
+                                                className={MOBILE_LINK}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                            >
+                                                {article.name}
+                                            </Link>
+                                        ))}
+                                        {topic.articles.length === 0 && (
+                                            <span className="block px-3 py-2 text-black/50 italic text-sm">
+                                                Sin artículos disponibles
+                                            </span>
+                                        )}
+                                    </div>
+                                ))}
                                 {AUTH_LINKS.map(link => (
                                     <Link
                                         key={link.href}

@@ -7,4 +7,4 @@ export { GetAllArticles } from './GetAllArticles';
 export { GetArticleBySlug } from './GetArticleBySlug';
 export { GetArticleById } from './GetArticleById';
 export { GetArticlesByTopic } from './GetArticlesByTopic';
-
+export { GetNavigationData, type NavigationTopicDTO, type NavigationArticleDTO } from './GetNavigationData';
