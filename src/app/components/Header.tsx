@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { APP_METADATA, UI_CONSTANTS } from '@/core/constants/app-constants';
+import { NavigationTopicDTO } from '@/core/application/use-cases/articles/GetNavigationData';
 
 const AUTH_LINKS = [
     { href: '/login', label: 'Entrar' },
@@ -27,7 +28,7 @@ const MOBILE_LINK = "block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-or
  * - Placeholders para Login/Registro
  * - Menú móvil funcional con estado
  */
-export default function Header({ topics = [] }: { topics?: any[] }) {
+export default function Header({ topics = [] }: { topics?: NavigationTopicDTO[] }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Separar topics: primeros 3 vs el resto
@@ -86,7 +87,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                                         {/* Dropdown menu */}
                                         <div className="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pt-2">
                                             <div className="bg-white rounded-xl shadow-xl ring-1 ring-black/5 overflow-hidden py-1">
-                                                {topic.articles.map((article: any) => (
+                                                {topic.articles.map((article) => (
                                                     <Link
                                                         key={article.id}
                                                         href={`/articulos/${article.slug}`}
@@ -135,7 +136,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                                                         {/* Nested Articles Dropdown (Sub-menu) */}
                                                         <div className="absolute left-full top-0 w-56 opacity-0 invisible group-hover/topic:opacity-100 group-hover/topic:visible transition-all duration-300 pl-1">
                                                             <div className="bg-white rounded-xl shadow-xl ring-1 ring-black/5 overflow-hidden py-1">
-                                                                {topic.articles.map((article: any) => (
+                                                                {topic.articles.map((article) => (
                                                                     <Link
                                                                         key={article.id}
                                                                         href={`/articulos/${article.slug}`}
@@ -200,7 +201,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                                                     {topic.name}
                                                 </div>
                                                 <div className="pl-4 border-l-2 border-slate-100 ml-4 space-y-1">
-                                                    {topic.articles.map((article: any) => (
+                                                    {topic.articles.map((article) => (
                                                         <Link
                                                             key={article.id}
                                                             href={`/articulos/${article.slug}`}
@@ -223,7 +224,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                                                 <div key={topic.id} className="mb-3">
                                                     <p className="px-4 text-sm font-medium text-slate-600 mb-1">{topic.name}</p>
                                                     <div className="pl-4 border-l-2 border-orange-100 ml-4">
-                                                        {topic.articles.map((article: any) => (
+                                                        {topic.articles.map((article) => (
                                                             <Link
                                                                 key={article.id}
                                                                 href={`/articulos/${article.slug}`}

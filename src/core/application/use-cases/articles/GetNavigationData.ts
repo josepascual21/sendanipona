@@ -1,4 +1,3 @@
-import { ArticleTopicWithArticles } from '@core/domain/repositories/IArticleTopicRepository';
 import { IArticleTopicRepository } from '@core/domain/repositories/IArticleTopicRepository';
 
 /**

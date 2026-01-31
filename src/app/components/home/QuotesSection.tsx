@@ -27,7 +27,7 @@ export default function QuotesSection() {
                 <div className={`transition-opacity duration-500 ease-in-out ${fade ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="max-w-4xl mx-auto text-center">
                         <blockquote className="text-2xl md:text-3xl font-light text-zinc-300 italic mb-6 leading-relaxed">
-                            "{currentQuote.text}"
+                            &quot;{currentQuote.text}&quot;
                         </blockquote>
                         <figcaption className="text-emerald-500 font-medium tracking-wider uppercase text-sm">
                             — {currentQuote.author}

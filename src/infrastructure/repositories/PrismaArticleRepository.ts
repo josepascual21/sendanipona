@@ -18,7 +18,6 @@ export class PrismaArticleRepository implements IArticleRepository {
             slug: prismaArticle.slug,
             name: prismaArticle.name,
             info: prismaArticle.info,
-            htmlRoute: prismaArticle.htmlRoute,
             topicId: prismaArticle.topicId,
             createdAt: prismaArticle.createdAt,
         });
