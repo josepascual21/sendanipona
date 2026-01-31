@@ -52,7 +52,7 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
      */
     async findAll(): Promise<ArticleTopic[]> {
         const topics = await prisma.articleTopic.findMany({
-            orderBy: { name: 'asc' },
+            orderBy: { id: 'asc' },
         });
 
         return topics.map((topic) => this.topicToDomain(topic));
@@ -81,7 +81,7 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
                     orderBy: { createdAt: 'desc' },
                 },
             },
-            orderBy: { name: 'asc' },
+            orderBy: { id: 'asc' },
         });
 
         return topicsWithArticles.map((topicData) => ({

@@ -55,11 +55,29 @@ async function main() {
     console.log('Created Maestros (Types, Materials, Colors)')
 
     // ArticleTopic
-    const topicName = 'Historia'
-    const topic = await prisma.articleTopic.upsert({
-        where: { name: topicName },
+    const historyTopicName = 'Historia'
+    const historyTopic = await prisma.articleTopic.upsert({
+        where: { name: historyTopicName },
         update: {},
-        create: { name: topicName },
+        create: { name: historyTopicName },
+    })
+    const culturePopTopicName = 'Cultura Pop'
+    const culturePopTopic = await prisma.articleTopic.upsert({
+        where: { name: culturePopTopicName },
+        update: {},
+        create: { name: culturePopTopicName },
+    })
+    const tourismTopicName = 'Turismo'
+    const tourismTopic = await prisma.articleTopic.upsert({
+        where: { name: tourismTopicName },
+        update: {},
+        create: { name: tourismTopicName },
+    })
+    const artsTopicName = 'Arte'
+    const artsTopic = await prisma.articleTopic.upsert({
+        where: { name: artsTopicName },
+        update: {},
+        create: { name: artsTopicName },
     })
 
     // --- 3. Productos (Selección) ---
@@ -115,20 +133,20 @@ async function main() {
     console.log('Created Products')
 
     // --- 4. Artículos ---
-    const articles = [
+    const historyArticles = [
         { name: 'Pasado', info: 'Historia antigua', htmlRoute: 'pasado.html', slug: 'pasado' },
         { name: 'Presente', info: 'Actualidad', htmlRoute: 'presente.html', slug: 'presente' },
         { name: 'Futuro', info: 'Proyecciones', htmlRoute: 'futuro.html', slug: 'futuro' },
     ]
 
-    for (const art of articles) {
+    for (const art of historyArticles) {
         await prisma.article.create({
             data: {
                 name: art.name,
                 info: art.info,
                 htmlRoute: art.htmlRoute,
                 slug: art.slug,
-                topicId: topic.id
+                topicId: historyTopic.id
             }
         })
     }
