@@ -109,7 +109,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                                 {otherTopics.length > 0 && (
                                     <div className="relative group">
                                         <button className={NAV_LINK_STYLE}>
-                                            Otros temas
+                                            Otros artículos
                                             <svg
                                                 className="w-4 h-4 transition-transform group-hover:rotate-180 text-orange-500/70"
                                                 fill="none"
@@ -125,7 +125,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                                             <div className="bg-white rounded-xl shadow-xl ring-1 ring-black/5 py-1">
                                                 {otherTopics.map((topic) => (
                                                     <div key={topic.id} className="relative group/topic">
-                                                        <button className="w-full text-left flex items-center justify-between px-4 py-2 text-slate-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200">
+                                                        <button className="w-full text-left flex items-center justify-between px-4 py-2 text-slate-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200 rounded-xl">
                                                             <span className="font-medium">{topic.name}</span>
                                                             <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
