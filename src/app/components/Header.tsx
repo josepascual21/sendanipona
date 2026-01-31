@@ -51,7 +51,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
             <header className="sticky top-0 z-50">
                 <nav className="backdrop-blur-sm bg-cyan-300/50">
                     <div className="container mx-auto px-8 py-3">
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between md:justify-between">
                             <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
                                 <Image
                                     src={UI_CONSTANTS.logo.src}
@@ -66,7 +66,7 @@ export default function Header({ topics = [] }: { topics?: any[] }) {
                             </Link>
 
                             {/* Navegación desktop */}
-                            <div className="hidden md:flex items-center space-x-6">
+                            <div className="hidden md:flex items-center gap-10">
                                 {/* Main Topics (primeros 3) */}
                                 {mainTopics.map((topic) => (
                                     <div key={topic.id} className="relative group">
