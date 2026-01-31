@@ -76,28 +76,36 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-gray-700 text-white">
-            <div className="container mx-auto p-4">
+        <footer className="bg-slate-950 text-slate-300 border-t border-cyan-900 overflow-hidden relative">
+            {/* Decoración de fondo sutil */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-orange-500 to-cyan-500 opacity-80"></div>
+
+            <div className="container mx-auto px-6 py-12">
                 {/* Grid de secciones */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mx-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
                     {/* Logo y copyright */}
-                    <div className="p-4">
-                        <Link href="/">
+                    <div className="flex flex-col gap-4">
+                        <Link href="/" className="inline-block group">
                             <Image
                                 src={UI_CONSTANTS.logo.src}
                                 alt={UI_CONSTANTS.logo.alt}
                                 width={UI_CONSTANTS.logo.width}
                                 height={UI_CONSTANTS.logo.height}
+                                className="opacity-90 group-hover:opacity-100 transition-opacity"
                             />
+                            <p className="mt-2 text-xs text-slate-500 uppercase tracking-widest">{APP_METADATA.title}</p>
                         </Link>
-                        <p className="text-sm">{APP_METADATA.copyright}</p>
+                        <p className="text-sm text-slate-500 leading-relaxed max-w-xs">{APP_METADATA.copyright}</p>
                     </div>
 
                     {/* Generar secciones dinámicamente */}
                     {Object.values(FOOTER_SECTIONS).map((section) => (
                         <div key={section.title}>
-                            <h4 className="font-bold mb-4 text-lg">{section.title}</h4>
-                            <ul className="space-y-2">
+                            <h4 className="font-bold mb-6 text-base text-white uppercase tracking-wider relative inline-block">
+                                {section.title}
+                                <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-orange-500 rounded-full"></span>
+                            </h4>
+                            <ul className="space-y-3">
                                 {section.links.map((link) => (
                                     <SocialLink
                                         key={link.id}
@@ -112,13 +120,20 @@ export default function Footer() {
                 </div>
 
                 {/* Separador */}
-                <hr className="my-6 border-gray-600" />
+                <hr className="my-10 border-slate-800" />
 
                 {/* Información final */}
-                <div className="flex flex-wrap justify-around items-center gap-4 text-sm">
-                    <span className="px-3">&copy; {APP_METADATA.author}</span>
-                    <span className="px-3">{APP_METADATA.contactEmail}</span>
-                    <span className="px-3">{lastVisit}</span>
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-500">
+                    <div className="flex flex-wrap justify-center gap-6">
+                        <span>&copy; {new Date().getFullYear()} {APP_METADATA.author}</span>
+                        <span className="hidden md:inline text-slate-700">|</span>
+                        <a href={`mailto:${APP_METADATA.contactEmail}`} className="hover:text-orange-400 transition-colors">
+                            {APP_METADATA.contactEmail}
+                        </a>
+                    </div>
+                    <div className="px-4 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-500/80">
+                        {lastVisit}
+                    </div>
                 </div>
             </div>
         </footer>
@@ -133,10 +148,14 @@ function SocialLink({ href, icon, text }: { href: string; icon: React.ReactNode;
         <li>
             <Link
                 href={href}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded text-white hover:bg-orange-500 hover:text-black hover:scale-110 transition-all duration-200"
+                className="group flex items-center gap-3 text-slate-400 hover:text-orange-400 transition-all duration-300"
             >
-                <span className="w-5 h-5">{icon}</span>
-                <span>{text}</span>
+                <span className="w-5 h-5 text-cyan-600 group-hover:text-orange-500 transition-colors duration-300 transform group-hover:scale-110">
+                    {icon}
+                </span>
+                <span className="font-medium tracking-wide group-hover:translate-x-1 transition-transform duration-300">
+                    {text}
+                </span>
             </Link>
         </li>
     );
