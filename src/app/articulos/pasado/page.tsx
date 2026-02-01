@@ -10,13 +10,24 @@ import {
 
 // Constantes para las imágenes
 const IMAGES = {
-    banner: "/mediacontent/articulos/pasado/banner.jpg",
-    samurai: "/mediacontent/articulos/pasado/samurai.png",
+    banner: "/images/articulos/pasado/banner.jpg",
+    samurai: "/images/articulos/pasado/samurai.png",
+    personajes: {
+        hokusai: "/images/articulos/pasado/personajes/hokusai-katsushika.jpg",
+        ieyasu: "/images/articulos/pasado/personajes/ieyasu.jpg",
+        minamoto: "/images/articulos/pasado/personajes/minamoto-no-yoritomo.jpg",
+        murasaki: "/images/articulos/pasado/personajes/murasaki-shikibu.jpg",
+        miyamoto: "/images/articulos/pasado/personajes/musashi-miyamoto.jpg",
+        oda: "/images/articulos/pasado/personajes/oda-nobunaga.jpg",
+        ryoma: "/images/articulos/pasado/personajes/ryoma.jpg",
+        shokotu: "/images/articulos/pasado/personajes/shotoku.jpg",
+        toyotomi: "/images/articulos/pasado/personajes/toyotomi-hideyoshi.jpg",
+    },
     leyendas: {
-        izanagi: "/mediacontent/articulos/pasado/leyendas/izanagi-izanami.jpg",
-        amaterasu: "/mediacontent/articulos/pasado/leyendas/amaterasu.jpg",
-        susanoo: "/mediacontent/articulos/pasado/leyendas/susanoo.jpg",
-        kuchisake: "/mediacontent/articulos/pasado/leyendas/kuchisake-onna.jpg",
+        izanagi: "/images/articulos/pasado/leyendas/izanagi-izanami.jpg",
+        amaterasu: "/images/articulos/pasado/leyendas/amaterasu.jpg",
+        susanoo: "/images/articulos/pasado/leyendas/susanoo.jpg",
+        kuchisake: "/images/articulos/pasado/leyendas/kuchisake-onna.jpg",
     }
 };
 
@@ -65,7 +76,7 @@ export default function PasadoPage() {
 
                 {/* Barra Lateral de Navegación (Sticky) */}
                 <aside className="lg:w-1/4 hidden lg:block">
-                    <div className="sticky top-24 bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
+                    <div className="sticky top-32 bg-white p-6 rounded-2xl shadow-lg border border-slate-100">
                         <h3 className="text-lg font-bold text-slate-800 mb-6 border-b pb-2 border-slate-100">
                             Contenido del Artículo
                         </h3>
@@ -166,19 +177,25 @@ export default function PasadoPage() {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                             {[
-                                { name: "Príncipe Shōtoku", years: "574-622 d.C", desc: "Líder político semi-legendario, regente durante el periodo Asuka." },
-                                { name: "Oda Nobunaga", years: "1534-1582 d.C", desc: "Gran guerrero y primer unificador de Japón durante el periodo Sengoku." },
-                                { name: "Toyotomi Hideyoshi", years: "1537-1598 d.C", desc: "Segundo unificador de Japón, conocido como 'Saru' (el mono)." },
-                                { name: "Sakamoto Ryōma", years: "1836-1867 d.C", desc: "Samurái visionary crucial en la Restauración Meiji y la modernización." },
-                                { name: "Murasaki Shikibu", years: "973-1025 d.C", desc: "Escritora de 'Genji Monogatari', la primera novela de la historia." },
-                                { name: "Minamoto No Yoritomo", years: "1147-1199 d.C", desc: "Fundador y primer shogun del shogunato Kamakura." },
-                                { name: "Tokugawa Ieyasu", years: "1543-1616 d.C", desc: "Fundador del shogunato Tokugawa que trajo siglos de paz." },
-                                { name: "Katsushika Hokusai", years: "1760-1849 d.C", desc: "Maestro del Ukiyo-e, autor de 'La gran ola de Kanagawa'." },
-                                { name: "Musashi Miyamoto", years: "1584-1645 d.C", desc: "Legendario espadachín invicto y autor de 'El libro de los cinco anillos'." },
+                                { name: "Príncipe Shōtoku", years: "574-622 d.C", desc: "Líder político semi-legendario, regente durante el periodo Asuka.", img: IMAGES.personajes.shokotu },
+                                { name: "Oda Nobunaga", years: "1534-1582 d.C", desc: "Gran guerrero y primer unificador de Japón durante el periodo Sengoku.", img: IMAGES.personajes.oda },
+                                { name: "Toyotomi Hideyoshi", years: "1537-1598 d.C", desc: "Segundo unificador de Japón, conocido como 'Saru' (el mono).", img: IMAGES.personajes.toyotomi },
+                                { name: "Sakamoto Ryōma", years: "1836-1867 d.C", desc: "Samurái visionary crucial en la Restauración Meiji y la modernización.", img: IMAGES.personajes.ryoma },
+                                { name: "Murasaki Shikibu", years: "973-1025 d.C", desc: "Escritora de 'Genji Monogatari', la primera novela de la historia.", img: IMAGES.personajes.murasaki },
+                                { name: "Minamoto No Yoritomo", years: "1147-1199 d.C", desc: "Fundador y primer shogun del shogunato Kamakura.", img: IMAGES.personajes.minamoto },
+                                { name: "Tokugawa Ieyasu", years: "1543-1616 d.C", desc: "Fundador del shogunato Tokugawa que trajo siglos de paz.", img: IMAGES.personajes.ieyasu },
+                                { name: "Katsushika Hokusai", years: "1760-1849 d.C", desc: "Maestro del Ukiyo-e, autor de 'La gran ola de Kanagawa'.", img: IMAGES.personajes.hokusai },
+                                { name: "Musashi Miyamoto", years: "1584-1645 d.C", desc: "Legendario espadachín invicto y autor de 'El libro de los cinco anillos'.", img: IMAGES.personajes.miyamoto },
                             ].map((person, idx) => (
                                 <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                                     <div className="h-48 bg-slate-200 relative overflow-hidden">
                                         {/* TODO: Integrar imágenes reales de personajes aquí */}
+                                        <Image
+                                            src={person.img}
+                                            alt={person.name}
+                                            fill
+                                            className="object-cover"
+                                        />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                                             <h3 className="text-white font-bold text-xl">{person.name}</h3>
                                         </div>
