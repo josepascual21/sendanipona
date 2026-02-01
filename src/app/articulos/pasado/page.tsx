@@ -12,7 +12,7 @@ import LegendsCarousel, { Legend } from "./LegendsCarousel";
 // Constantes para las imágenes
 const IMAGES = {
     banner: "/images/articulos/pasado/banner.jpg",
-    samurai: "/images/articulos/pasado/samurai.png",
+    samurai: "/images/articulos/pasado/samurai.jpg",
     personajes: {
         hokusai: "/images/articulos/pasado/personajes/hokusai-katsushika.jpg",
         ieyasu: "/images/articulos/pasado/personajes/ieyasu.jpg",
@@ -210,7 +210,7 @@ export default function PasadoPage() {
                                         src={IMAGES.samurai}
                                         alt="Ilustración Samurai"
                                         fill
-                                        className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                                        className="object-contain drop-shadow-2xl"
                                     />
                                 </div>
                             </div>
@@ -330,7 +330,7 @@ export default function PasadoPage() {
                             <span className="w-2 h-10 bg-orange-500 rounded-full"></span>
                             Leyendas y Mitología
                         </h2>
-                        <h3 className="text-xl text-center text-slate-600 mb-8 font-serif italic">"¿Qué leyenda te gustaría leer hoy?"</h3>
+                        <h3 className="text-xl text-center text-slate-600 mb-8 font-serif italic">&ldquo;¿Qué leyenda te gustaría leer hoy?&rdquo;</h3>
 
                         <LegendsCarousel legends={LEGENDS_DATA} />
 
