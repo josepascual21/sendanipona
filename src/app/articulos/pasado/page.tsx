@@ -7,6 +7,7 @@ import {
     SparklesIcon,
     ChatBubbleLeftRightIcon
 } from "@heroicons/react/24/outline";
+import LegendsCarousel, { Legend } from "./LegendsCarousel";
 
 // Constantes para las imágenes
 const IMAGES = {
@@ -24,12 +25,103 @@ const IMAGES = {
         toyotomi: "/images/articulos/pasado/personajes/toyotomi-hideyoshi.jpg",
     },
     leyendas: {
-        izanagi: "/images/articulos/pasado/leyendas/izanagi-izanami.jpg",
+        izanagi: "/images/articulos/pasado/leyendas/izanami-izanagi.jpg",
         amaterasu: "/images/articulos/pasado/leyendas/amaterasu.jpg",
+        tsukuyomi: "/images/articulos/pasado/leyendas/tsukuyomi.jpg",
         susanoo: "/images/articulos/pasado/leyendas/susanoo.jpg",
-        kuchisake: "/images/articulos/pasado/leyendas/kuchisake-onna.jpg",
+        kuchisake: "/images/articulos/pasado/leyendas/kuchisake-onna.jpg"
     }
 };
+
+const LEGENDS_DATA: Legend[] = [
+    {
+        id: "izanagi-izanami",
+        title: "Izanagi e Izanami",
+        subtitle: "El origen del archipiélago",
+        shortDesc: "El origen del archipiélago japonés según el sintoísmo.",
+        fullDesc: `Izanami e Izanagi son los dioses primordiales de la religión sintoísta. 
+Se relata que en el principio de los tiempos, Izanagi e Izanami fueron 
+convocados por las otras deidades primordiales para crear la tierra y 
+poblaciones en el mundo. Estas deidades utilizaron una lanza celestial 
+para agitar las aguas primordiales, y cuando la retiraron, las gotas que 
+cayeron formaron las islas de Japón. Después de crear las islas, Izanagi 
+e Izanami descendieron a ellas y crearon la tierra fértil y las montañas. 
+También engendraron una multitud de dioses y diosas que dieron origen a 
+diferentes aspectos de la naturaleza y la vida.`,
+        image: IMAGES.leyendas.izanagi
+    },
+    {
+        id: "amaterasu",
+        title: "El despertar de Amaterasu",
+        subtitle: "La Diosa del Sol",
+        shortDesc: "El regreso de la luz al mundo.",
+        fullDesc: `Según la leyenda, Amaterasu, la diosa del sol y la principal deidad sintoísta, 
+se retiró a una cueva celestial tras una disputa con su hermano, Susanoo, 
+el dios de la tormenta. La ausencia de Amaterasu sumió al mundo en la oscuridad 
+y el caos. Los otros dioses intentaron sin éxito convencerla de salir de la cueva. 
+Finalmente, lograron atraerla con un plan elaborado que involucraba la danza y la 
+música de la diosa Uzume. Intrigada por el alboroto fuera de la cueva, Amaterasu 
+asomó la cabeza y, al ver su propio resplandor reflejado en un espejo sagrado, 
+quedó cautivada y salió completamente de la cueva. El regreso de Amaterasu trajo 
+la luz de vuelta al mundo y restauró el orden. Este episodio resalta la importancia 
+de Amaterasu como fuente de luz y vida, así como el poder de la música y la alegría 
+para disipar la oscuridad y restaurar la armonía.`,
+        image: IMAGES.leyendas.amaterasu
+    },
+    {
+        id: "tsukuyomi",
+        title: "La ofensa de Tsukuyomi hacia Amaterasu",
+        subtitle: "Dos hermanos enfrentados eternamente",
+        shortDesc: "Por esta razón la Luna y el Sol nunca se encuentran.",
+        fullDesc: `Tsukuyomi ascendió a los cielos mediante la escalera celestial, donde vivió con su hermana, 
+Amaterasu, la diosa solar, hasta que este mató a Uke Mochi, la diosa de la comida.
+Este suceso ocurrió durante una gran fiesta celebrada por Uke Mochi, en la que invitó 
+a muchos dioses a su palacio. Amaterasu no pudo asistir, por lo que envió a Tsukuyomi 
+en representación de ambos. Fue durante la fiesta que Tsukuyomi vio como preparaba el festín, 
+pero le pareció increíblemente repulsivo al observar que Uke Mochi obtenía los alimentos
+de formas repulsivas, fue en ese momento que Tsukuyomi, horrorizado por sus acciones, mató a Uke Mochi.
+Desde entonces, Amaterasu se enfadó tanto que aseguró que nunca volvería a ver a Tsukuyomi, y 
+se movía de un lado al otro del cielo evitando al dios. Por esta razón la Luna y el Sol nunca se encuentran.`,
+        image: IMAGES.leyendas.tsukuyomi
+    },
+    {
+        id: "susanoo",
+        title: "La batalla de Susanoo contra Yamata no Orochi",
+        subtitle: "El triunfo tras el destierro",
+        shortDesc: "El heroico rescate mediante el ingenio, emborrachando a la bestia de 8 cabezas.",
+        fullDesc: `Este relato acontece tras la expulsión de Susanoo de los cielos por parte de su hermana Amaterasu. Este se dio
+por culpa de Susanoo al haber engañado a su hermana gravemente y también haber causado estragos en el cielo con
+sus travesuras.
+
+Yamata no Orochi era una serpiente de ocho cabezas y ocho colas que causaba estragos en la tierra y exigía 
+sacrificios humanos. Susanoo, el dios de la tormenta y hermano de Amaterasu, se encontró con Orochi mientras 
+deambulaba por la tierra. Al descubrir el sufrimiento de una familia local, Susanoo decidió enfrentarse a Orochi. 
+Ofreciéndose a sí mismo como sacrificio, Susanoo emborrachó al monstruo con sake en cada una de sus cabezas. 
+Una vez que Orochi estaba ebrio y dormido, Susanoo aprovechó la oportunidad para atacar, cortando cada una de 
+sus cabezas. Sin embargo, cuando llegó a la última cabeza, Susanoo descubrió la espada sagrada Kusanagi 
+dentro del cuerpo de Orochi. Esta espada resultó ser un arma poderosa que Susanoo luego presentó a su hermana 
+Amaterasu como un símbolo de reconciliación. La victoria sobre Yamata no Orochi solidificó la posición de Susanoo 
+como un héroe en la mitología japonesa y ayudó a restaurar la paz en la tierra.`,
+        image: IMAGES.leyendas.susanoo
+    },
+    {
+        id: "kuchisake",
+        title: "Kuchisake-onna",
+        subtitle: "Terror Urbano",
+        shortDesc: "Este nombre se le atribuyó por su rasgo físico más característico, su boca cortada.",
+        fullDesc: `La leyenda cuenta que esta mujer suele aparecerse con una mascarilla quirúrgica, 
+lo que es normal en los japoneses que buscan cuidarse de resfriados o enfermedades. 
+Sus víctimas son principalmente niños y si la llegases a encontrar te detendrá y te 
+preguntará si es bella, si respondes que no, te cortará la cabeza con unas tijeras, 
+pero si respondes que sí, se quitará la máscara mostrando su boca cortada y volverá 
+a preguntar si es bella, si en esta ocasión respondes que no, te cortará a la mitad, 
+pero si respondes que sí, se alegrará y te cortará la boca de oreja a oreja dejándote como ella.
+Es imposible correr y escaparse ya que si lo intentas ella reaparecerá frente a ti y 
+no se irá hasta que contestes a su pregunta. Tal ha sido el miedo por esta leyenda 
+que varios colegios hacen que sus profesores acompañen a los alumnos a sus casas para que lleguen seguros.`,
+        image: IMAGES.leyendas.kuchisake
+    }
+];
 
 type SectionLinkProps = {
     href: string;
@@ -189,7 +281,6 @@ export default function PasadoPage() {
                             ].map((person, idx) => (
                                 <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                                     <div className="h-48 bg-slate-200 relative overflow-hidden">
-                                        {/* TODO: Integrar imágenes reales de personajes aquí */}
                                         <Image
                                             src={person.img}
                                             alt={person.name}
@@ -239,60 +330,10 @@ export default function PasadoPage() {
                             <span className="w-2 h-10 bg-orange-500 rounded-full"></span>
                             Leyendas y Mitología
                         </h2>
+                        <h3 className="text-xl text-center text-slate-600 mb-8 font-serif italic">"¿Qué leyenda te gustaría leer hoy?"</h3>
 
-                        <div className="grid gap-8">
-                            {[
-                                {
-                                    title: "Izanagi e Izanami",
-                                    subtitle: "El Origen del Archipiélago",
-                                    desc: "Los dioses primordiales que crearon las islas de Japón agitando el océano con una lanza celestial enjoyada.",
-                                    image: IMAGES.banner // Placeholder
-                                },
-                                {
-                                    title: "Amaterasu",
-                                    subtitle: "La Diosa del Sol",
-                                    desc: "Cuando se encerró en una cueva, el mundo se sumió en oscuridad hasta que la curiosidad y la risa la hicieron salir.",
-                                    image: IMAGES.banner // Placeholder
-                                },
-                                {
-                                    title: "Susanoo vs Orochi",
-                                    subtitle: "El Dios Tormenta y el Dragón",
-                                    desc: "El heroico rescate mediante el ingenio, emborrachando a la bestia de 8 cabezas para derrotarla.",
-                                    image: IMAGES.banner // Placeholder
-                                },
-                                {
-                                    title: "Kuchisake-onna",
-                                    subtitle: "Terror Urbano",
-                                    desc: "La mujer de la boca cortada que acecha en la niebla preguntando si es hermosa... una leyenda que aterroriza aún hoy.",
-                                    image: IMAGES.banner // Placeholder
-                                },
-                            ].map((legend, idx) => (
-                                <div key={idx} className="group relative overflow-hidden rounded-2xl shadow-md h-64 md:h-80 flex items-end">
-                                    <Image
-                                        src={legend.image} // TODO: Usar imágenes específicas generadas
-                                        alt={legend.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 transition-opacity duration-300" />
+                        <LegendsCarousel legends={LEGENDS_DATA} />
 
-                                    <div className="relative p-6 md:p-8 w-full transform transition-transform duration-300 translate-y-4 group-hover:translate-y-0">
-                                        <div className="flex justify-between items-end">
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-white mb-1">{legend.title}</h3>
-                                                <p className="text-orange-400 font-medium text-sm mb-3 uppercase tracking-wider">{legend.subtitle}</p>
-                                                <p className="text-slate-200 text-sm max-w-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                                                    {legend.desc}
-                                                </p>
-                                            </div>
-                                            <button className="bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-sm transition-colors border border-white/30 hidden md:block">
-                                                <BookOpenIcon className="w-6 h-6" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
                     </section>
 
                 </article>
