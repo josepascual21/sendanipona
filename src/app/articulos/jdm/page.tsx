@@ -314,10 +314,11 @@ export default function JdmPage() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-600 tracking-tighter uppercase italic">
+                        <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase inline-block relative">
                             Los 4 Jinetes
+                            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-2 bg-red-800" />
                         </h2>
-                        <p className="text-slate-500 mt-4 tracking-widest uppercase text-sm">Leyendas de los 90s</p>
+                        <p className="text-slate-500 mt-8 tracking-widest uppercase text-sm">Leyendas de los 90s</p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -344,7 +345,7 @@ export default function JdmPage() {
 
                                 <div className="absolute bottom-0 left-0 p-8 w-full">
                                     <div className="overflow-hidden mb-2">
-                                        <h3 className="text-3xl font-black text-white uppercase italic transform translate-y-0 transition-transform duration-300">
+                                        <h3 className="text-3xl font-black text-white uppercase transform translate-y-0 transition-transform duration-300">
                                             {car.name}
                                         </h3>
                                     </div>
@@ -424,7 +425,7 @@ export default function JdmPage() {
                                 <div className="mb-6 bg-stone-950 text-red-700 w-14 h-14 rounded-full flex items-center justify-center group-hover:bg-red-900/20 group-hover:text-red-500 transition-colors shadow-lg border border-red-900/10">
                                     {item.icon}
                                 </div>
-                                <h3 className="text-xl font-bold mb-4 text-stone-200 italic">{item.title}</h3>
+                                <h3 className="text-xl font-bold mb-4 text-stone-200">{item.title}</h3>
                                 <p className="text-stone-400 leading-relaxed text-lg group-hover:text-stone-300 transition-colors">
                                     {item.text}
                                 </p>
