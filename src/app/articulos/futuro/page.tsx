@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import {
     Rocket,
@@ -97,10 +98,16 @@ export default function FuturoPage() {
             {/* ========== HERO SECTION ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
                 {/* Placeholder del Banner (Cyberpunk Gradient) */}
-                <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-black to-black">
-                    <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse" />
-                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-fuchsia-600/20 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDelay: '2s' }} />
+                {/* Imagen Banner Futuro */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/articulos/futuro/banner.png"
+                        alt="Neo-Tokyo Banner"
+                        fill
+                        className="object-cover opacity-60"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-black/50 to-black" />
                 </div>
 
                 {/* Título */}
@@ -165,12 +172,15 @@ export default function FuturoPage() {
                             transition={{ duration: 0.8 }}
                             className="relative h-[60vh] w-full"
                         >
-                            {/* Placeholder Imagen Intro */}
-                            <div className="absolute inset-0 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl overflow-hidden flex items-center justify-center group">
-                                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/40 to-transparent opacity-50 group-hover:opacity-70 transition-opacity" />
-                                <span className="text-cyan-500/50 font-mono text-xl uppercase tracking-widest border border-cyan-500/30 p-4 rounded">
-                                    [Img: Intro (800x1200)]
-                                </span>
+                            {/* Imagen Intro */}
+                            <div className="absolute inset-0 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl overflow-hidden">
+                                <Image
+                                    src="/images/articulos/futuro/intro.png"
+                                    alt="Futuro de Japón"
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/40 to-transparent opacity-50" />
                             </div>
                         </motion.div>
                     </div>
@@ -213,9 +223,14 @@ export default function FuturoPage() {
                                         La pirámide de población se invierte peligrosamente.
                                     </p>
                                 </div>
-                                <div className="h-64 bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center relative overflow-hidden">
+                                <div className="h-64 relative border border-slate-700 rounded-xl overflow-hidden">
+                                    <Image
+                                        src="/images/articulos/futuro/natalidad.png"
+                                        alt="Natalidad y Robótica"
+                                        fill
+                                        className="object-cover"
+                                    />
                                     <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-900/20 to-transparent" />
-                                    <span className="text-slate-500 font-mono">[Img: Natalidad 600x400]</span>
                                 </div>
                             </motion.div>
 
@@ -226,9 +241,14 @@ export default function FuturoPage() {
                                 viewport={{ once: true }}
                                 className="grid md:grid-cols-2 gap-12 items-center bg-slate-900/50 p-8 rounded-3xl border border-slate-800 backdrop-blur-sm md:flex-row-reverse"
                             >
-                                <div className="h-64 bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center relative overflow-hidden md:order-1 order-2">
+                                <div className="h-64 relative border border-slate-700 rounded-xl overflow-hidden md:order-1 order-2">
+                                    <Image
+                                        src="/images/articulos/futuro/longevidad.png"
+                                        alt="Longevidad y Tecnología"
+                                        fill
+                                        className="object-cover"
+                                    />
                                     <div className="absolute inset-0 bg-gradient-to-bl from-cyan-900/20 to-transparent" />
-                                    <span className="text-slate-500 font-mono">[Img: Esperanza Vida 600x400]</span>
                                 </div>
                                 <div className="space-y-6 md:order-2 order-1">
                                     <div className="flex items-center gap-4 text-cyan-400 mb-4">
@@ -261,9 +281,14 @@ export default function FuturoPage() {
                                         si esa vida no es de calidad.
                                     </p>
                                 </div>
-                                <div className="h-64 bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center relative overflow-hidden">
+                                <div className="h-64 relative border border-slate-700 rounded-xl overflow-hidden">
+                                    <Image
+                                        src="/images/articulos/futuro/salud_mental.png"
+                                        alt="Aislamiento Urbano"
+                                        fill
+                                        className="object-cover"
+                                    />
                                     <div className="absolute inset-0 bg-gradient-to-br from-rose-900/20 to-transparent" />
-                                    <span className="text-slate-500 font-mono">[Img: Suicidios 600x400]</span>
                                 </div>
                             </motion.div>
                         </div>
