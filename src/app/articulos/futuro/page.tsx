@@ -64,10 +64,10 @@ const NavigationPill = () => (
             <Link
                 key={item.id}
                 href={item.id}
-                className="group flex items-center gap-3 bg-slate-900/80 backdrop-blur-md p-3 rounded-full 
+                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
                          hover:bg-cyan-600 hover:text-white transition-all duration-300 
                          w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-slate-700 shadow-lg text-cyan-400"
+                         border border-slate-200 shadow-lg text-slate-700"
             >
                 <span className="min-w-[20px] flex justify-center">{item.icon}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
@@ -82,7 +82,7 @@ const NavigationPill = () => (
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
     <h2 className="text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white">
         {children}
-        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]" />
+        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-cyan-500" />
     </h2>
 );
 
@@ -107,7 +107,8 @@ export default function FuturoPage() {
                         className="object-cover opacity-60"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-black/50 to-black" />
+
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
                 </div>
 
                 {/* Título */}
