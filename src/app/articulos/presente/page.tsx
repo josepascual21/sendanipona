@@ -31,7 +31,7 @@ const CURIOSITIES = [
     {
         icon: <Waves className="w-6 h-6" />,
         title: "Onsen",
-        text: "Baños termales naturales con propiedades curativas, fundamentales para la relajacin y socialización."
+        text: "Baños termales naturales con propiedades curativas, fundamentales para la relajación y socialización."
     },
     {
         icon: <ShoppingBag className="w-6 h-6" />,
@@ -70,10 +70,10 @@ const NavigationPill = () => (
             <Link
                 key={item.id}
                 href={item.id}
-                className="group flex items-center gap-3 bg-white/80 backdrop-blur-md p-3 rounded-full 
+                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
                          hover:bg-indigo-700 hover:text-white transition-all duration-300 
                          w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-slate-200/50 shadow-lg text-slate-700"
+                         border border-slate-200 shadow-lg text-slate-700"
             >
                 <span className="min-w-[20px] flex justify-center">{item.icon}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
@@ -85,11 +85,10 @@ const NavigationPill = () => (
 );
 
 /** Título de sección */
-const SectionTitle = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight ${light ? 'text-indigo-50' : 'text-slate-900'
-        }`}>
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+    <h2 className="text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white">
         {children}
-        <span className={`absolute -bottom-2 right-0 w-24 h-2 ${light ? 'bg-indigo-400' : 'bg-indigo-600'}`} />
+        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-indigo-600" />
     </h2>
 );
 
@@ -99,7 +98,7 @@ const SectionTitle = ({ children, light = false }: { children: React.ReactNode; 
 
 export default function PresentePage() {
     return (
-        <div className="bg-slate-50 text-slate-800 font-sans selection:bg-indigo-500 selection:text-white">
+        <div className="bg-slate-900 text-slate-300 font-sans selection:bg-indigo-500 selection:text-white">
             <NavigationPill />
 
             {/* ========== HERO SECTION ========== */}
@@ -130,7 +129,7 @@ export default function PresentePage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light tracking-[0.3em] text-indigo-200 uppercase mt-4"
+                        className="text-xl md:text-3xl font-light tracking-[0.3em] text-indigo-400 uppercase mt-4"
                     >
                         Comprende su Realidad
                     </motion.p>
@@ -150,7 +149,7 @@ export default function PresentePage() {
             <div className="relative z-10">
 
                 {/* ========== SECCIÓN SOCIEDAD ========== */}
-                <section id="sociedad" className="py-32 bg-[#fdfbf7]">
+                <section id="sociedad" className="py-32 bg-slate-900">
                     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
@@ -159,10 +158,10 @@ export default function PresentePage() {
                             transition={{ duration: 0.8 }}
                         >
                             <SectionTitle>Sociedad Estoica</SectionTitle>
-                            <div className="text-lg leading-relaxed text-slate-700 space-y-6 text-justify">
+                            <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     En este apartado es esencial empezar dando un breve resumen sobre la sociedad japonesa. Lo más básico que podríamos exponer es que es conocida por su enfoque en la
-                                    <span className="text-indigo-700 font-bold"> armonía, el respeto por la jerarquía y la colectividad</span>.
+                                    <span className="text-indigo-400 font-bold"> armonía, el respeto por la jerarquía y la colectividad</span>.
                                     La estructura social tradicional está influenciada por el Confucianismo y el Budismo, donde el respeto por los mayores,
                                     el trabajo en equipo y la modestia son valores fundamentales.
                                 </p>
@@ -172,7 +171,7 @@ export default function PresentePage() {
                                     Podría parecer una sociedad ideal para los amantes de la calma y la serenidad, donde prevalece el orden frente al caos y prima el respeto mutuo.
                                 </p>
                                 <p>
-                                    Sin embargo, debe ser mostrada la <span className="text-indigo-700 font-bold">"cara B"</span>.
+                                    Sin embargo, debe ser mostrada la <span className="text-indigo-400 font-bold">"cara B"</span>.
                                     Debido al exceso de homogeneidad, a veces se rechaza lo extraño o diferente. La violencia puede manifestarse
                                     no física, sino como falta de respeto y abuso hacia el más débil o de menor rango en la jerarquía.
                                     Aun con esto, hay esperanza en la constante integración que el país vive con otras culturas.
@@ -188,7 +187,7 @@ export default function PresentePage() {
                             className="relative h-[70vh] w-full"
                         >
                             {/* Imagen Sociedad */}
-                            <div className="absolute inset-0 bg-stone-200 rounded-t-full border-8 border-double border-stone-300 shadow-2xl overflow-hidden">
+                            <div className="absolute inset-0 bg-slate-800 rounded-t-full border-8 border-double border-slate-700 shadow-2xl overflow-hidden">
                                 <Image
                                     src="/images/articulos/presente/society.jpg"
                                     alt="Sociedad de Tokio en Shibuya"
@@ -196,14 +195,15 @@ export default function PresentePage() {
                                     className="object-cover"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
                             </div>
-                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-indigo-900 z-10 mix-blend-multiply opacity-20 rounded-lg pointer-events-none" />
+                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-indigo-900 z-10 mix-blend-multiply opacity-30 rounded-lg pointer-events-none" />
                         </motion.div>
                     </div>
                 </section>
 
                 {/* ========== SECCIÓN CULTURA POP ========== */}
-                <section id="cultura-pop" className="py-32 bg-slate-900 text-slate-200">
+                <section id="cultura-pop" className="py-32 bg-slate-950 text-slate-200">
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="text-center mb-20">
                             <motion.h2
@@ -214,7 +214,7 @@ export default function PresentePage() {
                             >
                                 CULTURA POP
                             </motion.h2>
-                            <div className="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
+                            <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
                             <p className="text-xl text-slate-400 max-w-2xl mx-auto">
                                 Anime, videojuegos y tecnología: el rostro moderno de Japón.
                             </p>
@@ -226,10 +226,10 @@ export default function PresentePage() {
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border border-slate-700"
                             >
                                 {/* Imagen Anime */}
-                                <div className="h-64 relative border-b border-slate-600">
+                                <div className="h-64 relative border-b border-slate-700">
                                     <Image
                                         src="/images/articulos/presente/anime.png"
                                         alt="Akihabara Electric Town"
@@ -237,12 +237,13 @@ export default function PresentePage() {
                                         className="object-cover"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                                 </div>
                                 <div className="p-8">
                                     <h3 className="text-2xl font-bold text-indigo-400 mb-4 flex items-center gap-2">
                                         <Ticket /> Anime y Manga
                                     </h3>
-                                    <p className="text-slate-300 leading-relaxed">
+                                    <p className="text-slate-300 leading-relaxed text-lg">
                                         Fenómeno cultural surgido en los 80. Hoy día, el concepto "otaku" se ha normalizado
                                         y es una de las mayores exportaciones culturales del país, influyendo en la moda, cine y arte global.
                                     </p>
@@ -255,10 +256,10 @@ export default function PresentePage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.1 }}
-                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border border-slate-700"
                             >
                                 {/* Imagen Videojuegos */}
-                                <div className="h-64 relative border-b border-slate-600">
+                                <div className="h-64 relative border-b border-slate-700">
                                     <Image
                                         src="/images/articulos/presente/videojuegos.png"
                                         alt="Arcade Japonés"
@@ -266,12 +267,13 @@ export default function PresentePage() {
                                         className="object-cover"
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                                 </div>
                                 <div className="p-8">
                                     <h3 className="text-2xl font-bold text-purple-400 mb-4 flex items-center gap-2">
                                         <Gamepad2 /> Videojuegos
                                     </h3>
-                                    <p className="text-slate-300 leading-relaxed">
+                                    <p className="text-slate-300 leading-relaxed text-lg">
                                         Hogar de gigantes como Nintendo y Sony. Franquicias como Mario, Zelda y Final Fantasy
                                         no son solo entretenimiento, sino pilares fundamentales de la identidad moderna japonesa.
                                     </p>
@@ -284,10 +286,10 @@ export default function PresentePage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 md:col-span-2"
+                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 md:col-span-2 border border-slate-700"
                             >
                                 <div className="grid md:grid-cols-2">
-                                    <div className="h-64 md:h-auto relative border-r border-slate-600">
+                                    <div className="h-64 md:h-auto relative border-r border-slate-700">
                                         <Image
                                             src="/images/articulos/presente/music.png"
                                             alt="Concierto J-Pop"
@@ -295,12 +297,13 @@ export default function PresentePage() {
                                             className="object-cover"
                                             sizes="(max-width: 768px) 100vw, 50vw"
                                         />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent md:bg-none" />
                                     </div>
                                     <div className="p-8 flex flex-col justify-center">
                                         <h3 className="text-2xl font-bold text-pink-400 mb-4 flex items-center gap-2">
                                             <Music /> J-Pop y Música
                                         </h3>
-                                        <p className="text-slate-300 leading-relaxed">
+                                        <p className="text-slate-300 leading-relaxed text-lg">
                                             Desde ídolos virtuales hasta bandas sonoras épicas. La música pop japonesa acompaña
                                             a animes y videojuegos, creando una atmósfera única que resuena en todo el mundo.
                                         </p>
@@ -312,9 +315,9 @@ export default function PresentePage() {
                 </section>
 
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-900 text-stone-300">
+                <section id="curiosidades" className="py-32 bg-stone-950 text-stone-300">
                     <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle light>Curiosidades</SectionTitle>
+                        <SectionTitle>Curiosidades</SectionTitle>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
                             {CURIOSITIES.map((item, index) => (
@@ -327,7 +330,7 @@ export default function PresentePage() {
                                     whileHover={{ y: -5 }}
                                     className="group"
                                 >
-                                    <div className="mb-6 bg-stone-800 text-indigo-400 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-indigo-900/30 group-hover:text-indigo-300 transition-colors shadow-inner">
+                                    <div className="mb-6 bg-stone-900 text-indigo-400 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-indigo-900/30 group-hover:text-indigo-300 transition-colors shadow-inner border border-stone-800">
                                         {item.icon}
                                     </div>
                                     <h3 className="text-xl font-bold mb-4 text-stone-100">{item.title}</h3>

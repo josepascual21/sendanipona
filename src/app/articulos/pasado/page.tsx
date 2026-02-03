@@ -215,10 +215,10 @@ const NavigationPill = () => (
             <Link
                 key={item.id}
                 href={item.id}
-                className="group flex items-center gap-3 bg-slate-900/80 backdrop-blur-md p-3 rounded-full 
+                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
                          hover:bg-amber-700 hover:text-white transition-all duration-300 
                          w-12 hover:w-48 overflow-hidden whitespace-nowrap 
-                         border border-slate-700 shadow-lg text-slate-300"
+                         border border-slate-200 shadow-lg text-slate-700"
             >
                 <span className="min-w-[20px] flex justify-center">{item.icon}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
