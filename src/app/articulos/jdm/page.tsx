@@ -119,10 +119,10 @@ const NavigationPill = () => (
             <Link
                 key={item.id}
                 href={item.id}
-                className="group flex items-center gap-3 bg-white/80 backdrop-blur-md p-3 rounded-full 
+                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
                          hover:bg-red-800 hover:text-white transition-all duration-300 
                          w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-slate-200 shadow-xl text-slate-700"
+                         border border-slate-200 shadow-lg text-slate-700"
             >
                 <span className="min-w-[20px] flex justify-center">{item.icon}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
@@ -133,9 +133,8 @@ const NavigationPill = () => (
     </nav>
 );
 
-const SectionTitle = ({ children, light = false, align = "left" }: { children: React.ReactNode, light?: boolean, align?: "left" | "center" | "right" }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight 
-        ${light ? 'text-stone-50' : 'text-slate-900'}
+const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" | "right" }) => (
+    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white
         ${align === "center" ? "mx-auto" : ""}
     `}>
         {children}
@@ -149,10 +148,10 @@ const SectionTitle = ({ children, light = false, align = "left" }: { children: R
 
 export default function JdmPage() {
     return (
-        <div className="bg-slate-900 text-slate-100 font-sans selection:bg-red-800 selection:text-white overflow-x-hidden">
+        <div className="bg-slate-900 text-slate-300 font-sans selection:bg-red-800 selection:text-white overflow-x-hidden">
             <NavigationPill />
 
-            {/* ========== HERO SECTION ========== */}
+            {/* ========== HERO SECTION (100vh) ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Video/Image Placeholder */}
                 <div className="absolute inset-0 z-0 bg-slate-900">
@@ -160,11 +159,11 @@ export default function JdmPage() {
                     <div className="w-full h-full opacity-40 bg-[url('/images/articulos/jdm/banner.jpg')] bg-cover bg-center" />
                 </div>
 
-                <div className="relative z-10 text-center px-4">
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, type: "spring" }}
+                        transition={{ duration: 1, ease: "easeOut" }}
                         className="border-8 border-red-800 p-8 inline-block backdrop-blur-sm bg-black/20"
                     >
                         <h1 className="text-8xl md:text-[12rem] leading-none font-black tracking-tighter italic text-white">
@@ -174,53 +173,70 @@ export default function JdmPage() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-xl md:text-3xl font-light mt-8 tracking-[0.2em] text-stone-300 uppercase"
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="text-xl md:text-3xl font-light mt-8 tracking-[0.2em] text-red-200 uppercase"
                     >
                         Japanese Domestic Market
                     </motion.p>
                 </div>
+
+                {/* Indicador de scroll */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 1 }}
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                >
+                    <span className="text-xs uppercase tracking-widest text-slate-500">Descubre</span>
+                    <div className="w-[1px] h-16 bg-red-800" />
+                </motion.div>
             </section>
 
-            {/* ========== INTRO (CLARO) ========== */}
-            <section id="intro" className="py-24 px-6 min-h-[80vh] flex items-center bg-[#fdfbf7] text-slate-800">
+            {/* ========== INTRO (OSCURO TONO B) ========== */}
+            <section id="intro" className="py-24 md:py-32 px-6 min-h-[80vh] flex items-center bg-slate-950">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
                         <SectionTitle>No es solo<br />una etiqueta</SectionTitle>
-                        <p className="text-lg text-slate-600 leading-relaxed text-justify mb-6">
-                            El término <strong className="text-slate-900">JDM</strong> (Japanese Domestic Market) nació para designar a los vehículos y piezas fabricados específicamente para el mercado japonés. Sin embargo, con los años, ha trascendido su definición técnica para convertirse en una <em className="text-red-800 font-serif">cultura global</em>.
+                        <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
+                            El término <strong className="text-white">JDM</strong> (Japanese Domestic Market) nació para designar a los vehículos y piezas fabricados específicamente para el mercado japonés. Sin embargo, con los años, ha trascendido su definición técnica para convertirse en una <em className="text-red-500 font-serif">cultura global</em>.
                         </p>
-                        <p className="text-lg text-slate-600 leading-relaxed text-justify">
+                        <p className="text-lg text-slate-300 leading-relaxed text-justify">
                             No se trata solo de coches; se trata de una búsqueda obsesiva de la perfección, la estética 'clean', el respeto por la ingeniería y un sentido de comunidad que une a entusiastas de todo el mundo, desde las curvas de Hakone hasta los aparcamientos de Daikoku.
                         </p>
-                    </div>
+                    </motion.div>
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative h-[500px] w-full items-center justify-center flex bg-stone-200 rounded-sm overflow-hidden shadow-2xl"
+                        className="relative h-[500px] w-full items-center justify-center flex bg-slate-900 rounded-sm overflow-hidden shadow-2xl border border-slate-800"
                     >
                         {/* Placeholder img */}
-                        <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-black text-4xl uppercase opacity-20">
+                        <div className="absolute inset-0 flex items-center justify-center text-slate-700 font-black text-4xl uppercase opacity-20">
                             Intro Image
                         </div>
                         <Image
                             src={IMAGES.intro}
                             alt="JDM Intro"
                             fill
-                            className="object-cover"
+                            className="object-cover opacity-60"
                         />
                     </motion.div>
                 </div>
             </section>
 
-            {/* ========== DRIFT (OSCURO) ========== */}
-            <section id="drift" className="py-24 bg-slate-900 relative text-slate-100">
+            {/* ========== DRIFT (OSCURO TONO A) ========== */}
+            <section id="drift" className="py-24 md:py-32 bg-slate-900 relative">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
                             className="order-2 md:order-1 relative h-[500px] bg-slate-800 rounded-lg overflow-hidden shadow-2xl border border-slate-700"
                         >
                             <Image
@@ -232,9 +248,14 @@ export default function JdmPage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                         </motion.div>
 
-                        <div className="order-1 md:order-2 text-right">
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="order-1 md:order-2 text-right"
+                        >
                             <div className="flex flex-col items-end">
-                                <SectionTitle light align="right">El Arte del<br />Descontrol</SectionTitle>
+                                <SectionTitle align="right">El Arte del<br />Descontrol</SectionTitle>
                             </div>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Nacido en las montañas (Touge) de Japón, el <strong className="text-red-500">Drift</strong> es la máxima expresión de control sobre el caos. No se busca llegar el primero, sino hacerlo con el mayor estilo y ángulo posible.
@@ -242,18 +263,24 @@ export default function JdmPage() {
                             <p className="text-lg text-slate-300 leading-relaxed">
                                 Figuras como <span className="text-white font-bold">Keiichi Tsuchiya</span> (el Drift King) llevaron esta técnica de las carreteras ilegales a los circuitos profesionales, convirtiéndola en un deporte que exige una sincronización perfecta entre hombre y máquina.
                             </p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* ========== QUEDADAS (CLARO) ========== */}
-            <section id="quedadas" className="py-24 bg-stone-100 px-6 text-slate-800">
+            {/* ========== QUEDADAS (OSCURO TONO B) ========== */}
+            <section id="quedadas" className="py-24 md:py-32 bg-slate-950 px-6">
                 <div className="max-w-6xl mx-auto text-center">
-                    <SectionTitle align="center">Daikoku Futo &<br />La Cultura del Parking</SectionTitle>
-                    <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-16 leading-relaxed">
-                        En Japón, las áreas de servicio (PA) no son solo para descansar. Son templos improvisados donde se reúnen las máquinas más increíbles de la noche bajo luces de neón y vapor de sodio.
-                    </p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <SectionTitle align="center">Daikoku Futo &<br />La Cultura del Parking</SectionTitle>
+                        <p className="text-lg text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed">
+                            En Japón, las áreas de servicio (PA) no son solo para descansar. Son templos improvisados donde se reúnen las máquinas más increíbles de la noche bajo luces de neón y vapor de sodio.
+                        </p>
+                    </motion.div>
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
@@ -263,39 +290,56 @@ export default function JdmPage() {
                         ].map((item, i) => (
                             <motion.div
                                 key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
                                 whileHover={{ y: -5 }}
-                                className="bg-white p-8 rounded-xl border border-stone-200 shadow-md hover:shadow-xl hover:border-red-800/20 transition-all"
+                                className="bg-slate-900 p-8 rounded-xl border border-slate-800 shadow-lg hover:shadow-xl hover:border-red-900/50 transition-all"
                             >
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                                <p className="text-slate-400 text-lg leading-relaxed">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ========== MODELOS ICÓNICOS (OSCURO - PREMIUM) ========== */}
-            <section id="modelos" className="py-24 bg-slate-950 text-white">
+            {/* ========== MODELOS ICÓNICOS (OSCURO TONO A) ========== */}
+            <section id="modelos" className="py-24 md:py-32 bg-slate-900 text-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
                         <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-600 tracking-tighter uppercase italic">
                             Los 4 Jinetes
                         </h2>
-                        <p className="text-slate-400 mt-4 tracking-widest uppercase text-sm">Leyendas de los 90s</p>
-                    </div>
+                        <p className="text-slate-500 mt-4 tracking-widest uppercase text-sm">Leyendas de los 90s</p>
+                    </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {CARS.map((car) => (
-                            <div key={car.id} className="group relative h-[400px] overflow-hidden bg-slate-900 rounded-lg">
+                        {CARS.map((car, index) => (
+                            <motion.div
+                                key={car.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ y: -5 }}
+                                className="group relative h-[400px] overflow-hidden bg-slate-800 rounded-lg border border-slate-800 hover:border-red-900/40"
+                            >
                                 {/* Imagen de fondo */}
                                 <div className="absolute inset-0">
                                     <Image
                                         src={car.img}
                                         alt={car.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-40"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-40"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
                                 </div>
 
                                 <div className="absolute bottom-0 left-0 p-8 w-full">
@@ -309,27 +353,28 @@ export default function JdmPage() {
                                         <span>{car.engine}</span>
                                     </div>
                                     <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-                                        <p className="text-slate-300 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 ease-out leading-relaxed max-w-md">
+                                        <p className="text-slate-300 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 ease-out leading-relaxed max-w-md">
                                             {car.desc}
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ========== CLANDESTINO (OSCURO) ========== */}
-            <section id="clandestino" className="py-32 bg-slate-900 relative overflow-hidden">
+            {/* ========== CLANDESTINO (OSCURO TONO B) ========== */}
+            <section id="clandestino" className="py-32 bg-slate-950 relative overflow-hidden">
                 {/* Elementos decorativos sutiles */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-900/10 rounded-full blur-[100px]" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-900/5 rounded-full blur-[100px]" />
 
                 <div className="max-w-6xl mx-auto px-6 relative z-10">
                     <div className="flex flex-col md:flex-row gap-12 items-start">
                         <motion.div
                             initial={{ opacity: 0 }}
                             whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
                             className="flex-1 border-l-4 border-red-800 pl-8 md:pl-12 py-2"
                         >
                             <h2 className="text-5xl md:text-8xl font-black text-white mb-6 uppercase leading-[0.9]">
@@ -338,27 +383,32 @@ export default function JdmPage() {
                             </h2>
                         </motion.div>
 
-                        <div className="flex-1 text-lg text-slate-400 leading-relaxed space-y-6">
+                        <div className="flex-1 text-lg text-slate-300 leading-relaxed space-y-6">
                             <p>
-                                El <strong className="text-stone-200">Mid Night Club</strong> es quizás la leyenda más famosa. Un club exclusivo donde la única regla era la velocidad: para entrar, tu coche debía ser capaz de superar los 300 km/h sostenidos.
+                                El <strong className="text-white">Mid Night Club</strong> es quizás la leyenda más famosa. Un club exclusivo donde la única regla era la velocidad: para entrar, tu coche debía ser capaz de superar los 300 km/h sostenidos.
                             </p>
                             <p>
                                 Sus carreras en la autopista de la bahía de Tokio (Wangan) son materia de mitos, desafiando a la policía y a la física misma en máquinas modificadas al extremo.
                             </p>
                             <p>
-                                Mientras tanto, en los pasos de montaña, nacía la batalla del <strong className="text-stone-200">Touge</strong>. Carreteras estrechas y reviradas donde la potencia bruta importa menos que el equilibrio, los frenos y las manos del piloto.
+                                Mientras tanto, en los pasos de montaña, nacía la batalla del <strong className="text-white">Touge</strong>. Carreteras estrechas y reviradas donde la potencia bruta importa menos que el equilibrio, los frenos y las manos del piloto.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ========== CURIOSIDADES (OSCURO FINAL) ========== */}
+            {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
             <section id="curiosidades" className="py-32 bg-stone-950 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <h2 className="text-4xl md:text-5xl font-black mb-16 text-stone-200 border-b border-stone-800 pb-8 inline-block">
+                    <motion.h2
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="text-4xl md:text-5xl font-black mb-16 text-stone-200 border-b border-stone-800 pb-8 inline-block"
+                    >
                         CURIOSIDADES UNDERGROUND
-                    </h2>
+                    </motion.h2>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {CURIOSITIES.map((item, index) => (
@@ -375,7 +425,7 @@ export default function JdmPage() {
                                     {item.icon}
                                 </div>
                                 <h3 className="text-xl font-bold mb-4 text-stone-200 italic">{item.title}</h3>
-                                <p className="text-stone-500 leading-relaxed text-sm group-hover:text-stone-400 transition-colors">
+                                <p className="text-stone-400 leading-relaxed text-lg group-hover:text-stone-300 transition-colors">
                                     {item.text}
                                 </p>
                             </motion.div>
