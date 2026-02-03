@@ -255,10 +255,10 @@ export default function PasadoPage() {
                         src={IMAGES.banner}
                         alt="Banner Pasado de Japón"
                         fill
-                        className="object-cover opacity-70"
+                        className="object-cover opacity-60"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
                 </div>
 
                 {/* Título animado centrado */}

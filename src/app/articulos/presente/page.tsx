@@ -104,9 +104,16 @@ export default function PresentePage() {
 
             {/* ========== HERO SECTION ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-                {/* Placeholder del Banner (Gradiente Rico) */}
-                <div className="absolute inset-0 z-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
-                    <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+                {/* Imagen de fondo con overlay */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/articulos/presente/banner.png"
+                        alt="Banner Presente de Japón"
+                        fill
+                        className="object-cover opacity-60"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
                 </div>
 
                 {/* Título */}
@@ -180,9 +187,15 @@ export default function PresentePage() {
                             transition={{ duration: 0.8 }}
                             className="relative h-[70vh] w-full"
                         >
-                            {/* Placeholder Imagen Sociedad */}
-                            <div className="absolute inset-0 bg-stone-200 rounded-t-full border-8 border-double border-stone-300 shadow-2xl overflow-hidden flex items-center justify-center">
-                                <span className="text-stone-400 font-bold text-xl uppercase tracking-widest">Imagen: Sociedad (800x1200)</span>
+                            {/* Imagen Sociedad */}
+                            <div className="absolute inset-0 bg-stone-200 rounded-t-full border-8 border-double border-stone-300 shadow-2xl overflow-hidden">
+                                <Image
+                                    src="/images/articulos/presente/society.jpg"
+                                    alt="Sociedad de Tokio en Shibuya"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                             </div>
                             <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-indigo-900 z-10 mix-blend-multiply opacity-20 rounded-lg pointer-events-none" />
                         </motion.div>
@@ -215,9 +228,15 @@ export default function PresentePage() {
                                 viewport={{ once: true }}
                                 className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
                             >
-                                {/* Placeholder Imagen */}
-                                <div className="h-64 bg-slate-700 flex items-center justify-center border-b border-slate-600">
-                                    <span className="text-slate-500 font-semibold">Img: Anime/Manga</span>
+                                {/* Imagen Anime */}
+                                <div className="h-64 relative border-b border-slate-600">
+                                    <Image
+                                        src="/images/articulos/presente/anime.png"
+                                        alt="Akihabara Electric Town"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
                                 </div>
                                 <div className="p-8">
                                     <h3 className="text-2xl font-bold text-indigo-400 mb-4 flex items-center gap-2">
@@ -238,9 +257,15 @@ export default function PresentePage() {
                                 transition={{ delay: 0.1 }}
                                 className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
                             >
-                                {/* Placeholder Imagen */}
-                                <div className="h-64 bg-slate-700 flex items-center justify-center border-b border-slate-600">
-                                    <span className="text-slate-500 font-semibold">Img: Videojuegos</span>
+                                {/* Imagen Videojuegos */}
+                                <div className="h-64 relative border-b border-slate-600">
+                                    <Image
+                                        src="/images/articulos/presente/videojuegos.png"
+                                        alt="Arcade Japonés"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                    />
                                 </div>
                                 <div className="p-8">
                                     <h3 className="text-2xl font-bold text-purple-400 mb-4 flex items-center gap-2">
@@ -262,8 +287,14 @@ export default function PresentePage() {
                                 className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 md:col-span-2"
                             >
                                 <div className="grid md:grid-cols-2">
-                                    <div className="h-64 md:h-auto bg-slate-700 flex items-center justify-center border-r border-slate-600">
-                                        <span className="text-slate-500 font-semibold">Img: J-Pop / Concierto</span>
+                                    <div className="h-64 md:h-auto relative border-r border-slate-600">
+                                        <Image
+                                            src="/images/articulos/presente/music.png"
+                                            alt="Concierto J-Pop"
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                        />
                                     </div>
                                     <div className="p-8 flex flex-col justify-center">
                                         <h3 className="text-2xl font-bold text-pink-400 mb-4 flex items-center gap-2">
