@@ -153,7 +153,8 @@ async function main() {
 
     // JDM Article
     const culturePopArticles = [
-        { name: 'Cultura JDM', info: 'Drift, carreras, modelos icónicos y la cultura clandestina.', slug: 'jdm' }
+        { name: 'Cultura JDM', info: 'Drift, carreras, modelos icónicos y la cultura clandestina.', slug: 'jdm' },
+        { name: 'Anime y Manga', info: 'El arte de la animación y el cómic japonés.', slug: 'anime-manga' },
     ]
 
     for (const art of culturePopArticles) {
