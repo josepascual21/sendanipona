@@ -114,7 +114,7 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.1 }}
-                                    className="text-orange-400 font-medium text-sm md:text-base uppercase tracking-wider mb-4"
+                                    className="text-amber-400 font-medium text-sm md:text-base uppercase tracking-wider mb-4"
                                 >
                                     {currentLegend.subtitle}
                                 </motion.p>
@@ -133,7 +133,7 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.3 }}
                                 onClick={() => setIsModalOpen(true)}
-                                className="mt-auto mb-8 z-30 bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-orange-600/30 ring-2 ring-orange-500/50"
+                                className="mt-auto mb-8 z-30 bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-amber-600/30 ring-2 ring-amber-500/50"
                             >
                                 Quiero conocer más
                             </motion.button>
@@ -169,7 +169,7 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
                                 setCurrentIndex(idx);
                             }}
                             className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex
-                                ? "bg-orange-500 w-8"
+                                ? "bg-amber-500 w-8"
                                 : "bg-slate-600 w-2 hover:bg-slate-400"
                                 }`}
                             aria-label={`Ir a leyenda ${idx + 1}`}
@@ -187,7 +187,7 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
                             onClick={closeModal}
                         />
 
@@ -196,16 +196,16 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
                             initial={{ scale: 0.9, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col z-10"
+                            className="relative bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col z-10 border border-slate-700"
                         >
                             {/* Header */}
-                            <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50 sticky top-0 z-20">
-                                <h3 className="text-xl md:text-2xl font-bold text-slate-800 font-serif pr-8">
+                            <div className="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-950 sticky top-0 z-20">
+                                <h3 className="text-xl md:text-2xl font-bold text-white font-serif pr-8">
                                     {currentLegend.title}
                                 </h3>
                                 <button
                                     onClick={closeModal}
-                                    className="text-slate-400 hover:text-slate-600 transition-colors p-2 rounded-full hover:bg-slate-200 absolute right-4 top-4"
+                                    className="text-slate-400 hover:text-white transition-colors p-2 rounded-full hover:bg-slate-800 absolute right-4 top-4"
                                 >
                                     <XMarkIcon className="w-6 h-6" />
                                 </button>
@@ -213,7 +213,7 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
 
                             {/* Scrollable Body */}
                             <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
-                                <div className="text-slate-600 text-lg leading-loose space-y-4">
+                                <div className="text-slate-300 text-lg leading-loose space-y-4">
                                     {currentLegend.fullDesc.split(/\n\s*\n/).map((paragraph, index) => (
                                         <p key={index}>{paragraph.replace(/\s+/g, ' ').trim()}</p>
                                     ))}
@@ -221,10 +221,10 @@ export default function LegendsCarousel({ legends }: LegendsCarouselProps) {
                             </div>
 
                             {/* Footer (optional, maybe for close button on mobile) */}
-                            <div className="p-4 border-t border-slate-100 bg-slate-50 md:hidden flex justify-end">
+                            <div className="p-4 border-t border-slate-800 bg-slate-950 md:hidden flex justify-end">
                                 <button
                                     onClick={closeModal}
-                                    className="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg text-sm font-medium hover:bg-slate-300"
+                                    className="px-4 py-2 bg-slate-800 text-slate-300 rounded-lg text-sm font-medium hover:bg-slate-700 hover:text-white"
                                 >
                                     Cerrar
                                 </button>

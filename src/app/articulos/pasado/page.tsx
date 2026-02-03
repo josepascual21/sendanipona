@@ -215,10 +215,10 @@ const NavigationPill = () => (
             <Link
                 key={item.id}
                 href={item.id}
-                className="group flex items-center gap-3 bg-white/80 backdrop-blur-md p-3 rounded-full 
+                className="group flex items-center gap-3 bg-slate-900/80 backdrop-blur-md p-3 rounded-full 
                          hover:bg-amber-700 hover:text-white transition-all duration-300 
                          w-12 hover:w-48 overflow-hidden whitespace-nowrap 
-                         border border-slate-200/50 shadow-lg text-slate-700"
+                         border border-slate-700 shadow-lg text-slate-300"
             >
                 <span className="min-w-[20px] flex justify-center">{item.icon}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
@@ -230,11 +230,10 @@ const NavigationPill = () => (
 );
 
 /** Título de sección con barra decorativa */
-const SectionTitle = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight ${light ? 'text-amber-50' : 'text-slate-900'
-        }`}>
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+    <h2 className="text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white">
         {children}
-        <span className={`absolute -bottom-2 right-0 w-24 h-2 ${light ? 'bg-amber-400' : 'bg-amber-600'}`} />
+        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-amber-600" />
     </h2>
 );
 
@@ -295,8 +294,9 @@ export default function PasadoPage() {
 
             <div className="relative z-10">
 
-                {/* ========== SECCIÓN INTRODUCCIÓN (Mejor contraste) ========== */}
-                <section id="introduccion" className="min-h-screen flex items-center py-24 bg-[#fdfbf7] text-slate-800">
+
+                {/* ========== SECCIÓN INTRODUCCIÓN (Tono A: slate-900) ========== */}
+                <section id="introduccion" className="min-h-screen flex items-center py-24 bg-slate-900 text-slate-300">
                     <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
                         {/* Texto */}
                         <motion.div
@@ -306,10 +306,10 @@ export default function PasadoPage() {
                             transition={{ duration: 0.8 }}
                         >
                             <SectionTitle>Filosofía y Guerras</SectionTitle>
-                            <div className="text-lg leading-relaxed text-slate-700 space-y-6 text-justify">
+                            <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     En este apartado vamos a profundizar en las
-                                    <span className="text-amber-800 font-bold"> épocas históricas de Japón</span> y
+                                    <span className="text-amber-500 font-bold"> épocas históricas de Japón</span> y
                                     los personajes que las definieron. Expondremos primero las eras, detallando su
                                     importancia y características únicas para comprender la evolución del país.
                                 </p>
@@ -317,7 +317,7 @@ export default function PasadoPage() {
                                     Posteriormente, conocerás a los personajes históricos que dieron forma al
                                     folclore y la política japonesa. Esta sección busca explicar por qué Japón
                                     es un país tan único, mostrando la eterna paradoja entre su
-                                    <span className="text-amber-800 font-bold"> refinamiento cultural</span> casi
+                                    <span className="text-amber-500 font-bold"> refinamiento cultural</span> casi
                                     ilimitado y la brutalidad de las guerras que han marcado la historia del sol naciente.
                                 </p>
                             </div>
@@ -331,7 +331,7 @@ export default function PasadoPage() {
                             transition={{ duration: 0.8 }}
                             className="relative h-[70vh] w-full"
                         >
-                            <div className="absolute top-0 right-0 w-4/5 h-4/5 z-20 shadow-2xl rounded-t-full overflow-hidden border-8 border-double border-stone-200">
+                            <div className="absolute top-0 right-0 w-4/5 h-4/5 z-20 shadow-2xl rounded-t-full overflow-hidden border-8 border-double border-slate-700">
                                 <Image
                                     src={IMAGES.samurai}
                                     alt="Samurai"
@@ -339,14 +339,14 @@ export default function PasadoPage() {
                                     className="object-cover sepia-[.1]"
                                 />
                             </div>
-                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-amber-900 z-10 mix-blend-multiply opacity-80 rounded-lg" />
-                            <div className="absolute top-10 left-10 w-full h-full border-2 border-stone-900/10 z-0 rounded-t-full" />
+                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-amber-900 z-10 mix-blend-multiply opacity-60 rounded-lg" />
+                            <div className="absolute top-10 left-10 w-full h-full border-2 border-slate-800 z-0 rounded-t-full" />
                         </motion.div>
                     </div>
                 </section>
 
-                {/* ========== SECCIÓN PERIODOS (Tipografía ajustada) ========== */}
-                <section id="periodos" className="py-32 bg-slate-900 text-slate-200 overflow-hidden">
+                {/* ========== SECCIÓN PERIODOS (Tono B: slate-950) ========== */}
+                <section id="periodos" className="py-32 bg-slate-950 text-slate-200 overflow-hidden">
                     <div className="max-w-5xl mx-auto px-6">
                         <div className="text-center mb-20">
                             <motion.h2
@@ -364,7 +364,7 @@ export default function PasadoPage() {
                         </div>
 
                         {/* Timeline vertical */}
-                        <div className="space-y-12 relative before:absolute before:left-1/2 before:-translate-x-1/2 before:top-0 before:bottom-0 before:w-px before:bg-slate-700">
+                        <div className="space-y-12 relative before:absolute before:left-1/2 before:-translate-x-1/2 before:top-0 before:bottom-0 before:w-px before:bg-slate-800">
                             {PERIODS.map((period, idx) => (
                                 <motion.div
                                     key={idx}
@@ -381,7 +381,7 @@ export default function PasadoPage() {
                                     </div>
 
                                     {/* Punto central */}
-                                    <div className="w-3 h-3 bg-amber-600 rounded-full z-10 ring-4 ring-slate-900 flex-shrink-0" />
+                                    <div className="w-3 h-3 bg-amber-600 rounded-full z-10 ring-4 ring-slate-950 flex-shrink-0" />
 
                                     {/* Descripción */}
                                     <div className={`flex-1 ${idx % 2 === 0 ? 'text-left' : 'text-right'}`}>
@@ -393,8 +393,8 @@ export default function PasadoPage() {
                     </div>
                 </section>
 
-                {/* ========== SECCIÓN PERSONAJES ========== */}
-                <section id="personajes" className="py-32 bg-[#f0eee9] text-slate-900">
+                {/* ========== SECCIÓN PERSONAJES (Tono A: slate-900) ========== */}
+                <section id="personajes" className="py-32 bg-slate-900 text-slate-300">
                     <div className="max-w-7xl mx-auto px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -403,7 +403,7 @@ export default function PasadoPage() {
                             className="text-center mb-16"
                         >
                             <SectionTitle>Personajes Históricos</SectionTitle>
-                            <p className="text-xl text-slate-600 max-w-2xl mx-auto mt-6">
+                            <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
                                 Los líderes, artistas y guerreros que definieron la historia japonesa.
                             </p>
                         </motion.div>
@@ -418,7 +418,7 @@ export default function PasadoPage() {
                                     viewport={{ once: true }}
                                     transition={{ delay: idx * 0.1 }}
                                     whileHover={{ y: -5 }}
-                                    className="group bg-white rounded-xl shadow-md border border-stone-200 overflow-hidden hover:shadow-xl transition-all duration-300"
+                                    className="group bg-slate-800 rounded-xl shadow-lg border border-slate-700 overflow-hidden hover:border-amber-700/50 transition-all duration-300"
                                 >
                                     <div className="h-64 relative overflow-hidden">
                                         <Image
@@ -427,14 +427,14 @@ export default function PasadoPage() {
                                             fill
                                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
                                         <div className="absolute bottom-0 left-0 p-5">
                                             <h3 className="text-white font-bold text-xl drop-shadow-md">{person.name}</h3>
                                             <p className="text-amber-400 text-xs font-bold uppercase tracking-wider mt-1">{person.years}</p>
                                         </div>
                                     </div>
                                     <div className="p-6">
-                                        <p className="text-slate-700 text-lg leading-relaxed">{person.desc}</p>
+                                        <p className="text-slate-300 text-lg leading-relaxed">{person.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -442,8 +442,8 @@ export default function PasadoPage() {
                     </div>
                 </section>
 
-                {/* ========== SECCIÓN LEYENDAS (Fondo claro para contraste con carrusel oscuro) ========== */}
-                <section id="leyendas" className="py-32 bg-stone-100 text-slate-900">
+                {/* ========== SECCIÓN LEYENDAS (Tono B: slate-950) ========== */}
+                <section id="leyendas" className="py-32 bg-slate-950 text-slate-300">
                     <div className="max-w-7xl mx-auto px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
@@ -452,7 +452,7 @@ export default function PasadoPage() {
                             className="text-center mb-16"
                         >
                             <SectionTitle>Leyendas y Mitología</SectionTitle>
-                            <p className="text-xl text-slate-600 max-w-2xl mx-auto font-serif italic mt-6">
+                            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-serif italic mt-6">
                                 &ldquo;Historias ancestrales que forjaron el espíritu de una nación.&rdquo;
                             </p>
                         </motion.div>
@@ -461,10 +461,10 @@ export default function PasadoPage() {
                     </div>
                 </section>
 
-                {/* ========== SECCIÓN CURIOSIDADES (Ahora en tonos oscuros elegantes) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-900 text-stone-300">
+                {/* ========== SECCIÓN CURIOSIDADES (Final: Tono más oscuro - stone-950) ========== */}
+                <section id="curiosidades" className="py-32 bg-stone-950 text-stone-300">
                     <div className="max-w-7xl mx-auto px-6">
-                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-stone-700 pb-8 inline-block">
+                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-stone-800 pb-8 inline-block">
                             CURIOSIDADES DEL PASADO
                         </h2>
 
@@ -479,7 +479,7 @@ export default function PasadoPage() {
                                     whileHover={{ y: -5 }}
                                     className="group"
                                 >
-                                    <div className="mb-6 bg-stone-800 text-amber-500 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-amber-900/30 group-hover:text-amber-400 transition-colors shadow-inner">
+                                    <div className="mb-6 bg-slate-900 text-amber-500 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-amber-900/30 group-hover:text-amber-400 transition-colors shadow-inner border border-stone-800">
                                         {item.icon}
                                     </div>
                                     <h3 className="text-xl font-bold mb-4 text-stone-100">{item.title}</h3>
