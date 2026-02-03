@@ -79,6 +79,12 @@ async function main() {
         update: {},
         create: { name: artsTopicName },
     })
+    const jdmTopicName = 'JDM'
+    const jdmTopic = await prisma.articleTopic.upsert({
+        where: { name: jdmTopicName },
+        update: {},
+        create: { name: jdmTopicName },
+    })
 
     // --- 3. Productos (Selección) ---
     // Helper para buscar IDs de maestros
@@ -150,6 +156,28 @@ async function main() {
         })
     }
     console.log('Created Articles')
+
+    // JDM Article
+    const jdmArticles = [
+        { name: 'JDM Culture', info: 'Drift, carreras, modelos icónicos y la cultura clandestina.', slug: 'jdm' }
+    ]
+
+    for (const art of jdmArticles) {
+        await prisma.article.upsert({
+            where: { slug: art.slug },
+            update: {
+                info: art.info,
+                topicId: jdmTopic.id
+            },
+            create: {
+                name: art.name,
+                info: art.info,
+                slug: art.slug,
+                topicId: jdmTopic.id
+            }
+        })
+    }
+    console.log('Created JDM Article')
 
     console.log('✅ Seeding finished.')
 }
