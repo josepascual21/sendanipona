@@ -155,6 +155,7 @@ async function main() {
     const culturePopArticles = [
         { name: 'Cultura JDM', info: 'Drift, carreras, modelos icónicos y la cultura clandestina.', slug: 'jdm' },
         { name: 'Anime y Manga', info: 'El arte de la animación y el cómic japonés.', slug: 'anime-manga' },
+        { name: 'Videojuegos', info: 'Juegos electrónicos icónicos y la cultura digital.', slug: 'videojuegos' },
     ]
 
     for (const art of culturePopArticles) {
