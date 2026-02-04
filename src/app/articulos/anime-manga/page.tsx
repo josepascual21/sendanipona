@@ -167,11 +167,12 @@ export default function AnimePage() {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, ease: "easeOut" }}
                     >
-                        <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 drop-shadow-2xl">
+                        <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b drop-shadow-2xl">
                             ANIME
                             <span className="block text-4xl md:text-7xl stroke-text text-violet-500 mt-2 font-serif italic">
-                                & Manga
+                                &
                             </span>
+                            MANGA
                         </h1>
                     </motion.div>
 
