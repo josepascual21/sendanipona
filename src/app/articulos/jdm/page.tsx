@@ -26,8 +26,6 @@ const IMAGES = {
     banner: "/images/articulos/jdm/banner.jpg",
     intro: "/images/articulos/jdm/intro.jpg",
     drift: "/images/articulos/jdm/drift.jpg",
-    quedadas: "/images/articulos/jdm/quedadas.jpg",
-    clandestino: "/images/articulos/jdm/clandestino.jpg",
     modelos: {
         supra: "/images/articulos/jdm/modelos/supra.jpg",
         rx7: "/images/articulos/jdm/modelos/rx7.jpg",
@@ -156,7 +154,7 @@ export default function JdmPage() {
                 {/* Background Video/Image Placeholder */}
                 <div className="absolute inset-0 z-0 bg-slate-900">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                    <div className="w-full h-full opacity-40 bg-[url('/images/articulos/jdm/banner.jpg')] bg-cover bg-center" />
+                    <div className="w-full h-full opacity-50 bg-[url('/images/articulos/jdm/banner.jpg')] bg-cover bg-center" />
                 </div>
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -223,8 +221,9 @@ export default function JdmPage() {
                             src={IMAGES.intro}
                             alt="JDM Intro"
                             fill
-                            className="object-cover opacity-60"
+                            className="object-cover"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                     </motion.div>
                 </div>
             </section>
@@ -243,7 +242,7 @@ export default function JdmPage() {
                                 src={IMAGES.drift}
                                 alt="Drift Action"
                                 fill
-                                className="object-cover opacity-80"
+                                className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                         </motion.div>
@@ -338,7 +337,7 @@ export default function JdmPage() {
                                         src={car.img}
                                         alt={car.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-40"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-70"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
                                 </div>
