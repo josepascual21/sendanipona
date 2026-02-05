@@ -170,6 +170,25 @@ async function main() {
     }
     console.log('Created Culture Pop Article')
 
+    // Tourism Article
+    const tourismArticles = [
+        { name: 'Tokio', info: 'La capital de Japón', slug: 'tokyo' },
+        { name: 'Kioto', info: 'La antigua capital de Japón', slug: 'kioto' },
+        { name: 'Osaka', info: 'La tercera ciudad más grande de Japón', slug: 'osaka' },
+    ]
+
+    for (const art of tourismArticles) {
+        await prisma.article.create({
+            data: {
+                name: art.name,
+                info: art.info,
+                slug: art.slug,
+                topicId: tourismTopic.id
+            }
+        })
+    }
+    console.log('Created Tourism Article')
+
     console.log('✅ Seeding finished.')
 }
 
