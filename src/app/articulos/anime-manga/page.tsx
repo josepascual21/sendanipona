@@ -193,7 +193,7 @@ export default function AnimePage() {
                     transition={{ delay: 1.5, duration: 1 }}
                     className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
                 >
-                    <span className="text-xs uppercase tracking-widest text-slate-500">Explora</span>
+                    <span className="text-xs uppercase tracking-widest">Explora</span>
                     <div className="w-[1px] h-16 bg-violet-600 shadow-[0_0_10px_#7c3aed]" />
                 </motion.div>
             </section>
