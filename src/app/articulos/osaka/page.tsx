@@ -29,6 +29,14 @@ const SECTIONS = [
     { id: '#curiosidades', label: 'Secretos', icon: <Zap size={20} /> },
 ];
 
+const IMAGES = {
+    banner: "/images/articulos/osaka/banner.jpg",
+    intro: "/images/articulos/osaka/intro.jpg",
+    dotonbori: "/images/articulos/osaka/dotonbori.jpg",
+    shinsekai: "/images/articulos/osaka/shinsekai.jpg",
+    castle: "/images/articulos/osaka/castle.jpg",
+}
+
 const CURIOSITIES = [
     {
         icon: <ArrowUp className="w-6 h-6" />,
@@ -133,7 +141,7 @@ export default function OsakaPage() {
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/articulos/osaka/hero.jpg" // Placeholder path
+                        src={IMAGES.banner}
                         alt="Dotonbori Neon Lights"
                         fill
                         className="object-cover opacity-70"
@@ -204,7 +212,7 @@ export default function OsakaPage() {
                         className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-stone-800 shadow-2xl group"
                     >
                         <Image
-                            src="/images/articulos/osaka/intro.jpg" // Placeholder
+                            src={IMAGES.intro}
                             alt="Osaka Streets"
                             fill
                             className="object-cover transition-transform duration-1000 group-hover:scale-105"
