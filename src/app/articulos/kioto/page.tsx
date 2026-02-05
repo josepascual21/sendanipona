@@ -16,6 +16,7 @@ import {
     ScrollText,
     Star
 } from 'lucide-react';
+import { int } from 'zod';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -28,6 +29,14 @@ const SECTIONS = [
     { id: '#kinkakuji', label: 'Perfección', icon: <Sun size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Star size={20} /> },
 ];
+
+const IMAGES = {
+    banner: "/images/articulos/kioto/banner.jpg",
+    intro: "/images/articulos/kioto/intro.jpg",
+    gion: "/images/articulos/kioto/gion.jpg",
+    bamboo: "/images/articulos/kioto/bamboo.jpg",
+    kinkakuji: "/images/articulos/kioto/kinkakuji.jpg",
+}
 
 const CURIOSITIES = [
     {
@@ -112,7 +121,7 @@ export default function KyotoPage() {
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/articulos/kioto/hero.jpg" // Placeholder path
+                        src={IMAGES.banner}
                         alt="Kyoto Traditional Street"
                         fill
                         className="object-cover opacity-60"
@@ -186,7 +195,7 @@ export default function KyotoPage() {
                         className="relative h-[500px] w-full rounded-sm overflow-hidden border border-stone-800 shadow-2xl group"
                     >
                         <Image
-                            src="/images/articulos/kioto/intro.jpg" // Placeholder
+                            src={IMAGES.intro}
                             alt="Kyoto Alley"
                             fill
                             className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
@@ -215,7 +224,7 @@ export default function KyotoPage() {
                         <div className="absolute inset-0 bg-amber-900/10 transform translate-x-4 translate-y-4 border border-amber-900/30 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
                         <div className="relative h-full w-full overflow-hidden border border-stone-800 bg-black">
                             <Image
-                                src="/images/articulos/kioto/gion.jpg" // Placeholder
+                                src={IMAGES.gion}
                                 alt="Gion District"
                                 fill
                                 className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
@@ -276,7 +285,7 @@ export default function KyotoPage() {
                         className="relative w-full h-[70vh] overflow-hidden rounded-sm shadow-2xl"
                     >
                         <Image
-                            src="/images/articulos/kioto/arashiyama.jpg" // Placeholder
+                            src={IMAGES.bamboo}
                             alt="Bamboo Grove"
                             fill
                             className="object-cover"
@@ -322,7 +331,7 @@ export default function KyotoPage() {
                         className="relative aspect-video w-full rounded-sm overflow-hidden shadow-[0_0_60px_rgba(217,119,6,0.15)] border border-stone-800"
                     >
                         <Image
-                            src="/images/articulos/kioto/kinkakuji.jpg" // Placeholder
+                            src={IMAGES.kinkakuji}
                             alt="Golden Pavilion"
                             fill
                             className="object-cover"
