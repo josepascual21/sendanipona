@@ -26,13 +26,17 @@ import {
 const IMAGES = {
     banner: "/images/articulos/videojuegos/banner.jpg",
     intro: "/images/articulos/videojuegos/intro.jpg",
+    sistemas: {
+        sega: "/images/articulos/videojuegos/sistemas/sega.jpg",
+        nintendo: "/images/articulos/videojuegos/sistemas/nintendo.jpg",
+    },
     arcades: "/images/articulos/videojuegos/arcades.jpg",
     tecnologia: "/images/articulos/videojuegos/tecnologia.jpg",
     franquicias: {
         mario: "/images/articulos/videojuegos/franquicias/mario.jpg",
         zelda: "/images/articulos/videojuegos/franquicias/zelda.jpg",
         ff: "/images/articulos/videojuegos/franquicias/ff.jpg",
-        mgs: "/images/articulos/videojuegos/franquicias/mgs.jpg"
+        streetfighter: "/images/articulos/videojuegos/franquicias/streetfighter.jpg",
     }
 };
 
@@ -59,11 +63,11 @@ const FRANCHISES = [
         img: IMAGES.franquicias.ff
     },
     {
-        id: "mgs",
-        name: "Metal Gear Solid",
-        company: "Konami",
-        desc: "El nacimiento del sigilo cinematográfico, explorando temas políticos y filosóficos complejos.",
-        img: IMAGES.franquicias.mgs
+        id: "streetfighter",
+        name: "Street Fighter",
+        company: " Capcom",
+        desc: "El género de los combates cuerpo a cuerpo se consolidó con esta franquicia que revolucionó la industria.",
+        img: IMAGES.franquicias.streetfighter
     }
 ];
 
@@ -160,7 +164,7 @@ export default function VideojuegosPage() {
                         transition={{ duration: 1, ease: "easeOut" }}
                     >
                         <h1 className="text-5xl md:text-[9rem] lg:text-[11rem] leading-[0.85] font-black tracking-tight text-white uppercase">
-                            Video<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-lime-500">juegos</span>
+                            Videojuegos
                         </h1>
                     </motion.div>
                     <motion.p
@@ -179,7 +183,7 @@ export default function VideojuegosPage() {
                     transition={{ delay: 1.5, duration: 1 }}
                     className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
                 >
-                    <span className="text-xs uppercase tracking-widest text-slate-500">Iniciar Nivel</span>
+                    <span className="text-xs uppercase tracking-widest text-slate-100">Iniciar Nivel</span>
                     <div className="w-[1px] h-16 bg-gradient-to-b from-emerald-500 to-transparent" />
                 </motion.div>
             </section>
@@ -230,14 +234,20 @@ export default function VideojuegosPage() {
                         >
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="h-64 bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700 shadow-inner group overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <Gamepad2 size={60} className="text-slate-600 group-hover:text-emerald-500 transition-colors" />
-                                    <span className="absolute bottom-4 text-xs font-mono tracking-widest uppercase opacity-40 group-hover:opacity-100">NES / FAMICOM</span>
+                                    <Image
+                                        src={IMAGES.sistemas.sega}
+                                        alt="Sega Mega Drive"
+                                        fill
+                                        className="object-cover opacity-80"
+                                    />
                                 </div>
                                 <div className="h-64 bg-slate-800 rounded-xl flex items-center justify-center border border-slate-700 mt-8 shadow-inner group overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-lime-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <Sword size={60} className="text-slate-600 group-hover:text-lime-500 transition-colors" />
-                                    <span className="absolute bottom-4 text-xs font-mono tracking-widest uppercase opacity-40 group-hover:opacity-100">SNES / SUPER FAMICOM</span>
+                                    <Image
+                                        src={IMAGES.sistemas.nintendo}
+                                        alt="Nintendo"
+                                        fill
+                                        className="object-cover opacity-80"
+                                    />
                                 </div>
                             </div>
                         </motion.div>
@@ -278,13 +288,12 @@ export default function VideojuegosPage() {
                                     fill
                                     className="object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/20 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-950/20 to-transparent" />
                                 <div className="absolute inset-0 flex items-center p-12">
                                     <div className="max-w-md">
                                         <h3 className="text-5xl font-black text-white mb-6 leading-tight italic uppercase tracking-tighter">
                                             Game Center<br />Culture
                                         </h3>
-                                        <p className="text-emerald-400 font-mono text-sm tracking-[0.2em] mb-4">PLAY TO CONTINUE [01]</p>
                                     </div>
                                 </div>
                             </motion.div>
