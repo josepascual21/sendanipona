@@ -189,6 +189,23 @@ async function main() {
     }
     console.log('Created Tourism Article')
 
+    // Arts Article
+    const artsArticles = [
+        { name: 'Shodo', info: 'El arte de la calligrafía japonesa', slug: 'shodo' },
+    ]
+
+    for (const art of artsArticles) {
+        await prisma.article.create({
+            data: {
+                name: art.name,
+                info: art.info,
+                slug: art.slug,
+                topicId: artsTopic.id
+            }
+        })
+    }
+    console.log('Created Arts Article')
+
     console.log('✅ Seeding finished.')
 }
 
