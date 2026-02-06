@@ -32,9 +32,15 @@ const SECTIONS = [
 const IMAGES = {
     banner: "/images/articulos/osaka/banner.jpg",
     intro: "/images/articulos/osaka/intro.jpg",
-    dotonbori: "/images/articulos/osaka/dotonbori.jpg",
-    shinsekai: "/images/articulos/osaka/shinsekai.jpg",
-    castle: "/images/articulos/osaka/castle.jpg",
+    comidas: {
+        takoyaki: "/images/articulos/osaka/comidas/takoyaki.jpg",
+        okonomiyaki: "/images/articulos/osaka/comidas/okonomiyaki.jpg",
+        kushikatsu: "/images/articulos/osaka/comidas/kushikatsu.jpg"
+    },
+    lugares: {
+        shinsekai: "/images/articulos/osaka/lugares/shinsekai.jpg",
+        castillo: "/images/articulos/osaka/lugares/castillo.jpg"
+    }
 }
 
 const CURIOSITIES = [
@@ -75,19 +81,19 @@ const FOODS = [
         id: 'takoyaki',
         name: 'Takoyaki',
         desc: 'Pequeñas bolas de masa rellenas de pulpo, jengibre y cebolleta. Se cocinan en moldes de hierro especiales y se comen ardiendo. El alma de la comida callejera.',
-        img: '/images/articulos/osaka/takoyaki.jpg' // Placeholder
+        img: IMAGES.comidas.takoyaki
     },
     {
         id: 'okonomiyaki',
         name: 'Okonomiyaki',
         desc: 'Literalmente "a tu gusto". Una tortilla sabrosa de repollo, ñame, huevo y dashi, cubierta con panceta, marisco o lo que desees, y bañada en salsa dulce.',
-        img: '/images/articulos/osaka/okonomiyaki.jpg' // Placeholder
+        img: IMAGES.comidas.okonomiyaki
     },
     {
         id: 'kushikatsu',
         name: 'Kushikatsu',
         desc: 'Brochetas de carne, verdura o queso empanadas y fritas a la perfección. La regla de oro en los bares de Shinsekai es sagrada: "Prohibido mojar dos veces" en la salsa comunal.',
-        img: '/images/articulos/osaka/kushikatsu.jpg' // Placeholder
+        img: IMAGES.comidas.kushikatsu
     }
 ];
 
@@ -102,10 +108,10 @@ const NavigationPill = () => (
             <Link
                 key={item.id}
                 href={item.id}
-                className="group flex items-center gap-3 bg-stone-900/90 backdrop-blur-md p-3 rounded-full 
-                         hover:bg-orange-600 hover:text-white transition-all duration-300 
+                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
+                         hover:bg-orange-500 hover:text-white transition-all duration-300 
                          w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-stone-700 shadow-lg shadow-orange-900/20 text-stone-400"
+                         border border-stone-700 shadow-lg text-slate-700"
             >
                 <span className="min-w-[20px] flex justify-center">{item.icon}</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
@@ -295,7 +301,7 @@ export default function OsakaPage() {
                         {/* Retro-Neon Image Container */}
                         <div className="relative h-[500px] rounded-sm overflow-hidden border-4 border-stone-800 shadow-[0_0_40px_rgba(249,115,22,0.2)] group">
                             <Image
-                                src="/images/articulos/osaka/shinsekai.jpg" // Placeholder
+                                src={IMAGES.lugares.shinsekai}
                                 alt="Shinsekai Tower"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -360,7 +366,7 @@ export default function OsakaPage() {
                         className="relative w-full h-[60vh] rounded-3xl overflow-hidden mb-12 shadow-2xl"
                     >
                         <Image
-                            src="/images/articulos/osaka/castle.jpg" // Placeholder
+                            src={IMAGES.lugares.castillo}
                             alt="Osaka Castle Wide"
                             fill
                             className="object-cover object-center"
