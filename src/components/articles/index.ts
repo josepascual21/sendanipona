@@ -8,3 +8,8 @@
 // Navegación flotante lateral
 export { NavigationPill } from './NavigationPill';
 export type { NavigationItem, NavigationPillProps, AccentColor } from './NavigationPill';
+
+// Título de sección con barra decorativa
+export { SectionTitle } from './SectionTitle';
+export type { SectionTitleProps, SectionAccentColor, TitleAlignment } from './SectionTitle';
+
