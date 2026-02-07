@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from 'framer-motion';
 import {
     BookOpen,
@@ -12,6 +11,7 @@ import {
     Scroll
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
+import { NavigationPill, NavigationItem } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -40,6 +40,15 @@ const IMAGES = {
         kuchisake: "/images/articulos/pasado/leyendas/kuchisake-onna.jpg"
     }
 };
+
+/** Secciones de navegación para el NavigationPill */
+const SECTIONS: NavigationItem[] = [
+    { id: '#introduccion', label: 'Introducción', icon: <BookOpen size={20} /> },
+    { id: '#periodos', label: 'Periodos', icon: <Clock size={20} /> },
+    { id: '#personajes', label: 'Personajes', icon: <Users size={20} /> },
+    { id: '#leyendas', label: 'Leyendas', icon: <Scroll size={20} /> },
+    { id: '#curiosidades', label: 'Curiosidades', icon: <Sparkles size={20} /> },
+];
 
 /** Datos de las leyendas para el carrusel */
 const LEGENDS_DATA: Legend[] = [
@@ -202,32 +211,7 @@ const CURIOSITIES = [
 // COMPONENTES
 // ============================================================================
 
-/** Componente de navegación flotante lateral (píldora) */
-const NavigationPill = () => (
-    <nav className="hidden xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50">
-        {[
-            { id: '#introduccion', label: 'Introducción', icon: <BookOpen size={20} /> },
-            { id: '#periodos', label: 'Periodos', icon: <Clock size={20} /> },
-            { id: '#personajes', label: 'Personajes', icon: <Users size={20} /> },
-            { id: '#leyendas', label: 'Leyendas', icon: <Scroll size={20} /> },
-            { id: '#curiosidades', label: 'Curiosidades', icon: <Sparkles size={20} /> },
-        ].map((item) => (
-            <Link
-                key={item.id}
-                href={item.id}
-                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
-                         hover:bg-amber-700 hover:text-white transition-all duration-300 
-                         w-12 hover:w-48 overflow-hidden whitespace-nowrap 
-                         border border-slate-200 shadow-lg text-slate-700"
-            >
-                <span className="min-w-[20px] flex justify-center">{item.icon}</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
-                    {item.label}
-                </span>
-            </Link>
-        ))}
-    </nav>
-);
+// NavigationPill ahora importado desde @/components/articles
 
 /** Título de sección con barra decorativa */
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
@@ -244,7 +228,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 export default function PasadoPage() {
     return (
         <div className="bg-slate-900 text-slate-100 font-sans selection:bg-amber-600 selection:text-white">
-            <NavigationPill />
+            <NavigationPill sections={SECTIONS} accentColor="amber" />
 
             {/* ========== HERO SECTION (Visualmente igual, ajustando selección) ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">

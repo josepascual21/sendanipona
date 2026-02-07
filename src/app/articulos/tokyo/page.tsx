@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from 'framer-motion';
 import {
     MapPin,
@@ -15,12 +14,13 @@ import {
     Camera,
     Moon
 } from 'lucide-react';
+import { NavigationPill, NavigationItem } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
 // ============================================================================
 
-const SECTIONS = [
+const SECTIONS: NavigationItem[] = [
     { id: '#intro', label: 'Contraste', icon: <Zap size={20} /> },
     { id: '#distritos', label: 'Distritos', icon: <MapPin size={20} /> },
     { id: '#tech', label: 'Cyberpunk', icon: <Terminal size={20} /> },
@@ -105,26 +105,7 @@ const DISTRICTS = [
 // COMPONENTES AUXILIARES
 // ============================================================================
 
-/** Navegación flotante lateral */
-const NavigationPill = () => (
-    <nav className="hidden xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50">
-        {SECTIONS.map((item) => (
-            <Link
-                key={item.id}
-                href={item.id}
-                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
-                         hover:bg-cyan-600 hover:text-white transition-all duration-300 
-                         w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-slate-200 shadow-lg text-slate-700"
-            >
-                <span className="min-w-[20px] flex justify-center">{item.icon}</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
-                    {item.label}
-                </span>
-            </Link>
-        ))}
-    </nav>
-);
+// NavigationPill ahora importado desde @/components/articles
 
 /** Título de Sección con estilo Neon/Cyberpunk */
 const SectionTitle = ({ children }: { children: React.ReactNode }) => {
@@ -143,7 +124,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => {
 export default function TokyoPage() {
     return (
         <div className="bg-slate-900 text-slate-200 font-sans selection:bg-cyan-500 selection:text-black overflow-x-hidden">
-            <NavigationPill />
+            <NavigationPill sections={SECTIONS} accentColor="cyan" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">

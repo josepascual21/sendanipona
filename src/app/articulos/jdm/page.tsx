@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from 'framer-motion';
 import {
     Car,
@@ -16,6 +15,7 @@ import {
     Disc,
     Radio
 } from 'lucide-react';
+import { NavigationPill, NavigationItem } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -104,32 +104,18 @@ const CURIOSITIES = [
     },
 ];
 
-const NavigationPill = () => (
-    <nav className="hidden xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50">
-        {[
-            { id: '#intro', label: 'Cultura', icon: <Flag size={20} /> },
-            { id: '#drift', label: 'Drift', icon: <Car size={20} /> },
-            { id: '#quedadas', label: 'Quedadas', icon: <Users size={20} /> },
-            { id: '#modelos', label: 'Leyendas', icon: <Zap size={20} /> },
-            { id: '#clandestino', label: 'Underground', icon: <AlertTriangle size={20} /> },
-            { id: '#curiosidades', label: 'Curiosidades', icon: <Flame size={20} /> },
-        ].map((item) => (
-            <Link
-                key={item.id}
-                href={item.id}
-                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
-                         hover:bg-red-800 hover:text-white transition-all duration-300 
-                         w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-slate-200 shadow-lg text-slate-700"
-            >
-                <span className="min-w-[20px] flex justify-center">{item.icon}</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
-                    {item.label}
-                </span>
-            </Link>
-        ))}
-    </nav>
-);
+/** Secciones de navegación */
+const SECTIONS: NavigationItem[] = [
+    { id: '#intro', label: 'Cultura', icon: <Flag size={20} /> },
+    { id: '#drift', label: 'Drift', icon: <Car size={20} /> },
+    { id: '#quedadas', label: 'Quedadas', icon: <Users size={20} /> },
+    { id: '#modelos', label: 'Leyendas', icon: <Zap size={20} /> },
+    { id: '#clandestino', label: 'Underground', icon: <AlertTriangle size={20} /> },
+    { id: '#curiosidades', label: 'Curiosidades', icon: <Flame size={20} /> },
+];
+
+// NavigationPill ahora importado desde @/components/articles
+
 
 const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" | "right" }) => (
     <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white
@@ -147,7 +133,7 @@ const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode,
 export default function JdmPage() {
     return (
         <div className="bg-slate-900 text-slate-300 font-sans selection:bg-red-800 selection:text-white overflow-x-hidden">
-            <NavigationPill />
+            <NavigationPill sections={SECTIONS} accentColor="red" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import {
@@ -16,10 +15,18 @@ import {
     AlertCircle,
     Info
 } from 'lucide-react';
+import { NavigationPill, NavigationItem } from '@/components/articles';
 
 // ============================================================================
 // DATOS
 // ============================================================================
+
+/** Secciones de navegación */
+const SECTIONS: NavigationItem[] = [
+    { id: '#introduccion', label: 'Introducción', icon: <Info size={20} /> },
+    { id: '#estadisticas', label: 'Estadísticas', icon: <Activity size={20} /> },
+    { id: '#curiosidades', label: 'Curiosidades', icon: <Rocket size={20} /> },
+];
 
 const CURIOSITIES = [
     {
@@ -53,30 +60,7 @@ const CURIOSITIES = [
 // COMPONENTES
 // ============================================================================
 
-/** Navegación lateral */
-const NavigationPill = () => (
-    <nav className="hidden xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50">
-        {[
-            { id: '#introduccion', label: 'Introducción', icon: <Info size={20} /> },
-            { id: '#estadisticas', label: 'Estadísticas', icon: <Activity size={20} /> },
-            { id: '#curiosidades', label: 'Curiosidades', icon: <Rocket size={20} /> },
-        ].map((item) => (
-            <Link
-                key={item.id}
-                href={item.id}
-                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
-                         hover:bg-cyan-600 hover:text-white transition-all duration-300 
-                         w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-slate-200 shadow-lg text-slate-700"
-            >
-                <span className="min-w-[20px] flex justify-center">{item.icon}</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
-                    {item.label}
-                </span>
-            </Link>
-        ))}
-    </nav>
-);
+// NavigationPill ahora importado desde @/components/articles
 
 /** Título de sección */
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
@@ -93,7 +77,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 export default function FuturoPage() {
     return (
         <div className="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-white">
-            <NavigationPill />
+            <NavigationPill sections={SECTIONS} accentColor="cyan" />
 
             {/* ========== HERO SECTION ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">

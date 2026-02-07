@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from 'framer-motion';
 import {
     Utensils,
@@ -16,12 +15,13 @@ import {
     Users,
     Flame
 } from 'lucide-react';
+import { NavigationPill, NavigationItem } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
 // ============================================================================
 
-const SECTIONS = [
+const SECTIONS: NavigationItem[] = [
     { id: '#intro', label: 'El Espíritu', icon: <Smile size={20} /> },
     { id: '#gastronomia', label: 'Kuidaore', icon: <Utensils size={20} /> },
     { id: '#shinsekai', label: 'Retro-Futuro', icon: <Radio size={20} /> },
@@ -101,26 +101,7 @@ const FOODS = [
 // COMPONENTES AUXILIARES
 // ============================================================================
 
-/** Navegación flotante lateral - Estilo Warm */
-const NavigationPill = () => (
-    <nav className="hidden xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50">
-        {SECTIONS.map((item) => (
-            <Link
-                key={item.id}
-                href={item.id}
-                className="group flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-full 
-                         hover:bg-orange-500 hover:text-white transition-all duration-300 
-                         w-12 hover:w-40 overflow-hidden whitespace-nowrap 
-                         border border-stone-700 shadow-lg text-slate-700"
-            >
-                <span className="min-w-[20px] flex justify-center">{item.icon}</span>
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
-                    {item.label}
-                </span>
-            </Link>
-        ))}
-    </nav>
-);
+// NavigationPill ahora importado desde @/components/articles
 
 /** Título de Sección con estilo Cálido */
 const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" }) => {
@@ -141,7 +122,7 @@ const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode,
 export default function OsakaPage() {
     return (
         <div className="bg-stone-900 text-stone-200 font-sans selection:bg-orange-500 selection:text-white overflow-x-hidden">
-            <NavigationPill />
+            <NavigationPill sections={SECTIONS} accentColor="orange" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
