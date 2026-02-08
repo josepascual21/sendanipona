@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from 'framer-motion';
 import {
     BookOpen,
-    Tv,
     Globe,
     Zap,
     Heart,
@@ -17,7 +16,7 @@ import {
     Users,
     Layers
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -119,14 +118,7 @@ const SECTIONS: NavigationItem[] = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" | "right" }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white
-        ${align === "center" ? "mx-auto" : ""}
-    `}>
-        {children}
-        <span className={`absolute -bottom-2 ${align === "right" ? "right-0" : "left-0"} w-24 h-2 bg-violet-600`} />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -191,9 +183,9 @@ export default function AnimePage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle>Del Pergamino<br />a la Pantalla</SectionTitle>
+                        <SectionTitle accentColor="violet">Del Pergamino<br />a la Pantalla</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
-                            Las raíces del manga se hunden en el siglo XII con los <em>Chōjū-giga</em>, rollos de animales antropomórficos. Sin embargo, fue tras la Segunda Guerra Mundial cuando <strong className="text-violet-400">Osamu Tezuka</strong>, el "Dios del Manga", revolucionó el medio inspirándose en el cine occidental.
+                            Las raíces del manga se hunden en el siglo XII con los <em>Chōjū-giga</em>, rollos de animales antropomórficos. Sin embargo, fue tras la Segunda Guerra Mundial cuando <strong className="text-violet-400">Osamu Tezuka</strong>, el &quot;Dios del Manga&quot;, revolucionó el medio inspirándose en el cine occidental.
                         </p>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify">
                             Tezuka introdujo técnicas cinematográficas (planos, ángulos, ritmo) en el papel, creando el lenguaje visual dinámico que hoy reconocemos universalmente. De ahí nació el anime, llevando esas historias estáticas al movimiento fluido de la animación televisiva.
@@ -230,7 +222,7 @@ export default function AnimePage() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <SectionTitle align="center">Demografía y Género</SectionTitle>
+                        <SectionTitle accentColor="violet" align="center">Demografía y Género</SectionTitle>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
                             A diferencia del cómic occidental, el manga se segmenta principalmente por la demografía del lector, no solo por el contenido temático.
                         </p>
@@ -300,15 +292,15 @@ export default function AnimePage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <SectionTitle>Explosión Global</SectionTitle>
+                            <SectionTitle accentColor="violet">Explosión Global</SectionTitle>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-                                En los años 80 y 90, obras como <strong className="text-white">Akira</strong> y <strong className="text-white">Ghost in the Shell</strong> rompieron la percepción occidental de que la animación era "solo para niños".
+                                En los años 80 y 90, obras como <strong className="text-white">Akira</strong> y <strong className="text-white">Ghost in the Shell</strong> rompieron la percepción occidental de que la animación era &quot;solo para niños&quot;.
                             </p>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Simultáneamente, <strong>Studio Ghibli</strong> elevó el medio a la categoría de bellas artes, ganando el Óscar con <em>El Viaje de Chihiro</em>. Hoy, el anime es una industria multimillonaria y la puerta de entrada principal a la cultura japonesa para millones de personas.
                             </p>
                             <blockquote className="border-l-4 border-violet-600 pl-6 italic text-slate-400 text-xl my-8">
-                                "El anime no es un género, es un medio capaz de contar cualquier historia."
+                                &quot;El anime no es un género, es un medio capaz de contar cualquier historia.&quot;
                             </blockquote>
                         </motion.div>
                     </div>

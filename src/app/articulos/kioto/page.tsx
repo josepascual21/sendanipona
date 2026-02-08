@@ -4,7 +4,6 @@ import React from 'react';
 import Image from "next/image";
 import { motion } from 'framer-motion';
 import {
-    MapPin,
     Ghost,
     Wind,
     Sun,
@@ -15,7 +14,7 @@ import {
     ScrollText,
     Star
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -76,17 +75,7 @@ const CURIOSITIES = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-/** Título de Sección con estilo Historical */
-const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" }) => {
-    return (
-        <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white drop-shadow-md 
-            ${align === "center" ? "text-center mx-auto" : ""}
-        `}>
-            {children}
-            <span className={`absolute -bottom-2 ${align === "center" ? "left-1/2 -translate-x-1/2" : "left-0"} w-24 h-2 bg-amber-600 shadow-[0_0_15px_rgba(217,119,6,0.3)]`} />
-        </h2>
-    );
-};
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -156,7 +145,7 @@ export default function KyotoPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <SectionTitle>El Tiempo Detenido</SectionTitle>
+                        <SectionTitle accentColor="amber" hasGlow>El Tiempo Detenido</SectionTitle>
                         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-stone-300 text-justify">
                             <p>
                                 Mientras Tokyo corre hacia el futuro y Osaka devora el presente, <strong className="text-amber-500">Kioto respira en la eternidad</strong>. Fue la capital imperial durante más de mil años y su alma reside en la madera vieja, el incienso y el sonido de las sandalias sobre los adoquines.
@@ -222,9 +211,9 @@ export default function KyotoPage() {
                             <Fan size={24} />
                             <span className="text-sm font-bold tracking-[0.2em] uppercase">Mundo Flotante</span>
                         </div>
-                        <SectionTitle>Gion</SectionTitle>
+                        <SectionTitle accentColor="amber" hasGlow>Gion</SectionTitle>
                         <p className="text-xl text-stone-400 mb-8 font-light italic">
-                            "Donde las sombras tienen más color que la luz."
+                            &quot;Donde las sombras tienen más color que la luz.&quot;
                         </p>
                         <div className="space-y-6 text-lg text-stone-300 leading-relaxed text-justify">
                             <p>
@@ -250,7 +239,7 @@ export default function KyotoPage() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <SectionTitle align="center">El Susurro del Bambú</SectionTitle>
+                        <SectionTitle accentColor="amber" hasGlow align="center">El Susurro del Bambú</SectionTitle>
                         <p className="text-lg text-stone-400 max-w-2xl mx-auto mt-6">
                             Arashiyama, donde la naturaleza se convierte en arquitectura.
                         </p>
@@ -276,7 +265,7 @@ export default function KyotoPage() {
                         <div className="absolute bottom-12 left-8 md:left-12 max-w-lg">
                             <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">El Bosque de Bambú</h3>
                             <p className="text-stone-200 text-lg leading-relaxed drop-shadow-md">
-                                Caminar aquí es escuchar el sonido del viento chocando contra los tallos huecos. Un sonido que ha sido designado como uno de los "100 Paisajes Sonoros de Japón".
+                                Caminar aquí es escuchar el sonido del viento chocando contra los tallos huecos. Un sonido que ha sido designado como uno de los &quot;100 Paisajes Sonoros de Japón&quot;.
                             </p>
                         </div>
                     </motion.div>
@@ -299,7 +288,7 @@ export default function KyotoPage() {
                         <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-12" />
 
                         <p className="text-xl md:text-2xl text-stone-300 leading-relaxed font-light mb-12">
-                            El Pabellón Dorado. Un templo cubierto de pan de oro puro que se refleja en el "Estanque Espejo". Es la representación física del Paraíso de la Tierra Pura.
+                            El Pabellón Dorado. Un templo cubierto de pan de oro puro que se refleja en el &quot;Estanque Espejo&quot;. Es la representación física del Paraíso de la Tierra Pura.
                         </p>
                     </motion.div>
 

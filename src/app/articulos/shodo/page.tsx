@@ -14,7 +14,7 @@ import {
     Brush,
     AlignLeft
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -126,15 +126,7 @@ const SECTIONS: NavigationItem[] = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-const SectionTitle = ({ children, align = "left", dark = false }: { children: React.ReactNode, align?: "left" | "center" | "right", dark?: boolean }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight 
-        ${dark ? "text-slate-900" : "text-white"}
-        ${align === "center" ? "mx-auto" : ""}
-    `}>
-        {children}
-        <span className={`absolute -bottom-2 ${align === "right" ? "right-0" : "left-0"} w-24 h-2 bg-red-600`} />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -213,7 +205,7 @@ export default function ShodoPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle>No es solo escribir</SectionTitle>
+                        <SectionTitle accentColor="red">No es solo escribir</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             El <strong>Shodō</strong> (el camino de la escritura) no busca simplemente la legibilidad. Es una disciplina artística y espiritual donde el calígrafo vierte su momento presente en el papel.
                         </p>
@@ -255,9 +247,9 @@ export default function ShodoPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle align="center">Bunbou Shihou</SectionTitle>
+                        <SectionTitle accentColor="red" align="center">Bunbou Shihou</SectionTitle>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6 tracking-wide">
-                            "Los Cuatro Tesoros del Estudio". Herramientas sagradas que conectan al artista con el universo.
+                            &quot;Los Cuatro Tesoros del Estudio&quot;. Herramientas sagradas que conectan al artista con el universo.
                         </p>
                     </motion.div>
 
@@ -304,7 +296,7 @@ export default function ShodoPage() {
             <section id="estilos" className="py-24 md:py-32 bg-slate-950 relative">
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <div className="mb-16">
-                        <SectionTitle align="left">Los Tres Estilos</SectionTitle>
+                        <SectionTitle accentColor="red" align="left">Los Tres Estilos</SectionTitle>
                     </div>
 
                     <div className="flex flex-col gap-12">
@@ -373,7 +365,7 @@ export default function ShodoPage() {
                         <p className="text-lg text-slate-400 mb-8 max-w-2xl">
                             Es la fusión definitiva de cuerpo y espíritu: una danza marcial donde el resultado final es tan importante como el movimiento que lo creó.
                             <br /><br />
-                            <span className="text-red-500 italic">"El pincel baila, la tinta canta."</span>
+                            <span className="text-red-500 italic">&quot;El pincel baila, la tinta canta.&quot;</span>
                         </p>
                     </motion.div>
                 </div>

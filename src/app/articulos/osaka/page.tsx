@@ -9,13 +9,11 @@ import {
     Castle,
     Smile,
     ArrowUp,
-    MapPin,
     Radio,
     Zap,
-    Users,
-    Flame
+    Users
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -103,17 +101,7 @@ const FOODS = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-/** Título de Sección con estilo Cálido */
-const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" }) => {
-    return (
-        <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white drop-shadow-md 
-            ${align === "center" ? "text-center mx-auto" : ""}
-        `}>
-            {children}
-            <span className={`absolute -bottom-2 ${align === "center" ? "left-1/2 -translate-x-1/2" : "left-0"} w-32 h-2 bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.4)]`} />
-        </h2>
-    );
-};
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -180,7 +168,7 @@ export default function OsakaPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <SectionTitle>Alma Rebelde</SectionTitle>
+                        <SectionTitle accentColor="orange" hasGlow>Alma Rebelde</SectionTitle>
                         <div className="space-y-6 text-lg leading-relaxed text-stone-300 text-justify">
                             <p>
                                 Si Tokyo es el cerebro de Japón, <strong className="text-orange-400">Osaka es el corazón (y el estómago)</strong>. Aquí, la rigidez social se relaja. La gente habla más alto, ríe con más ganas y no tiene miedo de cruzar un semáforo en rojo si no vienen coches.
@@ -222,9 +210,9 @@ export default function OsakaPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle align="center">Kuidaore</SectionTitle>
+                        <SectionTitle accentColor="orange" hasGlow align="center">Kuidaore</SectionTitle>
                         <p className="text-xl text-stone-400 max-w-2xl mx-auto mt-6">
-                            "Arruinarse comiendo". El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
+                            &quot;Arruinarse comiendo&quot;. El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
                         </p>
                     </motion.div>
 
@@ -318,7 +306,7 @@ export default function OsakaPage() {
                         </div>
 
                         <p className="text-lg text-stone-300 leading-relaxed mb-6">
-                            El "Nuevo Mundo" que se quedó congelado en 1912. Un laberinto de luces de neón vintage, salas de juego ruidosas y carteles coloridos.
+                            El &quot;Nuevo Mundo&quot; que se quedó congelado en 1912. Un laberinto de luces de neón vintage, salas de juego ruidosas y carteles coloridos.
                         </p>
                         <p className="text-lg text-stone-300 leading-relaxed">
                             Es la esencia de la nostalgia Showa. Aquí el tiempo se detiene entre brochetas fritas y la imponente torre Tsutenkaku.
@@ -336,7 +324,7 @@ export default function OsakaPage() {
                         viewport={{ once: true }}
                         className="mb-12"
                     >
-                        <SectionTitle>El Guardián</SectionTitle>
+                        <SectionTitle accentColor="orange" hasGlow>El Guardián</SectionTitle>
                     </motion.div>
 
                     {/* Full Width Image Top */}

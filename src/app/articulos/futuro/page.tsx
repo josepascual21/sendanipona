@@ -15,7 +15,7 @@ import {
     AlertCircle,
     Info
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // DATOS
@@ -62,13 +62,7 @@ const CURIOSITIES = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-/** Título de sección */
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h2 className="text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white">
-        {children}
-        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-cyan-500" />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA
@@ -137,7 +131,7 @@ export default function FuturoPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <SectionTitle>¿Qué está por venir?</SectionTitle>
+                            <SectionTitle accentColor="cyan">¿Qué está por venir?</SectionTitle>
                             <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     Aunque parezca mentira, se hace difícil hablar del rumbo que está tomando Japón sin remarcar más sus debilidades que sus fortalezas.
@@ -204,7 +198,7 @@ export default function FuturoPage() {
                                     </div>
                                     <p className="text-slate-300 leading-relaxed">
                                         La tasa de natalidad no ha dejado de decrecer, y los pronósticos no auguran una recuperación temprana.
-                                        El índice de fecundidad ha caído por debajo del "2.1", eliminando la "fecundidad de reemplazo".
+                                        El índice de fecundidad ha caído por debajo del &quot;2.1&quot;, eliminando la &quot;fecundidad de reemplazo&quot;.
                                         La pirámide de población se invierte peligrosamente.
                                     </p>
                                 </div>
@@ -283,7 +277,7 @@ export default function FuturoPage() {
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
                 <section id="curiosidades" className="py-32 bg-black text-slate-300">
                     <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle>Curiosidades del Mañana</SectionTitle>
+                        <SectionTitle accentColor="cyan">Curiosidades del Mañana</SectionTitle>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
                             {CURIOSITIES.map((item, index) => (

@@ -14,7 +14,7 @@ import {
     Camera,
     Moon
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -107,15 +107,7 @@ const DISTRICTS = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-/** Título de Sección con estilo Neon/Cyberpunk */
-const SectionTitle = ({ children }: { children: React.ReactNode }) => {
-    return (
-        <h2 className="text-4xl md:text-6xl font-black mb-12 relative inline-block tracking-tighter text-white drop-shadow-md">
-            {children}
-            <span className={`absolute -bottom-2 right-0 w-32 h-2 bg-cyan-500 shadow-[0_0_15px_rgba(0,255,255,0.5)]`} />
-        </h2>
-    );
-};
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -188,7 +180,7 @@ export default function TokyoPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <SectionTitle>Caos Organizado</SectionTitle>
+                        <SectionTitle accentColor="cyan" hasGlow align="right">Caos Organizado</SectionTitle>
                         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-300 text-justify">
                             <p>
                                 Tokyo no es una ciudad; es un <strong className="text-cyan-400">organismo vivo</strong>. Es la metrópolis más poblada del mundo, un laberinto infinito de hormigón y luz donde 37 millones de personas conviven en una danza coreografiada de eficiencia imposible.
@@ -217,7 +209,7 @@ export default function TokyoPage() {
                         {/* Quote overlay */}
                         <div className="absolute bottom-10 left-10 right-10">
                             <p className="text-2xl font-light italic text-slate-200 border-l-4 border-cyan-500 pl-6">
-                                "En Tokyo, la noche no es el final del día, sino el comienzo de otra vida."
+                                &quot;En Tokyo, la noche no es el final del día, sino el comienzo de otra vida.&quot;
                             </p>
                         </div>
                     </motion.div>
@@ -233,7 +225,7 @@ export default function TokyoPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle>Micro-Mundos</SectionTitle>
+                        <SectionTitle accentColor="cyan" hasGlow align="right">Micro-Mundos</SectionTitle>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
                             Cada estación de la línea Yamanote es una puerta a un universo diferente. Cruza la calle y cambiarás de era.
                         </p>

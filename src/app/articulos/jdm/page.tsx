@@ -15,7 +15,7 @@ import {
     Disc,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -117,14 +117,7 @@ const SECTIONS: NavigationItem[] = [
 // NavigationPill ahora importado desde @/components/articles
 
 
-const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" | "right" }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white
-        ${align === "center" ? "mx-auto" : ""}
-    `}>
-        {children}
-        <span className={`absolute -bottom-2 ${align === "right" ? "right-0" : "left-0"} w-24 h-2 bg-red-800`} />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -184,12 +177,12 @@ export default function JdmPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle>No es solo<br />una etiqueta</SectionTitle>
+                        <SectionTitle accentColor="red">No es solo<br />una etiqueta</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             El término <strong className="text-white">JDM</strong> (Japanese Domestic Market) nació para designar a los vehículos y piezas fabricados específicamente para el mercado japonés. Sin embargo, con los años, ha trascendido su definición técnica para convertirse en una <em className="text-red-500 font-serif">cultura global</em>.
                         </p>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify">
-                            No se trata solo de coches; se trata de una búsqueda obsesiva de la perfección, la estética 'clean', el respeto por la ingeniería y un sentido de comunidad que une a entusiastas de todo el mundo, desde las curvas de Hakone hasta los aparcamientos de Daikoku.
+                            No se trata solo de coches; se trata de una búsqueda obsesiva de la perfección, la estética &apos;clean&apos;, el respeto por la ingeniería y un sentido de comunidad que une a entusiastas de todo el mundo, desde las curvas de Hakone hasta los aparcamientos de Daikoku.
                         </p>
                     </motion.div>
                     <motion.div
@@ -240,7 +233,7 @@ export default function JdmPage() {
                             className="order-1 md:order-2 text-right"
                         >
                             <div className="flex flex-col items-end">
-                                <SectionTitle align="right">El Arte del<br />Descontrol</SectionTitle>
+                                <SectionTitle accentColor="red" align="right">El Arte del<br />Descontrol</SectionTitle>
                             </div>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Nacido en las montañas (Touge) de Japón, el <strong className="text-red-500">Drift</strong> es la máxima expresión de control sobre el caos. No se busca llegar el primero, sino hacerlo con el mayor estilo y ángulo posible.
@@ -261,7 +254,7 @@ export default function JdmPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle align="center">Daikoku Futo &<br />La Cultura del Parking</SectionTitle>
+                        <SectionTitle accentColor="red" align="center">Daikoku Futo &<br />La Cultura del Parking</SectionTitle>
                         <p className="text-lg text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed">
                             En Japón, las áreas de servicio (PA) no son solo para descansar. Son templos improvisados donde se reúnen las máquinas más increíbles de la noche bajo luces de neón y vapor de sodio.
                         </p>

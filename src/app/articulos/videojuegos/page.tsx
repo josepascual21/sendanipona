@@ -6,10 +6,8 @@ import { motion } from 'framer-motion';
 import {
     Gamepad2,
     Trophy,
-    Monitor,
     Cpu,
     Joystick,
-    Sword,
     Ghost,
     Zap,
     History,
@@ -17,7 +15,7 @@ import {
     CircuitBoard,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -116,14 +114,7 @@ const SECTIONS: NavigationItem[] = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-const SectionTitle = ({ children, align = "left" }: { children: React.ReactNode, align?: "left" | "center" | "right" }) => (
-    <h2 className={`text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white
-        ${align === "center" ? "mx-auto" : ""}
-    `}>
-        {children}
-        <span className={`absolute -bottom-2 ${align === "right" ? "right-0" : "left-0"} w-24 h-2 bg-gradient-to-r from-emerald-600 to-lime-600`} />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -181,12 +172,12 @@ export default function VideojuegosPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle>El epicentro del<br />entretenimiento</SectionTitle>
+                        <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">El epicentro del<br />entretenimiento</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             Lo que comenzó como un experimento técnico en laboratorios se convirtió, gracias a Japón, en la industria cultural más lucrativa del planeta. Tras la crisis de 1983 que casi aniquila el sector en Occidente, <strong className="text-white">Nintendo</strong> logró lo imposible: devolver la fe en el medio con creatividad, rigor y personajes inolvidables.
                         </p>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify">
-                            Japón no solo fabrica consolas; crea mundos. Desde los callejones de Akihabara hasta las oficinas de Kioto, la filosofía japonesa de "Monozukuri" (el arte de fabricar cosas) se fusionó con la imaginación para darnos una forma de arte que hoy define a generaciones enteras.
+                            Japón no solo fabrica consolas; crea mundos. Desde los callejones de Akihabara hasta las oficinas de Kioto, la filosofía japonesa de &quot;Monozukuri&quot; (el arte de fabricar cosas) se fusionó con la imaginación para darnos una forma de arte que hoy define a generaciones enteras.
                         </p>
                     </motion.div>
                     <motion.div
@@ -243,12 +234,12 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="order-1 md:order-2"
                         >
-                            <SectionTitle>La Magia del<br />Pixel Art</SectionTitle>
+                            <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">La Magia del<br />Pixel Art</SectionTitle>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Las eras de los 8 y 16 bits representan el nacimiento de los géneros que conocemos hoy. La limitación técnica obligó a los desarrolladores a perfeccionar las mecánicas, la música (el legendario chip-tune) y el diseño de niveles.
                             </p>
                             <p className="text-lg text-slate-300 leading-relaxed">
-                                Mientras Nintendo dominaba con su rigor creativo, <strong className="text-lime-400">SEGA</strong> llegaba con "Sega does what Nintendon't", aportando una actitud urbana, veloz y rebelde que cambió la forma en que se comercializaban los videojuegos.
+                                Mientras Nintendo dominaba con su rigor creativo, <strong className="text-lime-400">SEGA</strong> llegaba con &quot;Sega does what Nintendon&apos;t&quot;, aportando una actitud urbana, veloz y rebelde que cambió la forma en que se comercializaban los videojuegos.
                             </p>
                         </motion.div>
                     </div>
@@ -289,7 +280,7 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <SectionTitle>El corazón de<br />Akihabara</SectionTitle>
+                            <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">El corazón de<br />Akihabara</SectionTitle>
                             <div className="space-y-6 text-lg leading-relaxed text-justify text-slate-300">
                                 <p>
                                     A diferencia de Occidente, donde los salones recreativos casi han desaparecido, en Japón siguen siendo templos de la habilidad social y competitiva. Los edificios de <strong className="text-red-500">GiGO</strong> (antes SEGA) y Taito son puntos de referencia inconfundibles.
@@ -298,7 +289,7 @@ export default function VideojuegosPage() {
                                     Desde el fenómeno de los juegos de lucha con <em className="text-white">Street Fighter</em>, hasta la locura rítmica de <em className="text-white">Dance Dance Revolution</em> y los complejos simuladores de mechas, el arcade es donde Japón experimenta con el hardware más extremo.
                                 </p>
                                 <p>
-                                    No se trata solo de jugar; es un espacio de reunión. El sonido ensordecedor de los 'ufo catchers', el tintineo de las medallas y el olor a electrónica caliente forman parte del ADN nocturno de las grandes ciudades japonesas.
+                                    No se trata solo de jugar; es un espacio de reunión. El sonido ensordecedor de los &apos;ufo catchers&apos;, el tintineo de las medallas y el olor a electrónica caliente forman parte del ADN nocturno de las grandes ciudades japonesas.
                                 </p>
                             </div>
                         </motion.div>
@@ -315,7 +306,7 @@ export default function VideojuegosPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle align="center">Franquicias Legendarias</SectionTitle>
+                        <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan" align="center">Franquicias Legendarias</SectionTitle>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
                             Nombres que no necesitan traducción. Historias que han unido a jugadores de todo el mundo.
                         </p>
@@ -367,7 +358,7 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <SectionTitle>Innovación sin<br />Límites</SectionTitle>
+                            <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">Innovación sin<br />Límites</SectionTitle>
                             <div className="space-y-6">
                                 <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
                                     <h4 className="text-white font-bold flex items-center gap-2 mb-2">

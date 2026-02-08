@@ -16,7 +16,7 @@ import {
     Building2,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // DATOS
@@ -72,13 +72,7 @@ const CURIOSITIES = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-/** Título de sección */
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h2 className="text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white">
-        {children}
-        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-indigo-600" />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA
@@ -145,7 +139,7 @@ export default function PresentePage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <SectionTitle>Sociedad Estoica</SectionTitle>
+                            <SectionTitle accentColor="indigo">Sociedad Estoica</SectionTitle>
                             <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     En este apartado es esencial empezar dando un breve resumen sobre la sociedad japonesa. Lo más básico que podríamos exponer es que es conocida por su enfoque en la
@@ -159,7 +153,7 @@ export default function PresentePage() {
                                     Podría parecer una sociedad ideal para los amantes de la calma y la serenidad, donde prevalece el orden frente al caos y prima el respeto mutuo.
                                 </p>
                                 <p>
-                                    Sin embargo, debe ser mostrada la <span className="text-indigo-400 font-bold">"cara B"</span>.
+                                    Sin embargo, debe ser mostrada la <span className="text-indigo-400 font-bold">&quot;cara B&quot;</span>.
                                     Debido al exceso de homogeneidad, a veces se rechaza lo extraño o diferente. La violencia puede manifestarse
                                     no física, sino como falta de respeto y abuso hacia el más débil o de menor rango en la jerarquía.
                                     Aun con esto, hay esperanza en la constante integración que el país vive con otras culturas.
@@ -232,7 +226,7 @@ export default function PresentePage() {
                                         <Ticket /> Anime y Manga
                                     </h3>
                                     <p className="text-slate-300 leading-relaxed text-lg">
-                                        Fenómeno cultural surgido en los 80. Hoy día, el concepto "otaku" se ha normalizado
+                                        Fenómeno cultural surgido en los 80. Hoy día, el concepto &quot;otaku&quot; se ha normalizado
                                         y es una de las mayores exportaciones culturales del país, influyendo en la moda, cine y arte global.
                                     </p>
                                 </div>
@@ -305,7 +299,7 @@ export default function PresentePage() {
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
                 <section id="curiosidades" className="py-32 bg-stone-950 text-stone-300">
                     <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle>Curiosidades</SectionTitle>
+                        <SectionTitle accentColor="indigo">Curiosidades</SectionTitle>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
                             {CURIOSITIES.map((item, index) => (

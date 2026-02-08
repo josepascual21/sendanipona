@@ -11,7 +11,7 @@ import {
     Scroll
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
-import { NavigationPill, NavigationItem } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -213,13 +213,7 @@ const CURIOSITIES = [
 
 // NavigationPill ahora importado desde @/components/articles
 
-/** Título de sección con barra decorativa */
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h2 className="text-4xl md:text-5xl font-black mb-12 relative inline-block tracking-tight text-white">
-        {children}
-        <span className="absolute -bottom-2 right-0 w-24 h-2 bg-amber-600" />
-    </h2>
-);
+// SectionTitle ahora importado desde @/components/articles
 
 // ============================================================================
 // PÁGINA PRINCIPAL
@@ -289,7 +283,7 @@ export default function PasadoPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
                         >
-                            <SectionTitle>Filosofía y Guerras</SectionTitle>
+                            <SectionTitle accentColor="amber">Filosofía y Guerras</SectionTitle>
                             <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     En este apartado vamos a profundizar en las
@@ -386,7 +380,7 @@ export default function PasadoPage() {
                             viewport={{ once: true }}
                             className="text-center mb-16"
                         >
-                            <SectionTitle>Personajes Históricos</SectionTitle>
+                            <SectionTitle accentColor="amber">Personajes Históricos</SectionTitle>
                             <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
                                 Los líderes, artistas y guerreros que definieron la historia japonesa.
                             </p>
@@ -435,7 +429,7 @@ export default function PasadoPage() {
                             viewport={{ once: true }}
                             className="text-center mb-16"
                         >
-                            <SectionTitle>Leyendas y Mitología</SectionTitle>
+                            <SectionTitle accentColor="amber">Leyendas y Mitología</SectionTitle>
                             <p className="text-xl text-slate-400 max-w-2xl mx-auto font-serif italic mt-6">
                                 &ldquo;Historias ancestrales que forjaron el espíritu de una nación.&rdquo;
                             </p>
