@@ -15,7 +15,7 @@ import {
     CircuitBoard,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -126,43 +126,19 @@ export default function VideojuegosPage() {
             <NavigationPill sections={SECTIONS} accentColor="emerald" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                    {/* Placeholder con un gradiente si no hay imagen */}
-                    <div className="w-full h-full opacity-40 bg-[url('/images/articulos/videojuegos/banner.jpg')] bg-cover bg-center bg-slate-800" />
-                </div>
-
-                <div className="relative z-10 text-center px-4 w-full max-w-7xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                    >
-                        <h1 className="text-5xl md:text-[9rem] lg:text-[11rem] leading-[0.85] font-black tracking-tight text-white uppercase">
-                            Videojuegos
-                        </h1>
-                    </motion.div>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light mt-8 tracking-[0.4em] text-emerald-200 uppercase"
-                    >
-                        De los Arcades a la Eternidad
-                    </motion.p>
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-slate-100">Iniciar Nivel</span>
-                    <div className="w-[1px] h-16 bg-gradient-to-b from-emerald-500 to-transparent" />
-                </motion.div>
-            </section>
+            <HeroSection
+                backgroundImage="/images/articulos/videojuegos/banner.jpg"
+                title={
+                    <h1 className="text-5xl md:text-[9rem] lg:text-[11rem] leading-[0.85] font-black tracking-tight text-white uppercase">
+                        Videojuegos
+                    </h1>
+                }
+                subtitle="De los Arcades a la Eternidad"
+                scrollText="Iniciar Nivel"
+                accentColor="text-emerald-200"
+                scrollLineColor="bg-gradient-to-b from-emerald-500 to-transparent"
+                overlayOpacity={0.6}
+            />
 
             {/* ========== INTRO (OSCURO TONO B) ========== */}
             <section id="intro" className="py-24 md:py-32 px-6 min-h-[80vh] flex items-center bg-slate-950">
@@ -172,7 +148,7 @@ export default function VideojuegosPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">El epicentro del<br />entretenimiento</SectionTitle>
+                        <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">El epicentro del<br />entretenimiento</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             Lo que comenzó como un experimento técnico en laboratorios se convirtió, gracias a Japón, en la industria cultural más lucrativa del planeta. Tras la crisis de 1983 que casi aniquila el sector en Occidente, <strong className="text-white">Nintendo</strong> logró lo imposible: devolver la fe en el medio con creatividad, rigor y personajes inolvidables.
                         </p>
@@ -234,7 +210,7 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="order-1 md:order-2"
                         >
-                            <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">La Magia del<br />Pixel Art</SectionTitle>
+                            <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">La Magia del<br />Pixel Art</SectionTitle>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Las eras de los 8 y 16 bits representan el nacimiento de los géneros que conocemos hoy. La limitación técnica obligó a los desarrolladores a perfeccionar las mecánicas, la música (el legendario chip-tune) y el diseño de niveles.
                             </p>
@@ -280,7 +256,7 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">El corazón de<br />Akihabara</SectionTitle>
+                            <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">El corazón de<br />Akihabara</SectionTitle>
                             <div className="space-y-6 text-lg leading-relaxed text-justify text-slate-300">
                                 <p>
                                     A diferencia de Occidente, donde los salones recreativos casi han desaparecido, en Japón siguen siendo templos de la habilidad social y competitiva. Los edificios de <strong className="text-red-500">GiGO</strong> (antes SEGA) y Taito son puntos de referencia inconfundibles.
@@ -306,10 +282,10 @@ export default function VideojuegosPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan" align="center">Franquicias Legendarias</SectionTitle>
-                        <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
+                        <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400" align="center">Franquicias Legendarias</SectionTitle>
+                        <SectionSubtitle align="center">
                             Nombres que no necesitan traducción. Historias que han unido a jugadores de todo el mundo.
-                        </p>
+                        </SectionSubtitle>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -358,7 +334,7 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <SectionTitle accentColor="emerald" useGradient gradientToColor="cyan">Innovación sin<br />Límites</SectionTitle>
+                            <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">Innovación sin<br />Límites</SectionTitle>
                             <div className="space-y-6">
                                 <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
                                     <h4 className="text-white font-bold flex items-center gap-2 mb-2">

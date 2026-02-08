@@ -13,7 +13,7 @@ import {
     Zap,
     Users
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -113,51 +113,19 @@ export default function OsakaPage() {
             <NavigationPill sections={SECTIONS} accentColor="orange" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={IMAGES.banner}
-                        alt="Dotonbori Neon Lights"
-                        fill
-                        className="object-cover opacity-70"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-stone-900/20 via-stone-900/50 to-stone-900" />
+            {/* ========== HERO SECTION (100vh) ========== */}
+            <HeroSection
+                backgroundImage={IMAGES.banner}
+                title="OSAKA"
+                subtitle="La Cocina de Japón"
+                scrollText="Descubre"
+                accentColor="text-orange-200"
+                scrollLineColor="bg-orange-500"
+                overlayOpacity={0.7}
+                backgroundChildren={
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-stone-900/90" />
-                </div>
-
-                <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="relative"
-                    >
-                        <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter drop-shadow-2xl">
-                            OSAKA
-                        </h1>
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light tracking-[0.3em] text-orange-200 uppercase mt-8 drop-shadow-[0_0_10px_rgba(249,115,22,0.3)]"
-                    >
-                        La Cocina de Japón
-                    </motion.p>
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-stone-400">Descubre</span>
-                    <div className="w-[1px] h-16 bg-orange-500" />
-                </motion.div>
-            </section>
+                }
+            />
 
             {/* ========== INTRO (Dark Tone B: stone-950) ========== */}
             <section id="intro" className="py-24 md:py-32 bg-stone-950 relative">
@@ -168,7 +136,7 @@ export default function OsakaPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <SectionTitle accentColor="orange" hasGlow>Alma Rebelde</SectionTitle>
+                        <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]">Alma Rebelde</SectionTitle>
                         <div className="space-y-6 text-lg leading-relaxed text-stone-300 text-justify">
                             <p>
                                 Si Tokyo es el cerebro de Japón, <strong className="text-orange-400">Osaka es el corazón (y el estómago)</strong>. Aquí, la rigidez social se relaja. La gente habla más alto, ríe con más ganas y no tiene miedo de cruzar un semáforo en rojo si no vienen coches.
@@ -210,10 +178,10 @@ export default function OsakaPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle accentColor="orange" hasGlow align="center">Kuidaore</SectionTitle>
-                        <p className="text-xl text-stone-400 max-w-2xl mx-auto mt-6">
-                            &quot;Arruinarse comiendo&quot;. El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
-                        </p>
+                        <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]" align="center">Kuidaore</SectionTitle>
+                        <SectionSubtitle align="center">
+                            "Arruinarse comiendo". El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
+                        </SectionSubtitle>
                     </motion.div>
 
                     <div className="flex flex-col gap-24">
@@ -324,7 +292,7 @@ export default function OsakaPage() {
                         viewport={{ once: true }}
                         className="mb-12"
                     >
-                        <SectionTitle accentColor="orange" hasGlow>El Guardián</SectionTitle>
+                        <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]">El Guardián</SectionTitle>
                     </motion.div>
 
                     {/* Full Width Image Top */}

@@ -11,5 +11,12 @@ export type { NavigationItem, NavigationPillProps, AccentColor } from './Navigat
 
 // Título de sección con barra decorativa
 export { SectionTitle } from './SectionTitle';
-export type { SectionTitleProps, SectionAccentColor, TitleAlignment } from './SectionTitle';
+export type { SectionTitleProps, TitleSize, TitleAlignment } from './SectionTitle';
 
+// Subtítulo/descripción de sección
+export { SectionSubtitle } from './SectionSubtitle';
+export type { SectionSubtitleProps } from './SectionSubtitle';
+
+// Hero Section Estandarizado
+export { HeroSection } from './HeroSection';
+export type { HeroSectionProps } from './HeroSection';

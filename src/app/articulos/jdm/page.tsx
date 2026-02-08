@@ -15,7 +15,7 @@ import {
     Disc,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -129,45 +129,22 @@ export default function JdmPage() {
             <NavigationPill sections={SECTIONS} accentColor="red" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                {/* Background Video/Image Placeholder */}
-                <div className="absolute inset-0 z-0 bg-slate-900">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                    <div className="w-full h-full opacity-50 bg-[url('/images/articulos/jdm/banner.jpg')] bg-cover bg-center" />
-                </div>
-
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="border-8 border-red-800 p-8 inline-block backdrop-blur-sm bg-black/20"
-                    >
-                        <h1 className="text-8xl md:text-[12rem] leading-none font-black tracking-tighter italic text-white">
+            {/* ========== HERO SECTION (100vh) ========== */}
+            <HeroSection
+                backgroundImage="/images/articulos/jdm/banner.jpg"
+                title={
+                    <div className="border-8 border-red-800 p-8 inline-block backdrop-blur-sm bg-black/20">
+                        <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter italic text-white">
                             JDM
                         </h1>
-                    </motion.div>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light mt-8 tracking-[0.2em] text-red-200 uppercase"
-                    >
-                        Japanese Domestic Market
-                    </motion.p>
-                </div>
-
-                {/* Indicador de scroll */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-slate-500">Descubre</span>
-                    <div className="w-[1px] h-16 bg-red-800" />
-                </motion.div>
-            </section>
+                    </div>
+                }
+                subtitle="Japanese Domestic Market"
+                scrollText="Descubre"
+                accentColor="text-red-200"
+                scrollLineColor="bg-red-800"
+                overlayOpacity={0.5}
+            />
 
             {/* ========== INTRO (OSCURO TONO B) ========== */}
             <section id="intro" className="py-24 md:py-32 px-6 min-h-[80vh] flex items-center bg-slate-950">
@@ -177,7 +154,7 @@ export default function JdmPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle accentColor="red">No es solo<br />una etiqueta</SectionTitle>
+                        <SectionTitle accentColor="bg-red-800">No es solo<br />una etiqueta</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             El término <strong className="text-white">JDM</strong> (Japanese Domestic Market) nació para designar a los vehículos y piezas fabricados específicamente para el mercado japonés. Sin embargo, con los años, ha trascendido su definición técnica para convertirse en una <em className="text-red-500 font-serif">cultura global</em>.
                         </p>
@@ -233,7 +210,7 @@ export default function JdmPage() {
                             className="order-1 md:order-2 text-right"
                         >
                             <div className="flex flex-col items-end">
-                                <SectionTitle accentColor="red" align="right">El Arte del<br />Descontrol</SectionTitle>
+                                <SectionTitle accentColor="bg-red-800" align="right">El Arte del<br />Descontrol</SectionTitle>
                             </div>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Nacido en las montañas (Touge) de Japón, el <strong className="text-red-500">Drift</strong> es la máxima expresión de control sobre el caos. No se busca llegar el primero, sino hacerlo con el mayor estilo y ángulo posible.
@@ -254,10 +231,10 @@ export default function JdmPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle accentColor="red" align="center">Daikoku Futo &<br />La Cultura del Parking</SectionTitle>
-                        <p className="text-lg text-slate-400 max-w-3xl mx-auto mb-16 leading-relaxed">
+                        <SectionTitle accentColor="bg-red-800" align="center">Daikoku Futo &<br />La Cultura del Parking</SectionTitle>
+                        <SectionSubtitle align="center" maxWidth="3xl">
                             En Japón, las áreas de servicio (PA) no son solo para descansar. Son templos improvisados donde se reúnen las máquinas más increíbles de la noche bajo luces de neón y vapor de sodio.
-                        </p>
+                        </SectionSubtitle>
                     </motion.div>
 
                     <div className="grid md:grid-cols-3 gap-8">

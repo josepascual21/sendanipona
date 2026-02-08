@@ -14,7 +14,7 @@ import {
     Camera,
     Moon
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -119,55 +119,26 @@ export default function TokyoPage() {
             <NavigationPill sections={SECTIONS} accentColor="cyan" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                {/* Fondo + Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={IMAGES.banner}
-                        alt="Tokyo Neon Night"
-                        fill
-                        className="object-cover opacity-70"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-900/50 to-slate-900" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-slate-900/90" />
-                </div>
-
-                {/* Contenido Hero */}
-                <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="relative"
-                    >
-                        <h1 className="text-8xl md:text-[13rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tracking-tighter drop-shadow-2xl">
+            {/* ========== HERO SECTION (100vh) ========== */}
+            <HeroSection
+                backgroundImage={IMAGES.banner}
+                title={
+                    <div className="relative">
+                        <h1 className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tracking-tighter drop-shadow-2xl">
                             TOKYO
                         </h1>
                         <div className="absolute -inset-4 bg-cyan-500/20 blur-3xl rounded-full -z-10 animate-pulse" />
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.8 }}
-                        className="text-2xl md:text-4xl font-light tracking-[0.4em] text-cyan-300 uppercase mt-8 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]"
-                    >
-                        La ciudad de los contrastes
-                    </motion.p>
-                </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2, duration: 1 }}
-                    className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-                >
-                    <span className="text-xs uppercase tracking-[0.3em] text-cyan-400/80">Explora</span>
-                    <div className="w-[1px] h-20 bg-gradient-to-b from-cyan-400 to-transparent" />
-                </motion.div>
-            </section>
+                    </div>
+                }
+                subtitle="La ciudad de los contrastes"
+                scrollText="Explora"
+                accentColor="text-cyan-300"
+                scrollLineColor="bg-gradient-to-b from-cyan-400 to-transparent"
+                overlayOpacity={0.7}
+                backgroundChildren={
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-slate-900/90" />
+                }
+            />
 
             {/* ========== INTRO (Dark Tone B: slate-950) ========== */}
             <section id="intro" className="py-24 md:py-32 bg-slate-950 relative overflow-hidden">
@@ -180,7 +151,7 @@ export default function TokyoPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <SectionTitle accentColor="cyan" hasGlow align="right">Caos Organizado</SectionTitle>
+                        <SectionTitle accentColor="bg-cyan-500" glowEffect="shadow-[0_0_15px_rgba(0,255,255,0.5)]" align="right">Caos Organizado</SectionTitle>
                         <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-300 text-justify">
                             <p>
                                 Tokyo no es una ciudad; es un <strong className="text-cyan-400">organismo vivo</strong>. Es la metrópolis más poblada del mundo, un laberinto infinito de hormigón y luz donde 37 millones de personas conviven en una danza coreografiada de eficiencia imposible.
@@ -225,10 +196,10 @@ export default function TokyoPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle accentColor="cyan" hasGlow align="right">Micro-Mundos</SectionTitle>
-                        <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
+                        <SectionTitle accentColor="bg-cyan-500" glowEffect="shadow-[0_0_15px_rgba(0,255,255,0.5)]" align="right">Micro-Mundos</SectionTitle>
+                        <SectionSubtitle align="center">
                             Cada estación de la línea Yamanote es una puerta a un universo diferente. Cruza la calle y cambiarás de era.
-                        </p>
+                        </SectionSubtitle>
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-8">

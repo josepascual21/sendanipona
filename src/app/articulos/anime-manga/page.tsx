@@ -16,7 +16,7 @@ import {
     Users,
     Layers
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -130,50 +130,27 @@ export default function AnimePage() {
             <NavigationPill sections={SECTIONS} accentColor="violet" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 z-0 bg-slate-900">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                    {/* Placeholder de fondo - Idealmente una imagen vibrante tipo cyberpunk o collage manga */}
-                    <div className="w-full h-full opacity-50 bg-[url('/images/articulos/anime/banner.jpg')] bg-cover bg-center" />
+            {/* ========== HERO SECTION (100vh) ========== */}
+            <HeroSection
+                backgroundImage="/images/articulos/anime/banner.jpg"
+                title={
+                    <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b drop-shadow-2xl">
+                        ANIME
+                        <span className="block text-4xl md:text-7xl stroke-text text-violet-500 mt-2 font-serif italic">
+                            &
+                        </span>
+                        MANGA
+                    </h1>
+                }
+                subtitle="El Arte de la Narrativa Japonesa"
+                scrollText="Explora"
+                accentColor="text-violet-200"
+                scrollLineColor="bg-violet-600"
+                overlayOpacity={0.5}
+                backgroundChildren={
                     <div className="absolute inset-0 bg-violet-900/20 mix-blend-overlay" />
-                </div>
-
-                <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                    >
-                        <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b drop-shadow-2xl">
-                            ANIME
-                            <span className="block text-4xl md:text-7xl stroke-text text-violet-500 mt-2 font-serif italic">
-                                &
-                            </span>
-                            MANGA
-                        </h1>
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light mt-8 tracking-[0.3em] text-violet-200 uppercase"
-                    >
-                        El Arte de la Narrativa Japonesa
-                    </motion.p>
-                </div>
-
-                {/* Indicador de scroll */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest">Explora</span>
-                    <div className="w-[1px] h-16 bg-violet-600 shadow-[0_0_10px_#7c3aed]" />
-                </motion.div>
-            </section>
+                }
+            />
 
             {/* ========== INTRO: HISTORIA (OSCURO TONO B) ========== */}
             <section id="intro" className="py-24 md:py-32 px-6 bg-slate-950 flex items-center">
@@ -183,7 +160,7 @@ export default function AnimePage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle accentColor="violet">Del Pergamino<br />a la Pantalla</SectionTitle>
+                        <SectionTitle accentColor="bg-violet-600">Del Pergamino<br />a la Pantalla</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             Las raíces del manga se hunden en el siglo XII con los <em>Chōjū-giga</em>, rollos de animales antropomórficos. Sin embargo, fue tras la Segunda Guerra Mundial cuando <strong className="text-violet-400">Osamu Tezuka</strong>, el &quot;Dios del Manga&quot;, revolucionó el medio inspirándose en el cine occidental.
                         </p>
@@ -222,10 +199,10 @@ export default function AnimePage() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <SectionTitle accentColor="violet" align="center">Demografía y Género</SectionTitle>
-                        <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
+                        <SectionTitle accentColor="bg-violet-600" align="center">Demografía y Género</SectionTitle>
+                        <SectionSubtitle align="center">
                             A diferencia del cómic occidental, el manga se segmenta principalmente por la demografía del lector, no solo por el contenido temático.
-                        </p>
+                        </SectionSubtitle>
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -292,7 +269,7 @@ export default function AnimePage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <SectionTitle accentColor="violet">Explosión Global</SectionTitle>
+                            <SectionTitle accentColor="bg-violet-600">Explosión Global</SectionTitle>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 En los años 80 y 90, obras como <strong className="text-white">Akira</strong> y <strong className="text-white">Ghost in the Shell</strong> rompieron la percepción occidental de que la animación era &quot;solo para niños&quot;.
                             </p>

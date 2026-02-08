@@ -16,7 +16,7 @@ import {
     Building2,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // DATOS
@@ -84,49 +84,20 @@ export default function PresentePage() {
             <NavigationPill sections={SECTIONS} accentColor="indigo" />
 
             {/* ========== HERO SECTION ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-                {/* Imagen de fondo con overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/articulos/presente/banner.png"
-                        alt="Banner Presente de Japón"
-                        fill
-                        className="object-cover opacity-60"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                </div>
-
-                {/* Título */}
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <motion.h1
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter font-ai-love drop-shadow-2xl"
-                    >
+            {/* ========== HERO SECTION ========== */}
+            <HeroSection
+                backgroundImage="/images/articulos/presente/banner.png"
+                title={
+                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter font-ai-love drop-shadow-2xl">
                         PRESENTE
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light tracking-[0.3em] text-indigo-400 uppercase mt-4"
-                    >
-                        Comprende su Realidad
-                    </motion.p>
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-slate-400">Explora</span>
-                    <div className="w-[1px] h-16 bg-indigo-500" />
-                </motion.div>
-            </section>
+                    </h1>
+                }
+                subtitle="Comprende su Realidad"
+                scrollText="Explora"
+                accentColor="text-indigo-400"
+                scrollLineColor="bg-indigo-500"
+                overlayOpacity={0.6}
+            />
 
             <div className="relative z-10">
 
@@ -139,7 +110,7 @@ export default function PresentePage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <SectionTitle accentColor="indigo">Sociedad Estoica</SectionTitle>
+                            <SectionTitle accentColor="bg-indigo-600">Sociedad Estoica</SectionTitle>
                             <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     En este apartado es esencial empezar dando un breve resumen sobre la sociedad japonesa. Lo más básico que podríamos exponer es que es conocida por su enfoque en la
@@ -299,7 +270,7 @@ export default function PresentePage() {
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
                 <section id="curiosidades" className="py-32 bg-stone-950 text-stone-300">
                     <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle accentColor="indigo">Curiosidades</SectionTitle>
+                        <SectionTitle accentColor="bg-indigo-600">Curiosidades</SectionTitle>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
                             {CURIOSITIES.map((item, index) => (

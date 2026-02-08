@@ -11,7 +11,7 @@ import {
     Scroll
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -225,50 +225,20 @@ export default function PasadoPage() {
             <NavigationPill sections={SECTIONS} accentColor="amber" />
 
             {/* ========== HERO SECTION (Visualmente igual, ajustando selección) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                {/* Imagen de fondo con overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={IMAGES.banner}
-                        alt="Banner Pasado de Japón"
-                        fill
-                        className="object-cover opacity-60"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                </div>
-
-                {/* Título animado centrado */}
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <motion.h1
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="text-8xl md:text-[12rem] leading-none font-black text-white tracking-tighter font-ai-love"
-                    >
+            {/* ========== HERO SECTION (Visualmente igual, ajustando selección) ========== */}
+            <HeroSection
+                backgroundImage={IMAGES.banner}
+                title={
+                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter font-ai-love">
                         PASADO
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light tracking-[0.3em] text-amber-200 uppercase mt-4"
-                    >
-                        El alma del País del Sol Naciente
-                    </motion.p>
-                </div>
-
-                {/* Indicador de scroll */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-slate-400">Descubre</span>
-                    <div className="w-[1px] h-16 bg-amber-600" />
-                </motion.div>
-            </section>
+                    </h1>
+                }
+                subtitle="El alma del País del Sol Naciente"
+                scrollText="Descubre"
+                accentColor="text-amber-200"
+                scrollLineColor="bg-amber-600"
+                overlayOpacity={0.6}
+            />
 
             <div className="relative z-10">
 
@@ -283,7 +253,7 @@ export default function PasadoPage() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
                         >
-                            <SectionTitle accentColor="amber">Filosofía y Guerras</SectionTitle>
+                            <SectionTitle accentColor="bg-amber-600">Filosofía y Guerras</SectionTitle>
                             <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     En este apartado vamos a profundizar en las
@@ -380,10 +350,10 @@ export default function PasadoPage() {
                             viewport={{ once: true }}
                             className="text-center mb-16"
                         >
-                            <SectionTitle accentColor="amber">Personajes Históricos</SectionTitle>
-                            <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6">
+                            <SectionTitle accentColor="bg-amber-600">Personajes Históricos</SectionTitle>
+                            <SectionSubtitle align="center">
                                 Los líderes, artistas y guerreros que definieron la historia japonesa.
-                            </p>
+                            </SectionSubtitle>
                         </motion.div>
 
                         {/* Grid de personajes */}
@@ -429,10 +399,10 @@ export default function PasadoPage() {
                             viewport={{ once: true }}
                             className="text-center mb-16"
                         >
-                            <SectionTitle accentColor="amber">Leyendas y Mitología</SectionTitle>
-                            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-serif italic mt-6">
-                                &ldquo;Historias ancestrales que forjaron el espíritu de una nación.&rdquo;
-                            </p>
+                            <SectionTitle accentColor="bg-amber-600">Leyendas y Mitología</SectionTitle>
+                            <SectionSubtitle align="center" variant="italic">
+                                "Historias ancestrales que forjaron el espíritu de una nación."
+                            </SectionSubtitle>
                         </motion.div>
 
                         <LegendsCarousel legends={LEGENDS_DATA} />

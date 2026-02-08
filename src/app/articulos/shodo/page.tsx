@@ -14,7 +14,7 @@ import {
     Brush,
     AlignLeft
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -138,64 +138,34 @@ export default function ShodoPage() {
             <NavigationPill sections={SECTIONS} accentColor="red" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-900">
-                <div className="absolute inset-0 z-0">
-                    <Image src={IMAGES.banner} alt="Banner" fill className="object-cover" />
-                    {/* Efecto de tinta sutil en fondo oscuro */}
-                    <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 0.2 }}
-                        transition={{ duration: 2, ease: "easeOut" }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-slate-800 blur-[100px]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                </div>
-
-                <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
-                    >
-                        <h1 className="text-8xl md:text-[12rem] leading-none font-black tracking-tighter text-white drop-shadow-2xl">
+            {/* ========== HERO SECTION (100vh) ========== */}
+            <HeroSection
+                backgroundImage={IMAGES.banner}
+                title={
+                    <div className="relative">
+                        <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-white drop-shadow-2xl">
                             SHODŌ
                         </h1>
                         <span className="block text-5xl md:text-8xl text-red-600 font-serif italic -mt-4 md:-mt-8 z-20 relative mix-blend-screen opacity-90">
                             書道
                         </span>
-                    </motion.div>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light mt-12 tracking-[0.5em] text-red-200 uppercase"
-                    >
-                        El Alma de la Tinta
-                    </motion.p>
-                </div>
-
-                {/* Sello Rojo Decorativo */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 2 }}
-                    animate={{ opacity: 0.8, scale: 1 }}
-                    transition={{ delay: 1, duration: 0.5, type: "spring" }}
-                    className="absolute bottom-20 right-10 md:right-20 w-24 h-24 border-4 border-red-700 text-red-700 flex items-center justify-center font-serif font-bold text-4xl transform rotate-12 opacity-80 mix-blend-screen"
-                >
-                    禅
-                </motion.div>
-
-                {/* Indicador de scroll */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-slate-400">Descubre</span>
-                    <div className="w-[1px] h-16 bg-red-600" />
-                </motion.div>
-            </section>
+                    </div>
+                }
+                subtitle="El Alma de la Tinta"
+                scrollText="Descubre"
+                accentColor="text-red-200"
+                scrollLineColor="bg-red-600"
+                overlayOpacity={0.6}
+                backgroundChildren={
+                    <>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-slate-800 blur-[100px] opacity-20 pointer-events-none" />
+                        {/* Sello Rojo Decorativo */}
+                        <div className="absolute bottom-20 right-10 md:right-20 w-24 h-24 border-4 border-red-700 text-red-700 flex items-center justify-center font-serif font-bold text-4xl transform rotate-12 opacity-80 mix-blend-screen pointer-events-none">
+                            禅
+                        </div>
+                    </>
+                }
+            />
 
             {/* ========== INTRO: EL CAMINO (SLATE-950) ========== */}
             <section id="intro" className="py-24 md:py-32 px-6 bg-slate-950 flex items-center text-white">
@@ -205,7 +175,7 @@ export default function ShodoPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle accentColor="red">No es solo escribir</SectionTitle>
+                        <SectionTitle accentColor="bg-red-600">No es solo escribir</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             El <strong>Shodō</strong> (el camino de la escritura) no busca simplemente la legibilidad. Es una disciplina artística y espiritual donde el calígrafo vierte su momento presente en el papel.
                         </p>
@@ -247,10 +217,10 @@ export default function ShodoPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle accentColor="red" align="center">Bunbou Shihou</SectionTitle>
-                        <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-6 tracking-wide">
-                            &quot;Los Cuatro Tesoros del Estudio&quot;. Herramientas sagradas que conectan al artista con el universo.
-                        </p>
+                        <SectionTitle accentColor="bg-red-600" align="center">Bunbou Shihou</SectionTitle>
+                        <SectionSubtitle align="center" variant="italic">
+                            "Los Cuatro Tesoros del Estudio". Herramientas sagradas que conectan al artista con el universo.
+                        </SectionSubtitle>
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -296,7 +266,7 @@ export default function ShodoPage() {
             <section id="estilos" className="py-24 md:py-32 bg-slate-950 relative">
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <div className="mb-16">
-                        <SectionTitle accentColor="red" align="left">Los Tres Estilos</SectionTitle>
+                        <SectionTitle accentColor="bg-red-600" align="left">Los Tres Estilos</SectionTitle>
                     </div>
 
                     <div className="flex flex-col gap-12">

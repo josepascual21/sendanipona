@@ -15,7 +15,7 @@ import {
     AlertCircle,
     Info
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // DATOS
@@ -74,51 +74,24 @@ export default function FuturoPage() {
             <NavigationPill sections={SECTIONS} accentColor="cyan" />
 
             {/* ========== HERO SECTION ========== */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-                {/* Placeholder del Banner (Cyberpunk Gradient) */}
-                {/* Imagen Banner Futuro */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/articulos/futuro/banner.png"
-                        alt="Neo-Tokyo Banner"
-                        fill
-                        className="object-cover opacity-60"
-                        priority
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/60 to-slate-900" />
-                </div>
-
-                {/* Título */}
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <motion.h1
-                        initial={{ opacity: 0, scale: 1.2 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 tracking-tighter font-ai-love"
-                    >
+            {/* ========== HERO SECTION ========== */}
+            <HeroSection
+                backgroundImage="/images/articulos/futuro/banner.png"
+                title={
+                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 tracking-tighter font-ai-love">
                         FUTURO
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-xl md:text-3xl font-light tracking-[0.3em] text-slate-400 uppercase mt-4"
-                    >
+                    </h1>
+                }
+                subtitle={
+                    <p className="text-xl md:text-3xl font-light tracking-[0.3em] text-slate-400 uppercase mt-4">
                         Desafíos, Tecnología y Esperanza
-                    </motion.p>
-                </div>
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs uppercase tracking-widest text-cyan-500/70">Descubre</span>
-                    <div className="w-[1px] h-16 bg-gradient-to-b from-cyan-500 to-transparent" />
-                </motion.div>
-            </section>
+                    </p>
+                }
+                scrollText="Descubre"
+                accentColor="text-cyan-500/70"
+                scrollLineColor="bg-gradient-to-b from-cyan-500 to-transparent"
+                overlayOpacity={0.6}
+            />
 
             <div className="relative z-10">
 
@@ -131,7 +104,7 @@ export default function FuturoPage() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <SectionTitle accentColor="cyan">¿Qué está por venir?</SectionTitle>
+                            <SectionTitle accentColor="bg-cyan-500">¿Qué está por venir?</SectionTitle>
                             <div className="text-lg leading-relaxed text-slate-300 space-y-6 text-justify">
                                 <p>
                                     Aunque parezca mentira, se hace difícil hablar del rumbo que está tomando Japón sin remarcar más sus debilidades que sus fortalezas.
@@ -277,7 +250,7 @@ export default function FuturoPage() {
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
                 <section id="curiosidades" className="py-32 bg-black text-slate-300">
                     <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle accentColor="cyan">Curiosidades del Mañana</SectionTitle>
+                        <SectionTitle accentColor="bg-cyan-500">Curiosidades del Mañana</SectionTitle>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
                             {CURIOSITIES.map((item, index) => (
