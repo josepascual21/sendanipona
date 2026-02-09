@@ -15,7 +15,7 @@ import {
     Disc,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -278,43 +278,18 @@ export default function JdmPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {CARS.map((car, index) => (
-                            <motion.div
+                            <ContentCard
                                 key={car.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className="group relative h-[400px] overflow-hidden bg-slate-800 rounded-lg border border-slate-800 hover:border-red-900/40"
+                                index={index}
+                                title={car.name}
+                                subtitle={car.engine}
+                                icon={<Gauge size={18} />}
+                                image={car.img}
+                                variant="reveal"
+                                accentColor="red"
                             >
-                                {/* Imagen de fondo */}
-                                <div className="absolute inset-0">
-                                    <Image
-                                        src={car.img}
-                                        alt={car.name}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-70"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-                                </div>
-
-                                <div className="absolute bottom-0 left-0 p-8 w-full">
-                                    <div className="overflow-hidden mb-2">
-                                        <h3 className="text-3xl font-black text-white uppercase transform translate-y-0 transition-transform duration-300">
-                                            {car.name}
-                                        </h3>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-red-500 font-mono font-bold mb-4">
-                                        <Gauge size={18} />
-                                        <span>{car.engine}</span>
-                                    </div>
-                                    <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-                                        <p className="text-slate-300 text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 ease-out leading-relaxed max-w-md">
-                                            {car.desc}
-                                        </p>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                {car.desc}
+                            </ContentCard>
                         ))}
                     </div>
                 </div>

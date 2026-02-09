@@ -11,7 +11,7 @@ import {
     Scroll
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -359,32 +359,17 @@ export default function PasadoPage() {
                         {/* Grid de personajes */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {CHARACTERS.map((person, idx) => (
-                                <motion.div
+                                <ContentCard
                                     key={idx}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group bg-slate-800 rounded-xl shadow-lg border border-slate-700 overflow-hidden hover:border-amber-700/50 transition-all duration-300"
+                                    index={idx}
+                                    title={person.name}
+                                    subtitle={person.years}
+                                    image={person.img}
+                                    variant="standard"
+                                    accentColor="amber"
                                 >
-                                    <div className="h-64 relative overflow-hidden">
-                                        <Image
-                                            src={person.img}
-                                            alt={person.name}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-                                        <div className="absolute bottom-0 left-0 p-5">
-                                            <h3 className="text-white font-bold text-xl drop-shadow-md">{person.name}</h3>
-                                            <p className="text-amber-400 text-xs font-bold uppercase tracking-wider mt-1">{person.years}</p>
-                                        </div>
-                                    </div>
-                                    <div className="p-6">
-                                        <p className="text-slate-300 text-lg leading-relaxed">{person.desc}</p>
-                                    </div>
-                                </motion.div>
+                                    {person.desc}
+                                </ContentCard>
                             ))}
                         </div>
                     </div>

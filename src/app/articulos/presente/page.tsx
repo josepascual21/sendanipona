@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import {
     Users,
     Gamepad2,
-    Music,
+    Music2,
     Ticket,
     Coffee,
     Waves,
@@ -14,9 +14,10 @@ import {
     Map,
     TrainFront,
     Building2,
-    Radio
+    Radio,
+    Music
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
 
 // ============================================================================
 // DATOS
@@ -158,7 +159,6 @@ export default function PresentePage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
                             </div>
-                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-indigo-900 z-10 mix-blend-multiply opacity-30 rounded-lg pointer-events-none" />
                         </motion.div>
                     </div>
                 </section>
@@ -183,63 +183,30 @@ export default function PresentePage() {
 
                         <div className="grid md:grid-cols-2 gap-8">
                             {/* Card 1: Anime/Manga */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border border-slate-700"
+                            <ContentCard
+                                index={0}
+                                title="Anime y Manga"
+                                image={IMAGES.anime}
+                                variant="standard"
+                                accentColor="indigo"
+                                icon={<Ticket />}
                             >
-                                {/* Imagen Anime */}
-                                <div className="h-64 relative border-b border-slate-700">
-                                    <Image
-                                        src={IMAGES.anime}
-                                        alt="Akihabara Electric Town"
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                                </div>
-                                <div className="p-8">
-                                    <h3 className="text-2xl font-bold text-indigo-400 mb-4 flex items-center gap-2">
-                                        <Ticket /> Anime y Manga
-                                    </h3>
-                                    <p className="text-slate-300 leading-relaxed text-lg">
-                                        Fenómeno cultural surgido en los 80. Hoy día, el concepto &quot;otaku&quot; se ha normalizado
-                                        y es una de las mayores exportaciones culturales del país, influyendo en la moda, cine y arte global.
-                                    </p>
-                                </div>
-                            </motion.div>
+                                Fenómeno cultural surgido en los 80. Hoy día, el concepto &quot;otaku&quot; se ha normalizado
+                                y es una de las mayores exportaciones culturales del país, influyendo en la moda, cine y arte global.
+                            </ContentCard>
 
                             {/* Card 2: Videojuegos */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
-                                className="bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 border border-slate-700"
+                            <ContentCard
+                                index={1}
+                                title="Videojuegos"
+                                image={IMAGES.videojuegos}
+                                variant="standard"
+                                accentColor="indigo"
+                                icon={<Gamepad2 />}
                             >
-                                {/* Imagen Videojuegos */}
-                                <div className="h-64 relative border-b border-slate-700">
-                                    <Image
-                                        src={IMAGES.videojuegos}
-                                        alt="Arcade Japonés"
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                                </div>
-                                <div className="p-8">
-                                    <h3 className="text-2xl font-bold text-purple-400 mb-4 flex items-center gap-2">
-                                        <Gamepad2 /> Videojuegos
-                                    </h3>
-                                    <p className="text-slate-300 leading-relaxed text-lg">
-                                        Hogar de gigantes como Nintendo y Sony. Franquicias como Mario, Zelda y Final Fantasy
-                                        no son solo entretenimiento, sino pilares fundamentales de la identidad moderna japonesa.
-                                    </p>
-                                </div>
-                            </motion.div>
+                                Hogar de gigantes como Nintendo y Sony. Franquicias como Mario, Zelda y Final Fantasy
+                                no son solo entretenimiento, sino pilares fundamentales de la identidad moderna japonesa.
+                            </ContentCard>
 
                             {/* Card 3: Música (Full Width en MD o tercera columna si hubiera) */}
                             <motion.div

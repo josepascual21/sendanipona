@@ -11,10 +11,12 @@ import {
     Train,
     Landmark,
     Terminal,
+    Fan,
+    Sun,
     Camera,
     Moon
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -204,30 +206,22 @@ export default function TokyoPage() {
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {DISTRICTS.map((district, index) => (
-                            <motion.div
+                            <ContentCard
                                 key={district.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer"
+                                index={index}
+                                title={district.name}
+                                image={district.image}
+                                variant="standard"
+                                accentColor="cyan"
+                                extraContent={
+                                    <>
+                                        <div className="w-12 h-1 bg-cyan-500 mb-4 transition-all duration-300 group-hover:w-full" />
+                                        <p className="text-lg text-slate-200 opacity-90">{district.desc}</p>
+                                    </>
+                                }
                             >
-                                <Image
-                                    src={district.image}
-                                    alt={district.name}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-cyan-900/30 transition-colors duration-500" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
-
-                                <div className="absolute bottom-0 left-0 p-8 w-full">
-                                    <h3 className="text-4xl font-black text-white mb-2 uppercase tracking-tight">{district.name}</h3>
-                                    <div className="w-12 h-1 bg-cyan-500 mb-4 transition-all duration-300 group-hover:w-full" />
-                                    <p className="text-lg text-slate-200 opacity-90">{district.desc}</p>
-                                </div>
-                            </motion.div>
+                                {/* No body children */}
+                            </ContentCard>
                         ))}
                     </div>
                 </div>

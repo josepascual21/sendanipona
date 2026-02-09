@@ -16,7 +16,7 @@ import {
     Users,
     Layers
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CardAccentColor } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -32,6 +32,13 @@ const IMAGES = {
     genre_shojo: "/images/articulos/anime/shojo.jpg",
     genre_seinen: "/images/articulos/anime/seinen.jpg",
     genre_josei: "/images/articulos/anime/josei.jpg"
+};
+
+const GENRE_ACCENTS: Record<string, CardAccentColor> = {
+    shonen: 'cyan',
+    shojo: 'red',
+    seinen: 'stone',
+    josei: 'violet'
 };
 
 /** Datos de Géneros */
@@ -207,34 +214,17 @@ export default function AnimePage() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {GENRES.map((genre, index) => (
-                            <motion.div
+                            <ContentCard
                                 key={genre.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -10 }}
-                                className="bg-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-700 hover:border-violet-500/50 transition-all duration-300 group"
+                                index={index}
+                                title={genre.title}
+                                image={genre.img}
+                                variant="standard"
+                                accentColor={GENRE_ACCENTS[genre.id] || 'slate'}
+                                icon={genre.icon}
                             >
-                                <div className="h-48 relative overflow-hidden bg-slate-900">
-                                    <Image
-                                        src={genre.img}
-                                        alt={genre.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-60"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent" />
-                                    <div className="absolute top-4 right-4 bg-slate-900/80 p-2 rounded-full text-white backdrop-blur-sm">
-                                        {genre.icon}
-                                    </div>
-                                </div>
-                                <div className="p-6 relative">
-                                    <h3 className={`text-2xl font-bold mb-3 ${genre.color}`}>{genre.title}</h3>
-                                    <p className="text-slate-300 text-base leading-relaxed">
-                                        {genre.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
+                                {genre.desc}
+                            </ContentCard>
                         ))}
                     </div>
                 </div>

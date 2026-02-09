@@ -13,7 +13,7 @@ import {
     Zap,
     Users
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -186,38 +186,17 @@ export default function OsakaPage() {
 
                     <div className="flex flex-col gap-24">
                         {FOODS.map((food, index) => (
-                            <motion.div
+                            <ContentCard
                                 key={food.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
-                                className="group bg-stone-800 rounded-3xl overflow-hidden shadow-2xl border border-stone-700 hover:border-orange-500/30 transition-all duration-500"
+                                index={index}
+                                title={food.name}
+                                image={food.img}
+                                variant="wide"
+                                accentColor="orange"
+                                subtitle={`0${index + 1}`}
                             >
-                                <div className={`grid md:grid-cols-2 items-center`}>
-                                    {/* Image Side */}
-                                    <div className={`relative h-[400px] md:h-full min-h-[400px] w-full overflow-hidden ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                                        <Image
-                                            src={food.img}
-                                            alt={food.name}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-stone-800 via-transparent to-transparent md:bg-gradient-to-r" />
-                                    </div>
-
-                                    {/* Content Side */}
-                                    <div className={`p-10 md:p-16 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                                        <div className="flex items-center gap-4 mb-6">
-                                            <span className="text-5xl font-black text-stone-700 opacity-50 font-serif">0{index + 1}</span>
-                                            <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-tight">{food.name}</h3>
-                                        </div>
-                                        <p className="text-xl text-stone-300 leading-relaxed font-light">
-                                            {food.desc}
-                                        </p>
-                                    </div>
-                                </div>
-                            </motion.div>
+                                {food.desc}
+                            </ContentCard>
                         ))}
                     </div>
                 </div>
