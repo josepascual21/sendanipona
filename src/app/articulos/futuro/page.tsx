@@ -96,7 +96,7 @@ export default function FuturoPage() {
                     </p>
                 }
                 scrollText="Descubre"
-                accentColor="text-cyan-500/70"
+                accentColor="text-cyan-400"
                 scrollLineColor="bg-gradient-to-b from-cyan-500 to-transparent"
                 overlayOpacity={0.6}
             />
@@ -256,7 +256,7 @@ export default function FuturoPage() {
                 </section>
 
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
-                <section id="curiosidades" className="py-32 bg-slate-950 text-slate-300">
+                <section id="curiosidades" className="py-32 bg-stone-950 text-slate-300">
                     <div className="max-w-7xl mx-auto px-6">
                         <SectionTitle accentColor="bg-cyan-500">Curiosidades del Mañana</SectionTitle>
 

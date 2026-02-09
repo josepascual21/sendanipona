@@ -3,7 +3,7 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ScrollIndicator } from './ScrollIndicator';
 
 // ============================================================================
 // TIPOS
@@ -81,14 +81,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     subtitle,
     scrollText = "Descubre",
     accentColor = "text-white",
-    scrollLineColor,
     overlayOpacity = 0.6,
     titleClassName = "",
     backgroundChildren,
     children
 }) => {
     // Si no se provee color de línea, usar bg-white/50 por defecto
-    const finalScrollLineColor = scrollLineColor || "bg-white/50";
 
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
@@ -159,30 +157,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 )}
             </div>
 
-            {/* 3. INDICADOR DE SCROLL */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
-            >
-                <span className={`text-sm uppercase tracking-[0.5em] font-light ${accentColor}`}>
-                    {scrollText}
-                </span>
-
-                {/* Línea animada opcional o estática */}
-                <div className={`w-[1px] h-24 ${finalScrollLineColor}`} />
-
-                {/* Chevron animado */}
-                <motion.div
-                    initial={{ y: 0 }}
-                    animate={{ y: [0, 5, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className={`text-white/50 -mt-2`}
-                >
-                    <ChevronDown size={24} />
-                </motion.div>
-            </motion.div>
+            {/* 3. INDICADOR DE SCROLL ESTANDARIZADO */}
+            <ScrollIndicator
+                label={scrollText}
+                color_class={accentColor}
+                delay={1.5}
+            />
         </section>
     );
 };

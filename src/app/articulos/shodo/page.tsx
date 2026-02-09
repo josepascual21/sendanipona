@@ -219,7 +219,7 @@ export default function ShodoPage() {
                     >
                         <SectionTitle accentColor="bg-red-600" align="center">Bunbou Shihou</SectionTitle>
                         <SectionSubtitle align="center" variant="italic">
-                            "Los Cuatro Tesoros del Estudio". Herramientas sagradas que conectan al artista con el universo.
+                            &quot;Los Cuatro Tesoros del Estudio&quot;. Herramientas sagradas que conectan al artista con el universo.
                         </SectionSubtitle>
                     </motion.div>
 

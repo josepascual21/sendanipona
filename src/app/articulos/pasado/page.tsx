@@ -11,7 +11,7 @@ import {
     Scroll
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
-import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -225,7 +225,6 @@ export default function PasadoPage() {
             <NavigationPill sections={SECTIONS} accentColor="amber" />
 
             {/* ========== HERO SECTION (Visualmente igual, ajustando selección) ========== */}
-            {/* ========== HERO SECTION (Visualmente igual, ajustando selección) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title={
@@ -236,7 +235,6 @@ export default function PasadoPage() {
                 subtitle="El alma del País del Sol Naciente"
                 scrollText="Descubre"
                 accentColor="text-amber-200"
-                scrollLineColor="bg-amber-600"
                 overlayOpacity={0.6}
             />
 
@@ -386,7 +384,7 @@ export default function PasadoPage() {
                         >
                             <SectionTitle accentColor="bg-amber-600">Leyendas y Mitología</SectionTitle>
                             <SectionSubtitle align="center" variant="italic">
-                                "Historias ancestrales que forjaron el espíritu de una nación."
+                                &quot;Historias ancestrales que forjaron el espíritu de una nación.&quot;
                             </SectionSubtitle>
                         </motion.div>
 

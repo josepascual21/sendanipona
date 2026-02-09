@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import {
     Users,
     Gamepad2,
-    Music2,
     Ticket,
     Coffee,
     Waves,
@@ -17,7 +16,7 @@ import {
     Radio,
     Music
 } from 'lucide-react';
-import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, ContentCard } from '@/components/articles';
 
 // ============================================================================
 // DATOS

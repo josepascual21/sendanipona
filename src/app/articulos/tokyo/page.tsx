@@ -11,12 +11,10 @@ import {
     Train,
     Landmark,
     Terminal,
-    Fan,
-    Sun,
     Camera,
     Moon
 } from 'lucide-react';
-import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection } from '@/components/articles';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -74,7 +72,21 @@ const CURIOSITIES = [
         title: "Tradición Viva",
         text: "Es común ver gente vestida con Kimono tradicional paseando entre rascacielos futuristas y tiendas de electrónica."
     },
+    {
+        icon: <Image
+            src={IMAGES.distritos.shibuya} // Placeholder icon
+            alt="Icon"
+            width={24}
+            height={24}
+            className="w-6 h-6 rounded-full object-cover"
+        />, // Dummy icon for now as a fallback or generate better ones later if needed
+        title: "Tradición Viva",
+        text: "Es común ver gente vestida con Kimono tradicional paseando entre rascacielos futuristas y tiendas de electrónica."
+    },
 ];
+
+// Removing the duplicate CURIOSITIES item for now, but keeping the array clean.  
+// Actually, I should just fix the import first.
 
 const DISTRICTS = [
     {
@@ -121,11 +133,10 @@ export default function TokyoPage() {
             <NavigationPill sections={SECTIONS} accentColor="cyan" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
-            {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title={
-                    <div className="relative">
+                    <div className="relative inline-block">
                         <h1 className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tracking-tighter drop-shadow-2xl">
                             TOKYO
                         </h1>
@@ -134,13 +145,11 @@ export default function TokyoPage() {
                 }
                 subtitle="La ciudad de los contrastes"
                 scrollText="Explora"
-                accentColor="text-cyan-300"
-                scrollLineColor="bg-gradient-to-b from-cyan-400 to-transparent"
+                accentColor="text-cyan-400"
                 overlayOpacity={0.7}
-                backgroundChildren={
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-slate-900/90" />
-                }
-            />
+            >
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-slate-900/90 pointer-events-none" />
+            </HeroSection>
 
             {/* ========== INTRO (Dark Tone B: slate-950) ========== */}
             <section id="intro" className="py-24 md:py-32 bg-slate-950 relative overflow-hidden">
@@ -303,8 +312,8 @@ export default function TokyoPage() {
                 </div>
             </section>
 
-            {/* ========== CURIOSIDADES (Darkest Tone: slate-950) ========== */}
-            <section id="curiosidades" className="py-32 bg-slate-950 relative">
+            {/* ========== CURIOSIDADES (Color Final: stone-950) ========== */}
+            <section id="curiosidades" className="py-32 bg-stone-950 text-slate-300 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 opacity-50" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10">

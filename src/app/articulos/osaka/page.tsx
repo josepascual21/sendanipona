@@ -180,7 +180,7 @@ export default function OsakaPage() {
                     >
                         <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]" align="center">Kuidaore</SectionTitle>
                         <SectionSubtitle align="center">
-                            "Arruinarse comiendo". El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
+                            &quot;Arruinarse comiendo&quot;. El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
                         </SectionSubtitle>
                     </motion.div>
 
