@@ -303,9 +303,9 @@ export default function TokyoPage() {
                 </div>
             </section>
 
-            {/* ========== CURIOSIDADES (Darkest Tone: black) ========== */}
-            <section id="curiosidades" className="py-32 bg-black relative">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-slate-900 via-black to-black opacity-50" />
+            {/* ========== CURIOSIDADES (Darkest Tone: slate-950) ========== */}
+            <section id="curiosidades" className="py-32 bg-slate-950 relative">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 opacity-50" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10">
                     <motion.div

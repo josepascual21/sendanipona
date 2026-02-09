@@ -86,12 +86,12 @@ export default function FuturoPage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 tracking-tighter font-ai-love">
+                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-cyan-400 tracking-tighter font-ai-love">
                         FUTURO
                     </h1>
                 }
                 subtitle={
-                    <p className="text-xl md:text-3xl font-light tracking-[0.3em] text-slate-400 uppercase mt-4">
+                    <p className="text-xl md:text-3xl font-light tracking-[0.3em] text-cyan-200 uppercase mt-4">
                         Desafíos, Tecnología y Esperanza
                     </p>
                 }
@@ -161,7 +161,7 @@ export default function FuturoPage() {
                             >
                                 REALIDAD ESTADÍSTICA
                             </motion.h2>
-                            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-fuchsia-500 mx-auto mb-6"></div>
+                            <div className="w-24 h-1 bg-cyan-500 mx-auto mb-6"></div>
                         </div>
 
                         <div className="space-y-24">
@@ -256,7 +256,7 @@ export default function FuturoPage() {
                 </section>
 
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
-                <section id="curiosidades" className="py-32 bg-black text-slate-300">
+                <section id="curiosidades" className="py-32 bg-slate-950 text-slate-300">
                     <div className="max-w-7xl mx-auto px-6">
                         <SectionTitle accentColor="bg-cyan-500">Curiosidades del Mañana</SectionTitle>
 

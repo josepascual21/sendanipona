@@ -129,14 +129,14 @@ export default function VideojuegosPage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title={
-                    <h1 className="text-5xl md:text-[9rem] lg:text-[11rem] leading-[0.85] font-black tracking-tight text-white uppercase">
+                    <h1 className="text-5xl md:text-[9rem] lg:text-[10rem] leading-[0.85] font-black tracking-tight text-white uppercase">
                         Videojuegos
                     </h1>
                 }
                 subtitle="De los Arcades a la Eternidad"
                 scrollText="Iniciar Nivel"
                 accentColor="text-emerald-200"
-                scrollLineColor="bg-gradient-to-b from-emerald-500 to-transparent"
+                scrollLineColor="bg-emerald-500"
                 overlayOpacity={0.6}
             />
 
@@ -148,7 +148,7 @@ export default function VideojuegosPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">El epicentro del<br />entretenimiento</SectionTitle>
+                        <SectionTitle accentColor="bg-emerald-500">El epicentro del<br />entretenimiento</SectionTitle>
                         <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
                             Lo que comenzó como un experimento técnico en laboratorios se convirtió, gracias a Japón, en la industria cultural más lucrativa del planeta. Tras la crisis de 1983 que casi aniquila el sector en Occidente, <strong className="text-white">Nintendo</strong> logró lo imposible: devolver la fe en el medio con creatividad, rigor y personajes inolvidables.
                         </p>
@@ -210,12 +210,12 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="order-1 md:order-2"
                         >
-                            <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">La Magia del<br />Pixel Art</SectionTitle>
+                            <SectionTitle accentColor="bg-emerald-500">La Magia del<br />Pixel Art</SectionTitle>
                             <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                                 Las eras de los 8 y 16 bits representan el nacimiento de los géneros que conocemos hoy. La limitación técnica obligó a los desarrolladores a perfeccionar las mecánicas, la música (el legendario chip-tune) y el diseño de niveles.
                             </p>
                             <p className="text-lg text-slate-300 leading-relaxed">
-                                Mientras Nintendo dominaba con su rigor creativo, <strong className="text-lime-400">SEGA</strong> llegaba con &quot;Sega does what Nintendon&apos;t&quot;, aportando una actitud urbana, veloz y rebelde que cambió la forma en que se comercializaban los videojuegos.
+                                Mientras Nintendo dominaba con su rigor creativo, <strong className="text-emerald-400">SEGA</strong> llegaba con &quot;Sega does what Nintendon&apos;t&quot;, aportando una actitud urbana, veloz y rebelde que cambió la forma en que se comercializaban los videojuegos.
                             </p>
                         </motion.div>
                     </div>
@@ -256,10 +256,10 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">El corazón de<br />Akihabara</SectionTitle>
+                            <SectionTitle accentColor="bg-emerald-500">El corazón de<br />Akihabara</SectionTitle>
                             <div className="space-y-6 text-lg leading-relaxed text-justify text-slate-300">
                                 <p>
-                                    A diferencia de Occidente, donde los salones recreativos casi han desaparecido, en Japón siguen siendo templos de la habilidad social y competitiva. Los edificios de <strong className="text-red-500">GiGO</strong> (antes SEGA) y Taito son puntos de referencia inconfundibles.
+                                    A diferencia de Occidente, donde los salones recreativos casi han desaparecido, en Japón siguen siendo templos de la habilidad social y competitiva. Los edificios de <strong className="text-emerald-400">GiGO</strong> (antes SEGA) y Taito son puntos de referencia inconfundibles.
                                 </p>
                                 <p>
                                     Desde el fenómeno de los juegos de lucha con <em className="text-white">Street Fighter</em>, hasta la locura rítmica de <em className="text-white">Dance Dance Revolution</em> y los complejos simuladores de mechas, el arcade es donde Japón experimenta con el hardware más extremo.
@@ -282,7 +282,7 @@ export default function VideojuegosPage() {
                         viewport={{ once: true }}
                         className="text-center mb-20"
                     >
-                        <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400" align="center">Franquicias Legendarias</SectionTitle>
+                        <SectionTitle accentColor="bg-emerald-500" align="center">Franquicias Legendarias</SectionTitle>
                         <SectionSubtitle align="center">
                             Nombres que no necesitan traducción. Historias que han unido a jugadores de todo el mundo.
                         </SectionSubtitle>
@@ -319,7 +319,7 @@ export default function VideojuegosPage() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <SectionTitle accentColor="bg-gradient-to-r from-emerald-500 to-lime-400">Innovación sin<br />Límites</SectionTitle>
+                            <SectionTitle accentColor="bg-emerald-500">Innovación sin<br />Límites</SectionTitle>
                             <div className="space-y-6">
                                 <div className="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
                                     <h4 className="text-white font-bold flex items-center gap-2 mb-2">
@@ -354,8 +354,8 @@ export default function VideojuegosPage() {
                 </div>
             </section>
 
-            {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
-            <section id="curiosidades" className="py-32 bg-stone-950">
+            {/* ========== CURIOSIDADES (FINAL slate-950) ========== */}
+            <section id="curiosidades" className="py-32 bg-slate-950">
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -375,13 +375,13 @@ export default function VideojuegosPage() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ y: -5 }}
-                                className="group p-8 bg-stone-900 border border-stone-800 rounded-3xl hover:border-emerald-500/30 transition-all"
+                                className="group p-8 bg-slate-900 border border-slate-800 rounded-3xl hover:border-emerald-500/30 transition-all"
                             >
-                                <div className="mb-6 bg-stone-950 text-emerald-500 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors shadow-lg border border-emerald-500/10">
+                                <div className="mb-6 bg-slate-950 text-emerald-500 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors shadow-lg border border-emerald-500/10">
                                     {item.icon}
                                 </div>
                                 <h3 className="text-xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-                                <p className="text-stone-500 leading-relaxed text-lg group-hover:text-stone-300 transition-colors border-l-2 border-stone-800 pl-4">
+                                <p className="text-slate-500 leading-relaxed text-lg group-hover:text-slate-300 transition-colors border-l-2 border-slate-800 pl-4">
                                     {item.text}
                                 </p>
                             </motion.div>
