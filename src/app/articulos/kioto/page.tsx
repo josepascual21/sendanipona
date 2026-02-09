@@ -83,7 +83,7 @@ const CURIOSITIES = [
 
 export default function KyotoPage() {
     return (
-        <div className="bg-stone-900 text-stone-200 font-sans selection:bg-amber-700 selection:text-white overflow-x-hidden">
+        <div className="bg-slate-900 text-slate-200 font-sans selection:bg-amber-700 selection:text-white overflow-x-hidden">
             <NavigationPill sections={SECTIONS} accentColor="amber" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
@@ -100,12 +100,12 @@ export default function KyotoPage() {
                 accentColor="text-amber-200"
                 scrollLineColor="bg-gradient-to-b from-amber-600 to-transparent"
                 backgroundChildren={
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-stone-900/90" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-slate-900/90" />
                 }
             />
 
-            {/* ========== INTRO (Dark Tone B: stone-950) ========== */}
-            <section id="intro" className="py-24 md:py-32 bg-stone-950 relative overflow-hidden">
+            {/* ========== INTRO (Dark Tone B: slate-950) ========== */}
+            <section id="intro" className="py-24 md:py-32 bg-slate-950 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-amber-900/5 rounded-full blur-[100px] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -116,7 +116,7 @@ export default function KyotoPage() {
                         transition={{ duration: 0.8 }}
                     >
                         <SectionTitle accentColor="bg-amber-600" glowEffect="shadow-[0_0_15px_rgba(217,119,6,0.3)]">El Tiempo Detenido</SectionTitle>
-                        <div className="space-y-6 text-lg md:text-xl leading-relaxed text-stone-300 text-justify">
+                        <div className="space-y-6 text-lg md:text-xl leading-relaxed text-slate-300 text-justify">
                             <p>
                                 Mientras Tokyo corre hacia el futuro y Osaka devora el presente, <strong className="text-amber-500">Kioto respira en la eternidad</strong>. Fue la capital imperial durante más de mil años y su alma reside en la madera vieja, el incienso y el sonido de las sandalias sobre los adoquines.
                             </p>
@@ -131,7 +131,7 @@ export default function KyotoPage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 0.8 }}
-                        className="relative h-[500px] w-full rounded-sm overflow-hidden border border-stone-800 shadow-2xl group"
+                        className="relative h-[500px] w-full rounded-sm overflow-hidden border border-slate-800 shadow-2xl group"
                     >
                         <Image
                             src={IMAGES.intro}
@@ -139,7 +139,7 @@ export default function KyotoPage() {
                             fill
                             className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-stone-900/20 group-hover:bg-transparent transition-colors duration-700" />
+                        <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-700" />
 
                         {/* Decorative Stamp */}
                         <div className="absolute bottom-6 left-6 border border-white/30 p-4 backdrop-blur-sm">
@@ -150,8 +150,8 @@ export default function KyotoPage() {
                 </div>
             </section>
 
-            {/* ========== CONTENT 1: GION (Dark Tone A: stone-900) - CLASSIC SPLIT ========== */}
-            <section id="gion" className="py-32 bg-stone-900">
+            {/* ========== CONTENT 1: GION (Dark Tone A: slate-900) - CLASSIC SPLIT ========== */}
+            <section id="gion" className="py-32 bg-slate-900">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-16 items-center">
                     {/* Image First for visual rhythm */}
                     <motion.div
@@ -161,7 +161,7 @@ export default function KyotoPage() {
                         className="w-full lg:w-1/2 relative h-[600px] group"
                     >
                         <div className="absolute inset-0 bg-amber-900/10 transform translate-x-4 translate-y-4 border border-amber-900/30 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
-                        <div className="relative h-full w-full overflow-hidden border border-stone-800 bg-black">
+                        <div className="relative h-full w-full overflow-hidden border border-slate-800 bg-black">
                             <Image
                                 src={IMAGES.gion}
                                 alt="Gion District"
@@ -182,10 +182,10 @@ export default function KyotoPage() {
                             <span className="text-sm font-bold tracking-[0.2em] uppercase">Mundo Flotante</span>
                         </div>
                         <SectionTitle accentColor="bg-amber-600" glowEffect="shadow-[0_0_15px_rgba(217,119,6,0.3)]">Gion</SectionTitle>
-                        <p className="text-xl text-stone-400 mb-8 font-light italic">
+                        <p className="text-xl text-slate-400 mb-8 font-light italic">
                             &quot;Donde las sombras tienen más color que la luz.&quot;
                         </p>
-                        <div className="space-y-6 text-lg text-stone-300 leading-relaxed text-justify">
+                        <div className="space-y-6 text-lg text-slate-300 leading-relaxed text-justify">
                             <p>
                                 El distrito de las geishas es un laberinto de casas de té (ochaya) y discreción. Al atardecer, si tienes suerte, verás una fugaz silueta en kimono desapareciendo tras una puerta corredera.
                             </p>
@@ -197,8 +197,8 @@ export default function KyotoPage() {
                 </div>
             </section>
 
-            {/* ========== CONTENT 2: ARASHIYAMA (Dark Tone B: stone-950) - NATURE PARALLAX ========== */}
-            <section id="arashiyama" className="relative py-32 bg-stone-950 overflow-hidden">
+            {/* ========== CONTENT 2: ARASHIYAMA (Dark Tone B: slate-950) - NATURE PARALLAX ========== */}
+            <section id="arashiyama" className="relative py-32 bg-slate-950 overflow-hidden">
                 {/* Background Texture similar to bamboo/vertical lines */}
                 <div className="absolute inset-0 opacity-5 bg-[linear-gradient(90deg,transparent_0%,#ffffff_1%,transparent_2%)] bg-[length:40px_100%] pointer-events-none" />
 
@@ -229,12 +229,12 @@ export default function KyotoPage() {
                             fill
                             className="object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-80" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
 
                         {/* Floating Caption */}
                         <div className="absolute bottom-12 left-8 md:left-12 max-w-lg">
                             <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">El Bosque de Bambú</h3>
-                            <p className="text-stone-200 text-lg leading-relaxed drop-shadow-md">
+                            <p className="text-slate-200 text-lg leading-relaxed drop-shadow-md">
                                 Caminar aquí es escuchar el sonido del viento chocando contra los tallos huecos. Un sonido que ha sido designado como uno de los &quot;100 Paisajes Sonoros de Japón&quot;.
                             </p>
                         </div>
@@ -242,8 +242,8 @@ export default function KyotoPage() {
                 </div>
             </section>
 
-            {/* ========== CONTENT 3: KINKAKU-JI (Dark Tone A: stone-900) - CENTER FOCUS ========== */}
-            <section id="kinkakuji" className="py-32 bg-stone-900">
+            {/* ========== CONTENT 3: KINKAKU-JI (Dark Tone A: slate-900) - CENTER FOCUS ========== */}
+            <section id="kinkakuji" className="py-32 bg-slate-900">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <div className="inline-block p-3 rounded-full bg-amber-900/20 text-amber-500 mb-8 border border-amber-900/30">
                         <Sun size={32} />
@@ -257,7 +257,7 @@ export default function KyotoPage() {
                         <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">KINKAKU-JI</h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-12" />
 
-                        <p className="text-xl md:text-2xl text-stone-300 leading-relaxed font-light mb-12">
+                        <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light mb-12">
                             El Pabellón Dorado. Un templo cubierto de pan de oro puro que se refleja en el &quot;Estanque Espejo&quot;. Es la representación física del Paraíso de la Tierra Pura.
                         </p>
                     </motion.div>
@@ -267,7 +267,7 @@ export default function KyotoPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="relative aspect-video w-full rounded-sm overflow-hidden shadow-[0_0_60px_rgba(217,119,6,0.15)] border border-stone-800"
+                        className="relative aspect-video w-full rounded-sm overflow-hidden shadow-[0_0_60px_rgba(217,119,6,0.15)] border border-slate-800"
                     >
                         <Image
                             src={IMAGES.kinkakuji}
@@ -280,9 +280,9 @@ export default function KyotoPage() {
             </section>
 
             {/* ========== CURIOSIDADES (Darkest Tone - STANDARD) ========== */}
-            <section id="curiosidades" className="py-32 bg-stone-950 relative border-t border-stone-900">
+            <section id="curiosidades" className="py-32 bg-slate-950 relative border-t border-slate-900">
                 <div className="max-w-7xl mx-auto px-6">
-                    <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-stone-800 pb-8 flex items-center gap-4">
+                    <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8 flex items-center gap-4">
                         SECRETOS DE <span className="text-amber-600">KIOTO</span>
                     </h2>
 
@@ -297,16 +297,16 @@ export default function KyotoPage() {
                                 whileHover={{ y: -5 }}
                                 className="group"
                             >
-                                <div className="mb-6 bg-stone-900 text-amber-600 w-14 h-14 rounded-2xl 
+                                <div className="mb-6 bg-slate-900 text-amber-600 w-14 h-14 rounded-2xl 
                                               flex items-center justify-center 
                                               group-hover:bg-amber-900/20 transition-colors 
-                                              border border-stone-800 ring-1 ring-stone-800 group-hover:ring-amber-800/50">
+                                              border border-slate-800 ring-1 ring-slate-800 group-hover:ring-amber-800/50">
                                     {item.icon}
                                 </div>
 
                                 <h3 className="text-xl font-bold mb-4 text-white group-hover:text-amber-500 transition-colors">{item.title}</h3>
-                                <p className="text-stone-400 leading-relaxed text-lg 
-                                            border-l-2 border-stone-800 pl-4 
+                                <p className="text-slate-400 leading-relaxed text-lg 
+                                            border-l-2 border-slate-800 pl-4 
                                             group-hover:border-amber-700 transition-colors">
                                     {item.text}
                                 </p>
