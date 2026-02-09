@@ -127,7 +127,7 @@ export default function VideojuegosPage() {
 
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
-                backgroundImage="/images/articulos/videojuegos/banner.jpg"
+                backgroundImage={IMAGES.banner}
                 title={
                     <h1 className="text-5xl md:text-[9rem] lg:text-[11rem] leading-[0.85] font-black tracking-tight text-white uppercase">
                         Videojuegos

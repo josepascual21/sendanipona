@@ -132,7 +132,7 @@ export default function AnimePage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
-                backgroundImage="/images/articulos/anime/banner.jpg"
+                backgroundImage={IMAGES.banner}
                 title={
                     <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b drop-shadow-2xl">
                         ANIME

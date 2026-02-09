@@ -131,7 +131,7 @@ export default function JdmPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
-                backgroundImage="/images/articulos/jdm/banner.jpg"
+                backgroundImage={IMAGES.banner}
                 title={
                     <div className="border-8 border-red-800 p-8 inline-block backdrop-blur-sm bg-black/20">
                         <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter italic text-white">

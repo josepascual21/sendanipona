@@ -22,6 +22,14 @@ import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/com
 // DATOS
 // ============================================================================
 
+const IMAGES = {
+    banner: "/images/articulos/presente/banner.png",
+    society: "/images/articulos/presente/society.jpg",
+    anime: "/images/articulos/presente/anime.png",
+    videojuegos: "/images/articulos/presente/videojuegos.png",
+    music: "/images/articulos/presente/music.png"
+};
+
 /** Secciones de navegación */
 const SECTIONS: NavigationItem[] = [
     { id: '#sociedad', label: 'Sociedad', icon: <Users size={20} /> },
@@ -86,7 +94,7 @@ export default function PresentePage() {
             {/* ========== HERO SECTION ========== */}
             {/* ========== HERO SECTION ========== */}
             <HeroSection
-                backgroundImage="/images/articulos/presente/banner.png"
+                backgroundImage={IMAGES.banner}
                 title={
                     <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter font-ai-love drop-shadow-2xl">
                         PRESENTE
@@ -142,7 +150,7 @@ export default function PresentePage() {
                             {/* Imagen Sociedad */}
                             <div className="absolute inset-0 bg-slate-800 rounded-t-full border-8 border-double border-slate-700 shadow-2xl overflow-hidden">
                                 <Image
-                                    src="/images/articulos/presente/society.jpg"
+                                    src={IMAGES.society}
                                     alt="Sociedad de Tokio en Shibuya"
                                     fill
                                     className="object-cover"
@@ -184,7 +192,7 @@ export default function PresentePage() {
                                 {/* Imagen Anime */}
                                 <div className="h-64 relative border-b border-slate-700">
                                     <Image
-                                        src="/images/articulos/presente/anime.png"
+                                        src={IMAGES.anime}
                                         alt="Akihabara Electric Town"
                                         fill
                                         className="object-cover"
@@ -214,7 +222,7 @@ export default function PresentePage() {
                                 {/* Imagen Videojuegos */}
                                 <div className="h-64 relative border-b border-slate-700">
                                     <Image
-                                        src="/images/articulos/presente/videojuegos.png"
+                                        src={IMAGES.videojuegos}
                                         alt="Arcade Japonés"
                                         fill
                                         className="object-cover"
@@ -244,7 +252,7 @@ export default function PresentePage() {
                                 <div className="grid md:grid-cols-2">
                                     <div className="h-64 md:h-auto relative border-r border-slate-700">
                                         <Image
-                                            src="/images/articulos/presente/music.png"
+                                            src={IMAGES.music}
                                             alt="Concierto J-Pop"
                                             fill
                                             className="object-cover"

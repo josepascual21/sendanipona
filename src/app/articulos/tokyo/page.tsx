@@ -246,7 +246,7 @@ export default function TokyoPage() {
                         >
                             <div className="relative h-[500px] rounded-2xl overflow-hidden border border-cyan-500/30 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
                                 <Image
-                                    src="/images/articulos/tokyo/cyberpunk.jpg" // Placeholder
+                                    src={IMAGES.cyberpunk} // Placeholder
                                     alt="Cyberpunk Aesthetic"
                                     fill
                                     className="object-cover"

@@ -21,6 +21,14 @@ import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/com
 // DATOS
 // ============================================================================
 
+const IMAGES = {
+    banner: "/images/articulos/futuro/banner.png",
+    intro: "/images/articulos/futuro/intro.png",
+    natalidad: "/images/articulos/futuro/natalidad.png",
+    longevidad: "/images/articulos/futuro/longevidad.png",
+    salud_mental: "/images/articulos/futuro/salud_mental.png"
+};
+
 /** Secciones de navegación */
 const SECTIONS: NavigationItem[] = [
     { id: '#introduccion', label: 'Introducción', icon: <Info size={20} /> },
@@ -76,7 +84,7 @@ export default function FuturoPage() {
             {/* ========== HERO SECTION ========== */}
             {/* ========== HERO SECTION ========== */}
             <HeroSection
-                backgroundImage="/images/articulos/futuro/banner.png"
+                backgroundImage={IMAGES.banner}
                 title={
                     <h1 className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 tracking-tighter font-ai-love">
                         FUTURO
@@ -127,7 +135,7 @@ export default function FuturoPage() {
                             {/* Imagen Intro */}
                             <div className="absolute inset-0 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl overflow-hidden">
                                 <Image
-                                    src="/images/articulos/futuro/intro.png"
+                                    src={IMAGES.intro}
                                     alt="Futuro de Japón"
                                     fill
                                     className="object-cover"
@@ -177,7 +185,7 @@ export default function FuturoPage() {
                                 </div>
                                 <div className="h-64 relative border border-slate-700 rounded-xl overflow-hidden">
                                     <Image
-                                        src="/images/articulos/futuro/natalidad.png"
+                                        src={IMAGES.natalidad}
                                         alt="Natalidad y Robótica"
                                         fill
                                         className="object-cover"
@@ -195,7 +203,7 @@ export default function FuturoPage() {
                             >
                                 <div className="h-64 relative border border-slate-700 rounded-xl overflow-hidden md:order-1 order-2">
                                     <Image
-                                        src="/images/articulos/futuro/longevidad.png"
+                                        src={IMAGES.longevidad}
                                         alt="Longevidad y Tecnología"
                                         fill
                                         className="object-cover"
@@ -235,7 +243,7 @@ export default function FuturoPage() {
                                 </div>
                                 <div className="h-64 relative border border-slate-700 rounded-xl overflow-hidden">
                                     <Image
-                                        src="/images/articulos/futuro/salud_mental.png"
+                                        src={IMAGES.salud_mental}
                                         alt="Aislamiento Urbano"
                                         fill
                                         className="object-cover"
