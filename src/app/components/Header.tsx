@@ -28,7 +28,28 @@ const MOBILE_LINK = "block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-or
  * - Placeholders para Login/Registro
  * - Menú móvil funcional con estado
  */
-export default function Header({ topics = [] }: { topics?: NavigationTopicDTO[] }) {
+import { logout } from '@/app/lib/actions';
+
+interface HeaderProps {
+    topics?: NavigationTopicDTO[];
+    user?: {
+        name?: string | null;
+        email?: string | null;
+        image?: string | null;
+    };
+}
+
+/**
+ * Header Component - Navegación principal del sitio
+ * 
+ * Incluye:
+ * - Logo con link a home
+ * - Dropdowns para los 3 primeros topics
+ * - Dropdown "Otros temas" para el resto
+ * - Menú de Usuario (si está logueado) o Login/Registro (si no)
+ * - Menú móvil funcional con estado
+ */
+export default function Header({ topics = [], user }: HeaderProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Separar topics: primeros 3 vs el resto
@@ -159,16 +180,31 @@ export default function Header({ topics = [] }: { topics?: NavigationTopicDTO[] 
                                     </div>
                                 )}
 
-                                {/* Login/Registro */}
-                                {AUTH_LINKS.map(link => (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        className={BUTTON_PRIMARY}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
+                                {/* User Menu or Auth Links */}
+                                {user ? (
+                                    <div className="flex items-center gap-4">
+                                        <span className="text-sm font-medium text-slate-700">
+                                            {user.name}
+                                        </span>
+                                        <form action={logout}>
+                                            <button className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600 transition-colors text-sm font-medium">
+                                                Cerrar Sesión
+                                            </button>
+                                        </form>
+                                    </div>
+                                ) : (
+                                    <div className="flex items-center gap-3">
+                                        {AUTH_LINKS.map(link => (
+                                            <Link
+                                                key={link.href}
+                                                href={link.href}
+                                                className={BUTTON_PRIMARY}
+                                            >
+                                                {link.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Menú móvil - Toggle button */}
