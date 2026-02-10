@@ -24,11 +24,16 @@ export class User {
      * Fecha de creación de la cuenta
      */
     readonly createdAt: Date;
+    /**
+     * Contraseña del usuario (hash)
+     */
+    readonly password?: string;
     constructor(props: {
         id: string;
         email: string;
         username: string;
         isActive: boolean;
+        password?: string;
         createdAt: Date;
     }) {
         // Validaciones básicas
@@ -48,6 +53,7 @@ export class User {
         this.email = props.email;
         this.username = props.username;
         this.isActive = props.isActive;
+        this.password = props.password;
         this.createdAt = props.createdAt;
     }
     /**

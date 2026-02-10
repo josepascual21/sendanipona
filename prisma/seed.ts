@@ -2,6 +2,7 @@
 require('dotenv').config()
 
 import { PrismaClient } from '@prisma/client'
+import { BcryptPasswordService } from '../src/infrastructure/services/BcryptPasswordService'
 
 const prisma = new PrismaClient()
 
@@ -205,6 +206,23 @@ async function main() {
         })
     }
     console.log('Created Arts Article')
+
+    // --- 5. Usuario de Prueba (Admin) ---
+    const passwordService = new BcryptPasswordService();
+    const hashedPassword = await passwordService.hash('password123');
+
+    const user = await prisma.user.upsert({
+        where: { email: 'user@example.com' },
+        update: { password: hashedPassword },
+        create: {
+            email: 'user@example.com',
+            username: 'Test User',
+            password: hashedPassword,
+            isActive: true,
+        },
+    });
+    console.log({ user });
+    console.log('Created Test User')
 
     console.log('✅ Seeding finished.')
 }
