@@ -246,7 +246,7 @@ export default function PresentePage() {
                     <div className="max-w-7xl mx-auto px-6">
                         <SectionTitle accentColor="bg-indigo-600">Curiosidades</SectionTitle>
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {CURIOSITIES.map((item, index) => (
                                 <motion.div
                                     key={index}

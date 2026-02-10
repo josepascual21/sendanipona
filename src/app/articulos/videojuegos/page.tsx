@@ -355,7 +355,7 @@ export default function VideojuegosPage() {
             </section>
 
             {/* ========== CURIOSIDADES (FINAL slate-950) ========== */}
-            <section id="curiosidades" className="py-32 bg-slate-950">
+            <section id="curiosidades" className="py-32 bg-stone-950">
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.95 }}

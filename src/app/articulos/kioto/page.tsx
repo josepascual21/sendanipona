@@ -280,7 +280,7 @@ export default function KyotoPage() {
             </section>
 
             {/* ========== CURIOSIDADES (Darkest Tone - STANDARD) ========== */}
-            <section id="curiosidades" className="py-32 bg-slate-950 relative border-t border-slate-900">
+            <section id="curiosidades" className="py-32 bg-stone-950 relative border-t border-slate-900">
                 <div className="max-w-7xl mx-auto px-6">
                     <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8 flex items-center gap-4">
                         SECRETOS DE <span className="text-amber-600">KIOTO</span>
