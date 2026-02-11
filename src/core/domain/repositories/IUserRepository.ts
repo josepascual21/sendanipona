@@ -39,4 +39,12 @@ export interface IUserRepository {
      * ```
      */
     findByEmail(email: string): Promise<User | null>;
+
+    /**
+     * Guarda un nuevo usuario o actualiza uno existente
+     * 
+     * @param user - Entidad User a persistir
+     * @returns Promise void
+     */
+    save(user: User): Promise<void>;
 }

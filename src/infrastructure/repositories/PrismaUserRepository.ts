@@ -36,4 +36,24 @@ export class PrismaUserRepository implements IUserRepository {
             createdAt: user.createdAt,
         });
     }
+
+    async save(user: User): Promise<void> {
+        await prisma.user.upsert({
+            where: { id: user.id },
+            update: {
+                email: user.email,
+                username: user.username,
+                password: user.password,
+                isActive: user.isActive,
+            },
+            create: {
+                id: user.id,
+                email: user.email,
+                username: user.username,
+                password: user.password || '', // Password es opcional en entidad pero requerido en BD para auth
+                isActive: user.isActive,
+                createdAt: user.createdAt,
+            },
+        });
+    }
 }

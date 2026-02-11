@@ -2,9 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
-import { PrismaUserRepository } from '../repositories/PrismaUserRepository';
-import { BcryptPasswordService } from '../services/BcryptPasswordService';
-import { LoginUseCase } from '../../core/application/use-cases/auth/LoginUseCase';
+import { container } from '../di/container';
 
 export const { auth, signIn, signOut, handlers } = NextAuth({
     ...authConfig,
@@ -12,9 +10,7 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
         Credentials({
             async authorize(credentials) {
                 try {
-                    const userRepository = new PrismaUserRepository();
-                    const passwordService = new BcryptPasswordService();
-                    const loginUseCase = new LoginUseCase(userRepository, passwordService);
+                    const loginUseCase = container.getLoginUseCase();
 
                     const parsedCredentials = z
                         .object({ email: z.string().email(), password: z.string().min(6) })
