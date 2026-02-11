@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
-import { z } from 'zod';
 import { container } from '../di/container';
 
 export const { auth, signIn, signOut, handlers } = NextAuth({
@@ -12,27 +11,23 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
                 try {
                     const loginUseCase = container.getLoginUseCase();
 
-                    const parsedCredentials = z
-                        .object({ email: z.string().email(), password: z.string().min(6) })
-                        .safeParse(credentials);
+                    // La validación Zod se delega al LoginUseCase para evitar duplicidad
+                    const email = credentials?.email as string;
+                    const password = credentials?.password as string;
 
-                    if (parsedCredentials.success) {
-                        const { email, password } = parsedCredentials.data;
-                        const user = await loginUseCase.execute({ email, password });
-                        if (!user) return null;
+                    if (!email || !password) return null;
 
-                        // Return user object compatible with NextAuth User type
-                        return {
-                            id: user.id,
-                            name: user.username,
-                            email: user.email,
-                        };
-                    }
+                    const user = await loginUseCase.execute({ email, password });
+                    if (!user) return null;
 
-                    console.log('Invalid credentials');
-                    return null;
+                    // Devolver objeto de usuario compatible con NextAuth User type
+                    return {
+                        id: user.id,
+                        name: user.username,
+                        email: user.email,
+                    };
                 } catch (error) {
-                    console.error('Auth error:', error);
+                    console.error('Error de autenticación:', error);
                     return null;
                 }
             },

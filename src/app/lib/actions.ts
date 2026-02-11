@@ -4,7 +4,6 @@ import { signIn, signOut } from '@/infrastructure/auth/auth';
 import { AuthError } from 'next-auth';
 import { UserAlreadyExistsError } from '@/core/domain/errors/UserAlreadyExistsError';
 import { container } from '@/infrastructure/di/container';
-import { redirect } from 'next/navigation';
 
 export async function authenticate(
     prevState: string | undefined,
@@ -46,17 +45,28 @@ export async function registerUser(
             confirmPassword: data.confirmPassword as string,
         });
 
-        // Login automático tras registro (opcional, o redirigir a login)
+        // Login automático tras registro exitoso
+        await signIn('credentials', {
+            email: data.email as string,
+            password: data.password as string,
+            redirectTo: '/',
+        });
     } catch (error) {
+        // signIn lanza un error NEXT_REDIRECT internamente al redirigir,
+        // necesitamos re-lanzarlo para que Next.js gestione la redirección
+        if (error instanceof AuthError) {
+            return 'Error al iniciar sesión automáticamente tras el registro.';
+        }
         if (error instanceof UserAlreadyExistsError) {
             return error.message;
         }
         if (error instanceof Error) {
+            // Dejar pasar errores de redirección de Next.js
+            if (error.message.includes('NEXT_REDIRECT')) {
+                throw error;
+            }
             return error.message;
         }
         return 'Error desconocido al registrar usuario';
     }
-
-    // Redirigir fuera del try-catch para evitar que Next.js capture el redirect como error
-    redirect('/login?registered=true');
 }
