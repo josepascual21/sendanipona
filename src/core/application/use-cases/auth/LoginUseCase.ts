@@ -24,6 +24,11 @@ export class LoginUseCase {
             return null;
         }
 
+        // Verificar que la cuenta del usuario esté activa
+        if (!user.isActive) {
+            return null;
+        }
+
         const isValidPassword = await this.passwordService.compare(password, user.password);
         if (!isValidPassword) {
             return null;
