@@ -276,18 +276,46 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                         </div>
                                     )}
 
+
                                     {/* Auth Links Mobile */}
-                                    <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
-                                        {AUTH_LINKS.map(link => (
-                                            <Link
-                                                key={link.href}
-                                                href={link.href}
-                                                className="flex items-center justify-center px-4 py-2.5 rounded-lg font-medium transition-all text-sm first:bg-slate-100 first:text-slate-700 first:hover:bg-slate-200 last:bg-orange-500 last:text-white last:hover:bg-orange-600"
-                                                onClick={() => setIsMobileMenuOpen(false)}
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        ))}
+                                    <div className="pt-4 border-t border-slate-100">
+                                        {user ? (
+                                            <div className="space-y-3 px-4">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold border border-orange-200">
+                                                        {user.name?.[0]?.toUpperCase() || 'U'}
+                                                    </div>
+                                                    <div className="flex flex-col">
+                                                        <span className="font-medium text-slate-700 text-sm">{user.name}</span>
+                                                        <span className="text-xs text-slate-500 truncate max-w-[150px]">{user.email}</span>
+                                                    </div>
+                                                </div>
+                                                <form action={logout} className="w-full">
+                                                    <button
+                                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm text-red-600 bg-red-50 hover:bg-red-100 border border-red-100 transition-colors"
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                    >
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                                        </svg>
+                                                        Cerrar Sesión
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        ) : (
+                                            <div className="grid grid-cols-2 gap-3">
+                                                {AUTH_LINKS.map(link => (
+                                                    <Link
+                                                        key={link.href}
+                                                        href={link.href}
+                                                        className="flex items-center justify-center px-4 py-2.5 rounded-lg font-medium transition-all text-sm first:bg-slate-100 first:text-slate-700 first:hover:bg-slate-200 last:bg-orange-500 last:text-white last:hover:bg-orange-600"
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                    >
+                                                        {link.label}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
