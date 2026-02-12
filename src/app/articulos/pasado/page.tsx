@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -424,6 +425,8 @@ export default function PasadoPage() {
                 </section>
 
             </div>
+
+            <CommentsSectionWrapper slug="pasado" />
         </div>
     );
 }
