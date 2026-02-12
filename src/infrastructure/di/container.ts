@@ -4,6 +4,9 @@ import { PrismaCommentRepository } from "../repositories/PrismaCommentRepository
 import { prisma } from "../database/prisma"; // Asegurar que importamos la instancia de prisma
 import { LoginUseCase } from "../../core/application/use-cases/auth/LoginUseCase";
 import { RegisterUseCase } from "../../core/application/use-cases/auth/RegisterUseCase";
+import { CreateCommentUseCase } from "../../core/application/use-cases/comments/CreateCommentUseCase";
+import { GetArticleCommentsUseCase } from "../../core/application/use-cases/comments/GetArticleCommentsUseCase";
+import { DeleteCommentUseCase } from "../../core/application/use-cases/comments/DeleteCommentUseCase";
 
 /**
  * Contenedor de Inyección de Dependencias
@@ -34,6 +37,18 @@ class DIContainer {
 
     static getRegisterUseCase() {
         return new RegisterUseCase(this._userRepository, this._passwordService);
+    }
+
+    static getCreateCommentUseCase() {
+        return new CreateCommentUseCase(this._commentRepository);
+    }
+
+    static getArticleCommentsUseCase() {
+        return new GetArticleCommentsUseCase(this._commentRepository);
+    }
+
+    static getDeleteCommentUseCase() {
+        return new DeleteCommentUseCase(this._commentRepository);
     }
 }
 
