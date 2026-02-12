@@ -152,3 +152,14 @@ export async function getArticleIdBySlug(slug: string) {
         return { success: false, error: 'Error al obtener el artículo' };
     }
 }
+
+export async function checkIfUserCommented(userId: string, articleId: string) {
+    try {
+        const repo = container.getCommentRepository();
+        const comment = await repo.findByUserAndArticle(userId, articleId);
+        return { hasCommented: !!comment };
+    } catch (error) {
+        console.error('Error checking if user commented:', error);
+        return { hasCommented: false };
+    }
+}
