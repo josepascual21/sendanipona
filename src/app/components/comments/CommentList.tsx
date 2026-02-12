@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getArticleComments, deleteComment } from '@/app/lib/actions';
 import { formatDistanceToNow } from 'date-fns';
 import { es } from 'date-fns/locale';
@@ -29,11 +29,7 @@ export default function CommentList({ articleId, currentUser }: CommentListProps
     const [loading, setLoading] = useState(true);
     const [hasMore, setHasMore] = useState(true);
 
-    useEffect(() => {
-        loadComments(1, true);
-    }, [articleId]);
-
-    async function loadComments(pageNum: number, reset: boolean = false) {
+    const loadComments = useCallback(async (pageNum: number, reset: boolean = false) => {
         setLoading(true);
         const result = await getArticleComments(articleId, pageNum);
 
@@ -52,7 +48,11 @@ export default function CommentList({ articleId, currentUser }: CommentListProps
             }
         }
         setLoading(false);
-    }
+    }, [articleId]);
+
+    useEffect(() => {
+        loadComments(1, true);
+    }, [loadComments]);
 
     async function handleDelete(commentId: string) {
         if (!confirm('¿Estás seguro de que quieres eliminar este comentario?')) return;

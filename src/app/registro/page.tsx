@@ -3,7 +3,7 @@
 import { registerUser } from '@/app/lib/actions';
 import { useFormState, useFormStatus } from 'react-dom';
 import Link from 'next/link';
-import { UI_CONSTANTS } from '@/core/constants/app-constants';
+
 
 export default function RegisterPage() {
     const [errorMessage, dispatch] = useFormState(registerUser, undefined);
