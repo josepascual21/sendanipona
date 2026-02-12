@@ -4,6 +4,7 @@ import { useFormStatus } from 'react-dom';
 import { createComment } from '@/app/lib/actions';
 import { useState } from 'react';
 import Link from 'next/link';
+import { COMMENT_MIN_LENGTH, COMMENT_MAX_LENGTH } from '@/core/domain/entities/Comment';
 
 interface CommentFormProps {
     articleId: string;
@@ -44,13 +45,13 @@ export default function CommentForm({ articleId, userId, hasCommented = false }:
         setError(null);
         const text = formData.get('textComment') as string;
 
-        if (text.length > 500) {
-            setError('El comentario no puede exceder los 500 caracteres');
+        if (text.length > COMMENT_MAX_LENGTH) {
+            setError(`El comentario no puede exceder los ${COMMENT_MAX_LENGTH} caracteres`);
             return;
         }
 
-        if (text.length < 10) {
-            setError('El comentario debe tener al menos 10 caracteres');
+        if (text.length < COMMENT_MIN_LENGTH) {
+            setError(`El comentario debe tener al menos ${COMMENT_MIN_LENGTH} caracteres`);
             return;
         }
 
@@ -75,11 +76,11 @@ export default function CommentForm({ articleId, userId, hasCommented = false }:
                         setCharCount(e.target.value.length);
                         if (error) setError(null);
                     }}
-                    maxLength={500}
+                    maxLength={COMMENT_MAX_LENGTH}
                     required
                 />
-                <div className={`absolute bottom-3 right-3 text-xs ${charCount > 450 ? 'text-orange-500' : 'text-zinc-600'}`}>
-                    {charCount}/500
+                <div className={`absolute bottom-3 right-3 text-xs ${charCount > COMMENT_MAX_LENGTH - 50 ? 'text-orange-500' : 'text-zinc-600'}`}>
+                    {charCount}/{COMMENT_MAX_LENGTH}
                 </div>
             </div>
 

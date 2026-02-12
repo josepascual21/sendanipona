@@ -1,14 +1,15 @@
 import { IPasswordService } from "../../../domain/services/IPasswordService";
 import { IUserRepository } from "../../../domain/repositories/IUserRepository";
 import { User } from "../../../domain/entities/User";
-import { z } from "zod";
 
-const LoginSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(1),
-});
-
-type LoginDTO = z.infer<typeof LoginSchema>;
+/**
+ * DTO de entrada para el login.
+ * Los datos llegan ya validados por el schema Zod en la capa de presentación.
+ */
+export interface LoginDTO {
+    email: string;
+    password: string;
+}
 
 export class LoginUseCase {
     constructor(
@@ -17,7 +18,7 @@ export class LoginUseCase {
     ) { }
 
     async execute(dto: LoginDTO): Promise<User | null> {
-        const { email, password } = LoginSchema.parse(dto);
+        const { email, password } = dto;
 
         const user = await this.userRepository.findByEmail(email);
         if (!user || !user.password) {
@@ -37,3 +38,4 @@ export class LoginUseCase {
         return user;
     }
 }
+

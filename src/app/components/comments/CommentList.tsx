@@ -4,17 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { getArticleComments, deleteComment } from '@/app/lib/actions';
 import { formatDistanceToNow } from 'date-fns';
 import { es } from 'date-fns/locale';
-
-interface Comment {
-    id: string;
-    textComment: string;
-    createdAt: string; // Serializado como string desde Server Action
-    userId: string;
-    user?: { // Nota: El repo actual no hace include user, por ahora mostraremos "Usuario" o ID
-        name?: string;
-        image?: string;
-    };
-}
+import { CommentDTO } from '@/core/application/dtos/CommentDTO';
 
 interface CommentListProps {
     articleId: string;
@@ -24,7 +14,7 @@ interface CommentListProps {
 
 
 export default function CommentList({ articleId, currentUser }: CommentListProps) {
-    const [comments, setComments] = useState<Comment[]>([]);
+    const [comments, setComments] = useState<CommentDTO[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
     const [hasMore, setHasMore] = useState(true);

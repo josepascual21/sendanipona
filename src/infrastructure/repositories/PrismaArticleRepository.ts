@@ -1,6 +1,6 @@
+import { PrismaClient } from '@prisma/client';
 import { Article } from '@core/domain/entities/Article';
 import { IArticleRepository } from '@core/domain/repositories/IArticleRepository';
-import { prisma } from '@infra/database/prisma';
 import { Article as PrismaArticle } from '@prisma/client';
 
 /**
@@ -9,6 +9,8 @@ import { Article as PrismaArticle } from '@prisma/client';
  * Responsabilidad: Traducir entre modelos de Prisma y entidades de dominio
  */
 export class PrismaArticleRepository implements IArticleRepository {
+    constructor(private prisma: PrismaClient) { }
+
     /**
      * Convierte un modelo de Prisma a una entidad de dominio
      */
@@ -27,7 +29,7 @@ export class PrismaArticleRepository implements IArticleRepository {
      * Obtiene todos los artículos
      */
     async findAll(): Promise<Article[]> {
-        const articles = await prisma.article.findMany({
+        const articles = await this.prisma.article.findMany({
             orderBy: { createdAt: 'desc' },
         });
 
@@ -38,7 +40,7 @@ export class PrismaArticleRepository implements IArticleRepository {
      * Busca un artículo por su slug único
      */
     async findBySlug(slug: string): Promise<Article | null> {
-        const article = await prisma.article.findUnique({
+        const article = await this.prisma.article.findUnique({
             where: { slug },
         });
 
@@ -49,7 +51,7 @@ export class PrismaArticleRepository implements IArticleRepository {
      * Busca un artículo por su ID único
      */
     async findById(id: string): Promise<Article | null> {
-        const article = await prisma.article.findUnique({
+        const article = await this.prisma.article.findUnique({
             where: { id },
         });
 
@@ -60,7 +62,7 @@ export class PrismaArticleRepository implements IArticleRepository {
      * Obtiene todos los artículos de un topic específico
      */
     async findByTopicId(topicId: number): Promise<Article[]> {
-        const articles = await prisma.article.findMany({
+        const articles = await this.prisma.article.findMany({
             where: { topicId },
             orderBy: { createdAt: 'desc' },
         });
@@ -68,4 +70,5 @@ export class PrismaArticleRepository implements IArticleRepository {
         return articles.map(article => this.toDomain(article));
     }
 }
+
 

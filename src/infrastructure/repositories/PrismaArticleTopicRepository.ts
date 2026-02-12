@@ -1,10 +1,10 @@
+import { PrismaClient } from '@prisma/client';
 import { ArticleTopic } from '@core/domain/entities/ArticleTopic';
 import { Article } from '@core/domain/entities/Article';
 import {
     IArticleTopicRepository,
     ArticleTopicWithArticles
 } from '@core/domain/repositories/IArticleTopicRepository';
-import { prisma } from '@infra/database/prisma';
 
 /**
  * Implementación de IArticleTopicRepository usando Prisma ORM
@@ -13,6 +13,8 @@ import { prisma } from '@infra/database/prisma';
  * para los topics de artículos
  */
 export class PrismaArticleTopicRepository implements IArticleTopicRepository {
+    constructor(private prisma: PrismaClient) { }
+
     /**
      * Convierte un registro de Prisma ArticleTopic a una entidad de dominio
      */
@@ -49,7 +51,7 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
      * Ordenados por nombre alfabéticamente
      */
     async findAll(): Promise<ArticleTopic[]> {
-        const topics = await prisma.articleTopic.findMany({
+        const topics = await this.prisma.articleTopic.findMany({
             orderBy: { id: 'asc' },
         });
 
@@ -60,7 +62,7 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
      * Busca un topic por su ID
      */
     async findById(id: number): Promise<ArticleTopic | null> {
-        const topic = await prisma.articleTopic.findUnique({
+        const topic = await this.prisma.articleTopic.findUnique({
             where: { id },
         });
 
@@ -73,7 +75,7 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
      * Ordenado: topics por nombre, artículos por fecha de creación descendente
      */
     async findAllWithArticles(): Promise<ArticleTopicWithArticles[]> {
-        const topicsWithArticles = await prisma.articleTopic.findMany({
+        const topicsWithArticles = await this.prisma.articleTopic.findMany({
             include: {
                 articles: {
                     orderBy: { id: 'asc' },
@@ -88,3 +90,4 @@ export class PrismaArticleTopicRepository implements IArticleTopicRepository {
         }));
     }
 }
+

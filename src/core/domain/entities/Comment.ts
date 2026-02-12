@@ -1,3 +1,9 @@
+/** Longitud mínima permitida para el texto de un comentario */
+export const COMMENT_MIN_LENGTH = 10;
+
+/** Longitud máxima permitida para el texto de un comentario */
+export const COMMENT_MAX_LENGTH = 500;
+
 /**
  * Entidad Comment - Representa un comentario de usuario en un artículo
  */
@@ -36,11 +42,11 @@ export class Comment {
         if (!props.textComment || props.textComment.trim() === '') {
             throw new Error('Comment text no puede estar vacio');
         }
-        if (props.textComment.length < 10) {
-            throw new Error('Comment text debe tener al menos 10 caracteres');
+        if (props.textComment.length < COMMENT_MIN_LENGTH) {
+            throw new Error(`Comment text debe tener al menos ${COMMENT_MIN_LENGTH} caracteres`);
         }
-        if (props.textComment.length > 500) {
-            throw new Error('Comment text no puede exceder 500 caracteres');
+        if (props.textComment.length > COMMENT_MAX_LENGTH) {
+            throw new Error(`Comment text no puede exceder ${COMMENT_MAX_LENGTH} caracteres`);
         }
         if (!props.userId || props.userId.trim() === '') {
             throw new Error('Comment userId no puede estar vacio');

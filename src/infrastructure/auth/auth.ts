@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { container } from '../di/container';
+import { LoginSchema } from '../../app/lib/schemas';
 
 export const { auth, signIn, signOut, handlers } = NextAuth({
     ...authConfig,
@@ -9,15 +10,16 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
         Credentials({
             async authorize(credentials) {
                 try {
+                    // Validar credenciales con schema Zod (capa de adaptador)
+                    const parsed = LoginSchema.safeParse({
+                        email: credentials?.email,
+                        password: credentials?.password,
+                    });
+
+                    if (!parsed.success) return null;
+
                     const loginUseCase = container.getLoginUseCase();
-
-                    // La validación Zod se delega al LoginUseCase para evitar duplicidad
-                    const email = credentials?.email as string;
-                    const password = credentials?.password as string;
-
-                    if (!email || !password) return null;
-
-                    const user = await loginUseCase.execute({ email, password });
+                    const user = await loginUseCase.execute(parsed.data);
                     if (!user) return null;
 
                     // Devolver objeto de usuario compatible con NextAuth User type

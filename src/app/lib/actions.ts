@@ -6,6 +6,7 @@ import { UserAlreadyExistsError } from '@/core/domain/errors/UserAlreadyExistsEr
 import { container } from '@/infrastructure/di/container';
 import { CommentAlreadyExistsError } from '@/core/domain/errors/CommentAlreadyExistsError';
 import { revalidatePath } from 'next/cache';
+import { RegisterSchema } from './schemas';
 
 export async function authenticate(
     prevState: string | undefined,
@@ -37,15 +38,17 @@ export async function registerUser(
     try {
         const data = Object.fromEntries(formData);
 
-        // Instanciar dependencias usando el contenedor DI
-        const registerUseCase = container.getRegisterUseCase();
-
-        await registerUseCase.execute({
+        // Validar datos del formulario con schema Zod (capa de presentación)
+        const validatedData = RegisterSchema.parse({
             name: data.name as string,
             email: data.email as string,
             password: data.password as string,
             confirmPassword: data.confirmPassword as string,
         });
+
+        // Ejecutar use case con datos validados
+        const registerUseCase = container.getRegisterUseCase();
+        await registerUseCase.execute(validatedData);
 
         // Login automático tras registro exitoso
         await signIn('credentials', {

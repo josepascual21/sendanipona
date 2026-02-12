@@ -27,10 +27,10 @@ import { GetNavigationData } from "../../core/application/use-cases/articles/Get
  */
 class DIContainer {
     // --- Repositorios ---
-    private static _userRepository = new PrismaUserRepository();
+    private static _userRepository = new PrismaUserRepository(prisma);
     private static _commentRepository = new PrismaCommentRepository(prisma);
-    private static _articleRepository = new PrismaArticleRepository();
-    private static _articleTopicRepository = new PrismaArticleTopicRepository();
+    private static _articleRepository = new PrismaArticleRepository(prisma);
+    private static _articleTopicRepository = new PrismaArticleTopicRepository(prisma);
 
     // --- Servicios ---
     private static _passwordService = new BcryptPasswordService();
