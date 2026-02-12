@@ -5,9 +5,7 @@ import { Outfit } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { APP_METADATA } from "@/core/constants/app-constants";
-import { PrismaArticleTopicRepository } from "@/infrastructure/repositories/PrismaArticleTopicRepository";
-import { GetNavigationData } from "@/core/application/use-cases/articles";
-
+import { container } from "@/infrastructure/di/container";
 
 import { auth } from "@/infrastructure/auth/auth";
 import AuthProvider from "./components/SessionProvider";
@@ -35,12 +33,11 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    // Obtener datos de navegación y sesión en paralelo
-    const articleTopicRepository = new PrismaArticleTopicRepository();
-    const getNavigationData = new GetNavigationData(articleTopicRepository);
+    // Obtener datos de navegación y sesión en paralelo usando el DI Container
+    const navigationDataUseCase = container.getNavigationDataUseCase();
 
     const [navigationTopics, session] = await Promise.all([
-        getNavigationData.execute(),
+        navigationDataUseCase.execute(),
         auth(),
     ]);
 

@@ -4,7 +4,6 @@ import { signIn, signOut } from '@/infrastructure/auth/auth';
 import { AuthError } from 'next-auth';
 import { UserAlreadyExistsError } from '@/core/domain/errors/UserAlreadyExistsError';
 import { container } from '@/infrastructure/di/container';
-import { prisma } from '@/infrastructure/database/prisma';
 import { CommentAlreadyExistsError } from '@/core/domain/errors/CommentAlreadyExistsError';
 import { revalidatePath } from 'next/cache';
 
@@ -123,27 +122,11 @@ export async function deleteComment(commentId: string, userId: string, articlePa
 
 export async function getArticleIdBySlug(slug: string) {
     try {
-        let article = await prisma.article.findUnique({
-            where: { slug }
-        });
+        const getArticleBySlugUseCase = container.getArticleBySlugUseCase();
+        const article = await getArticleBySlugUseCase.execute(slug);
 
         if (!article) {
-            // Auto-creación para facilitar desarrollo
-            // Necesitamos un topic. Buscamos o creamos el primero.
-            let topic = await prisma.articleTopic.findFirst();
-            if (!topic) {
-                topic = await prisma.articleTopic.create({
-                    data: { name: 'General' }
-                });
-            }
-
-            article = await prisma.article.create({
-                data: {
-                    slug,
-                    name: slug.charAt(0).toUpperCase() + slug.slice(1),
-                    topicId: topic.id
-                }
-            });
+            return { success: false, error: 'Artículo no encontrado' };
         }
 
         return { success: true, articleId: article.id };
@@ -155,9 +138,9 @@ export async function getArticleIdBySlug(slug: string) {
 
 export async function checkIfUserCommented(userId: string, articleId: string) {
     try {
-        const repo = container.getCommentRepository();
-        const comment = await repo.findByUserAndArticle(userId, articleId);
-        return { hasCommented: !!comment };
+        const checkUserCommentUseCase = container.getCheckUserCommentUseCase();
+        const hasCommented = await checkUserCommentUseCase.execute(userId, articleId);
+        return { hasCommented };
     } catch (error) {
         console.error('Error checking if user commented:', error);
         return { hasCommented: false };
