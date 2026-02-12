@@ -8,17 +8,24 @@ import { Comment } from '../entities/Comment';
  */
 export interface ICommentRepository {
     /**
-     * Obtiene todos los comentarios de un artículo específico
+     * Obtiene los comentarios de un artículo con paginación
      * 
      * @param articleId - ID del artículo
-     * @returns Promise con array de entidades Comment ordenados por fecha (más recientes primero)
-     * @example
-     * ```ts
-     * const comments = await repository.findByArticleId('clxxx123');
-     * console.log(comments.length); // 5
-     * ```
+     * @param offset - Número de registros a saltar (para paginación)
+     * @param limit - Número de registros a devolver (por defecto 4)
+     * @returns Promise con array de entidades Comment ordenados por fecha desc
      */
-    findByArticleId(articleId: string): Promise<Comment[]>;
+    findByArticleId(articleId: string, offset?: number, limit?: number): Promise<Comment[]>;
+
+    /**
+     * Busca si existe un comentario de un usuario específico en un artículo.
+     * Útil para validar la regla de "un comentario por usuario".
+     * 
+     * @param userId - ID del usuario
+     * @param articleId - ID del artículo
+     * @returns Promise con el comentario si existe, o null
+     */
+    findByUserAndArticle(userId: string, articleId: string): Promise<Comment | null>;
 
     /**
      * Busca un comentario específico por su ID
