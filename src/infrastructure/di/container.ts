@@ -1,5 +1,7 @@
 import { PrismaUserRepository } from "../repositories/PrismaUserRepository";
 import { BcryptPasswordService } from "../services/BcryptPasswordService";
+import { PrismaCommentRepository } from "../repositories/PrismaCommentRepository";
+import { prisma } from "../database/prisma"; // Asegurar que importamos la instancia de prisma
 import { LoginUseCase } from "../../core/application/use-cases/auth/LoginUseCase";
 import { RegisterUseCase } from "../../core/application/use-cases/auth/RegisterUseCase";
 
@@ -11,10 +13,15 @@ import { RegisterUseCase } from "../../core/application/use-cases/auth/RegisterU
  */
 class DIContainer {
     private static _userRepository = new PrismaUserRepository();
+    private static _commentRepository = new PrismaCommentRepository(prisma);
     private static _passwordService = new BcryptPasswordService();
 
     static getUserRepository() {
         return this._userRepository;
+    }
+
+    static getCommentRepository() {
+        return this._commentRepository;
     }
 
     static getPasswordService() {
