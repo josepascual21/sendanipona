@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { HOME_QUOTES } from '@/core/data/home-data';
+import { HOME_QUOTES } from '@/shared/data/home-data';
 
 export default function QuotesSection() {
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,3 +1,5 @@
+import { InvalidEntityError } from '../errors/InvalidEntityError';
+
 /**
  * Entidad Article - Representa un artículo informativo sobre Japón
  */
@@ -44,16 +46,16 @@ export class Article {
     }) {
         // Validaciones básicas
         if (!props.id || props.id.trim() === '') {
-            throw new Error('El ID del articulo no puede estar vacio');
+            throw new InvalidEntityError('Article', 'El ID del articulo no puede estar vacio');
         }
         if (!props.slug || props.slug.trim() === '') {
-            throw new Error('El slug del articulo no puede estar vacio');
+            throw new InvalidEntityError('Article', 'El slug del articulo no puede estar vacio');
         }
         if (!props.name || props.name.trim() === '') {
-            throw new Error('El nombre del articulo no puede estar vacio');
+            throw new InvalidEntityError('Article', 'El nombre del articulo no puede estar vacio');
         }
         if (props.topicId <= 0) {
-            throw new Error('El ID del topic debe ser positivo');
+            throw new InvalidEntityError('Article', 'El ID del topic debe ser positivo');
         }
 
         this.id = props.id;

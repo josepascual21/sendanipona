@@ -1,3 +1,5 @@
+import { InvalidEntityError } from '../errors/InvalidEntityError';
+
 /**
  * Entidad ArticleTopic - Representa una categoría/tema de artículos
  * 
@@ -18,10 +20,10 @@ export class ArticleTopic {
     }) {
         // Validaciones básicas
         if (props.id <= 0) {
-            throw new Error('ArticleTopic ID debe ser positivo');
+            throw new InvalidEntityError('ArticleTopic', 'ArticleTopic ID debe ser positivo');
         }
         if (!props.name || props.name.trim() === '') {
-            throw new Error('ArticleTopic name no puede estar vacio');
+            throw new InvalidEntityError('ArticleTopic', 'ArticleTopic name no puede estar vacio');
         }
         this.id = props.id;
         this.name = props.name;

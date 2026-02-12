@@ -1,3 +1,9 @@
+/**
+ * Datos estáticos para la página de inicio (capa de presentación)
+ * 
+ * Contiene citas y principios informativos para la sección home.
+ * Ubicado en shared/ porque son datos de presentación, no lógica de negocio.
+ */
 
 export interface Quote {
     text: string;

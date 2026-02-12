@@ -6,6 +6,11 @@ import { Article } from '../entities/Article';
  * Esta interface pertenece a la capa de dominio y NO debe tener dependencias
  * de infraestructura (Prisma, APIs, etc.). Las implementaciones concretas
  * estarán en la capa de infraestructura.
+ * 
+ * NOTA DE DISEÑO: Este repositorio es intencionalmente de solo lectura.
+ * Los artículos se gestionan directamente en la base de datos (seed/migraciones),
+ * no desde la aplicación. Si en el futuro se necesita escritura, se añadirá
+ * un método `create(article: Omit<Article, 'id' | 'createdAt'>): Promise<Article>`.
  */
 export interface IArticleRepository {
     /**

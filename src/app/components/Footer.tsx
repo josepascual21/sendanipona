@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { APP_METADATA, FOOTER_SECTIONS, UI_CONSTANTS } from '@/core/constants/app-constants';
+import { APP_METADATA, FOOTER_SECTIONS, UI_CONSTANTS } from '@/shared/constants/app-constants';
 import {
     UserIcon,
 } from '@heroicons/react/24/outline';

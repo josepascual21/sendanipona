@@ -1,6 +1,8 @@
 /**
- * Constantes globales de la aplicación
- * Centraliza textos, configuración y enlaces para facilitar el mantenimiento.
+ * Constantes globales de la aplicación (capa de presentación)
+ * 
+ * Centraliza textos, configuración y enlaces de UI para facilitar el mantenimiento.
+ * Ubicado en shared/ porque son datos de presentación, no lógica de negocio.
  */
 
 export const APP_METADATA = {

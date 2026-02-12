@@ -1,3 +1,5 @@
+import { InvalidEntityError } from '../errors/InvalidEntityError';
+
 /** Longitud mínima permitida para el texto de un comentario */
 export const COMMENT_MIN_LENGTH = 10;
 
@@ -37,22 +39,22 @@ export class Comment {
     }) {
         // Validaciones básicas
         if (!props.id || props.id.trim() === '') {
-            throw new Error('Comment ID no puede estar vacio');
+            throw new InvalidEntityError('Comment', 'Comment ID no puede estar vacio');
         }
         if (!props.textComment || props.textComment.trim() === '') {
-            throw new Error('Comment text no puede estar vacio');
+            throw new InvalidEntityError('Comment', 'Comment text no puede estar vacio');
         }
         if (props.textComment.length < COMMENT_MIN_LENGTH) {
-            throw new Error(`Comment text debe tener al menos ${COMMENT_MIN_LENGTH} caracteres`);
+            throw new InvalidEntityError('Comment', `Comment text debe tener al menos ${COMMENT_MIN_LENGTH} caracteres`);
         }
         if (props.textComment.length > COMMENT_MAX_LENGTH) {
-            throw new Error(`Comment text no puede exceder ${COMMENT_MAX_LENGTH} caracteres`);
+            throw new InvalidEntityError('Comment', `Comment text no puede exceder ${COMMENT_MAX_LENGTH} caracteres`);
         }
         if (!props.userId || props.userId.trim() === '') {
-            throw new Error('Comment userId no puede estar vacio');
+            throw new InvalidEntityError('Comment', 'Comment userId no puede estar vacio');
         }
         if (!props.articleId || props.articleId.trim() === '') {
-            throw new Error('Comment articleId no puede estar vacio');
+            throw new InvalidEntityError('Comment', 'Comment articleId no puede estar vacio');
         }
         this.id = props.id;
         this.textComment = props.textComment;

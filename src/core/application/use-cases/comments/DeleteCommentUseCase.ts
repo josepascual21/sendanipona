@@ -1,5 +1,13 @@
 import { ICommentRepository } from '@/core/domain/repositories/ICommentRepository';
+import { CommentNotFoundError } from '@/core/domain/errors/CommentNotFoundError';
+import { UnauthorizedDeleteError } from '@/core/domain/errors/UnauthorizedDeleteError';
 
+/**
+ * Caso de uso: Eliminar un comentario existente
+ * 
+ * Valida que el comentario exista y que el usuario sea su propietario
+ * antes de proceder con la eliminación.
+ */
 export class DeleteCommentUseCase {
     constructor(private commentRepository: ICommentRepository) { }
 
@@ -8,12 +16,12 @@ export class DeleteCommentUseCase {
         const comment = await this.commentRepository.findById(commentId);
 
         if (!comment) {
-            throw new Error('Comentario no encontrado');
+            throw new CommentNotFoundError(commentId);
         }
 
         // 2. Validar que el usuario sea el dueño del comentario
         if (comment.userId !== userId) {
-            throw new Error('No tienes permiso para eliminar este comentario');
+            throw new UnauthorizedDeleteError(userId, commentId);
         }
 
         // 3. Eliminar

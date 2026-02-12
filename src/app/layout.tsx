@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import { Outfit } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { APP_METADATA } from "@/core/constants/app-constants";
+import { APP_METADATA } from "@/shared/constants/app-constants";
 import { container } from "@/infrastructure/di/container";
 
 import { auth } from "@/infrastructure/auth/auth";

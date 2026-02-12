@@ -1,5 +1,5 @@
 import React from 'react';
-import { HOME_PRINCIPLES } from '@/core/data/home-data';
+import { HOME_PRINCIPLES } from '@/shared/data/home-data';
 
 export default function PrinciplesSection() {
     return (

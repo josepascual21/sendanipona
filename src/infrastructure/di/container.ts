@@ -6,14 +6,15 @@ import { PrismaArticleTopicRepository } from "../repositories/PrismaArticleTopic
 import { prisma } from "../database/prisma";
 
 // Use cases de autenticación
-import { LoginUseCase } from "../../core/application/use-cases/auth/LoginUseCase";
-import { RegisterUseCase } from "../../core/application/use-cases/auth/RegisterUseCase";
+import { LoginUseCase, RegisterUseCase } from "../../core/application/use-cases/auth";
 
 // Use cases de comentarios
-import { CreateCommentUseCase } from "../../core/application/use-cases/comments/CreateCommentUseCase";
-import { GetArticleCommentsUseCase } from "../../core/application/use-cases/comments/GetArticleCommentsUseCase";
-import { DeleteCommentUseCase } from "../../core/application/use-cases/comments/DeleteCommentUseCase";
-import { CheckUserCommentUseCase } from "../../core/application/use-cases/comments/CheckUserCommentUseCase";
+import {
+    CreateCommentUseCase,
+    GetArticleCommentsUseCase,
+    DeleteCommentUseCase,
+    CheckUserCommentUseCase
+} from "../../core/application/use-cases/comments";
 
 // Use cases de artículos
 import { GetArticleBySlug } from "../../core/application/use-cases/articles/GetArticleBySlug";

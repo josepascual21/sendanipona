@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { APP_METADATA, UI_CONSTANTS } from '@/core/constants/app-constants';
+import { APP_METADATA, UI_CONSTANTS } from '@/shared/constants/app-constants';
 import { NavigationTopicDTO } from '@/core/application/use-cases/articles/GetNavigationData';
 
 const AUTH_LINKS = [

@@ -1,3 +1,5 @@
+import { InvalidEntityError } from '../errors/InvalidEntityError';
+
 /**
  * Entidad User - Representa un usuario del sistema
  * 
@@ -38,16 +40,16 @@ export class User {
     }) {
         // Validaciones básicas
         if (!props.id || props.id.trim() === '') {
-            throw new Error('ID de usuario no puede estar vacio');
+            throw new InvalidEntityError('User', 'ID de usuario no puede estar vacio');
         }
         if (!props.email || props.email.trim() === '') {
-            throw new Error('Email de usuario no puede estar vacio');
+            throw new InvalidEntityError('User', 'Email de usuario no puede estar vacio');
         }
         if (!props.username || props.username.trim() === '') {
-            throw new Error('Nombre de usuario no puede estar vacio');
+            throw new InvalidEntityError('User', 'Nombre de usuario no puede estar vacio');
         }
         if (!this.isValidEmail(props.email)) {
-            throw new Error('Email de usuario es invalido');
+            throw new InvalidEntityError('User', 'Email de usuario es invalido');
         }
         this.id = props.id;
         this.email = props.email;
