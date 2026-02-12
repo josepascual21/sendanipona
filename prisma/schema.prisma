@@ -67,7 +67,7 @@ model Article {
 
 model Comment {
   id          String   @id @default(cuid())
-  textComment String
+  textComment String // SQLite no soporta VARCHAR(N), validaremos longitud en código (500 chars)
   
   userId      String
   user        User     @relation(fields: [userId], references: [id])
@@ -76,6 +76,9 @@ model Comment {
   article     Article  @relation(fields: [articleId], references: [id])
   
   createdAt   DateTime @default(now())
+
+  // Restricción: Un usuario solo puede tener un comentario por artículo
+  @@unique([userId, articleId])
 }
 
 // --- PRODUCTOS ---

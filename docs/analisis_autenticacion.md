@@ -93,8 +93,8 @@ El formulario de login no ofrece opción de recuperación de contraseña.
 
 ### 🟢 Severidad Baja
 
-#### 10. `useFormState` está deprecado
-Tanto el login como el registro usan `useFormState` de `'react-dom'`, que fue renombrado a `useActionState` en React 19. Aunque funcional hoy, conviene actualizar.
+#### 10. `useFormState` está deprecado (React 19)
+Tanto el login como el registro usan `useFormState` de `'react-dom'`. Aunque React 19 lo renombra a `useActionState`, **en React 18 (versión actual del proyecto) `useFormState` es el hook correcto**. No se puede migrar hasta actualizar a React 19.
 
 #### 11. Comentarios en `IPasswordService` en inglés
 Las demás interfaces y entidades tienen documentación en español, pero `IPasswordService` está documentada en inglés. Inconsistencia menor.
@@ -119,8 +119,8 @@ El registro tiene un enlace a login, pero **el login no tiene un enlace al regis
 | ~~🟡 Media~~ | ~~Fix `disabled` en LoginButton~~ | ✅ Resuelto |
 | ~~🟡 Media~~ | ~~Enlace a registro desde login~~ | ✅ Resuelto |
 | ~~🟡 Media~~ | ~~Middleware redundante~~ | ✅ Resuelto |
-| 🟡 Media | **Logout: botón en la UI** | ⬜ Pendiente |
-| 🟢 Baja | **Migrar a `useActionState`** | ⬜ Pendiente |
+| ~~🟡 Media~~ | ~~Logout: botón en la UI~~ | ✅ Resuelto (en Header) |
+| 🟢 Baja | **Migrar a `useActionState`** | ⏳ Pospuesto (React 19) |
 | 🟢 Baja | **Recuperar contraseña** | ⬜ Pendiente |
 | 🟢 Baja | **Rate limiting** | ⬜ Pendiente |
 | 🟢 Baja | **Comentarios consistentes** | ⬜ Pendiente |
