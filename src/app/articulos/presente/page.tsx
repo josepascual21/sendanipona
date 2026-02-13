@@ -99,7 +99,7 @@ export default function PresentePage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title="PRESENTE"
-                titleFont="font-ai-love"
+                titleFont="font-rajdhani"
                 subtitle="Comprende su Realidad"
                 scrollText="Explora"
                 accentColor="text-indigo-400"
