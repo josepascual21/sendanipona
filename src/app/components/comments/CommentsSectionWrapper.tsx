@@ -53,6 +53,15 @@ export default function CommentsSectionWrapper({ slug }: { slug: string }) {
         setRefreshTrigger(prev => prev + 1);
     }, []);
 
+    /**
+     * Callback para resetear el estado cuando se elimina un comentario.
+     * Esto hace reaparecer el formulario inmediatamente.
+     */
+    const handleCommentDeleted = useCallback(() => {
+        setHasCommented(false);
+        // Opcional: refrescar lista si fuera necesario, aunque CommentList ya lo actualiza localmente
+    }, []);
+
     if (loading) {
         return <div className="py-12 text-center text-zinc-500 animate-pulse">Cargando comentarios...</div>;
     }
@@ -76,6 +85,7 @@ export default function CommentsSectionWrapper({ slug }: { slug: string }) {
                 articleId={articleId}
                 currentUser={currentUser}
                 refreshTrigger={refreshTrigger}
+                onCommentDeleted={handleCommentDeleted}
             />
         </section>
     );

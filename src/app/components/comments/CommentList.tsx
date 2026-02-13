@@ -11,15 +11,19 @@ interface CommentListProps {
     currentUser: { id: string; role?: string } | null;
     /** Contador que se incrementa para forzar recarga de la lista */
     refreshTrigger?: number;
+    /** Callback para notificar que un comentario ha sido eliminado */
+    onCommentDeleted?: () => void;
 }
 
 
 
-export default function CommentList({ articleId, currentUser, refreshTrigger = 0 }: CommentListProps) {
+export default function CommentList({ articleId, currentUser, refreshTrigger = 0, onCommentDeleted }: CommentListProps) {
     const [comments, setComments] = useState<CommentDTO[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
     const [hasMore, setHasMore] = useState(true);
+
+    // ... (loadComments stays the same) ...
 
     const loadComments = useCallback(async (pageNum: number, reset: boolean = false) => {
         setLoading(true);
@@ -57,6 +61,11 @@ export default function CommentList({ articleId, currentUser, refreshTrigger = 0
         if (result.success) {
             // Eliminar de la lista localmente
             setComments(prev => prev.filter(c => c.id !== commentId));
+
+            // Notificar al padre para que actualice el estado hasCommented
+            if (onCommentDeleted) {
+                onCommentDeleted();
+            }
         } else {
             alert(result.error);
         }
