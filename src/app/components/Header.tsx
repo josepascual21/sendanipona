@@ -28,7 +28,7 @@ const MOBILE_LINK = "block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-or
  * - Placeholders para Login/Registro
  * - Menú móvil funcional con estado
  */
-import { logout } from '@/app/lib/actions';
+import { signOut } from 'next-auth/react';
 
 interface HeaderProps {
     topics?: NavigationTopicDTO[];
@@ -186,11 +186,12 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                         <span className="text-sm font-medium text-slate-700">
                                             {user.name}
                                         </span>
-                                        <form action={logout}>
-                                            <button className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600 transition-colors text-sm font-medium">
-                                                Cerrar Sesión
-                                            </button>
-                                        </form>
+                                        <button
+                                            onClick={() => signOut()}
+                                            className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600 transition-colors text-sm font-medium"
+                                        >
+                                            Cerrar Sesión
+                                        </button>
                                     </div>
                                 ) : (
                                     <div className="flex items-center gap-3">
@@ -290,17 +291,18 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                                         <span className="text-xs text-slate-500 truncate max-w-[150px]">{user.email}</span>
                                                     </div>
                                                 </div>
-                                                <form action={logout} className="w-full">
-                                                    <button
-                                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm text-red-600 bg-red-50 hover:bg-red-100 border border-red-100 transition-colors"
-                                                        onClick={() => setIsMobileMenuOpen(false)}
-                                                    >
-                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                                        </svg>
-                                                        Cerrar Sesión
-                                                    </button>
-                                                </form>
+                                                <button
+                                                    className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm text-red-600 bg-red-50 hover:bg-red-100 border border-red-100 transition-colors"
+                                                    onClick={() => {
+                                                        setIsMobileMenuOpen(false);
+                                                        signOut();
+                                                    }}
+                                                >
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                                    </svg>
+                                                    Cerrar Sesión
+                                                </button>
                                             </div>
                                         ) : (
                                             <div className="grid grid-cols-2 gap-3">
