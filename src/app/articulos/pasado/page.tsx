@@ -8,7 +8,8 @@ import {
     Clock,
     Users,
     Sparkles,
-    Scroll
+    Scroll,
+    MessageCircle
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection, CuriositiesSection } from '@/components/articles';
@@ -49,6 +50,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#personajes', label: 'Personajes', icon: <Users size={20} /> },
     { id: '#leyendas', label: 'Leyendas', icon: <Scroll size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Sparkles size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 /** Datos de las leyendas para el carrusel */

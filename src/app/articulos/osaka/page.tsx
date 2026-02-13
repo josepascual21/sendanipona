@@ -11,7 +11,8 @@ import {
     ArrowUp,
     Radio,
     Zap,
-    Users
+    Users,
+    MessageCircle
 } from 'lucide-react';
 import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -26,6 +27,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#shinsekai', label: 'Retro-Futuro', icon: <Radio size={20} /> },
     { id: '#historia', label: 'Castillo', icon: <Castle size={20} /> },
     { id: '#curiosidades', label: 'Secretos', icon: <Zap size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 const IMAGES = {

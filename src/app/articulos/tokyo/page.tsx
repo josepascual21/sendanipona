@@ -12,7 +12,8 @@ import {
     Landmark,
     Terminal,
     Camera,
-    Moon
+    Moon,
+    MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -27,6 +28,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#tech', label: 'Cyberpunk', icon: <Terminal size={20} /> },
     { id: '#tradicion', label: 'Tradición', icon: <Landmark size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Moon size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 const IMAGES = {

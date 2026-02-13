@@ -14,7 +14,8 @@ import {
     TrainFront,
     Building2,
     Radio,
-    Music
+    Music,
+    MessageCircle
 } from 'lucide-react';
 import { HeroSection, NavigationPill, NavigationItem, SectionTitle, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -36,6 +37,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#sociedad', label: 'Sociedad', icon: <Users size={20} /> },
     { id: '#cultura-pop', label: 'Cultura Pop', icon: <Gamepad2 size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Radio size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 // ============================================================================

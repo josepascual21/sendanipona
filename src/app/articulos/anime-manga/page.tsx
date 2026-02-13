@@ -14,7 +14,8 @@ import {
     PenTool,
     Film,
     Users,
-    Layers
+    Layers,
+    MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CardAccentColor, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -122,6 +123,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#generos', label: 'Géneros', icon: <Layers size={20} /> },
     { id: '#impacto', label: 'Impacto Global', icon: <Globe size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Zap size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 // NavigationPill ahora importado desde @/components/articles

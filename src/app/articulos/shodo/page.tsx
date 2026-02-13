@@ -12,7 +12,8 @@ import {
     Circle,
     Stamp,
     Brush,
-    AlignLeft
+    AlignLeft,
+    MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -123,6 +124,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#tesoros', label: 'Los 4 Tesoros', icon: <AlignLeft size={20} /> },
     { id: '#estilos', label: 'Estilos', icon: <Wind size={20} /> },
     { id: '#performance', label: 'Performance', icon: <Brush size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 // NavigationPill ahora importado desde @/components/articles

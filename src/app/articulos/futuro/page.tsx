@@ -13,7 +13,8 @@ import {
     Baby,
     HeartPulse,
     AlertCircle,
-    Info
+    Info,
+    MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -35,6 +36,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#introduccion', label: 'Introducción', icon: <Info size={20} /> },
     { id: '#estadisticas', label: 'Estadísticas', icon: <Activity size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Rocket size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 const CURIOSITIES = [

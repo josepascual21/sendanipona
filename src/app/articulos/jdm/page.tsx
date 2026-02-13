@@ -13,7 +13,8 @@ import {
     Gauge,
     Flame,
     Disc,
-    Radio
+    Radio,
+    MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -113,6 +114,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#modelos', label: 'Leyendas', icon: <Zap size={20} /> },
     { id: '#clandestino', label: 'Underground', icon: <AlertTriangle size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Flame size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 // NavigationPill ahora importado desde @/components/articles

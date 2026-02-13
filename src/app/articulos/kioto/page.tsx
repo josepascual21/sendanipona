@@ -12,7 +12,8 @@ import {
     Flower2,
     Mountain,
     ScrollText,
-    Star
+    Star,
+    MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -27,6 +28,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#arashiyama', label: 'Naturaleza', icon: <Wind size={20} /> },
     { id: '#kinkakuji', label: 'Perfección', icon: <Sun size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Star size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 const IMAGES = {

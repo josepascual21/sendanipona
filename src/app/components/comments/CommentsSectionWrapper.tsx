@@ -74,7 +74,7 @@ export default function CommentsSectionWrapper({ slug }: { slug: string }) {
     const currentUser = userId ? { id: userId, role: 'user' } : null;
 
     return (
-        <section className="max-w-3xl mx-auto px-6 py-12 border-t border-zinc-800">
+        <section id="comentarios" className="max-w-3xl mx-auto px-6 py-12 border-t border-zinc-800">
             <CommentForm
                 articleId={articleId}
                 userId={session?.user?.id}

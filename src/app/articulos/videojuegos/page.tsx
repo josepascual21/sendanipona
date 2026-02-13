@@ -13,7 +13,8 @@ import {
     History,
     Dices,
     CircuitBoard,
-    Radio
+    Radio,
+    MessageCircle
 } from 'lucide-react';
 import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
@@ -111,6 +112,7 @@ const SECTIONS: NavigationItem[] = [
     { id: '#franquicias', label: 'Franquicias', icon: <Trophy size={20} /> },
     { id: '#tecnologia', label: 'Innovación', icon: <Cpu size={20} /> },
     { id: '#curiosidades', label: 'Curiosidades', icon: <Zap size={20} /> },
+    { id: '#comentarios', label: 'Comentarios', icon: <MessageCircle size={20} /> },
 ];
 
 // NavigationPill ahora importado desde @/components/articles
