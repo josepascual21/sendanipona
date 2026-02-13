@@ -19,3 +19,6 @@ export type { SectionSubtitleProps } from './SectionSubtitle';
 export * from './ContentCard';
 export { CuriositiesSection } from './CuriositiesSection';
 export type { CuriositiesSectionProps, CuriosityItem } from './CuriositiesSection';
+
+// UI
+export { default as ScrollToTop } from './ScrollToTop';
