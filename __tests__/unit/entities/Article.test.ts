@@ -18,7 +18,6 @@ describe('Article Entity', () => {
                 slug: 'pasado',
                 name: 'Historia de Japón',
                 info: 'Un recorrido por la historia japonesa',
-                htmlRoute: '/articles/pasado/pasado.html',
                 topicId: 1,
                 createdAt: new Date('2024-01-01'),
             };
@@ -31,7 +30,6 @@ describe('Article Entity', () => {
             expect(article.slug).toBe(validData.slug);
             expect(article.name).toBe(validData.name);
             expect(article.info).toBe(validData.info);
-            expect(article.htmlRoute).toBe(validData.htmlRoute);
             expect(article.topicId).toBe(validData.topicId);
             expect(article.createdAt).toEqual(validData.createdAt);
         });
@@ -43,7 +41,6 @@ describe('Article Entity', () => {
                 slug: 'presente',
                 name: 'Japón Actual',
                 info: null,
-                htmlRoute: '/articles/presente/presente.html',
                 topicId: 2,
                 createdAt: new Date(),
             };
@@ -65,7 +62,6 @@ describe('Article Entity', () => {
             slug: 'pasado',
             name: 'Historia de Japón',
             info: null,
-            htmlRoute: '/articles/pasado/pasado.html',
             topicId: 1,
             createdAt: new Date(),
         };
@@ -118,21 +114,7 @@ describe('Article Entity', () => {
             expect(() => new Article(invalidData)).toThrow('El nombre del articulo no puede estar vacio');
         });
 
-        it('debe lanzar error si htmlRoute está vacío', () => {
-            // Arrange
-            const invalidData = { ...validBase, htmlRoute: '' };
 
-            // Act & Assert
-            expect(() => new Article(invalidData)).toThrow('La ruta del articulo no puede estar vacia');
-        });
-
-        it('debe lanzar error si htmlRoute es solo espacios', () => {
-            // Arrange
-            const invalidData = { ...validBase, htmlRoute: '   ' };
-
-            // Act & Assert
-            expect(() => new Article(invalidData)).toThrow('La ruta del articulo no puede estar vacia');
-        });
     });
 
     describe('Constructor - Validaciones de reglas de negocio', () => {
@@ -141,7 +123,6 @@ describe('Article Entity', () => {
             slug: 'pasado',
             name: 'Historia de Japón',
             info: null,
-            htmlRoute: '/articles/pasado/pasado.html',
             topicId: 1,
             createdAt: new Date(),
         };
