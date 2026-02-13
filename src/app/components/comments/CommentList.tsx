@@ -9,11 +9,13 @@ import { CommentDTO } from '@/core/application/dtos/CommentDTO';
 interface CommentListProps {
     articleId: string;
     currentUser: { id: string; role?: string } | null;
+    /** Contador que se incrementa para forzar recarga de la lista */
+    refreshTrigger?: number;
 }
 
 
 
-export default function CommentList({ articleId, currentUser }: CommentListProps) {
+export default function CommentList({ articleId, currentUser, refreshTrigger = 0 }: CommentListProps) {
     const [comments, setComments] = useState<CommentDTO[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
@@ -41,8 +43,11 @@ export default function CommentList({ articleId, currentUser }: CommentListProps
     }, [articleId]);
 
     useEffect(() => {
+        // Resetear paginación al refrescar (ej: tras crear un nuevo comentario)
+        setPage(1);
+        setHasMore(true);
         loadComments(1, true);
-    }, [loadComments]);
+    }, [loadComments, refreshTrigger]);
 
     async function handleDelete(commentId: string) {
         if (!confirm('¿Estás seguro de que quieres eliminar este comentario?')) return;

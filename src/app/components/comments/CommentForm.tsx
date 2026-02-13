@@ -10,9 +10,11 @@ interface CommentFormProps {
     articleId: string;
     userId?: string;
     hasCommented?: boolean;
+    /** Callback que notifica al padre cuando se crea un comentario con éxito */
+    onCommentCreated?: () => void;
 }
 
-export default function CommentForm({ articleId, userId, hasCommented = false }: CommentFormProps) {
+export default function CommentForm({ articleId, userId, hasCommented = false, onCommentCreated }: CommentFormProps) {
     const [charCount, setCharCount] = useState(0);
     const [error, setError] = useState<string | null>(null);
 
@@ -57,7 +59,11 @@ export default function CommentForm({ articleId, userId, hasCommented = false }:
 
         const result = await createComment(userId!, articleId, text);
 
-        if (!result.success) {
+        if (result.success) {
+            // Resetear el formulario y notificar al padre
+            setCharCount(0);
+            onCommentCreated?.();
+        } else {
             setError(result.error || 'Error al publicar el comentario');
         }
     }
