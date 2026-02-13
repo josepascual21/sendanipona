@@ -15,7 +15,7 @@ import {
     AlertCircle,
     Info
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -91,7 +91,6 @@ export default function FuturoPage() {
                 subtitle="Desafíos, Tecnología y Esperanza"
                 scrollText="Descubre"
                 accentColor="text-cyan-400"
-                scrollLineColor="bg-gradient-to-b from-cyan-500 to-transparent"
                 overlayOpacity={0.6}
             />
 
@@ -250,33 +249,11 @@ export default function FuturoPage() {
                 </section>
 
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 text-slate-300">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle accentColor="bg-cyan-500">Curiosidades del Mañana</SectionTitle>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group"
-                                >
-                                    <div className="mb-6 bg-slate-900 text-cyan-400 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-cyan-900/30 group-hover:text-cyan-300 transition-colors shadow-[0_0_20px_rgba(6,182,212,0.1)] border border-slate-800">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-200 transition-colors">{item.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-lg border-l-2 border-slate-800 pl-4 group-hover:border-cyan-500 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="cyan"
+                    title="Curiosidades del Mañana"
+                />
 
             </div>
             <CommentsSectionWrapper slug="futuro" />

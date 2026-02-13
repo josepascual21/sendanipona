@@ -16,7 +16,7 @@ import {
     Users,
     Layers
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CardAccentColor } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CardAccentColor, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -142,11 +142,9 @@ export default function AnimePage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title="ANIME & MANGA"
-                titleFont="font-serif"
                 subtitle="El Arte de la Narrativa Japonesa"
                 scrollText="Explora"
-                accentColor="text-violet-200"
-                scrollLineColor="bg-violet-600"
+                accentColor="text-violet-400"
                 overlayOpacity={0.5}
                 backgroundChildren={
                     <div className="absolute inset-0 bg-violet-900/20 mix-blend-overlay" />
@@ -271,43 +269,11 @@ export default function AnimePage() {
                 </section>
 
                 {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 relative overflow-hidden">
-                    <div className="max-w-7xl mx-auto px-6 relative z-10">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-black mb-16 text-white text-center"
-                        >
-                            CURIOSIDADES OTAKU
-                            <span className="block w-24 h-1 bg-violet-600 mx-auto mt-4" />
-                        </motion.h2>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group bg-stone-900/40 backdrop-blur-md border border-stone-800 p-8 rounded-2xl hover:bg-stone-800 transition-all duration-300 hover:shadow-2xl hover:shadow-violet-900/20"
-                                >
-                                    <div className="mb-6 bg-stone-950 text-violet-500 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-stone-800 shadow-inner">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-stone-100 group-hover:text-violet-300 transition-colors">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-stone-400 leading-relaxed text-lg border-l-2 border-stone-800 pl-4 group-hover:border-violet-600 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="violet"
+                    title="CURIOSIDADES OTAKU"
+                />
 
             </div>
 

@@ -14,7 +14,7 @@ import {
     Camera,
     Moon
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -70,17 +70,6 @@ const CURIOSITIES = [
     },
     {
         icon: <Landmark className="w-6 h-6" />,
-        title: "Tradición Viva",
-        text: "Es común ver gente vestida con Kimono tradicional paseando entre rascacielos futuristas y tiendas de electrónica."
-    },
-    {
-        icon: <Image
-            src={IMAGES.distritos.shibuya} // Placeholder icon
-            alt="Icon"
-            width={24}
-            height={24}
-            className="w-6 h-6 rounded-full object-cover"
-        />, // Dummy icon for now as a fallback or generate better ones later if needed
         title: "Tradición Viva",
         text: "Es común ver gente vestida con Kimono tradicional paseando entre rascacielos futuristas y tiendas de electrónica."
     },
@@ -310,44 +299,11 @@ export default function TokyoPage() {
                 </section>
 
                 {/* ========== CURIOSIDADES (Color Final: stone-950) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 text-slate-300 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 opacity-50" />
-
-                    <div className="max-w-7xl mx-auto px-6 relative z-10">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="mb-20 border-b border-gray-800 pb-10"
-                        >
-                            <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter">
-                                Datos <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600">Curiosos</span>
-                            </h2>
-                        </motion.div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group bg-slate-900/40 border border-slate-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-slate-900/60 transition-all duration-300"
-                                >
-                                    <div className="mb-6 w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:text-cyan-300 transition-all duration-300 ring-1 ring-slate-700 group-hover:ring-cyan-500/50">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-cyan-200 transition-colors">{item.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-lg group-hover:text-slate-300 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="cyan"
+                    title="DATOS CURIOSOS"
+                />
             </div>
             <CommentsSectionWrapper slug="tokyo" />
         </div>

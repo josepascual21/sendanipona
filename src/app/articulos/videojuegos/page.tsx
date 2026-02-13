@@ -15,7 +15,7 @@ import {
     CircuitBoard,
     Radio
 } from 'lucide-react';
-import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -133,7 +133,6 @@ export default function VideojuegosPage() {
                 subtitle="De los Arcades a la Eternidad"
                 scrollText="Iniciar Nivel"
                 accentColor="text-emerald-200"
-                scrollLineColor="bg-emerald-500"
                 overlayOpacity={0.6}
             />
 
@@ -354,40 +353,11 @@ export default function VideojuegosPage() {
                 </section>
 
                 {/* ========== CURIOSIDADES (FINAL slate-950) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <motion.h2
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-6xl font-black mb-16 text-white text-center tracking-tighter"
-                        >
-                            SECRETOS DEL CÓDIGO
-                        </motion.h2>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group p-8 bg-slate-900 border border-slate-800 rounded-3xl hover:border-emerald-500/30 transition-all"
-                                >
-                                    <div className="mb-6 bg-slate-950 text-emerald-500 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors shadow-lg border border-emerald-500/10">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-                                    <p className="text-slate-500 leading-relaxed text-lg group-hover:text-slate-300 transition-colors border-l-2 border-slate-800 pl-4">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="emerald"
+                    title="SECRETOS DEL CÓDIGO"
+                />
             </div>
             <CommentsSectionWrapper slug="videojuegos" />
         </div >

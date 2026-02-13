@@ -16,7 +16,7 @@ import {
     Radio,
     Music
 } from 'lucide-react';
-import { HeroSection, NavigationPill, NavigationItem, SectionTitle, ContentCard } from '@/components/articles';
+import { HeroSection, NavigationPill, NavigationItem, SectionTitle, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -101,7 +101,6 @@ export default function PresentePage() {
                 subtitle="Comprende su Realidad"
                 scrollText="Explora"
                 accentColor="text-indigo-400"
-                scrollLineColor="bg-indigo-500"
                 overlayOpacity={0.6}
             />
 
@@ -240,33 +239,11 @@ export default function PresentePage() {
                 </section>
 
                 {/* ========== SECCIÓN CURIOSIDADES ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 text-stone-300">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <SectionTitle accentColor="bg-indigo-600">Curiosidades</SectionTitle>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group"
-                                >
-                                    <div className="mb-6 bg-stone-900 text-indigo-400 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-indigo-900/30 group-hover:text-indigo-300 transition-colors shadow-inner border border-stone-800">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-stone-100">{item.title}</h3>
-                                    <p className="text-stone-400 leading-relaxed text-lg border-l-2 border-stone-800 pl-4 group-hover:border-indigo-600 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="indigo"
+                    title="CURIOSIDADES DEL PRESENTE"
+                />
 
             </div>
             <CommentsSectionWrapper slug="presente" />

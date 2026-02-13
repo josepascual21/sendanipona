@@ -14,7 +14,7 @@ import {
     Brush,
     AlignLeft
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -146,7 +146,6 @@ export default function ShodoPage() {
                 subtitle="El Alma de la Tinta"
                 scrollText="Descubre"
                 accentColor="text-red-200"
-                scrollLineColor="bg-red-600"
                 overlayOpacity={0.6}
                 backgroundChildren={
                     <>
@@ -342,43 +341,11 @@ export default function ShodoPage() {
                 </section>
 
                 {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8">
-                            SECRETOS DEL PINCEL
-                        </h2>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group"
-                                >
-                                    {/* Icono */}
-                                    <div className="mb-6 bg-slate-900 text-red-500 w-14 h-14 rounded-2xl 
-                                            flex items-center justify-center 
-                                            group-hover:bg-red-900/30 transition-colors 
-                                            border border-slate-800">
-                                        {item.icon}
-                                    </div>
-
-                                    {/* Texto */}
-                                    <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-lg 
-                                            border-l-2 border-slate-800 pl-4 
-                                            group-hover:border-red-600 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="red"
+                    title="SECRETOS DEL PINCEL"
+                />
 
             </div>
             <CommentsSectionWrapper slug="shodo" />

@@ -35,7 +35,7 @@ export const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
 }) => {
     // Extraer la clase base de color (ej: text-cyan-400 -> from-cyan-400)
     // Esto es una simplificación, asume que el usuario pasa una clase de texto válida
-    const gradientColorClass = color_class.replace('text-', 'from-');
+
 
     return (
         <motion.div
@@ -47,7 +47,7 @@ export const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
             <span className={`text-xs uppercase tracking-[0.3em] ${color_class} opacity-80`}>
                 {label}
             </span>
-            <div className={`w-[1px] h-20 bg-gradient-to-b ${gradientColorClass} to-transparent`} />
+            <div className={`w-[1px] h-20 bg-gradient-to-b from-white to-transparent`} />
         </motion.div>
     );
 };

@@ -17,4 +17,5 @@ export type { SectionSubtitleProps } from './SectionSubtitle';
 
 // Contenido
 export * from './ContentCard';
-
+export { CuriositiesSection } from './CuriositiesSection';
+export type { CuriositiesSectionProps, CuriosityItem } from './CuriositiesSection';

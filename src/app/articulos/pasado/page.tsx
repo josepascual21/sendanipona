@@ -11,7 +11,7 @@ import {
     Scroll
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -391,35 +391,11 @@ export default function PasadoPage() {
                 </section>
 
                 {/* ========== SECCIÓN CURIOSIDADES (Final: Tono más oscuro - stone-950) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 text-stone-300">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-stone-800 pb-8 inline-block">
-                            CURIOSIDADES DEL PASADO
-                        </h2>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group"
-                                >
-                                    <div className="mb-6 bg-slate-900 text-amber-500 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-amber-900/30 group-hover:text-amber-400 transition-colors shadow-inner border border-stone-800">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-stone-100">{item.title}</h3>
-                                    <p className="text-stone-400 leading-relaxed text-lg border-l-2 border-stone-800 pl-4 group-hover:border-amber-700 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="amber"
+                    title="CURIOSIDADES DEL PASADO"
+                />
 
             </div>
 

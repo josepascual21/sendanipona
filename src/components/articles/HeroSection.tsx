@@ -38,12 +38,6 @@ export interface HeroSectionProps {
     accentColor?: string;
 
     /**
-     * Color para la línea del scroll (ej: "bg-amber-500").
-     * Si no se da, se intenta inferir del accentColor o usa blanco.
-     */
-    scrollLineColor?: string;
-
-    /**
      * Opacidad de la imagen de fondo (0 a 1).
      * @default 0.6
      */
@@ -86,7 +80,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     subtitle,
     scrollText = "Descubre",
     accentColor = "text-white",
-    scrollLineColor,
     overlayOpacity = 0.6,
     titleClassName = "",
     titleFont = "",

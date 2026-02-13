@@ -15,7 +15,7 @@ import {
     Disc,
     Radio
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -138,7 +138,6 @@ export default function JdmPage() {
                 subtitle="Japanese Domestic Market"
                 scrollText="Descubre"
                 accentColor="text-red-200"
-                scrollLineColor="bg-red-800"
                 overlayOpacity={0.5}
             />
 
@@ -328,40 +327,11 @@ export default function JdmPage() {
                 </section>
 
                 {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 relative overflow-hidden">
-                    <div className="max-w-7xl mx-auto px-6 relative z-10">
-                        <motion.h2
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-black mb-16 text-stone-200 border-b border-stone-800 pb-8 inline-block"
-                        >
-                            CURIOSIDADES UNDERGROUND
-                        </motion.h2>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group bg-stone-900/50 backdrop-blur-sm border border-stone-800 p-8 rounded-xl hover:border-red-900/50 transition-all duration-300"
-                                >
-                                    <div className="mb-6 bg-stone-950 text-red-700 w-14 h-14 rounded-full flex items-center justify-center group-hover:bg-red-900/20 group-hover:text-red-500 transition-colors shadow-lg border border-red-900/10">
-                                        {item.icon}
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-4 text-stone-200">{item.title}</h3>
-                                    <p className="text-stone-400 leading-relaxed text-lg group-hover:text-stone-300 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="red"
+                    title="CURIOSIDADES UNDERGROUND"
+                />
             </div>
             <CommentsSectionWrapper slug="jdm" />
         </div>

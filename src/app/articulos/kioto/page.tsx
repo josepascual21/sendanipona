@@ -14,7 +14,7 @@ import {
     ScrollText,
     Star
 } from 'lucide-react';
-import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, CuriositiesSection } from '@/components/articles';
 import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
@@ -96,7 +96,6 @@ export default function KyotoPage() {
                 subtitle="La Capital Eterna"
                 scrollText="Silencio"
                 accentColor="text-amber-200"
-                scrollLineColor="bg-gradient-to-b from-amber-600 to-transparent"
                 backgroundChildren={
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-slate-900/90" />
                 }
@@ -280,41 +279,12 @@ export default function KyotoPage() {
                 </section>
 
                 {/* ========== CURIOSIDADES (Darkest Tone - STANDARD) ========== */}
-                <section id="curiosidades" className="py-32 bg-stone-950 relative border-t border-slate-900">
-                    <div className="max-w-7xl mx-auto px-6">
-                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8 flex items-center gap-4">
-                            SECRETOS DE <span className="text-amber-600">KIOTO</span>
-                        </h2>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {CURIOSITIES.map((item, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -5 }}
-                                    className="group"
-                                >
-                                    <div className="mb-6 bg-slate-900 text-amber-600 w-14 h-14 rounded-2xl 
-                                              flex items-center justify-center 
-                                              group-hover:bg-amber-900/20 transition-colors 
-                                              border border-slate-800 ring-1 ring-slate-800 group-hover:ring-amber-800/50">
-                                        {item.icon}
-                                    </div>
-
-                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-amber-500 transition-colors">{item.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-lg 
-                                            border-l-2 border-slate-800 pl-4 
-                                            group-hover:border-amber-700 transition-colors">
-                                        {item.text}
-                                    </p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <CuriositiesSection
+                    curiosities={CURIOSITIES}
+                    accentColor="amber"
+                    title="SECRETOS DE KIOTO"
+                    className="border-t border-slate-900"
+                />
 
             </div>
             <CommentsSectionWrapper slug="kioto" />
