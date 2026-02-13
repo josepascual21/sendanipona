@@ -89,7 +89,7 @@ export default function FuturoPage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title="FUTURO"
-                titleFont="font-ai-love"
+                titleFont="font-orbitron"
                 subtitle="Desafíos, Tecnología y Esperanza"
                 scrollText="Descubre"
                 accentColor="text-cyan-400"

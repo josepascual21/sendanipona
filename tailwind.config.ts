@@ -12,6 +12,7 @@ const config: Config = {
         sans: ["var(--font-outfit)", "ui-sans-serif", "system-ui", "sans-serif"],
         "ai-love": ["var(--font-ai-love)", "serif"],
         "rajdhani": ["var(--font-rajdhani)", "sans-serif"],
+        "orbitron": ["var(--font-orbitron)", "sans-serif"],
       },
       colors: {
         background: "var(--color-background)",
