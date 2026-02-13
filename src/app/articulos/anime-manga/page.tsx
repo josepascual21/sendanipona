@@ -141,15 +141,8 @@ export default function AnimePage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b drop-shadow-2xl">
-                        ANIME
-                        <span className="block text-4xl md:text-7xl stroke-text text-violet-500 mt-2 font-serif italic">
-                            &
-                        </span>
-                        MANGA
-                    </h1>
-                }
+                title="ANIME & MANGA"
+                titleFont="font-serif"
                 subtitle="El Arte de la Narrativa Japonesa"
                 scrollText="Explora"
                 accentColor="text-violet-200"

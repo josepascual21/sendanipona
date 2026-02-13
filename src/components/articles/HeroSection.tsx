@@ -18,12 +18,12 @@ export interface HeroSectionProps {
 
     /** 
      * Título principal. 
-     * Puede ser un string (se renderiza con estilo base) o un ReactNode (para estilos complejos).
+     * Debe ser un string.
      */
-    title: React.ReactNode;
+    title: string;
 
     /** Subtítulo descriptivo */
-    subtitle?: React.ReactNode;
+    subtitle?: string;
 
     /** 
      * Texto para el indicador de scroll.
@@ -55,6 +55,11 @@ export interface HeroSectionProps {
     titleClassName?: string;
 
     /**
+     * Clase CSS opcional para la fuente del título (ej: "font-serif", "font-ai-love").
+     */
+    titleFont?: string;
+
+    /**
      * Elementos adicionales superpuestos al fondo (gradientes extra, particulas, etc).
      */
     backgroundChildren?: React.ReactNode;
@@ -81,13 +86,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     subtitle,
     scrollText = "Descubre",
     accentColor = "text-white",
+    scrollLineColor,
     overlayOpacity = 0.6,
     titleClassName = "",
+    titleFont = "",
     backgroundChildren,
     children
 }) => {
-    // Si no se provee color de línea, usar bg-white/50 por defecto
-
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
             {/* 1. LAYER DE FONDO */}
@@ -120,17 +125,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     className={`relative ${titleClassName}`}
                 >
-                    {/* Renderizado del título. 
-                        Si es string, aplicamos estilo base gigante predeterminado.
-                        Si es ReactNode, se renderiza tal cual (permitiendo spans, gradientes, etc).
-                    */}
-                    {typeof title === 'string' ? (
-                        <h1 className="text-7xl md:text-[8rem] lg:text-[10rem] leading-none font-black text-white tracking-tighter drop-shadow-2xl">
-                            {title}
-                        </h1>
-                    ) : (
-                        title // El usuario pasa el <h1> o estructura completa si necesita personalización total
-                    )}
+                    <h1 className={`text-6xl md:text-[8rem] lg:text-[10rem] leading-none font-black text-white tracking-tighter drop-shadow-2xl ${titleFont}`}>
+                        {title}
+                    </h1>
                 </motion.div>
 
                 {subtitle && (
@@ -139,13 +136,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.8, duration: 0.8 }}
                     >
-                        {typeof subtitle === 'string' ? (
-                            <p className={`text-xl md:text-3xl font-light tracking-[0.3em] uppercase mt-8 drop-shadow-md ${accentColor}`}>
-                                {subtitle}
-                            </p>
-                        ) : (
-                            subtitle
-                        )}
+                        <p className={`text-xl md:text-3xl font-light tracking-[0.3em] uppercase mt-8 drop-shadow-md ${accentColor}`}>
+                            {subtitle}
+                        </p>
                     </motion.div>
                 )}
 

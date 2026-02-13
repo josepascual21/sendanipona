@@ -86,16 +86,9 @@ export default function FuturoPage() {
             {/* ========== HERO SECTION ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-cyan-400 tracking-tighter font-ai-love">
-                        FUTURO
-                    </h1>
-                }
-                subtitle={
-                    <p className="text-xl md:text-3xl font-light tracking-[0.3em] text-cyan-200 uppercase mt-4">
-                        Desafíos, Tecnología y Esperanza
-                    </p>
-                }
+                title="FUTURO"
+                titleFont="font-ai-love"
+                subtitle="Desafíos, Tecnología y Esperanza"
                 scrollText="Descubre"
                 accentColor="text-cyan-400"
                 scrollLineColor="bg-gradient-to-b from-cyan-500 to-transparent"

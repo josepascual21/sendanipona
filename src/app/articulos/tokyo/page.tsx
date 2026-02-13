@@ -136,20 +136,15 @@ export default function TokyoPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <div className="relative inline-block">
-                        <h1 className="text-7xl md:text-[10rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 tracking-tighter drop-shadow-2xl">
-                            TOKYO
-                        </h1>
-                        <div className="absolute -inset-4 bg-cyan-500/20 blur-3xl rounded-full -z-10 animate-pulse" />
-                    </div>
-                }
+                title="TOKYO"
                 subtitle="La ciudad de los contrastes"
                 scrollText="Explora"
                 accentColor="text-cyan-400"
                 overlayOpacity={0.7}
-            >
-            </HeroSection>
+                backgroundChildren={
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl max-h-96 bg-cyan-500/20 blur-3xl rounded-full -z-10 animate-pulse pointer-events-none mix-blend-screen" />
+                }
+            />
 
             <div className="relative z-10">
 

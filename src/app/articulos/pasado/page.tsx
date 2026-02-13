@@ -228,11 +228,8 @@ export default function PasadoPage() {
             {/* ========== HERO SECTION (Visualmente igual, ajustando selección) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter font-ai-love">
-                        PASADO
-                    </h1>
-                }
+                title="PASADO"
+                titleFont="font-ai-love"
                 subtitle="El alma del País del Sol Naciente"
                 scrollText="Descubre"
                 accentColor="text-amber-200"

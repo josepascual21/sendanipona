@@ -117,11 +117,7 @@ export default function OsakaPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter uppercase">
-                        OSAKA
-                    </h1>
-                }
+                title="OSAKA"
                 subtitle="La Cocina de Japón"
                 scrollText="Descubre"
                 accentColor="text-orange-200"

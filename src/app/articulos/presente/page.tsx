@@ -96,11 +96,8 @@ export default function PresentePage() {
             {/* ========== HERO SECTION ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter font-ai-love drop-shadow-2xl">
-                        PRESENTE
-                    </h1>
-                }
+                title="PRESENTE"
+                titleFont="font-ai-love"
                 subtitle="Comprende su Realidad"
                 scrollText="Explora"
                 accentColor="text-indigo-400"

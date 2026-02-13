@@ -142,16 +142,7 @@ export default function ShodoPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <div className="relative">
-                        <h1 className="text-7xl md:text-[10rem] leading-none font-black tracking-tighter text-white drop-shadow-2xl">
-                            SHODŌ
-                        </h1>
-                        <span className="block text-5xl md:text-8xl text-red-600 font-serif italic -mt-4 md:-mt-8 z-20 relative mix-blend-screen opacity-90">
-                            書道
-                        </span>
-                    </div>
-                }
+                title="SHODŌ"
                 subtitle="El Alma de la Tinta"
                 scrollText="Descubre"
                 accentColor="text-red-200"
@@ -160,6 +151,12 @@ export default function ShodoPage() {
                 backgroundChildren={
                     <>
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-slate-800 blur-[100px] opacity-20 pointer-events-none" />
+                        {/* Kanji Decorativo Principal (movido desde el título) */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 mix-blend-screen opacity-90 pointer-events-none mt-16 md:mt-24">
+                            <span className="block text-5xl md:text-8xl text-red-600 font-serif italic">
+                                書道
+                            </span>
+                        </div>
                         {/* Sello Rojo Decorativo */}
                         <div className="absolute bottom-20 right-10 md:right-20 w-24 h-24 border-4 border-red-700 text-red-700 flex items-center justify-center font-serif font-bold text-4xl transform rotate-12 opacity-80 mix-blend-screen pointer-events-none">
                             禅

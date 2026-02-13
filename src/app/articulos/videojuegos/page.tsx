@@ -129,11 +129,7 @@ export default function VideojuegosPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-5xl md:text-[9rem] lg:text-[10rem] leading-[0.85] font-black tracking-tight text-white uppercase">
-                        Videojuegos
-                    </h1>
-                }
+                title="VIDEOJUEGOS"
                 subtitle="De los Arcades a la Eternidad"
                 scrollText="Iniciar Nivel"
                 accentColor="text-emerald-200"

@@ -91,11 +91,8 @@ export default function KyotoPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title={
-                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter drop-shadow-2xl font-serif">
-                        KIOTO
-                    </h1>
-                }
+                title="KIOTO"
+                titleFont="font-serif"
                 subtitle="La Capital Eterna"
                 scrollText="Silencio"
                 accentColor="text-amber-200"
