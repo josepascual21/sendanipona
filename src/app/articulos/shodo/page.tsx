@@ -135,7 +135,7 @@ const SECTIONS: NavigationItem[] = [
 
 export default function ShodoPage() {
     return (
-        <div className="bg-slate-950 text-slate-300 font-sans selection:bg-red-700 selection:text-white overflow-x-hidden">
+        <div className="bg-slate-900 text-slate-200 font-sans selection:bg-red-700 selection:text-white overflow-x-hidden">
             <NavigationPill sections={SECTIONS} accentColor="red" />
 
             {/* ========== HERO SECTION (100vh) ========== */}
@@ -168,219 +168,222 @@ export default function ShodoPage() {
                 }
             />
 
-            {/* ========== INTRO: EL CAMINO (SLATE-950) ========== */}
-            <section id="intro" className="py-24 md:py-32 px-6 bg-slate-950 flex items-center text-white">
-                <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <SectionTitle accentColor="bg-red-600">No es solo escribir</SectionTitle>
-                        <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
-                            El <strong>Shodō</strong> (el camino de la escritura) no busca simplemente la legibilidad. Es una disciplina artística y espiritual donde el calígrafo vierte su momento presente en el papel.
-                        </p>
-                        <p className="text-lg text-slate-300 leading-relaxed text-justify">
-                            A diferencia de la pintura occidental, que permite correcciones, el trazo de tinta sobre papel de arroz es <strong className="text-white">irreversible</strong>. Un momento, una oportunidad. Es el registro físico de la energía y el estado mental del artista en ese preciso instante.
-                        </p>
-                    </motion.div>
+            <div className="relative z-10">
 
-                    <motion.div
-                        initial={{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
-                        whileInView={{ opacity: 1, clipPath: 'inset(0 0 0 0)' }}
-                        transition={{ duration: 1, ease: "circOut" }}
-                        viewport={{ once: true }}
-                        className="relative h-[600px] w-full bg-slate-900 grayscale hover:grayscale-0 transition-all duration-700 rounded-xl overflow-hidden border border-slate-800"
-                    >
-                        <div className="absolute inset-0 flex items-center justify-center text-slate-700 font-bold text-2xl uppercase">
-                            {/* Placeholder visual */}
-                            <div className="text-center p-8">
-                                <span className="block text-9xl mb-4 opacity-20">永</span>
-                                <span className="text-sm tracking-widest text-red-500">ETERNIDAD</span>
+                {/* ========== INTRO: EL CAMINO (SLATE-950) ========== */}
+                <section id="intro" className="py-24 md:py-32 px-6 bg-slate-900 flex items-center text-white">
+                    <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <SectionTitle accentColor="bg-red-600">No es solo escribir</SectionTitle>
+                            <p className="text-lg text-slate-300 leading-relaxed text-justify mb-6">
+                                El <strong>Shodō</strong> (el camino de la escritura) no busca simplemente la legibilidad. Es una disciplina artística y espiritual donde el calígrafo vierte su momento presente en el papel.
+                            </p>
+                            <p className="text-lg text-slate-300 leading-relaxed text-justify">
+                                A diferencia de la pintura occidental, que permite correcciones, el trazo de tinta sobre papel de arroz es <strong className="text-white">irreversible</strong>. Un momento, una oportunidad. Es el registro físico de la energía y el estado mental del artista en ese preciso instante.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, clipPath: 'inset(100% 0 0 0)' }}
+                            whileInView={{ opacity: 1, clipPath: 'inset(0 0 0 0)' }}
+                            transition={{ duration: 1, ease: "circOut" }}
+                            viewport={{ once: true }}
+                            className="relative h-[600px] w-full bg-slate-900 grayscale hover:grayscale-0 transition-all duration-700 rounded-xl overflow-hidden border border-slate-800"
+                        >
+                            <div className="absolute inset-0 flex items-center justify-center text-slate-700 font-bold text-2xl uppercase">
+                                {/* Placeholder visual */}
+                                <div className="text-center p-8">
+                                    <span className="block text-9xl mb-4 opacity-20">永</span>
+                                    <span className="text-sm tracking-widest text-red-500">ETERNIDAD</span>
+                                </div>
                             </div>
-                        </div>
-                        <Image
-                            src={IMAGES.intro}
-                            alt="Maestro de Shodō"
-                            fill
-                            className="object-cover opacity-80 mix-blend-overlay"
-                        />
-                    </motion.div>
-                </div>
-            </section>
+                            <Image
+                                src={IMAGES.intro}
+                                alt="Maestro de Shodō"
+                                fill
+                                className="object-cover opacity-80 mix-blend-overlay"
+                            />
+                        </motion.div>
+                    </div>
+                </section>
 
-            {/* ========== LOS 4 TESOROS (SLATE-900 - Alternancia A) ========== */}
-            <section id="tesoros" className="py-24 md:py-32 bg-slate-900">
-                <div className="max-w-7xl mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-20"
-                    >
-                        <SectionTitle accentColor="bg-red-600" align="center">Bunbou Shihou</SectionTitle>
-                        <SectionSubtitle align="center" variant="italic">
-                            &quot;Los Cuatro Tesoros del Estudio&quot;. Herramientas sagradas que conectan al artista con el universo.
-                        </SectionSubtitle>
-                    </motion.div>
+                {/* ========== LOS 4 TESOROS (SLATE-900 - Alternancia A) ========== */}
+                <section id="tesoros" className="py-24 md:py-32 bg-slate-950">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-center mb-20"
+                        >
+                            <SectionTitle accentColor="bg-red-600" align="center">Bunbou Shihou</SectionTitle>
+                            <SectionSubtitle align="center" variant="italic">
+                                &quot;Los Cuatro Tesoros del Estudio&quot;. Herramientas sagradas que conectan al artista con el universo.
+                            </SectionSubtitle>
+                        </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        {TREASURES.map((item, index) => (
-                            <motion.div
-                                key={item.id}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.15 }}
-                                className="group relative h-[450px] bg-slate-950 border border-slate-800 overflow-hidden shadow-lg"
-                            >
-                                {/* Imagen de fondo sutil */}
-                                <Image
-                                    src={item.img}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover opacity-50 group-hover:opacity-70 transition-all duration-700 grayscale group-hover:scale-105"
-                                />
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {TREASURES.map((item, index) => (
+                                <motion.div
+                                    key={item.id}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.15 }}
+                                    className="group relative h-[450px] bg-slate-950 border border-slate-800 overflow-hidden shadow-lg"
+                                >
+                                    {/* Imagen de fondo sutil */}
+                                    <Image
+                                        src={item.img}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover opacity-50 group-hover:opacity-70 transition-all duration-700 grayscale group-hover:scale-105"
+                                    />
 
-                                {/* Overlay Gradiente */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+                                    {/* Overlay Gradiente */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
 
-                                {/* Contenido */}
-                                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                                    <div className="mb-4 text-slate-500 group-hover:text-red-500 transition-colors duration-300 transform group-hover:-translate-y-2">
-                                        {item.icon}
+                                    {/* Contenido */}
+                                    <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                                        <div className="mb-4 text-slate-500 group-hover:text-red-500 transition-colors duration-300 transform group-hover:-translate-y-2">
+                                            {item.icon}
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-white mb-4 border-b border-slate-800 pb-2 group-hover:border-red-600 transition-colors duration-500">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-slate-300 leading-relaxed text-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                                            {item.desc}
+                                        </p>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-4 border-b border-slate-800 pb-2 group-hover:border-red-600 transition-colors duration-500">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-slate-300 leading-relaxed text-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                                        {item.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* ========== ESTILOS (SLATE-950 - Alternancia B) ========== */}
-            <section id="estilos" className="py-24 md:py-32 bg-slate-950 relative">
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="mb-16">
-                        <SectionTitle accentColor="bg-red-600" align="left">Los Tres Estilos</SectionTitle>
-                    </div>
+                {/* ========== ESTILOS (SLATE-950 - Alternancia B) ========== */}
+                <section id="estilos" className="py-24 md:py-32 bg-slate-900 relative">
+                    <div className="max-w-7xl mx-auto px-6 relative z-10">
+                        <div className="mb-16">
+                            <SectionTitle accentColor="bg-red-600" align="left">Los Tres Estilos</SectionTitle>
+                        </div>
 
-                    <div className="flex flex-col gap-12">
-                        {STYLES.map((style, index) => (
-                            <motion.div
-                                key={style.id}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
-                                className="flex flex-col md:flex-row items-center gap-12 group p-8 rounded-2xl bg-slate-900/50 border border-slate-900 hover:border-slate-800 transition-colors"
-                            >
-                                {/* Kanji Grande Visual */}
-                                <div className="flex-1 w-full text-center md:text-right md:pr-12 md:border-r border-slate-800 relative">
-                                    <span className="text-[8rem] md:text-[12rem] leading-none font-serif text-white opacity-5 group-hover:opacity-20 transition-all duration-700">
-                                        {style.kanji}
-                                    </span>
-                                </div>
-
-                                {/* Texto */}
-                                <div className="flex-1">
-                                    <h3 className="text-4xl font-black mb-4 flex flex-col md:flex-row md:items-center gap-4 text-white">
-                                        {style.title}
-                                        <span className="text-sm font-normal text-red-400 font-mono tracking-wider border border-red-900/50 bg-red-900/10 px-3 py-1 rounded w-fit">
-                                            {style.subtitle}
+                        <div className="flex flex-col gap-12">
+                            {STYLES.map((style, index) => (
+                                <motion.div
+                                    key={style.id}
+                                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.8 }}
+                                    className="flex flex-col md:flex-row items-center gap-12 group p-8 rounded-2xl bg-slate-900/50 border border-slate-900 hover:border-slate-800 transition-colors"
+                                >
+                                    {/* Kanji Grande Visual */}
+                                    <div className="flex-1 w-full text-center md:text-right md:pr-12 md:border-r border-slate-800 relative">
+                                        <span className="text-[8rem] md:text-[12rem] leading-none font-serif text-white opacity-5 group-hover:opacity-20 transition-all duration-700">
+                                            {style.kanji}
                                         </span>
-                                    </h3>
-                                    <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
-                                        {style.desc}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                    </div>
+
+                                    {/* Texto */}
+                                    <div className="flex-1">
+                                        <h3 className="text-4xl font-black mb-4 flex flex-col md:flex-row md:items-center gap-4 text-white">
+                                            {style.title}
+                                            <span className="text-sm font-normal text-red-400 font-mono tracking-wider border border-red-900/50 bg-red-900/10 px-3 py-1 rounded w-fit">
+                                                {style.subtitle}
+                                            </span>
+                                        </h3>
+                                        <p className="text-xl text-slate-300 leading-relaxed max-w-xl">
+                                            {style.desc}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* ========== PERFORMANCE (BLACK) ========== */}
-            <section id="performance" className="py-32 bg-black relative overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={IMAGES.performance}
-                        alt="Shodo Performance"
-                        fill
-                        className="object-cover opacity-70"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent" />
-                </div>
+                {/* ========== PERFORMANCE (BLACK) ========== */}
+                <section id="performance" className="py-32 bg-black relative overflow-hidden">
+                    <div className="absolute inset-0 z-0">
+                        <Image
+                            src={IMAGES.performance}
+                            alt="Shodo Performance"
+                            fill
+                            className="object-cover opacity-70"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent" />
+                    </div>
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="max-w-3xl"
-                    >
-                        <h2 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
-                            SHODŌ<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">
-                                PERFORMANCE
-                            </span>
+                    <div className="max-w-7xl mx-auto px-6 relative z-10">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="max-w-3xl"
+                        >
+                            <h2 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+                                SHODŌ<br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">
+                                    PERFORMANCE
+                                </span>
+                            </h2>
+                            <p className="text-2xl text-slate-300 leading-relaxed mb-12">
+                                En la actualidad, el Shodō ha saltado del escritorio al escenario. Artistas empuñan pinceles gigantes del tamaño de escobas para escribir sobre lienzos de metros de altura, al ritmo de música Taiko o moderna.
+                            </p>
+                            <p className="text-lg text-slate-400 mb-8 max-w-2xl">
+                                Es la fusión definitiva de cuerpo y espíritu: una danza marcial donde el resultado final es tan importante como el movimiento que lo creó.
+                                <br /><br />
+                                <span className="text-red-500 italic">&quot;El pincel baila, la tinta canta.&quot;</span>
+                            </p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
+                <section id="curiosidades" className="py-32 bg-stone-950">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8">
+                            SECRETOS DEL PINCEL
                         </h2>
-                        <p className="text-2xl text-slate-300 leading-relaxed mb-12">
-                            En la actualidad, el Shodō ha saltado del escritorio al escenario. Artistas empuñan pinceles gigantes del tamaño de escobas para escribir sobre lienzos de metros de altura, al ritmo de música Taiko o moderna.
-                        </p>
-                        <p className="text-lg text-slate-400 mb-8 max-w-2xl">
-                            Es la fusión definitiva de cuerpo y espíritu: una danza marcial donde el resultado final es tan importante como el movimiento que lo creó.
-                            <br /><br />
-                            <span className="text-red-500 italic">&quot;El pincel baila, la tinta canta.&quot;</span>
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
 
-            {/* ========== CURIOSIDADES (FINAL stone-950) ========== */}
-            <section id="curiosidades" className="py-32 bg-stone-950">
-                <div className="max-w-7xl mx-auto px-6">
-                    <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8">
-                        SECRETOS DEL PINCEL
-                    </h2>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {CURIOSITIES.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className="group"
-                            >
-                                {/* Icono */}
-                                <div className="mb-6 bg-slate-900 text-red-500 w-14 h-14 rounded-2xl 
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {CURIOSITIES.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    whileHover={{ y: -5 }}
+                                    className="group"
+                                >
+                                    {/* Icono */}
+                                    <div className="mb-6 bg-slate-900 text-red-500 w-14 h-14 rounded-2xl 
                                             flex items-center justify-center 
                                             group-hover:bg-red-900/30 transition-colors 
                                             border border-slate-800">
-                                    {item.icon}
-                                </div>
+                                        {item.icon}
+                                    </div>
 
-                                {/* Texto */}
-                                <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
-                                <p className="text-slate-400 leading-relaxed text-lg 
+                                    {/* Texto */}
+                                    <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+                                    <p className="text-slate-400 leading-relaxed text-lg 
                                             border-l-2 border-slate-800 pl-4 
                                             group-hover:border-red-600 transition-colors">
-                                    {item.text}
-                                </p>
-                            </motion.div>
-                        ))}
+                                        {item.text}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
+            </div>
             <CommentsSectionWrapper slug="shodo" />
         </div>
     );

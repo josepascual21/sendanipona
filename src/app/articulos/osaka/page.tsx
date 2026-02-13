@@ -117,7 +117,11 @@ export default function OsakaPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title="OSAKA"
+                title={
+                    <h1 className="text-7xl md:text-[10rem] leading-none font-black text-white tracking-tighter uppercase">
+                        OSAKA
+                    </h1>
+                }
                 subtitle="La Cocina de Japón"
                 scrollText="Descubre"
                 accentColor="text-orange-200"
@@ -128,237 +132,241 @@ export default function OsakaPage() {
                 }
             />
 
-            {/* ========== INTRO (Dark Tone B: slate-950) ========== */}
-            <section id="intro" className="py-24 md:py-32 bg-slate-950 relative">
-                <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]">Alma Rebelde</SectionTitle>
-                        <div className="space-y-6 text-lg leading-relaxed text-slate-300 text-justify">
-                            <p>
-                                Si Tokyo es el cerebro de Japón, <strong className="text-orange-400">Osaka es el corazón (y el estómago)</strong>. Aquí, la rigidez social se relaja. La gente habla más alto, ríe con más ganas y no tiene miedo de cruzar un semáforo en rojo si no vienen coches.
-                            </p>
-                            <p>
-                                Históricamente una ciudad de mercaderes, Osaka valora el pragmatismo, el humor y, sobre todo, la comida. Es una ciudad honesta, ruidosa y abrumadoramente cálida.
-                            </p>
-                        </div>
-                    </motion.div>
+            <div className="relative z-10">
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group"
-                    >
-                        <Image
-                            src={IMAGES.intro}
-                            alt="Osaka Streets"
-                            fill
-                            className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-
-                        <div className="absolute top-6 right-6 bg-orange-600 text-white font-bold py-1 px-4 rounded-full text-sm tracking-widest uppercase shadow-lg rotate-3">
-                            Kansai Spirit
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ========== GASTRONOMÍA (Dark Tone A: slate-900) - STAGGERED CARDS ========== */}
-            <section id="gastronomia" className="py-24 md:py-32 bg-slate-900">
-                <div className="max-w-7xl mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-20"
-                    >
-                        <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]" align="center">Kuidaore</SectionTitle>
-                        <SectionSubtitle align="center">
-                            &quot;Arruinarse comiendo&quot;. El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
-                        </SectionSubtitle>
-                    </motion.div>
-
-                    <div className="flex flex-col gap-24">
-                        {FOODS.map((food, index) => (
-                            <ContentCard
-                                key={food.id}
-                                index={index}
-                                title={food.name}
-                                image={food.img}
-                                variant="wide"
-                                accentColor="orange"
-                                subtitle={`0${index + 1}`}
-                            >
-                                {food.desc}
-                            </ContentCard>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== SHINSEKAI (Dark Tone B: slate-950) - RETRO NEON CARD (Refined) ========== */}
-            <section id="shinsekai" className="py-24 md:py-32 bg-slate-950 relative overflow-hidden">
-                {/* Neon Glow Background */}
-                <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
-
-                <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="lg:col-span-7 relative"
-                    >
-                        {/* Retro-Neon Image Container */}
-                        <div className="relative h-[500px] rounded-sm overflow-hidden border-4 border-slate-800 shadow-[0_0_40px_rgba(249,115,22,0.2)] group">
-                            <Image
-                                src={IMAGES.lugares.shinsekai}
-                                alt="Shinsekai Tower"
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            {/* Vintage Overlay */}
-                            <div className="absolute inset-0 bg-orange-500/10 mix-blend-overlay" />
-                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-
-                            {/* Neon Border Effect on Hover */}
-                            <div className="absolute inset-0 border border-transparent group-hover:border-orange-500/50 transition-colors duration-500" />
-                        </div>
-
-                        {/* Decorative Japanese Vertical Text */}
-                        <div className="absolute -right-8 top-10 font-black text-6xl text-slate-800 hidden lg:block opacity-50 writing-vertical-rl select-none">
-                            新世界
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="lg:col-span-5 relative bg-slate-900/80 backdrop-blur-md p-8 md:p-12 -ml-0 lg:-ml-20 rounded-xl border border-slate-800 shadow-xl"
-                    >
-                        <div className="mb-6">
-                            <div className="flex items-center gap-3 mb-4 text-orange-500">
-                                <Radio size={28} />
-                                <span className="uppercase tracking-widest font-bold">Retro-Futuro</span>
+                {/* ========== INTRO (Dark Tone B: slate-950) ========== */}
+                <section id="intro" className="py-24 md:py-32 bg-slate-900 relative">
+                    <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]">Alma Rebelde</SectionTitle>
+                            <div className="space-y-6 text-lg leading-relaxed text-slate-300 text-justify">
+                                <p>
+                                    Si Tokyo es el cerebro de Japón, <strong className="text-orange-400">Osaka es el corazón (y el estómago)</strong>. Aquí, la rigidez social se relaja. La gente habla más alto, ríe con más ganas y no tiene miedo de cruzar un semáforo en rojo si no vienen coches.
+                                </p>
+                                <p>
+                                    Históricamente una ciudad de mercaderes, Osaka valora el pragmatismo, el humor y, sobre todo, la comida. Es una ciudad honesta, ruidosa y abrumadoramente cálida.
+                                </p>
                             </div>
-                            <h2 className="text-4xl font-black text-white tracking-tight">
-                                SHINSEKAI
-                            </h2>
-                        </div>
-
-                        <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                            El &quot;Nuevo Mundo&quot; que se quedó congelado en 1912. Un laberinto de luces de neón vintage, salas de juego ruidosas y carteles coloridos.
-                        </p>
-                        <p className="text-lg text-slate-300 leading-relaxed">
-                            Es la esencia de la nostalgia Showa. Aquí el tiempo se detiene entre brochetas fritas y la imponente torre Tsutenkaku.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ========== CASTILLO (Dark Tone A: slate-900) - CINEMATIC WIDE (Refined) ========== */}
-            <section id="historia" className="py-24 md:py-32 bg-slate-900 relative">
-                <div className="max-w-7xl mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="mb-12"
-                    >
-                        <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]">El Guardián</SectionTitle>
-                    </motion.div>
-
-                    {/* Full Width Image Top */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="relative w-full h-[60vh] rounded-3xl overflow-hidden mb-12 shadow-2xl"
-                    >
-                        <Image
-                            src={IMAGES.lugares.castillo}
-                            alt="Osaka Castle Wide"
-                            fill
-                            className="object-cover object-center"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90" />
-                        <div className="absolute bottom-8 left-8">
-                            <h3 className="text-3xl md:text-5xl font-black text-white drop-shadow-md">Osaka-jo</h3>
-                            <p className="text-orange-300 text-sm tracking-widest uppercase">Símbolo de Unificación</p>
-                        </div>
-                    </motion.div>
-
-                    {/* Text Columns Bottom */}
-                    <div className="grid md:grid-cols-2 gap-12">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            <h4 className="text-2xl font-bold text-white mb-4">Poder y Resistencia</h4>
-                            <p className="text-lg text-slate-300 leading-relaxed text-justify">
-                                Construido por Toyotomi Hideyoshi para ser el centro de un nuevo Japón unificado, el castillo ha sobrevivido a guerras, incendios y prohibiciones. Sus muros de granito y sus detalles dorados imponen respeto desde kilómetros de distancia.
-                            </p>
                         </motion.div>
+
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group"
+                        >
+                            <Image
+                                src={IMAGES.intro}
+                                alt="Osaka Streets"
+                                fill
+                                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
+
+                            <div className="absolute top-6 right-6 bg-orange-600 text-white font-bold py-1 px-4 rounded-full text-sm tracking-widest uppercase shadow-lg rotate-3">
+                                Kansai Spirit
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* ========== GASTRONOMÍA (Dark Tone A: slate-900) - STAGGERED CARDS ========== */}
+                <section id="gastronomia" className="py-24 md:py-32 bg-slate-950">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.4 }}
+                            className="text-center mb-20"
                         >
-                            <h4 className="text-2xl font-bold text-white mb-4">Contrastes Modernos</h4>
-                            <p className="text-lg text-slate-300 leading-relaxed text-justify">
-                                Hoy, el castillo se alza en medio de un parque de negocios ultramoderno. Ver sus tejados tradicionales recortados contra los rascacielos de cristal (OBP) es la imagen definitiva de la identidad de Osaka: respeto por el pasado, pero siempre mirando hacia adelante.
+                            <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]" align="center">Kuidaore</SectionTitle>
+                            <SectionSubtitle align="center">
+                                &quot;Arruinarse comiendo&quot;. El lema no oficial de la ciudad. En Osaka, la comida no es solo combustible, es una religión.
+                            </SectionSubtitle>
+                        </motion.div>
+
+                        <div className="flex flex-col gap-24">
+                            {FOODS.map((food, index) => (
+                                <ContentCard
+                                    key={food.id}
+                                    index={index}
+                                    title={food.name}
+                                    image={food.img}
+                                    variant="wide"
+                                    accentColor="orange"
+                                    subtitle={`0${index + 1}`}
+                                >
+                                    {food.desc}
+                                </ContentCard>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ========== SHINSEKAI (Dark Tone B: slate-950) - RETRO NEON CARD (Refined) ========== */}
+                <section id="shinsekai" className="py-24 md:py-32 bg-slate-900 relative overflow-hidden">
+                    {/* Neon Glow Background */}
+                    <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
+
+                    <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-7 relative"
+                        >
+                            {/* Retro-Neon Image Container */}
+                            <div className="relative h-[500px] rounded-sm overflow-hidden border-4 border-slate-800 shadow-[0_0_40px_rgba(249,115,22,0.2)] group">
+                                <Image
+                                    src={IMAGES.lugares.shinsekai}
+                                    alt="Shinsekai Tower"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                {/* Vintage Overlay */}
+                                <div className="absolute inset-0 bg-orange-500/10 mix-blend-overlay" />
+                                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+
+                                {/* Neon Border Effect on Hover */}
+                                <div className="absolute inset-0 border border-transparent group-hover:border-orange-500/50 transition-colors duration-500" />
+                            </div>
+
+                            {/* Decorative Japanese Vertical Text */}
+                            <div className="absolute -right-8 top-10 font-black text-6xl text-slate-800 hidden lg:block opacity-50 writing-vertical-rl select-none">
+                                新世界
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-5 relative bg-slate-900/80 backdrop-blur-md p-8 md:p-12 -ml-0 lg:-ml-20 rounded-xl border border-slate-800 shadow-xl"
+                        >
+                            <div className="mb-6">
+                                <div className="flex items-center gap-3 mb-4 text-orange-500">
+                                    <Radio size={28} />
+                                    <span className="uppercase tracking-widest font-bold">Retro-Futuro</span>
+                                </div>
+                                <h2 className="text-4xl font-black text-white tracking-tight">
+                                    SHINSEKAI
+                                </h2>
+                            </div>
+
+                            <p className="text-lg text-slate-300 leading-relaxed mb-6">
+                                El &quot;Nuevo Mundo&quot; que se quedó congelado en 1912. Un laberinto de luces de neón vintage, salas de juego ruidosas y carteles coloridos.
+                            </p>
+                            <p className="text-lg text-slate-300 leading-relaxed">
+                                Es la esencia de la nostalgia Showa. Aquí el tiempo se detiene entre brochetas fritas y la imponente torre Tsutenkaku.
                             </p>
                         </motion.div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* ========== CURIOSIDADES (Darkest Tone - STANDARD) ========== */}
-            <section id="curiosidades" className="py-32 bg-stone-950 relative border-t border-slate-900">
-                <div className="max-w-7xl mx-auto px-6">
-                    <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8">
-                        SECRETOS DE <span className="text-orange-500">OSAKA</span>
-                    </h2>
+                {/* ========== CASTILLO (Dark Tone A: slate-900) - CINEMATIC WIDE (Refined) ========== */}
+                <section id="historia" className="py-24 md:py-32 bg-slate-950 relative">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="mb-12"
+                        >
+                            <SectionTitle accentColor="bg-orange-500" glowEffect="shadow-[0_0_15px_rgba(249,115,22,0.4)]">El Guardián</SectionTitle>
+                        </motion.div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {CURIOSITIES.map((item, index) => (
+                        {/* Full Width Image Top */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative w-full h-[60vh] rounded-3xl overflow-hidden mb-12 shadow-2xl"
+                        >
+                            <Image
+                                src={IMAGES.lugares.castillo}
+                                alt="Osaka Castle Wide"
+                                fill
+                                className="object-cover object-center"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90" />
+                            <div className="absolute bottom-8 left-8">
+                                <h3 className="text-3xl md:text-5xl font-black text-white drop-shadow-md">Osaka-jo</h3>
+                                <p className="text-orange-300 text-sm tracking-widest uppercase">Símbolo de Unificación</p>
+                            </div>
+                        </motion.div>
+
+                        {/* Text Columns Bottom */}
+                        <div className="grid md:grid-cols-2 gap-12">
                             <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className="group"
+                                transition={{ delay: 0.2 }}
                             >
-                                <div className="mb-6 bg-slate-900 text-orange-500 w-14 h-14 rounded-2xl 
+                                <h4 className="text-2xl font-bold text-white mb-4">Poder y Resistencia</h4>
+                                <p className="text-lg text-slate-300 leading-relaxed text-justify">
+                                    Construido por Toyotomi Hideyoshi para ser el centro de un nuevo Japón unificado, el castillo ha sobrevivido a guerras, incendios y prohibiciones. Sus muros de granito y sus detalles dorados imponen respeto desde kilómetros de distancia.
+                                </p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4 }}
+                            >
+                                <h4 className="text-2xl font-bold text-white mb-4">Contrastes Modernos</h4>
+                                <p className="text-lg text-slate-300 leading-relaxed text-justify">
+                                    Hoy, el castillo se alza en medio de un parque de negocios ultramoderno. Ver sus tejados tradicionales recortados contra los rascacielos de cristal (OBP) es la imagen definitiva de la identidad de Osaka: respeto por el pasado, pero siempre mirando hacia adelante.
+                                </p>
+                            </motion.div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ========== CURIOSIDADES (Darkest Tone - STANDARD) ========== */}
+                <section id="curiosidades" className="py-32 bg-stone-950 relative border-t border-slate-900">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <h2 className="text-4xl md:text-5xl font-black mb-16 text-white border-b border-slate-800 pb-8">
+                            SECRETOS DE <span className="text-orange-500">OSAKA</span>
+                        </h2>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {CURIOSITIES.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    whileHover={{ y: -5 }}
+                                    className="group"
+                                >
+                                    <div className="mb-6 bg-slate-900 text-orange-500 w-14 h-14 rounded-2xl 
                                               flex items-center justify-center 
                                               group-hover:bg-orange-900/20 transition-colors 
                                               border border-slate-800">
-                                    {item.icon}
-                                </div>
+                                        {item.icon}
+                                    </div>
 
-                                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-orange-400 transition-colors">{item.title}</h3>
-                                <p className="text-slate-400 leading-relaxed text-lg 
+                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-orange-400 transition-colors">{item.title}</h3>
+                                    <p className="text-slate-400 leading-relaxed text-lg 
                                             border-l-2 border-slate-800 pl-4 
                                             group-hover:border-orange-600 transition-colors">
-                                    {item.text}
-                                </p>
-                            </motion.div>
-                        ))}
+                                        {item.text}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+
+            </div>
 
             <CommentsSectionWrapper slug="osaka" />
         </div>

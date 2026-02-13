@@ -89,7 +89,7 @@ const CURIOSITIES = [
 
 export default function PresentePage() {
     return (
-        <div className="bg-slate-900 text-slate-300 font-sans selection:bg-indigo-500 selection:text-white">
+        <div className="bg-slate-900 text-slate-200 font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden">
             <NavigationPill sections={SECTIONS} accentColor="indigo" />
 
             {/* ========== HERO SECTION ========== */}

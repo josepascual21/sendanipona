@@ -79,7 +79,7 @@ const CURIOSITIES = [
 
 export default function FuturoPage() {
     return (
-        <div className="bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500 selection:text-white">
+        <div className="bg-slate-900 text-slate-200 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden">
             <NavigationPill sections={SECTIONS} accentColor="cyan" />
 
             {/* ========== HERO SECTION ========== */}
