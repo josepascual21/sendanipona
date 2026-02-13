@@ -11,6 +11,8 @@ export class PrismaCommentRepository implements ICommentRepository {
             orderBy: { createdAt: 'desc' },
             skip: offset,
             take: limit,
+            // Incluir datos del autor para mostrar el nombre real en la UI
+            include: { user: { select: { username: true } } },
         });
 
         return prismaComments.map(c => new Comment({
@@ -18,7 +20,8 @@ export class PrismaCommentRepository implements ICommentRepository {
             textComment: c.textComment,
             userId: c.userId,
             articleId: c.articleId,
-            createdAt: c.createdAt
+            createdAt: c.createdAt,
+            authorName: c.user?.username,
         }));
     }
 

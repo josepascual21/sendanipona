@@ -78,11 +78,11 @@ export default function CommentList({ articleId, currentUser }: CommentListProps
                             <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-600 to-amber-600 flex items-center justify-center text-white text-xs font-bold">
-                                        {/* Placeholder avatar */}
-                                        U
+                                        {/* Inicial del nombre del autor */}
+                                        {(comment.user?.name ?? 'A').charAt(0).toUpperCase()}
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="text-zinc-300 text-sm font-medium">Usuario</span>
+                                        <span className="text-zinc-300 text-sm font-medium">{comment.user?.name ?? 'Anónimo'}</span>
                                         <span className="text-zinc-600 text-xs">
                                             {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true, locale: es })}
                                         </span>

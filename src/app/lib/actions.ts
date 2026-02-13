@@ -5,6 +5,7 @@ import { AuthError } from 'next-auth';
 import { UserAlreadyExistsError } from '@/core/domain/errors/UserAlreadyExistsError';
 import { container } from '@/infrastructure/di/container';
 import { CommentAlreadyExistsError } from '@/core/domain/errors/CommentAlreadyExistsError';
+import { CommentDTO } from '@/core/application/dtos/CommentDTO';
 import { revalidatePath } from 'next/cache';
 import { RegisterSchema } from './schemas';
 
@@ -100,8 +101,17 @@ export async function getArticleComments(articleId: string, page: number = 1) {
     try {
         const getCommentsUseCase = container.getArticleCommentsUseCase();
         const comments = await getCommentsUseCase.execute(articleId, page);
-        // Serializar fechas para que puedan pasar de Server a Client Component
-        return { success: true, comments: JSON.parse(JSON.stringify(comments)) };
+
+        // Mapper explícito Comment → CommentDTO (serializa fechas y añade datos de autor)
+        const commentsDTO: CommentDTO[] = comments.map(c => ({
+            id: c.id,
+            textComment: c.textComment,
+            createdAt: c.createdAt.toISOString(),
+            userId: c.userId,
+            user: c.authorName ? { name: c.authorName } : undefined,
+        }));
+
+        return { success: true, comments: commentsDTO };
     } catch (error) {
         console.error('Error fetching comments:', error);
         return { success: false, comments: [] };

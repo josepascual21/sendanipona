@@ -30,12 +30,18 @@ export class Comment {
      * Fecha de creación del comentario
      */
     readonly createdAt: Date;
+    /**
+     * Nombre del autor del comentario (opcional, se rellena en consultas con join)
+     */
+    readonly authorName?: string;
+
     constructor(props: {
         id: string;
         textComment: string;
         userId: string;
         articleId: string;
         createdAt: Date;
+        authorName?: string;
     }) {
         // Validaciones básicas
         if (!props.id || props.id.trim() === '') {
@@ -61,5 +67,6 @@ export class Comment {
         this.userId = props.userId;
         this.articleId = props.articleId;
         this.createdAt = props.createdAt;
+        this.authorName = props.authorName;
     }
 }
