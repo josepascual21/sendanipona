@@ -15,6 +15,7 @@ import {
     AlignLeft
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -380,6 +381,7 @@ export default function ShodoPage() {
                 </div>
             </section>
 
+            <CommentsSectionWrapper slug="shodo" />
         </div>
     );
 }

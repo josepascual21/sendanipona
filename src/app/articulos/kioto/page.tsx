@@ -15,6 +15,7 @@ import {
     Star
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -315,6 +316,8 @@ export default function KyotoPage() {
                     </div>
                 </div>
             </section>
+
+            <CommentsSectionWrapper slug="kioto" />
         </div>
     );
 }

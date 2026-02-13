@@ -15,6 +15,7 @@ import {
     Moon
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -351,6 +352,7 @@ export default function TokyoPage() {
                     </div>
                 </div>
             </section>
+            <CommentsSectionWrapper slug="tokyo" />
         </div>
     );
 }

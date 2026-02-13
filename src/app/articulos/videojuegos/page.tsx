@@ -16,6 +16,7 @@ import {
     Radio
 } from 'lucide-react';
 import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -389,6 +390,7 @@ export default function VideojuegosPage() {
                     </div>
                 </div>
             </section>
+            <CommentsSectionWrapper slug="videojuegos" />
         </div>
     );
 }

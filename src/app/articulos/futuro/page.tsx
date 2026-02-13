@@ -16,6 +16,7 @@ import {
     Info
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, HeroSection } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // DATOS
@@ -285,6 +286,7 @@ export default function FuturoPage() {
                 </section>
 
             </div>
+            <CommentsSectionWrapper slug="futuro" />
         </div>
     );
 }

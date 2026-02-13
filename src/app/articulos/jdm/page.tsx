@@ -16,6 +16,7 @@ import {
     Radio
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // CONSTANTES Y DATOS
@@ -364,6 +365,7 @@ export default function JdmPage() {
                     </div>
                 </div>
             </section>
+            <CommentsSectionWrapper slug="jdm" />
         </div>
     );
 }

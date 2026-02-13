@@ -14,6 +14,7 @@ import {
     Users
 } from 'lucide-react';
 import { HeroSection, NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // DATOS & CONSTANTES
@@ -358,6 +359,8 @@ export default function OsakaPage() {
                     </div>
                 </div>
             </section>
+
+            <CommentsSectionWrapper slug="osaka" />
         </div>
     );
 }

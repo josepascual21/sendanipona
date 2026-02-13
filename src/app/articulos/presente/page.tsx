@@ -17,6 +17,7 @@ import {
     Music
 } from 'lucide-react';
 import { HeroSection, NavigationPill, NavigationItem, SectionTitle, ContentCard } from '@/components/articles';
+import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
 
 // ============================================================================
 // DATOS
@@ -271,6 +272,7 @@ export default function PresentePage() {
                 </section>
 
             </div>
+            <CommentsSectionWrapper slug="presente" />
         </div>
     );
 }
