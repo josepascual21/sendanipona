@@ -136,7 +136,7 @@ export default function JdmPage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title="JDM"
-                titleFont="italic"
+                titleFont="font-racing"
                 subtitle="Japanese Domestic Market"
                 scrollText="Descubre"
                 accentColor="text-red-200"

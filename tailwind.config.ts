@@ -13,6 +13,7 @@ const config: Config = {
         "ai-love": ["var(--font-ai-love)", "serif"],
         "rajdhani": ["var(--font-rajdhani)", "sans-serif"],
         "orbitron": ["var(--font-orbitron)", "sans-serif"],
+        "racing": ["var(--font-racing)", "sans-serif"],
       },
       colors: {
         background: "var(--color-background)",

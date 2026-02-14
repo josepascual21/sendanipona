@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Outfit, Rajdhani, Orbitron } from "next/font/google";
+import { Outfit, Rajdhani, Orbitron, Racing_Sans_One } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { APP_METADATA } from "@/shared/constants/app-constants";
@@ -26,6 +26,13 @@ const rajdhani = Rajdhani({
 const orbitron = Orbitron({
     subsets: ["latin"],
     variable: "--font-orbitron",
+    display: "swap",
+});
+
+const racingSansOne = Racing_Sans_One({
+    weight: ['400'],
+    subsets: ["latin"],
+    variable: "--font-racing",
     display: "swap",
 });
 
@@ -59,7 +66,7 @@ export default async function RootLayout({
 
     return (
         <html lang="es">
-            <body className={`flex flex-col min-h-screen bg-gradient-to-br from-cyan-50 to-emerald-50 ${aiLove.variable} ${outfit.variable} ${rajdhani.variable} ${orbitron.variable} font-sans`}>
+            <body className={`flex flex-col min-h-screen bg-gradient-to-br from-cyan-50 to-emerald-50 ${aiLove.variable} ${outfit.variable} ${rajdhani.variable} ${orbitron.variable} ${racingSansOne.variable} font-sans`}>
                 <AuthProvider>
                     <Header topics={navigationTopics} user={session?.user} />
                     <main className="flex-grow flex flex-col bg-zinc-950 text-white">
