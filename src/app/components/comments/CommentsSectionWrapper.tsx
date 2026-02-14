@@ -10,38 +10,50 @@ export default function CommentsSectionWrapper({ slug }: { slug: string }) {
     const { data: session, status } = useSession();
     const [articleId, setArticleId] = useState<string | null>(null);
     const [hasCommented, setHasCommented] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loadingArticle, setLoadingArticle] = useState(true);
     // Contador que se incrementa cada vez que se crea un comentario,
     // usado como dependencia en CommentList para forzar recarga
     const [refreshTrigger, setRefreshTrigger] = useState(0);
 
+    // 1. Efecto para obtener el ID del artículo (Solo depende del slug, se ejecuta una vez)
     useEffect(() => {
-        // Mientras NextAuth aún está verificando la sesión, no hacemos nada
-        if (status === 'loading') return;
+        let mounted = true;
 
-        async function init() {
-            setLoading(true);
-
-            // 1. Obtener ID del artículo por su slug
-            const articleResult = await getArticleIdBySlug(slug);
-            if (articleResult.success && articleResult.articleId) {
-                setArticleId(articleResult.articleId);
-
-                // 2. Si hay sesión activa, verificar si el usuario ya comentó
-                if (session?.user?.id) {
-                    const statusResult = await checkIfUserCommented(session.user.id, articleResult.articleId);
-                    setHasCommented(statusResult.hasCommented);
-                } else {
-                    // 3. Si no hay sesión (logout), resetear estado de comentario
-                    setHasCommented(false);
+        async function fetchArticleId() {
+            setLoadingArticle(true);
+            try {
+                const articleResult = await getArticleIdBySlug(slug);
+                if (mounted && articleResult.success && articleResult.articleId) {
+                    setArticleId(articleResult.articleId);
                 }
+            } catch (error) {
+                console.error("Error fetching article ID:", error);
+            } finally {
+                if (mounted) setLoadingArticle(false);
             }
-
-            setLoading(false);
         }
 
-        init();
-    }, [slug, session, status]);
+        fetchArticleId();
+
+        return () => { mounted = false; };
+    }, [slug]);
+
+    // 2. Efecto para verificar comentario de usuario (Depende de sesión y artículo ya cargado)
+    useEffect(() => {
+        // Si no tenemos artículo o la sesión está cargando, esperamos
+        if (!articleId || status === 'loading') return;
+
+        async function checkUserStatus() {
+            if (session?.user?.id) {
+                const statusResult = await checkIfUserCommented(session.user.id, articleId!);
+                setHasCommented(statusResult.hasCommented);
+            } else {
+                setHasCommented(false);
+            }
+        }
+
+        checkUserStatus();
+    }, [articleId, session, status]);
 
     /**
      * Callback que ejecuta CommentForm tras publicar un comentario con éxito.
@@ -62,7 +74,7 @@ export default function CommentsSectionWrapper({ slug }: { slug: string }) {
         // Opcional: refrescar lista si fuera necesario, aunque CommentList ya lo actualiza localmente
     }, []);
 
-    if (loading) {
+    if (loadingArticle) {
         return <div className="py-12 text-center text-zinc-500 animate-pulse">Cargando comentarios...</div>;
     }
 
