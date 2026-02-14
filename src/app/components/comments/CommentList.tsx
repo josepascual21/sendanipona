@@ -79,7 +79,7 @@ export default function CommentList({ articleId, currentUser, refreshTrigger = 0
 
     return (
         <div className="space-y-6 mt-8">
-            <h3 className="text-2xl font-ai-love text-white border-b border-zinc-800 pb-2">
+            <h3 className="text-2xl font-yuji-mai text-white border-b border-zinc-800 pb-2">
                 Comentarios
             </h3>
 

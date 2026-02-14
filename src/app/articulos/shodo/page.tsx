@@ -144,7 +144,8 @@ export default function ShodoPage() {
             {/* ========== HERO SECTION (100vh) ========== */}
             <HeroSection
                 backgroundImage={IMAGES.banner}
-                title="SHODŌ"
+                title="SHODO"
+                titleFont='font-yuji-mai'
                 subtitle="El Alma de la Tinta"
                 scrollText="Descubre"
                 accentColor="text-red-200"

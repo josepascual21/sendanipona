@@ -94,7 +94,6 @@ export default function KyotoPage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title="KIOTO"
-                titleFont="font-serif"
                 subtitle="La Capital Eterna"
                 scrollText="Silencio"
                 accentColor="text-amber-200"

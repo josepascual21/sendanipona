@@ -70,7 +70,7 @@ export default function CommentForm({ articleId, userId, hasCommented = false, o
 
     return (
         <form action={handleSubmit} className="bg-zinc-900/50 p-6 rounded-xl border border-zinc-800">
-            <h3 className="text-xl font-ai-love text-white mb-4">Deja tu comentario</h3>
+            <h3 className="text-xl font-yuji-mai text-white mb-4">Deja tu comentario</h3>
 
             <div className="relative">
                 <textarea

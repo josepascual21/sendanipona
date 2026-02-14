@@ -105,6 +105,7 @@ async function main() {
         { slug: 'pasado', email: 'marcos.jdm@example.com', text: "Los samuráis eran brutales, pero su código de honor es algo que se echa de menos hoy en día en nuestra sociedad tan individualista." },
         { slug: 'pasado', email: 'david.game@example.com', text: "Siempre me ha flipado la figura de Oda Nobunaga, un visionario total. Si no fuera por él, Japón sería muy diferente." },
         { slug: 'pasado', email: 'elena.travel@example.com', text: "Visité el castillo de Himeji el año pasado y es impresionante pensar en cómo se construyó algo así sin tecnología moderna." },
+        { slug: 'pasado', email: 'user@example.com', text: "Es fascinante ver la evolución desde el periodo Jomon hasta hoy. Gran artículo." },
 
         // PRESENTE
         { slug: 'presente', email: 'elena.travel@example.com', text: "Lo de los cafés de animales es cierto, estuve en uno de búhos en Harajuku y fue una experiencia surrealista, aunque me dio un poco de pena por los animales." },
@@ -112,6 +113,7 @@ async function main() {
         { slug: 'presente', email: 'david.game@example.com', text: "La mezcla de tradición y modernidad es lo que hace a Japón único. No hay otro país donde veas un templo milenario al lado de un rascacielos cyberpunk." },
         { slug: 'presente', email: 'marcos.jdm@example.com', text: "La puntualidad de los trenes es de otro planeta. En mi país si el tren llega el mismo día ya nos damos por satisfechos jaja." },
         { slug: 'presente', email: 'sophia.art@example.com', text: "La moda en Shibuya es arte puro. La gente se expresa a través de la ropa con una libertad que no se ve en otros sitios." },
+        { slug: 'presente', email: 'user@example.com', text: "La dualidad entre trabajo y ocio en Japón es única. Muy bien explicado." },
 
         // FUTURO
         { slug: 'futuro', email: 'lucia.history@example.com', text: "La crisis demográfica es un problema serio. Si no cambian las políticas de inmigración o el equilibrio vida-trabajo, no sé cómo sostendrán el sistema de pensiones." },
@@ -119,6 +121,7 @@ async function main() {
         { slug: 'futuro', email: 'marcos.jdm@example.com', text: "Espero que la tecnología no les haga perder esa esencia humana que tienen. Japón siempre encuentra el equilibrio, confío en ellos." },
         { slug: 'futuro', email: 'sophia.art@example.com', text: "Me pregunto cómo afectará la IA al arte tradicional japonés. ¿Veremos robots haciendo Shodo?" },
         { slug: 'futuro', email: 'elena.travel@example.com', text: "El turismo espacial desde Japón suena increíble. ¡Ojalá vivir para verlo!" },
+        { slug: 'futuro', email: 'user@example.com', text: "La tecnología japonesa siempre va un paso por delante. Veremos qué nos depara el futuro." },
 
         // JDM
         { slug: 'jdm', email: 'marcos.jdm@example.com', text: "El R34 es el rey indiscutible, pero el sonido de un rotativo 13B no tiene comparación. ¡Vivan los 90s japoneses! La época dorada del motor." },
@@ -126,6 +129,7 @@ async function main() {
         { slug: 'jdm', email: 'elena.travel@example.com', text: "No entiendo mucho de coches, pero la estética de esa época tiene un encanto especial, muy nostálgico. Las luces de neón y esos diseños son arte." },
         { slug: 'jdm', email: 'sophia.art@example.com', text: "El diseño del RX-7 es atemporal, esas curvas son pura escultura en movimiento." },
         { slug: 'jdm', email: 'lucia.history@example.com', text: "Es curioso cómo una subcultura 'ilegal' se convirtió en un símbolo nacional tan fuerte." },
+        { slug: 'jdm', email: 'user@example.com', text: "El Supra MK4 siempre será mi favorito personal. Qué máquina." },
 
         // ANIME-MANGA
         { slug: 'anime-manga', email: 'david.game@example.com', text: "Akira cambió mi vida. La animación tradicional tenía un alma que el CGI a veces no logra capturar. Neo Tokyo sigue siendo el referente estético." },
@@ -133,6 +137,7 @@ async function main() {
         { slug: 'anime-manga', email: 'lucia.history@example.com', text: "Es interesante cómo el manga shojo y josei abordan temas emocionales complejos que el cómic occidental a veces ignora. Nana es un gran ejemplo." },
         { slug: 'anime-manga', email: 'marcos.jdm@example.com', text: "Evangelion me dejó traumado de pequeño pero ahora entiendo la profundidad filosófica que tiene. Hideaki Anno es un genio." },
         { slug: 'anime-manga', email: 'elena.travel@example.com', text: "Quiero ir al museo Ghibli, dicen que es mágico." },
+        { slug: 'anime-manga', email: 'user@example.com', text: "Os recomiendo leer Berserk, una obra maestra de la fantasía oscura." },
 
         // VIDEOJUEGOS
         { slug: 'videojuegos', email: 'david.game@example.com', text: "La época de SNES vs Mega Drive fue la mejor guerra de consolas. Ahora todo son teraflops, antes era pura jugabilidad y creatividad con limitaciones." },
@@ -140,6 +145,7 @@ async function main() {
         { slug: 'videojuegos', email: 'elena.travel@example.com', text: "A mí me encantaba jugar al Mario Kart con mis hermanos. Nintendo sabe cómo unir a la gente en el salón de casa como nadie." },
         { slug: 'videojuegos', email: 'lucia.history@example.com', text: "Es impresionante cómo Nintendo empezó haciendo cartas Hanafuda hace más de un siglo. Menuda evolución." },
         { slug: 'videojuegos', email: 'sophia.art@example.com', text: "El pixel art de los 16 bits sigue siendo insuperable a nivel estético para mí. Tiene un encanto que el 4K no puede replicar." },
+        { slug: 'videojuegos', email: 'user@example.com', text: "Final Fantasy VII marcó un antes y un después en mi infancia. Inolvidable." },
 
         // TOKYO
         { slug: 'tokyo', email: 'elena.travel@example.com', text: "Shibuya es una locura, pero perderse por las callejuelas de Golden Gai es donde encuentras la verdadera esencia de la noche tokiota." },
@@ -147,6 +153,7 @@ async function main() {
         { slug: 'tokyo', email: 'sophia.art@example.com', text: "Me encanta el contraste del templo Senso-ji en Asakusa con el SkyTree de fondo. Pasado y futuro en una sola foto." },
         { slug: 'tokyo', email: 'lucia.history@example.com', text: "El Palacio Imperial es un oasis de paz en medio del caos de cemento. Increíble que se mantenga así." },
         { slug: 'tokyo', email: 'david.game@example.com', text: "Ir a los recreativos de Taito Station en Shinjuku es peregrinación obligatoria para cualquier gamer." },
+        { slug: 'tokyo', email: 'user@example.com', text: "Shinjuku de noche es una experiencia que hay que vivir al menos una vez en la vida." },
 
         // KIOTO
         { slug: 'kioto', email: 'sophia.art@example.com', text: "Kinkaku-ji es impresionante, pero el templo de plata (Ginkaku-ji) tiene una belleza wabi-sabi que me transmite mucha más paz interior." },
@@ -154,6 +161,7 @@ async function main() {
         { slug: 'kioto', email: 'lucia.history@example.com', text: "La preservación histórica de Kioto debería ser ejemplo para muchas otras ciudades del mundo. Es un museo vivo al aire libre." },
         { slug: 'kioto', email: 'sophia.art@example.com', text: "El bosque de bambú de Arashiyama es sobrecogedor, sobre todo cuando sopla el viento y escuchas el sonido de los tallos chocando." },
         { slug: 'kioto', email: 'david.game@example.com', text: "Me recuerda a escenarios de Sekiro o Ghost of Tsushima. Es increíble estar allí de verdad." },
+        { slug: 'kioto', email: 'user@example.com', text: "Fushimi Inari es imprescindible, aunque haya mucha gente. Subir hasta arriba merece la pena." },
 
         // OSAKA
         { slug: 'osaka', email: 'elena.travel@example.com', text: "¡El Takoyaki de Dotonbori es otro nivel! Y la gente es muchísimo más abierta y divertida que en Tokio, se nota el ambiente diferente." },
@@ -161,6 +169,7 @@ async function main() {
         { slug: 'osaka', email: 'david.game@example.com', text: "El castillo de Osaka es imponente, aunque por dentro sea un museo moderno con ascensor, por fuera impone el mismo respeto que hace siglos." },
         { slug: 'osaka', email: 'lucia.history@example.com', text: "La historia de Toyotomi Hideyoshi y el castillo es fundamental para entender la unificación de Japón." },
         { slug: 'osaka', email: 'sophia.art@example.com', text: "Los neones de Dotonbori reflejados en el canal por la noche son una de las imágenes más icónicas de Japón." },
+        { slug: 'osaka', email: 'user@example.com', text: "No os vayáis sin probar el Okonomiyaki en algún puesto callejero." },
 
         // SHODO
         { slug: 'shodo', email: 'sophia.art@example.com', text: "Llevo practicando Shodo un año y es increíblemente difícil controlar la presión del pincel. Es meditación pura, te obliga a estar en el presente." },
@@ -168,6 +177,7 @@ async function main() {
         { slug: 'shodo', email: 'elena.travel@example.com', text: "Me traje un juego de caligrafía de mi viaje, aunque solo lo uso para decorar, es una obra de arte en sí mismo. La estética japonesa es inigualable." },
         { slug: 'shodo', email: 'sophia.art@example.com', text: "El concepto de 'Mushin' o mente vacía al escribir es fascinante. Dejar que el pincel fluya sin pensar." },
         { slug: 'shodo', email: 'marcos.jdm@example.com', text: "Incluso en los logotipos de marcas japonesas modernas se ve la influencia del trazo del pincel. Es la base de su diseño gráfico." },
+        { slug: 'shodo', email: 'user@example.com', text: "La belleza de la imperfección (Wabi-sabi) se ve muy bien reflejada en el Shodo." },
     ];
 
     for (const c of commentsData) {
