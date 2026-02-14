@@ -199,4 +199,33 @@ describe('User Entity', () => {
             });
         });
     });
+
+    describe('Constructor - Propiedad password opcional', () => {
+        const validBase = {
+            id: 'clzzz123456',
+            email: 'usuario@example.com',
+            username: 'usuario_test',
+            isActive: true,
+            createdAt: new Date(),
+        };
+
+        it('debe almacenar password cuando se proporciona', () => {
+            // Arrange
+            const dataConPassword = { ...validBase, password: 'hashed_password_123' };
+
+            // Act
+            const user = new User(dataConPassword);
+
+            // Assert
+            expect(user.password).toBe('hashed_password_123');
+        });
+
+        it('debe tener password undefined cuando no se proporciona', () => {
+            // Arrange & Act
+            const user = new User(validBase);
+
+            // Assert
+            expect(user.password).toBeUndefined();
+        });
+    });
 });

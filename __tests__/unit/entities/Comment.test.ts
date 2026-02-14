@@ -191,4 +191,33 @@ describe('Comment Entity', () => {
             expect(comment.textComment.length).toBeLessThanOrEqual(500);
         });
     });
+
+    describe('Constructor - Propiedad authorName opcional', () => {
+        const validBase = {
+            id: 'clyyy456789',
+            textComment: 'Este es un comentario válido',
+            userId: 'clzzz123456',
+            articleId: 'clxxx789012',
+            createdAt: new Date(),
+        };
+
+        it('debe almacenar authorName cuando se proporciona', () => {
+            // Arrange
+            const dataConAuthor = { ...validBase, authorName: 'Usuario Test' };
+
+            // Act
+            const comment = new Comment(dataConAuthor);
+
+            // Assert
+            expect(comment.authorName).toBe('Usuario Test');
+        });
+
+        it('debe tener authorName undefined cuando no se proporciona', () => {
+            // Arrange & Act
+            const comment = new Comment(validBase);
+
+            // Assert
+            expect(comment.authorName).toBeUndefined();
+        });
+    });
 });
