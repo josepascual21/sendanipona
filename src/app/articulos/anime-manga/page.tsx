@@ -144,6 +144,7 @@ export default function AnimePage() {
             <HeroSection
                 backgroundImage={IMAGES.banner}
                 title="ANIME & MANGA"
+                titleFont="font-yuji-mai"
                 subtitle="El Arte de la Narrativa Japonesa"
                 scrollText="Explora"
                 accentColor="text-violet-400"

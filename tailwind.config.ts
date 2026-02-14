@@ -14,6 +14,7 @@ const config: Config = {
         "rajdhani": ["var(--font-rajdhani)", "sans-serif"],
         "orbitron": ["var(--font-orbitron)", "sans-serif"],
         "racing": ["var(--font-racing)", "sans-serif"],
+        "yuji-mai": ["var(--font-yuji-mai)", "serif"],
       },
       colors: {
         background: "var(--color-background)",
