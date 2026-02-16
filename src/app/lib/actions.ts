@@ -8,6 +8,7 @@ import { CommentAlreadyExistsError } from '@/core/domain/errors/CommentAlreadyEx
 import { CommentDTO } from '@/core/application/dtos/CommentDTO';
 import { revalidatePath } from 'next/cache';
 import { RegisterSchema } from './schemas';
+import { ZodError } from 'zod';
 
 export async function authenticate(
     prevState: string | undefined,
@@ -58,6 +59,11 @@ export async function registerUser(
             redirectTo: '/',
         });
     } catch (error) {
+        // Manejar errores de validación de Zod
+        if (error instanceof ZodError) {
+            return error.issues[0].message;
+        }
+
         // signIn lanza un error NEXT_REDIRECT internamente al redirigir,
         // necesitamos re-lanzarlo para que Next.js gestione la redirección
         if (error instanceof AuthError) {
