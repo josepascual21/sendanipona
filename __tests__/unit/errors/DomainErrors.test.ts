@@ -39,14 +39,14 @@ describe('Errores de Dominio', () => {
             expect(error).toBeInstanceOf(InvalidEntityError);
         });
 
-        it('debe funcionar con diferentes nombres de entidad', () => {
-            // Arrange & Act & Assert
-            const entidades = ['User', 'Comment', 'Article', 'ArticleTopic'];
+        it.each([
+            'User', 'Comment', 'Article', 'ArticleTopic',
+        ])('debe funcionar con entidad: %s', (entityName) => {
+            // Arrange & Act
+            const error = new InvalidEntityError(entityName, 'campo inválido');
 
-            entidades.forEach(entityName => {
-                const error = new InvalidEntityError(entityName, 'campo inválido');
-                expect(error.entityName).toBe(entityName);
-            });
+            // Assert
+            expect(error.entityName).toBe(entityName);
         });
     });
 

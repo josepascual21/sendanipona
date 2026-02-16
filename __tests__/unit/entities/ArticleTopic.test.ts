@@ -25,15 +25,18 @@ describe('ArticleTopic Entity', () => {
             expect(topic.name).toBe(validData.name);
         });
 
-        it('debe crear topics con diferentes nombres', () => {
-            // Arrange & Act & Assert
-            const topicNames = ['Historia', 'Cultura', 'Tecnología', 'Gastronomía'];
+        it.each([
+            { id: 1, name: 'Historia' },
+            { id: 2, name: 'Cultura' },
+            { id: 3, name: 'Tecnología' },
+            { id: 4, name: 'Gastronomía' },
+        ])('debe crear topic "$name" con id $id', ({ id, name }) => {
+            // Act
+            const topic = new ArticleTopic({ id, name });
 
-            topicNames.forEach((name, index) => {
-                const topic = new ArticleTopic({ id: index + 1, name });
-                expect(topic.name).toBe(name);
-                expect(topic.id).toBe(index + 1);
-            });
+            // Assert
+            expect(topic.name).toBe(name);
+            expect(topic.id).toBe(id);
         });
     });
 

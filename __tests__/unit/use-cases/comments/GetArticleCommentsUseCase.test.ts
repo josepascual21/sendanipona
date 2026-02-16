@@ -91,4 +91,20 @@ describe('GetArticleCommentsUseCase', () => {
         expect(result).toEqual([]);
         expect(result).toHaveLength(0);
     });
+
+    it('debe calcular offset correctamente con pageSize personalizado', async () => {
+        // Act — Página 2 con pageSize de 10
+        await getArticleCommentsUseCase.execute('art_1', 2, 10);
+
+        // Assert — offset = (2-1)*10 = 10, limit = 10
+        expect(mockCommentRepository.findByArticleId).toHaveBeenCalledWith('art_1', 10, 10);
+    });
+
+    it('debe calcular offset correctamente con pageSize de 1', async () => {
+        // Act — Página 5 con pageSize de 1
+        await getArticleCommentsUseCase.execute('art_1', 5, 1);
+
+        // Assert — offset = (5-1)*1 = 4, limit = 1
+        expect(mockCommentRepository.findByArticleId).toHaveBeenCalledWith('art_1', 4, 1);
+    });
 });

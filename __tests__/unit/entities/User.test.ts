@@ -49,27 +49,26 @@ describe('User Entity', () => {
             expect(user.isActive).toBe(false);
         });
 
-        it('debe aceptar diferentes formatos de email válidos', () => {
-            // Arrange & Act & Assert
-            const validEmails = [
-                'simple@example.com',
-                'nombre.apellido@example.co.uk',
-                'user+tag@domain.org',
-                'test_123@sub.domain.com',
-            ];
+        it.each([
+            'simple@example.com',
+            'nombre.apellido@example.co.uk',
+            'user+tag@domain.org',
+            'test_123@sub.domain.com',
+        ])('debe aceptar email válido: %s', (email) => {
+            // Arrange
+            const userData = {
+                id: 'clzzz123456',
+                email: email,
+                username: 'test_user',
+                isActive: true,
+                createdAt: new Date(),
+            };
 
-            validEmails.forEach(email => {
-                const userData = {
-                    id: 'clzzz123456',
-                    email: email,
-                    username: 'test_user',
-                    isActive: true,
-                    createdAt: new Date(),
-                };
+            // Act
+            const user = new User(userData);
 
-                const user = new User(userData);
-                expect(user.email).toBe(email);
-            });
+            // Assert
+            expect(user.email).toBe(email);
         });
 
 
@@ -182,21 +181,19 @@ describe('User Entity', () => {
             expect(() => new User(invalidData)).toThrow('Email de usuario es invalido');
         });
 
-        it('debe lanzar error si el email tiene formato inválido', () => {
-            // Arrange & Act & Assert
-            const invalidEmails = [
-                'invalido',
-                'invalido@',
-                '@invalido.com',
-                'invalido@com',
-                'invalido @example.com',
-                'invalido@example .com',
-            ];
+        it.each([
+            'invalido',
+            'invalido@',
+            '@invalido.com',
+            'invalido@com',
+            'invalido @example.com',
+            'invalido@example .com',
+        ])('debe lanzar error para email con formato inválido: %s', (email) => {
+            // Arrange
+            const invalidData = { ...validBase, email };
 
-            invalidEmails.forEach(email => {
-                const invalidData = { ...validBase, email: email };
-                expect(() => new User(invalidData)).toThrow('Email de usuario es invalido');
-            });
+            // Act & Assert
+            expect(() => new User(invalidData)).toThrow('Email de usuario es invalido');
         });
     });
 
