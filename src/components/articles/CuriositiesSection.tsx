@@ -82,13 +82,19 @@ export const CuriositiesSection: React.FC<CuriositiesSectionProps> = ({
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ duration: 0.2 }}
                             whileHover={{ y: -5 }}
                             className={`group bg-stone-900/40 backdrop-blur-md border border-stone-800 p-8 rounded-2xl hover:bg-stone-800 transition-all duration-300 hover:shadow-2xl ${styles.shadowHover}`}
                         >
-                            <div className={`mb-6 bg-stone-950 ${styles.bgIcon} w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-stone-800 shadow-inner`}>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.5 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.2 }}
+                                className={`mb-6 bg-stone-950 ${styles.bgIcon} w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 border border-stone-800 shadow-inner`}
+                            >
                                 {item.icon}
-                            </div>
+                            </motion.div>
                             <h3 className={`text-xl font-bold mb-4 text-stone-100 group-hover:${styles.text.replace('text-', 'text-').replace('-500', '-300').replace('-400', '-300')} transition-colors`}>
                                 {item.title}
                             </h3>
