@@ -14,7 +14,7 @@ export default function QuotesSection() {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % HOME_QUOTES.length);
                 setFade(true); // Start fade in
             }, 500); // Wait for fade out to complete (should match CSS duration)
-        }, 8000); // Change every 8 seconds
+        }, 14000); // Change every 10 seconds
 
         return () => clearInterval(intervalId);
     }, []);
@@ -38,18 +38,11 @@ export default function QuotesSection() {
                 {/* Indicators */}
                 <div className="flex justify-center mt-8 gap-2">
                     {HOME_QUOTES.map((_, idx) => (
-                        <button
+                        <div
                             key={idx}
-                            onClick={() => {
-                                setFade(false);
-                                setTimeout(() => {
-                                    setCurrentIndex(idx);
-                                    setFade(true);
-                                }, 500);
-                            }}
-                            className={`h-1 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-emerald-500' : 'w-2 bg-zinc-800 hover:bg-zinc-700'
+                            className={`h-1 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-emerald-500' : 'w-2 bg-zinc-800'
                                 }`}
-                            aria-label={`Go to quote ${idx + 1}`}
+                            aria-label={`Current quote ${idx + 1}`}
                         />
                     ))}
                 </div>

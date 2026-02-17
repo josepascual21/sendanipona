@@ -20,7 +20,7 @@ export default function HeroSection() {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-        }, 6000); // Rotate every 6 seconds
+        }, 7000); // Rotate every 7 seconds
 
         return () => clearInterval(intervalId);
     }, []);
