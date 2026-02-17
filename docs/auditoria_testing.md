@@ -18,7 +18,7 @@ Análisis exhaustivo del estado de testing del repositorio **sendanipona** (Next
 | **Aplicación — DTOs** | 1 (CommentDTO) | Cubierto indirectamente por CreateCommentUseCase.test.ts | ✅ Indirecto |
 | **Infraestructura — Repositorios** | 4 Prisma repos | 4 archivos (32 tests) | ✅ 100% |
 | **Infraestructura — Servicios** | 1 (BcryptPasswordService) | 1 archivo (6 tests) | ✅ 100% |
-| **Infraestructura — Auth** | 2 (auth.ts, auth.config.ts) | 0 | 🔴 0% |
+| **Infraestructura — Auth** | 2 (auth.ts, auth.config.ts) | 2 archivos (20 tests) | ✅ 100% |
 | **Infraestructura — DI** | 1 (container.ts) | 0 | 🔴 0% |
 | **App — Server Actions** | 1 (actions.ts con 6 funciones) | 0 | 🔴 0% |
 | **App — Schemas (Zod)** | 1 (schemas.ts) | 2 archivos (20 tests) | ✅ 100% |
@@ -28,9 +28,9 @@ Análisis exhaustivo del estado de testing del repositorio **sendanipona** (Next
 ### Resumen Cuantitativo
 
 - **Total de archivos de código testeable**: ~45+
-- **Total de archivos con tests**: 23
-- **Total de tests**: 195
-- **Cobertura estimada global**: **~60%** (dominio 100%, aplicación 100%, infraestructura 60%)
+- **Total de archivos con tests**: 25
+- **Total de tests**: 215
+- **Cobertura estimada global**: **~65%** (dominio 100%, aplicación 100%, infraestructura 85%)
 
 ---
 
@@ -86,11 +86,20 @@ Análisis exhaustivo del estado de testing del repositorio **sendanipona** (Next
 > [!NOTE]
 > Tests de integración con SQLite temporal. Cada suite crea su propia base de datos en disco (`test-*.db`) que se elimina después de los tests.
 
+### ~~🟠 Prioridad MEDIA — Auth NextAuth~~ ✅ RESUELTO
+
+| Archivo | Estado |
+| --- | --- |
+| auth.config.ts | ✅ auth.config.test.ts (14 tests) — callbacks authorized, session, jwt |
+| auth.ts | ✅ auth.test.ts (6 tests) — Credentials provider, authorize function |
+
+> [!NOTE]
+> Tests unitarios de configuración NextAuth. Se testean los callbacks de autorización de rutas, inyección de user.id en sesión, y validación de credenciales.
+
 ### 🟠 Prioridad MEDIA — Infraestructura Pendiente
 
 | Archivo | Brecha |
-|---|---|
-| Auth NextAuth (2 archivos) | Sin tests de configuración de autenticación |
+| --- | --- |
 | DI Container (1 archivo) | Sin tests de resolución de dependencias |
 
 ### 🔵 Prioridad BAJA — Sin Tests E2E/Integración
@@ -172,22 +181,30 @@ Los tests están clasificados por **impacto** (qué tan crítico es para el nego
 > Tests de integración con base de datos SQLite temporal.
 
 | # | Test | Ubicación | Tests | Estado |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | 14 | `PrismaUserRepository.test.ts` | `__tests__/integration/repositories/` | 7 | ✅ Completado |
 | 15 | `PrismaArticleTopicRepository.test.ts` | `__tests__/integration/repositories/` | 6 | ✅ Completado |
 | 16 | `PrismaArticleRepository.test.ts` | `__tests__/integration/repositories/` | 8 | ✅ Completado |
 | 17 | `PrismaCommentRepository.test.ts` | `__tests__/integration/repositories/` | 11 | ✅ Completado |
 
-### Fase 5 — Impacto MEDIO / Dificultad ALTA ⏳ PENDIENTE
+### ~~Fase 5 — Impacto MEDIO / Dificultad ALTA~~ ✅ COMPLETADA (Auth NextAuth)
 
-> Tests de infraestructura avanzada y E2E.
+> Tests de configuración de autenticación NextAuth.
+
+| # | Test | Ubicación | Tests | Estado |
+| --- | --- | --- | --- | --- |
+| 18 | `auth.config.test.ts` | `__tests__/unit/infrastructure/auth/` | 14 | ✅ Completado |
+| 19 | `auth.test.ts` | `__tests__/unit/infrastructure/auth/` | 6 | ✅ Completado |
+
+### Fase 6 — Impacto MEDIO / Dificultad ALTA ⏳ PENDIENTE
+
+> Tests de DI Container y E2E.
 
 | # | Test a Crear | Ubicación Propuesta | Qué Testear | Estado |
-|---|---|---|---|---|
-| 18 | Tests de Auth NextAuth | `__tests__/integration/auth/` | Configuración, callbacks, providers | ⏳ Pendiente |
-| 19 | Tests de DI Container | `__tests__/unit/infrastructure/` | Resolución de dependencias correcta | ⏳ Pendiente |
-| 20 | Tests E2E de flujo auth | `__tests__/e2e/` | Registro → login → sesión activa → logout (requiere Playwright/Cypress) | ⏳ Pendiente |
-| 21 | Tests E2E de comentarios | `__tests__/e2e/` | Crear → leer → eliminar comentario (requiere usuario autenticado) | ⏳ Pendiente |
+| --- | --- | --- | --- | --- |
+| 20 | Tests de DI Container | `__tests__/unit/infrastructure/` | Resolución de dependencias correcta | ⏳ Pendiente |
+| 21 | Tests E2E de flujo auth | `__tests__/e2e/` | Registro → login → sesión activa → logout (requiere Playwright/Cypress) | ⏳ Pendiente |
+| 22 | Tests E2E de comentarios | `__tests__/e2e/` | Crear → leer → eliminar comentario (requiere usuario autenticado) | ⏳ Pendiente |
 
 ---
 
@@ -210,7 +227,7 @@ graph TB
     subgraph "Infraestructura"
         PR["Prisma Repos<br/>✅ 4/4 con tests (32)"]
         PS["BcryptService<br/>✅ 1/1 con tests (6)"]
-        AU["Auth NextAuth<br/>🔴 0/2 con tests"]
+        AU["Auth NextAuth<br/>✅ 2/2 con tests (20)"]
         DI["DI Container<br/>🔴 0/1 con tests"]
     end
 
@@ -227,10 +244,10 @@ graph TB
 ## Resumen Ejecutivo
 
 > [!IMPORTANT]
-> Las capas de **Dominio** (77 tests), **Aplicación** (59 tests) e **Infraestructura** (38 tests + 20 schemas) están cubiertas al 100%.
+> Las capas de **Dominio** (77 tests), **Aplicación** (59 tests) e **Infraestructura** (58 tests + 20 schemas) están cubiertas al 100%.
 > La arquitectura limpia ha facilitado enormemente el testing con mocks (`vi.fn()`, `vi.mocked()`).
 >
-> **Quedan pendientes**: Auth NextAuth, DI Container, Server Actions, Componentes React y tests E2E (Fase 5).
+> **Quedan pendientes**: DI Container, Server Actions, Componentes React y tests E2E (Fase 6).
 
 ### Progreso por Fase
 
@@ -240,9 +257,10 @@ graph TB
 | **Fase 2 — Use Cases (articles + schemas)** | 40 tests | 6 archivos | ✅ Completada |
 | **Fase 3 — Integración (BcryptService + DomainErrors)** | 20 tests | 2 archivos | ✅ Completada |
 | **Fase 4 — Repositorios Prisma** | 32 tests | 4 archivos | ✅ Completada |
-| **Fase 5 — Auth + DI + E2E** | — | — | ⏳ Pendiente |
+| **Fase 5 — Auth NextAuth** | 20 tests | 2 archivos | ✅ Completada |
+| **Fase 6 — DI + E2E** | — | — | ⏳ Pendiente |
 
-### Desglose Completo de Tests (195 tests, 23 archivos)
+### Desglose Completo de Tests (215 tests, 25 archivos)
 
 | Archivo | Capa | Tests |
 |---|---|---|
@@ -269,4 +287,6 @@ graph TB
 | `PrismaArticleTopicRepository.test.ts` | Infraestructura — Repositorios | 6 |
 | `PrismaArticleRepository.test.ts` | Infraestructura — Repositorios | 8 |
 | `PrismaCommentRepository.test.ts` | Infraestructura — Repositorios | 11 |
-| **TOTAL** | | **195** |
+| `auth.config.test.ts` | Infraestructura — Auth | 14 |
+| `auth.test.ts` | Infraestructura — Auth | 6 |
+| **TOTAL** | | **215** |
