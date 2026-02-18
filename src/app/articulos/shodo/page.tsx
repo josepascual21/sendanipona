@@ -34,7 +34,9 @@ const IMAGES = {
     },
     performance: "/images/articulos/shodo/performance.jpg",
     styles: {
-        kaisho: "/images/articulos/shodo/kaisho_placeholder.jpg", // Placeholder path
+        kaisho: "/images/articulos/shodo/tres_estilos/kaisho.jpg",
+        gyosho: "/images/articulos/shodo/tres_estilos/gyosho.jpg",
+        sosho: "/images/articulos/shodo/tres_estilos/sosho.jpg",
     }
 };
 
@@ -87,7 +89,8 @@ const STYLES = [
         title: "Gyosho",
         subtitle: "Escritura que Viaja",
         desc: "Semicursiva. Los trazos empiezan a conectarse entre sí, fluyendo como el agua. Permite mayor velocidad y expresión personal.",
-        color: "text-slate-300"
+        color: "text-slate-300",
+        img: IMAGES.styles.gyosho
     },
     {
         id: "sosho",
@@ -95,7 +98,8 @@ const STYLES = [
         title: "Sosho",
         subtitle: "Escritura de Hierba",
         desc: "Cursiva abstracta. La forma se rompe en favor del flujo de energía (Ki). A menudo ilegible para el ojo no entrenado, es pura emoción.",
-        color: "text-slate-400"
+        color: "text-slate-400",
+        img: IMAGES.styles.sosho
     }
 ];
 
