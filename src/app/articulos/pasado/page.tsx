@@ -285,7 +285,7 @@ export default function PasadoPage() {
                                     className="object-cover sepia-[.1]"
                                 />
                             </div>
-                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-amber-900 z-10 mix-blend-multiply opacity-60 rounded-lg" />
+                            <div className="absolute bottom-0 left-0 w-3/5 h-3/5 bg-amber-900 z-10 opacity-60 rounded-lg" />
                             <div className="absolute top-10 left-10 w-full h-full border-2 border-slate-800 z-0 rounded-t-full" />
                         </motion.div>
                     </div>

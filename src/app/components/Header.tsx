@@ -13,7 +13,6 @@ const AUTH_LINKS = [
 
 // Estilos reutilizables
 const NAV_LINK_STYLE = "flex items-center gap-1 font-medium text-slate-800 hover:text-orange-600 transition-colors px-3 py-2 rounded-md hover:bg-black/5";
-const BUTTON_PRIMARY = "px-5 py-2 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5";
 const DROPDOWN_LINK = "block px-4 py-2 text-slate-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200";
 
 const MOBILE_LINK = "block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-orange-600 transition-colors border-b border-transparent hover:border-orange-100";
@@ -59,7 +58,7 @@ export default function Header({ topics = [], user }: HeaderProps) {
     // Cerrar menú móvil al redimensionar a desktop
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768 && isMobileMenuOpen) {
+            if (window.innerWidth >= 1024 && isMobileMenuOpen) {
                 setIsMobileMenuOpen(false);
             }
         };
@@ -81,7 +80,7 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                     alt={UI_CONSTANTS.logo.alt}
                                     width={UI_CONSTANTS.logo.width}
                                     height={UI_CONSTANTS.logo.height}
-                                    className="transition-transform group-hover:scale-105"
+                                    className="transition-transform group-hover:scale-105 w-16 h-16"
                                 />
                                 <span className="font-ai-love text-2xl font-bold text-cyan-950 group-hover:text-orange-600 transition-colors uppercase pt-1">
                                     {APP_METADATA.title}
@@ -89,14 +88,14 @@ export default function Header({ topics = [], user }: HeaderProps) {
                             </Link>
 
                             {/* Navegación desktop */}
-                            <div className="hidden md:flex items-center gap-10">
+                            <div className="hidden lg:flex items-center gap-3 xl:gap-6">
                                 {/* Main Topics (primeros 3) */}
                                 {mainTopics.map((topic) => (
                                     <div key={topic.id} className="relative group">
                                         <button className={NAV_LINK_STYLE}>
-                                            {topic.name}
+                                            <span className="truncate max-w-[120px] xl:max-w-none">{topic.name}</span>
                                             <svg
-                                                className="w-4 h-4 transition-transform group-hover:rotate-180 text-orange-500/70"
+                                                className="w-4 h-4 transition-transform group-hover:rotate-180 text-orange-500/70 flex-shrink-0"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -131,9 +130,9 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                 {otherTopics.length > 0 && (
                                     <div className="relative group">
                                         <button className={NAV_LINK_STYLE}>
-                                            Otros artículos
+                                            <span className="truncate max-w-[100px] xl:max-w-none">Otros artículos</span>
                                             <svg
-                                                className="w-4 h-4 transition-transform group-hover:rotate-180 text-orange-500/70"
+                                                className="w-4 h-4 transition-transform group-hover:rotate-180 text-orange-500/70 flex-shrink-0"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
@@ -143,7 +142,7 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                         </button>
 
                                         {/* Dropdown menu para Otros Temas */}
-                                        <div className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pt-2">
+                                        <div className="absolute right-0 lg:left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 pt-2">
                                             <div className="bg-white rounded-xl shadow-xl ring-1 ring-black/5 py-1">
                                                 {otherTopics.map((topic) => (
                                                     <div key={topic.id} className="relative group/topic">
@@ -182,24 +181,24 @@ export default function Header({ topics = [], user }: HeaderProps) {
 
                                 {/* User Menu or Auth Links */}
                                 {user ? (
-                                    <div className="flex items-center gap-4">
-                                        <span className="text-sm font-medium text-slate-700">
+                                    <div className="flex items-center gap-2 xl:gap-4">
+                                        <span className="text-sm font-medium text-slate-700 truncate max-w-[100px] xl:max-w-none">
                                             {user.name}
                                         </span>
                                         <button
                                             onClick={() => signOut()}
-                                            className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600 transition-colors text-sm font-medium"
+                                            className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600 transition-colors text-sm font-medium whitespace-nowrap"
                                         >
                                             Cerrar Sesión
                                         </button>
                                     </div>
                                 ) : (
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-2">
                                         {AUTH_LINKS.map(link => (
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className={BUTTON_PRIMARY}
+                                                className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-sm whitespace-nowrap"
                                             >
                                                 {link.label}
                                             </Link>
@@ -211,7 +210,7 @@ export default function Header({ topics = [], user }: HeaderProps) {
                             {/* Menú móvil - Toggle button */}
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
+                                className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors flex-shrink-0"
                                 aria-label="Toggle mobile menu"
                             >
                                 {isMobileMenuOpen ? (
@@ -228,8 +227,8 @@ export default function Header({ topics = [], user }: HeaderProps) {
 
                         {/* Menú móvil desplegable Moderno */}
                         {isMobileMenuOpen && (
-                            <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden transition-all duration-300 animate-in slide-in-from-top-5">
-                                <div className="p-4 space-y-4 max-h-[85vh] overflow-y-auto">
+                            <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl overflow-hidden transition-all duration-300 animate-in slide-in-from-top-5">
+                                <div className="p-4 space-y-4 max-h-[calc(100vh-80px)] overflow-y-auto">
                                     {/* Main Topics Mobile */}
                                     <div className="space-y-1">
                                         {mainTopics.map((topic) => (
