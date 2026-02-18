@@ -33,6 +33,9 @@ const IMAGES = {
         suzuri: "/images/articulos/shodo/tesoros/suzuri.jpg",
     },
     performance: "/images/articulos/shodo/performance.jpg",
+    styles: {
+        kaisho: "/images/articulos/shodo/kaisho_placeholder.jpg", // Placeholder path
+    }
 };
 
 /** Los Cuatro Tesoros */
@@ -75,7 +78,8 @@ const STYLES = [
         title: "Kaisho",
         subtitle: "Escritura Correcta",
         desc: "Cuadrado, estático, legible. Cada trazo es definido y preciso. Es el estilo que aprenden los principiantes y la base de todo.",
-        color: "text-slate-200"
+        color: "text-slate-200",
+        img: IMAGES.styles.kaisho // Image for Kaisho
     },
     {
         id: "gyosho",
@@ -281,12 +285,24 @@ export default function ShodoPage() {
                                     transition={{ duration: 0.8 }}
                                     className="flex flex-col md:flex-row items-center gap-12 group p-8 rounded-2xl bg-slate-900/50 border border-slate-900 hover:border-slate-800 transition-colors"
                                 >
-                                    {/* Kanji Grande Visual */}
-                                    <div className="flex-1 w-full text-center md:text-right md:pr-12 md:border-r border-slate-800 relative">
-                                        <span className="text-[8rem] md:text-[12rem] leading-none font-serif text-white opacity-5 group-hover:opacity-20 transition-all duration-700">
-                                            {style.kanji}
-                                        </span>
-                                    </div>
+                                    {/* Contenido Visual (Imagen o Kanji) */}
+                                    {style.img ? (
+                                        <div className="flex-1 w-full h-[300px] md:h-[400px] relative rounded-xl overflow-hidden shadow-2xl border border-slate-800 group-hover:border-slate-700 transition-all duration-500">
+                                            <Image
+                                                src={style.img}
+                                                alt={style.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent pointer-events-none" />
+                                        </div>
+                                    ) : (
+                                        <div className="flex-1 w-full text-center md:text-right md:pr-12 md:border-r border-slate-800 relative">
+                                            <span className="text-[8rem] md:text-[12rem] leading-none font-serif text-white opacity-5 group-hover:opacity-20 transition-all duration-700">
+                                                {style.kanji}
+                                            </span>
+                                        </div>
+                                    )}
 
                                     {/* Texto */}
                                     <div className="flex-1">
