@@ -18,7 +18,7 @@ export interface NavigationItem {
 }
 
 /** Colores de acento disponibles para el NavigationPill */
-export type AccentColor = 
+export type AccentColor =
     | 'amber'      // pasado, kioto
     | 'indigo'     // presente
     | 'cyan'       // futuro, tokyo
@@ -44,13 +44,13 @@ export interface NavigationPillProps {
  * Se usan variantes con suficiente contraste sobre fondo blanco.
  */
 const ACCENT_HOVER_CLASSES: Record<AccentColor, string> = {
-    amber:   'hover:bg-amber-700',
-    indigo:  'hover:bg-indigo-700',
-    cyan:    'hover:bg-cyan-600',
-    red:     'hover:bg-red-700',
-    violet:  'hover:bg-violet-700',
+    amber: 'hover:bg-amber-700',
+    indigo: 'hover:bg-indigo-700',
+    cyan: 'hover:bg-cyan-600',
+    red: 'hover:bg-red-700',
+    violet: 'hover:bg-violet-700',
     emerald: 'hover:bg-emerald-600',
-    orange:  'hover:bg-orange-500',
+    orange: 'hover:bg-orange-500',
 };
 
 // ============================================================================
@@ -77,16 +77,16 @@ const ACCENT_HOVER_CLASSES: Record<AccentColor, string> = {
  * <NavigationPill sections={sections} accentColor="amber" />
  * ```
  */
-export const NavigationPill: React.FC<NavigationPillProps> = ({ 
-    sections, 
-    accentColor = 'amber' 
+export const NavigationPill: React.FC<NavigationPillProps> = ({
+    sections,
+    accentColor = 'amber'
 }) => {
     // Obtener la clase de hover según el color de acento
     const hoverClass = ACCENT_HOVER_CLASSES[accentColor];
 
     return (
-        <nav 
-            className="hidden xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50"
+        <nav
+            className="hidden 2xl:flex flex-col gap-4 fixed left-10 top-1/2 -translate-y-1/2 z-50"
             aria-label="Navegación de secciones"
         >
             {sections.map((item) => (
@@ -106,7 +106,7 @@ export const NavigationPill: React.FC<NavigationPillProps> = ({
                     <span className="min-w-[20px] flex justify-center">
                         {item.icon}
                     </span>
-                    
+
                     {/* Etiqueta visible solo en hover */}
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium text-sm">
                         {item.label}
