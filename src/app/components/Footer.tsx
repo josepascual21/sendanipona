@@ -76,7 +76,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-slate-950 text-slate-300 border-t border-cyan-900 overflow-hidden relative">
+        <footer className="bg-slate-950 text-slate-300 overflow-hidden relative">
             {/* Decoración de fondo sutil */}
             <div className="absolute top-0 left-0 w-full h-[4px] bg-orange-500 opacity-50"></div>
 
