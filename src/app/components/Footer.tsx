@@ -78,7 +78,7 @@ export default function Footer() {
     return (
         <footer className="bg-slate-950 text-slate-300 border-t border-cyan-900 overflow-hidden relative">
             {/* Decoración de fondo sutil */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-orange-500 to-cyan-500 opacity-80"></div>
+            <div className="absolute top-0 left-0 w-full h-[4px] bg-orange-500 opacity-50"></div>
 
             <div className="container mx-auto px-6 py-12">
                 {/* Grid de secciones */}
