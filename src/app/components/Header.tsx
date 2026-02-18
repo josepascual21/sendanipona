@@ -80,7 +80,7 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                     alt={UI_CONSTANTS.logo.alt}
                                     width={UI_CONSTANTS.logo.width}
                                     height={UI_CONSTANTS.logo.height}
-                                    className="transition-transform group-hover:scale-105 w-16 h-16"
+                                    className="transition-transform group-hover:scale-105"
                                 />
                                 <span className="font-ai-love text-2xl font-bold text-cyan-950 group-hover:text-orange-600 transition-colors uppercase pt-1">
                                     {APP_METADATA.title}
