@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import LegendsCarousel, { Legend } from "./LegendsCarousel";
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, ContentCard, HeroSection, CuriositiesSection } from '@/components/articles';
-import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
+import { CommentsSectionWrapper } from '@/components/comments';
 
 // ============================================================================
 // CONSTANTES Y DATOS

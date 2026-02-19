@@ -135,7 +135,6 @@ export const ContentCard: React.FC<ContentCardProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
                 className={`group bg-slate-800/50 backdrop-blur-sm rounded-xl shadow-lg border border-slate-700/50 overflow-hidden ${colors.borderHover} transition-all duration-300 ${className}`}
             >
                 <div className="h-64 relative overflow-hidden">

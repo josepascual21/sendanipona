@@ -17,7 +17,7 @@ import {
     MessageCircle
 } from 'lucide-react';
 import { NavigationPill, NavigationItem, SectionTitle, SectionSubtitle, HeroSection, ContentCard, CuriositiesSection } from '@/components/articles';
-import CommentsSectionWrapper from '@/app/components/comments/CommentsSectionWrapper';
+import { CommentsSectionWrapper } from '@/components/comments';
 
 // ============================================================================
 // CONSTANTES Y DATOS

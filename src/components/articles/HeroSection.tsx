@@ -3,7 +3,7 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { motion } from 'framer-motion';
-import { ScrollIndicator } from './ScrollIndicator';
+import { ScrollIndicator } from '@/components/ui';
 
 // ============================================================================
 // TIPOS

@@ -1,7 +1,4 @@
-import HeroSection from "./components/home/HeroSection";
-import QuotesSection from "./components/home/QuotesSection";
-import IntroductionSection from "./components/home/IntroductionSection";
-import PrinciplesSection from "./components/home/PrinciplesSection";
+import { HeroSection, QuotesSection, IntroductionSection, PrinciplesSection } from "@/components/home";
 
 export default function Home() {
     return (

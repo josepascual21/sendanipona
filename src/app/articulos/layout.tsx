@@ -1,4 +1,4 @@
-import { ScrollToTop } from "@/components/articles";
+import { ScrollToTop } from "@/components/ui";
 
 export default function ArticlesLayout({
     children,

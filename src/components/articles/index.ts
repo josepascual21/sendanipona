@@ -1,12 +1,15 @@
+/**
+ * Barrel export para componentes de artículos
+ *
+ * Componentes específicos para páginas de artículos scrollytelling.
+ */
+
 // Hero y Navegación
 export { HeroSection } from './HeroSection';
 export type { HeroSectionProps } from './HeroSection';
 
 export { NavigationPill } from './NavigationPill';
 export type { NavigationItem, NavigationPillProps, AccentColor } from './NavigationPill';
-
-export { ScrollIndicator } from './ScrollIndicator';
-export type { ScrollIndicatorProps } from './ScrollIndicator';
 
 // Títulos y Textos
 export { SectionTitle } from './SectionTitle';
@@ -19,6 +22,3 @@ export type { SectionSubtitleProps } from './SectionSubtitle';
 export * from './ContentCard';
 export { CuriositiesSection } from './CuriositiesSection';
 export type { CuriositiesSectionProps, CuriosityItem } from './CuriositiesSection';
-
-// UI
-export { default as ScrollToTop } from './ScrollToTop';
