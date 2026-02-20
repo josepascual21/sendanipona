@@ -242,6 +242,8 @@ npm run test:coverage     # Ver cobertura de código
 
 ### Tests E2E (Playwright)
 
+> **⚠️ Importante:** Para ejecutar los tests E2E, la aplicación debe estar corriendo en `http://localhost:3000`. Abre una terminal y arranca la aplicación antes de lanzar los tests.
+
 **Primera vez:** Instalar navegadores
 ```bash
 npm run playwright:install
