@@ -81,14 +81,135 @@ Este proyecto no es solo una web "que funciona", sino que está construido para 
 ✅ **Mantenible:** Cambios en la UI no afectan la lógica de negocio.
 ✅ **Independiente de frameworks:** La lógica core no depende de Next.js ni Prisma.
 
+### Estructura del Proyecto
+
+```
+sendanipona/
+├── src/
+│   ├── app/                          # Next.js App Router (páginas y rutas)
+│   │   ├── api/
+│   │   │   └── auth/                 # NextAuth API handlers
+│   │   ├── articulos/                # Páginas de artículos dinámicos
+│   │   │   ├── anime-manga/
+│   │   │   ├── futuro/
+│   │   │   ├── jdm/
+│   │   │   ├── kioto/
+│   │   │   ├── osaka/
+│   │   │   ├── pasado/
+│   │   │   ├── presente/
+│   │   │   ├── shodo/
+│   │   │   ├── tokyo/
+│   │   │   ├── videojuegos/
+│   │   │   └── layout.tsx
+│   │   ├── fonts/                    # Fuentes personalizadas
+│   │   ├── lib/                      # Server Actions y Schemas
+│   │   │   ├── actions.ts
+│   │   │   └── schemas.ts
+│   │   ├── login/                    # Página de login
+│   │   ├── registro/                 # Página de registro
+│   │   ├── layout.tsx                # Layout principal
+│   │   ├── page.tsx                  # Página de inicio
+│   │   ├── not-found.tsx             # Página 404
+│   │   └── globals.css               # Estilos globales
+│   │
+│   ├── components/                   # Componentes React reutilizables
+│   │   ├── articles/                 # Componentes de artículos
+│   │   ├── comments/                 # Sistema de comentarios
+│   │   ├── home/                     # Secciones de la landing page
+│   │   ├── icons/                    # Iconos personalizados
+│   │   ├── layout/                   # Header, Footer, SessionProvider
+│   │   └── ui/                       # Componentes UI base
+│   │
+│   ├── core/                         # 🧠 LÓGICA DE NEGOCIO (Clean Architecture)
+│   │   ├── domain/                   # Capa de Dominio
+│   │   │   ├── entities/             # User, Article, Comment, ArticleTopic
+│   │   │   ├── repositories/         # Interfaces de repositorios
+│   │   │   ├── services/             # Interfaces de servicios
+│   │   │   └── errors/               # Errores de dominio personalizados
+│   │   │
+│   │   └── application/              # Capa de Aplicación
+│   │       ├── dtos/                 # Data Transfer Objects
+│   │       └── use-cases/            # Casos de uso
+│   │           ├── auth/             # Login, Register
+│   │           ├── articles/         # GetArticles, GetBySlug, etc.
+│   │           └── comments/         # CreateComment, DeleteComment, etc.
+│   │
+│   ├── infrastructure/               # 🔧 IMPLEMENTACIONES TÉCNICAS
+│   │   ├── auth/                     # NextAuth v5 configuration
+│   │   │   ├── auth.ts
+│   │   │   └── auth.config.ts
+│   │   ├── database/                 # Configuración Prisma + Turso
+│   │   │   └── prisma.ts
+│   │   ├── di/                       # Dependency Injection Container
+│   │   │   └── container.ts
+│   │   ├── repositories/             # Implementaciones Prisma
+│   │   │   ├── PrismaUserRepository.ts
+│   │   │   ├── PrismaArticleRepository.ts
+│   │   │   ├── PrismaArticleTopicRepository.ts
+│   │   │   └── PrismaCommentRepository.ts
+│   │   └── services/                 # Servicios externos
+│   │       └── BcryptPasswordService.ts
+│   │
+│   ├── shared/                       # Utilidades compartidas
+│   │   ├── constants/                # Constantes de la app
+│   │   └── data/                     # Datos estáticos
+│   │
+│   └── middleware.ts                 # Middleware de NextAuth
+│
+├── prisma/
+│   ├── migrations/                   # Migraciones SQL
+│   ├── schema.prisma                 # Esquema de base de datos
+│   └── seed.ts                       # Datos iniciales (seed)
+│
+├── __tests__/                        # Tests organizados por tipo
+│   ├── unit/                         # Tests unitarios (Vitest)
+│   │   ├── entities/
+│   │   ├── errors/
+│   │   ├── use-cases/
+│   │   ├── schemas/
+│   │   └── infrastructure/
+│   ├── integration/                  # Tests de integración
+│   │   ├── repositories/
+│   │   └── services/
+│   └── e2e/                          # Tests End-to-End (Playwright)
+│       ├── login.spec.ts
+│       ├── registro.spec.ts
+│       └── comentarios.spec.ts
+│
+├── public/                           # Assets estáticos
+│   └── images/                       # Imágenes del proyecto
+│       ├── articulos/
+│       ├── index/
+│       └── senda_nipona_logo.png
+│
+├── docs/                             # Documentación técnica
+│   ├── auditoria_testing.md
+│   ├── SCROLLY_DESIGN_GUIDE.md
+│   ├── ESTADO_PROYECTO_E2E.md
+│   └── guia_tests_e2e.md
+│
+├── coverage/                         # Reportes de cobertura de tests
+├── playwright-report/                # Reportes de Playwright (fuera de git)
+├── test-results/                     # Resultados de tests E2E (fuera de git)
+│
+├── package.json                      # Dependencias del proyecto
+├── tsconfig.json                     # Configuración TypeScript
+├── next.config.mjs                   # Configuración Next.js
+├── tailwind.config.ts                # Configuración Tailwind CSS
+├── vitest.config.ts                  # Configuración Vitest
+├── playwright.config.ts              # Configuración Playwright
+├── README.md                         # Este archivo
+└── INSTALL.md                        # Guía de instalación detallada
+```
+
 ### Metodología Agile
 
 El desarrollo ha seguido principios **Agile**, priorizando entregas incrementales:
 
-- **Iteraciones cortas:** Cada funcionalidad (autenticación, artículos, comentarios) se ha implementado y probado de forma individual, dando cabida a que se hubiesen desarrollado otras funcionalidades sin afectar a las anteriores.
-- **Testing continuo:** Cada nueva característica que se ha ido añadiendo se ha ido testeando de forma progresiva e individual para así poder detectar errores y fallos de forma más sencilla.
-- **Priorización de valor:** Primero las funcionalidades esenciales (lectura de artículos, registro), luego las secundarias (comentarios, animaciones), de esta manera aseguras el desarrollo de una aplicación funcional y te permites ir añadiendo funcionalidades más complejas sin tener que preocuparte por la completitud de la aplicación.
-- **Evolución de la arquitectura:** El pensamiento de desarrollo ágil es gran aliado de la Clean Architecture, ya que permite ir adaptando la estructura del proyecto a medida que se van añadiendo nuevas funcionalidades sin tener que preocuparte por la escalabilidad o mantenibilidad del proyecto.
+* **Iteraciones cortas:** Cada funcionalidad (autenticación, artículos, comentarios) se ha implementado y probado de forma individual, permitiendo que se desarrollasen otras funcionalidades sin afectar a las anteriores.
+* **Testing continuo:** Cada nueva característica se ha ido testeando de forma progresiva e individual para detectar errores y fallos de forma más sencilla.
+* **Priorización de valor:** Primero las funcionalidades esenciales (lectura de artículos, registro), luego las secundarias (comentarios, animaciones). De esta manera aseguras el desarrollo de una aplicación funcional y te permites ir añadiendo funcionalidades más complejas sin preocuparte por la completitud de la aplicación.
+* **Evolución de la arquitectura:** El desarrollo ágil es un gran aliado de la Clean Architecture, ya que permite ir adaptando la estructura del proyecto a medida que se añaden nuevas funcionalidades sin tener que preocuparse por la escalabilidad o mantenibilidad.
 
 ---
 
