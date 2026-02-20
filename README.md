@@ -10,21 +10,21 @@
 ## 🌸 Introducción y Motivación
 
 **¿Por qué este proyecto?**
-> Desde muy pequeño me ha atrido muchisimo la cultura japonesa, en todos sus aspectos, todo lo referente a ella me parece fascinante Empezando por su historia llena de conflictos y samurais, pasando por su cultura tradicional como el shodo, el ikebana, la ceremonia del té, etc. Hasta llegar a su cultura moderna como el anime, el manga, los videojuegos, la tecnología, etc. Por eso mi objetivo es poder divulgar información acerca de este fascinante país a todo el mundo posible, desde los más entusiastas hasta los que están empezando a descubrirlo.
+> Desde muy pequeño me ha atraído muchísimo la cultura japonesa, en todos sus aspectos, todo lo referente a ella me parece fascinante Empezando por su historia llena de conflictos y samurais, pasando por su cultura tradicional como el shodo, el ikebana, la ceremonia del té, etc. Hasta llegar a su cultura moderna como el anime, el manga, los videojuegos, la tecnología, etc. Por eso mi objetivo es poder divulgar información acerca de este fascinante país a todo el mundo posible, desde los más entusiastas hasta los que están empezando a descubrirlo.
 
 **El formato elegido**
-> He optado por el formato web porque es el más popular para llegar a todo el mundo posible. Mi idea es desarrollar una página web muy accesible y dinámica, con un diseño moderno y agradable que invite al usuario a seguir navegando por la página. Mi estrategia respecto a esto último es haciendo uso de un diseño muy moderno y fluido conseguir que el usuario siempre se sienta invitado a descubir algo nuevo del país nipón, por esta razón, ofrecer contenidos resumidos y directos sin llegar a explayarse de forma innecesaria con información secundaria que tan solo pueda desbordar o aburrir al usuario. Quiero que el usuario en el momento de salir de la página web sienta que después de su visita ha aprendido algo nuevo, pudiendo entablar una conversación con lo aprendido o incluso sirviendo la información adquirida como bases para despertar su curiosidad o incluso su pasión por el país nipón.
+> He optado por el formato web porque es el más popular para llegar a todo el mundo posible. Mi idea es desarrollar una página web muy accesible y dinámica, con un diseño moderno y agradable que invite al usuario a seguir navegando por la página.
 ---
 
 ## 🎌 Descripción General
 
-**Senda Nipona** es una plataforma web interactiva diseñada para la divulgación de la cultura japonesa. A diferencia de un blog estático tradicional, esta aplicación ofrece una experiencia inmersiva que guía al usuario a través de tres dimensiones temporales:
+La información sobre cultura japonesa en internet está dispersa en múltiples fuentes, muchas veces poco fiables o difíciles de contrastar. Para alguien que está interesado en aprender sobre Japón, esto supone un problema: ¿dónde encontrar contenido de calidad sin perderse entre blogs abandonados o traducciones automáticas?
 
-*   **Pasado:** Tradiciones milenarias (Shodo, Kioto...).
-*   **Presente:** La vida moderna (Tokio, Osaka, JDM...).
-*   **Futuro:** Tecnología y tendencias venideras.
+**Senda Nipona** nace como respuesta a esta necesidad. Es una plataforma web que centraliza la información sobre la cultura japonesa, presentada de forma accesible tanto para aficionados experimentados como para personas que recién empiezan a descubrir este fascinante país.
 
-El objetivo es crear una comunidad donde los amantes de Japón puedan no solo leer, sino interactuar y compartir su pasión.
+Mi objetivo es a través de un diseño muy moderno y fluido conseguir que el usuario siempre se sienta invitado a descubrir algo nuevo del país nipón, por esta razón, ofrecer contenidos resumidos y directos sin llegar a explayarse de forma innecesaria con información secundaria que tan solo pueda desbordar o aburrir al usuario.
+
+Quiero que el usuario en el momento de salir de la página web sienta que después de su visita ha aprendido algo nuevo, pudiendo entablar una conversación con lo aprendido o incluso sirviendo la información adquirida como bases para despertar su curiosidad o incluso su pasión por el país nipón.
 
 ---
 
@@ -32,11 +32,11 @@ El objetivo es crear una comunidad donde los amantes de Japón puedan no solo le
 
 La aplicación va más allá de mostrar contenido, incorporando características de una **Web App moderna**:
 
-*   **Exploración Temporal:** Navegación intuitiva por eras (Pasado, Presente, Futuro).
-*   **Sistema de Usuarios:** Registro e inicio de sesión seguro (Autenticación).
-*   **Comunidad:** Posibilidad de dejar comentarios en los artículos para fomentar el debate.
-*   **Diseño Responsivo:** Experiencia fluida tanto en móviles como en escritorio.
-*   **Contenido Multimedia:** Integración de imágenes y vídeos de alta calidad.
+*   **Navegación intuitiva:** Header de navegación con dropdowns bien separados para que el usuario pueda moverse por la web de forma dinámica y fluida, encontrando siempre lo que busca.
+*   **Sistema de Usuarios:** Registro con validación de datos (Zod), contraseñas hasheadas con bcrypt, y autenticación mediante NextAuth v5. Las sesiones se gestionan con JWT para mantener al usuario identificado de forma segura.
+*   **Comunidad:** Los usuarios registrados pueden comentar en los artículos (mínimo 10, máximo 500 caracteres). Cada usuario solo puede dejar un comentario por artículo, fomentando opiniones reflexivas. Los autores pueden eliminar sus propios comentarios.
+*   **Diseño Responsivo:** Interfaz adaptable construida con Tailwind CSS y diseño mobile-first. Animaciones fluidas con Framer Motion que mejoran la experiencia sin sacrificar rendimiento.
+*   **Contenido Multimedia:** Imágenes optimizadas automáticamente con Next.js Image (lazy loading, formatos modernos WebP). Contenido organizado por temas (Pasado, Presente, Futuro) con rutas dinámicas SEO-friendly.
 
 ---
 
