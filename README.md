@@ -213,7 +213,62 @@ El desarrollo ha seguido principios **Agile**, priorizando entregas incrementale
 
 ---
 
-## 🔧 Instalación y Ejecución
+## 🚀 Despliegue en Producción
+
+La aplicación está desplegada y accesible públicamente en:
+
+### 🌐 [https://sendanipona.vercel.app/](https://sendanipona.vercel.app/)
+
+### Infraestructura de Producción
+
+**Plataforma de Hosting: Vercel**
+* **¿Por qué Vercel?** Integración nativa con Next.js, despliegue automático desde GitHub, edge functions globales y SSL automático.
+* **Características:**
+  * Despliegue continuo (CD) desde la rama `main`, cada push a la rama `main` despliega automáticamente la aplicación.
+  * Optimización automática de imágenes y assets, lo que mejora la velocidad de carga de la aplicación.
+
+**Base de Datos: Turso (LibSQL)**
+* **¿Por qué Turso?** Base de datos distribuida en el edge, compatible con SQLite, baja latencia global y escalabilidad automática.
+* **Características:**
+  * Compatible con Prisma ORM, lo que facilita la migración desde el entorno de desarrollo local.
+  * Ofrece una capa de seguridad con autenticación mediante tokens, lo que garantiza que solo la aplicación pueda acceder a la base de datos.
+  * Migración sencilla desde SQLite local a Turso en producción, lo que permite un desarrollo fluido sin preocuparse por la configuración de la base de datos.
+
+### Proceso de Despliegue Realizado
+
+1. **Creación de la base de datos en Turso:**
+   * Registro en [Turso](https://turso.tech/) y creación de una nueva base de datos
+   * Obtención de la `DATABASE_URL` y `DATABASE_AUTH_TOKEN`
+   * Configuración de la región más cercana para optimizar latencia (Irlanda)
+
+2. **Conexión del repositorio con Vercel:**
+   * Importación del proyecto desde GitHub en el dashboard de Vercel
+   * Vercel detectó automáticamente la configuración de Next.js
+   * Configuración del dominio: `sendanipona.vercel.app`
+
+3. **Configuración de variables de entorno:**
+   * Añadidas las variables de entorno en el dashboard de Vercel:
+     * `DATABASE_URL` (conexión a Turso)
+     * `DATABASE_AUTH_TOKEN` (autenticación Turso)
+     * `NEXTAUTH_SECRET` (generado para producción)
+     * `NEXTAUTH_URL` (URL del dominio de producción)
+
+4. **Ejecución de migraciones en producción:**
+   * Migraciones de Prisma ejecutadas en la base de datos de Turso
+   * Población de datos iniciales (artículos informativos y usuarios y comentarios de ejemplo)
+
+5. **Despliegue continuo configurado:**
+   * Cada push a la rama `main` despliega automáticamente la aplicación con los cambios más recientes
+
+### Monitoreo y Logs
+
+* **Vercel Analytics:** Métricas de rendimiento y Core Web Vitals (para monitorizar la experiencia de usuario en producción)
+* **Vercel Logs:** Logs en tiempo real de funciones serverless (muy buenos localizar errores en producción en el caso de que los haya)
+* **Turso Dashboard:** Monitoreo de queries y uso de base de datos (carga, latencia, errores)
+
+---
+
+## 🛠️ Instalación y Ejecución
 
 Para ver los detalles técnicos sobre cómo clonar, instalar dependencias y ejecutar el proyecto en tu máquina local, por favor consulta el archivo dedicado:
 
