@@ -10,7 +10,7 @@
 ## 🌸 Introducción y Motivación
 
 **¿Por qué este proyecto?**
-> Desde muy pequeño me ha atraído muchísimo la cultura japonesa, en todos sus aspectos, todo lo referente a ella me parece fascinante Empezando por su historia llena de conflictos y samurais, pasando por su cultura tradicional como el shodo, el ikebana, la ceremonia del té, etc. Hasta llegar a su cultura moderna como el anime, el manga, los videojuegos, la tecnología, etc. Por eso mi objetivo es poder divulgar información acerca de este fascinante país a todo el mundo posible, desde los más entusiastas hasta los que están empezando a descubrirlo.
+> Desde muy pequeño me ha atraído muchísimo la cultura japonesa, en todos sus aspectos, todo lo referente a ella me parece fascinante. Empezando por su historia llena de conflictos y samurais, pasando por su cultura tradicional como el shodo, el ikebana, la ceremonia del té, etc. Hasta llegar a su cultura moderna como el anime, el manga, los videojuegos, la tecnología, etc. Por eso mi objetivo es poder divulgar información acerca de este fascinante país a todo el mundo posible, desde los más entusiastas hasta los que están empezando a descubrirlo.
 
 **El formato elegido**
 > He optado por el formato web porque es el más popular para llegar a todo el mundo posible. Mi idea es desarrollar una página web muy accesible y dinámica, con un diseño moderno y agradable que invite al usuario a seguir navegando por la página.
@@ -67,28 +67,28 @@ He seleccionado las siguientes herramientas buscando robustez, escalabilidad y u
 
 Este proyecto no es solo una web "que funciona", sino que está construido para **durar y escalar**. Por esto mismo he implementado **Clean Architecture** para desacoplar la lógica de negocio de los detalles técnicos:
 
-*   **Capa de Dominio (`src/core/domain`):** Entidades y reglas de negocio puras.
-*   **Capa de Aplicación (`src/core/application`):** Casos de uso (ej: `PublicarComentario`).
-*   **Capa de Infraestructura (`src/infrastructure`):** Implementaciones concretas (Base de datos, servicios externos).
-*   **Capa de Presentación (`src/components`, `src/app`):** Interfaz de usuario React.
+*   **Capa de Dominio (`src/core/domain`):** Entidades puras (User, Article, Comment, ArticleTopic) con sus reglas de validación. Interfaces de repositorios y servicios. Errores de dominio personalizados (ej: `UserAlreadyExistsError`, `CommentAlreadyExistsError`).
+
+*   **Capa de Aplicación (`src/core/application`):** Casos de uso que orquestan la lógica de negocio. Ejemplos: `RegisterUseCase`, `CreateCommentUseCase`, `GetArticleBySlug`. Cada caso de uso es independiente y testeable.
+
+*   **Capa de Infraestructura (`src/infrastructure`):** Implementaciones concretas de repositorios con Prisma, servicios externos (bcrypt para passwords), configuración de NextAuth v5, y contenedor de inyección de dependencias.
+
+*   **Capa de Presentación (`src/components`, `src/app`):** Componentes React, páginas Next.js, Server Actions. Esta capa consume los casos de uso a través del contenedor DI.
+
+**Ventajas de esta arquitectura:**
+
+✅ **Testeable:** 241 tests automatizados (~70% cobertura) gracias a la separación de capas.
+✅ **Mantenible:** Cambios en la UI no afectan la lógica de negocio.
+✅ **Independiente de frameworks:** La lógica core no depende de Next.js ni Prisma.
 
 ### Metodología Agile
 
-El desarrollo ha seguido una filosofía **Agile**:
-> [ESCRIBE AQUÍ: "Desarrollo iterativo...", "Priorización de funcionalidades clave...", "Entrega continua..."]
+El desarrollo ha seguido principios **Agile**, priorizando entregas incrementales:
 
----
-
-## 🎨 Diseño y Estética
-
-El diseño visual busca evocar la esencia de Japón:
-
-*   **Paleta de Colores:**
-    *   🔴 **Primary (`#E63946`):** Inspirado en el sol naciente y los templos Torii.
-    *   🟠 **Secondary (`#F4A261`):** Tonos cálidos de la naturaleza y madera.
-    *   🌑 **Background (`#0F172A`):** Fondo oscuro para una experiencia "Premium" y moderna.
-
-*   **Tipografía:** Una combinación de fuentes limpias (Sans-serif) para legibilidad y toques estéticos para títulos.
+- **Iteraciones cortas:** Cada funcionalidad (autenticación, artículos, comentarios) se ha implementado y probado de forma individual, dando cabida a que se hubiesen desarrollado otras funcionalidades sin afectar a las anteriores.
+- **Testing continuo:** Cada nueva característica que se ha ido añadiendo se ha ido testeando de forma progresiva e individual para así poder detectar errores y fallos de forma más sencilla.
+- **Priorización de valor:** Primero las funcionalidades esenciales (lectura de artículos, registro), luego las secundarias (comentarios, animaciones), de esta manera aseguras el desarrollo de una aplicación funcional y te permites ir añadiendo funcionalidades más complejas sin tener que preocuparte por la completitud de la aplicación.
+- **Evolución de la arquitectura:** El pensamiento de desarrollo ágil es gran aliado de la Clean Architecture, ya que permite ir adaptando la estructura del proyecto a medida que se van añadiendo nuevas funcionalidades sin tener que preocuparte por la escalabilidad o mantenibilidad del proyecto.
 
 ---
 
@@ -101,5 +101,5 @@ Para ver los detalles técnicos sobre cómo clonar, instalar dependencias y ejec
 ---
 
 <p align="center">
-  <sub>Desarrollado con ❤️ y mucho 🍣 para el TFM de Desarrollo de Software con IA</sub>
+  <sub>Desarrollado con ❤️ para el TFM de Desarrollo de Software con IA</sub>
 </p>
