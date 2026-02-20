@@ -46,13 +46,18 @@ He seleccionado las siguientes herramientas buscando robustez, escalabilidad y u
 
 | Tecnología | Propósito | ¿Por qué esta elección? |
 | :--- | :--- | :--- |
-| **Next.js 14** | Framework Fullstack | Por su **App Router**, renderizado híbrido (SSR/CSR) y optimización SEO automática. |
+| **Next.js 14** | Framework Fullstack | Por su **App Router**, renderizado híbrido (SSR/CSR) y optimización SEO automática. Además de tener una comunidad muy grande y una documentación muy completa. |
 | **TypeScript** | Lenguaje | Para garantizar un código robusto y mantenible gracias al tipado estático. |
 | **Tailwind CSS** | Estilos | Permite un desarrollo ágil de interfaces modernas y consistentes. |
-| **Prisma ORM** | Base de Datos | Facilita la interacción tipada con la base de datos y migraciones seguras. |
-| **Turso (LibSQL)** | Base de Datos Cloud | Solución innovadora para una base de datos distribuida y rápida en el borde (Edge). |
+| **Prisma ORM** | ORM | Facilita la interacción tipada con la base de datos y migraciones seguras. |
+| **Turso (LibSQL)** | Base de Datos Remota | Migración sencilla desde SQLite local y fácil de conectar con Prisma. |
+| **SQLite** | Base de Datos Local | Para desarrollo local, ligera y sin configuración adicional. |
 | **NextAuth v5** | Autenticación | Gestión segura de sesiones y usuarios sin reinventar la rueda. |
-| **Vitest & Playwright** | Testing | **Vitest** para pruebas unitarias rápidas y **Playwright** para pruebas E2E que simulan usuarios reales. |
+| **Zod** | Validación | Validación de esquemas con inferencia de tipos TypeScript automática. |
+| **bcryptjs** | Seguridad | Hashing seguro de contraseñas con salt aleatorio. |
+| **Framer Motion** | Animaciones | Animaciones fluidas y declarativas para mejorar la UX. |
+| **Vitest** | Testing Unitario | Tests rápidos con sintaxis compatible con Jest y soporte nativo de TypeScript. |
+| **Playwright** | Testing E2E | Pruebas end-to-end que simulan usuarios reales en múltiples navegadores (Chromium, Firefox, WebKit utilizados en este proyecto). |
 
 ---
 
@@ -60,7 +65,7 @@ He seleccionado las siguientes herramientas buscando robustez, escalabilidad y u
 
 ### Clean Architecture
 
-Este proyecto no es solo una web "que funciona", sino que está construido para **durar y escalar**. He implementado **Clean Architecture** para desacoplar la lógica de negocio de los detalles técnicos:
+Este proyecto no es solo una web "que funciona", sino que está construido para **durar y escalar**. Por esto mismo he implementado **Clean Architecture** para desacoplar la lógica de negocio de los detalles técnicos:
 
 *   **Capa de Dominio (`src/core/domain`):** Entidades y reglas de negocio puras.
 *   **Capa de Aplicación (`src/core/application`):** Casos de uso (ej: `PublicarComentario`).
