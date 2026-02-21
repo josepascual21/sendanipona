@@ -16,7 +16,7 @@ export default function LoginPage() {
             <div className="w-full max-w-md space-y-8 bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 shadow-2xl">
                 {/* Encabezado */}
                 <div className="text-center">
-                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white font-ai-love">
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white font-yuji-mai">
                         Iniciar Sesión
                     </h2>
                     <p className="mt-2 text-sm text-slate-400">

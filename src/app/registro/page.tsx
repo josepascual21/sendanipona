@@ -12,7 +12,7 @@ export default function RegisterPage() {
         <div className="flex items-center justify-center min-h-[calc(100vh-80px)] px-4 py-12">
             <div className="w-full max-w-md space-y-8 bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 shadow-2xl">
                 <div className="text-center">
-                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white font-ai-love">
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white font-yuji-mai">
                         Crear Cuenta
                     </h2>
                     <p className="mt-2 text-sm text-slate-400">

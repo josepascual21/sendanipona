@@ -187,7 +187,7 @@ export default function Header({ topics = [], user }: HeaderProps) {
                                         </span>
                                         <button
                                             onClick={() => signOut()}
-                                            className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-orange-600 transition-colors text-sm font-medium whitespace-nowrap"
+                                            className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-full bg-orange-500 text-white font-semibold hover:bg-orange-600 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-sm whitespace-nowrap"
                                         >
                                             Cerrar Sesión
                                         </button>
