@@ -276,6 +276,10 @@ Para ver los detalles técnicos sobre cómo clonar, instalar dependencias y ejec
 
 ---
 
+## 📚 Presentación
+
+La presentación de la aplicación se encuentra accesible desde el enlace "[Presentación Senda Nipona](https://docs.google.com/presentation/d/1Zg1dTQzH92Asz9sAZoXmZLNpLLk7ucgJfppBWLXcYcQ/edit?usp=drive_link)" o desde el archivo local **[Presentación Senda Nipona](./presentacion/presentacion.pdf)**.
+
 <p align="center">
   <sub>Desarrollado con ❤️ para el TFM de Desarrollo de Software con IA</sub>
 </p>
